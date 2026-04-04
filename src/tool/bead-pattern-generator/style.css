@@ -1,0 +1,111 @@
+.bead-pattern-generator {
+  --bead-pattern-bg: #fff;
+  --bead-pattern-bg-muted: #f8fafc;
+  --bead-pattern-text: #0f172a;
+  --bead-pattern-text-muted: #475569;
+  --bead-pattern-border: #e2e8f0;
+  --bead-pattern-primary: #ec4899;
+  --bead-pattern-shadow: rgba(0, 0, 0, 0.05);
+}
+
+.theme-dark .bead-pattern-generator {
+  --bead-pattern-bg: #0f172a;
+  --bead-pattern-bg-muted: #1e293b;
+  --bead-pattern-text: #f8fafc;
+  --bead-pattern-text-muted: #94a3b8;
+  --bead-pattern-border: #334155;
+  --bead-pattern-primary: #f472b6;
+  --bead-pattern-shadow: rgba(0, 0, 0, 0.3);
+}
+
+.bead-pattern-card {
+  background-color: var(--bead-pattern-bg);
+  border-radius: 2rem;
+  border: 1px solid var(--bead-pattern-border);
+  box-shadow: 0 10px 15px -3px var(--bead-pattern-shadow);
+  padding: 2rem;
+}
+
+.bead-pattern-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .bead-pattern-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.bead-pattern-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bead-pattern-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--bead-pattern-text-muted);
+  text-transform: uppercase;
+}
+
+.bead-pattern-input {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--bead-pattern-border);
+  background-color: var(--bead-pattern-bg-muted);
+  color: var(--bead-pattern-text);
+}
+
+.bead-pattern-preview-container {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--bead-pattern-bg-muted);
+  border-radius: 1rem;
+  border: 4px dashed var(--bead-pattern-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.bead-pattern-canvas {
+  max-width: 100%;
+  image-rendering: pixelated;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.bead-pattern-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.bead-pattern-btn {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s;
+  border: none;
+}
+
+.bead-pattern-btn-primary {
+  background-color: var(--bead-pattern-primary);
+  color: #fff;
+}
+
+.bead-pattern-btn-secondary {
+  background-color: var(--bead-pattern-bg-muted);
+  color: var(--bead-pattern-text);
+  border: 1px solid var(--bead-pattern-border);
+}

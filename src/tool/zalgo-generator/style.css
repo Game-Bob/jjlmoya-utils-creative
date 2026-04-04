@@ -1,0 +1,119 @@
+.zalgo-generator {
+  --zalgo-generator-bg: #fff;
+  --zalgo-generator-bg-muted: #f8fafc;
+  --zalgo-generator-text: #0f172a;
+  --zalgo-generator-text-muted: #475569;
+  --zalgo-generator-border: #e2e8f0;
+  --zalgo-generator-primary: #9333ea;
+  --zalgo-generator-shadow: rgba(0, 0, 0, 0.05);
+}
+
+.theme-dark .zalgo-generator {
+  --zalgo-generator-bg: #0f172a;
+  --zalgo-generator-bg-muted: #1e293b;
+  --zalgo-generator-text: #f8fafc;
+  --zalgo-generator-text-muted: #94a3b8;
+  --zalgo-generator-border: #334155;
+  --zalgo-generator-primary: #a855f7;
+  --zalgo-generator-shadow: rgba(0, 0, 0, 0.3);
+}
+
+.zalgo-generator-card {
+  background-color: var(--zalgo-generator-bg);
+  border-radius: 2rem;
+  padding: 2rem;
+  border: 1px solid var(--zalgo-generator-border);
+  box-shadow: 0 10px 15px -3px var(--zalgo-generator-shadow);
+}
+
+@media (min-width: 768px) {
+  .zalgo-generator-card {
+    padding: 3rem;
+  }
+}
+
+.zalgo-generator-description {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--zalgo-generator-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.zalgo-generator-group {
+  margin-bottom: 2rem;
+}
+
+.zalgo-generator-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--zalgo-generator-text-muted);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.zalgo-generator-input {
+  width: 100%;
+  background-color: var(--zalgo-generator-bg-muted);
+  border: 2px solid var(--zalgo-generator-border);
+  border-radius: 1rem;
+  padding: 1rem;
+  color: var(--zalgo-generator-text);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.zalgo-generator-input:focus {
+  border-color: var(--zalgo-generator-primary);
+}
+
+.zalgo-generator-intensity {
+  width: 100%;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.zalgo-generator-output-container {
+  position: relative;
+}
+
+.zalgo-generator-output {
+  width: 100%;
+  background-color: #000;
+  color: #0f0;
+  border-radius: 1rem;
+  padding: 2rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1.25rem;
+  overflow: auto;
+  min-height: 150px;
+  max-height: 400px;
+  border: 4px double #0f0;
+}
+
+.zalgo-generator-copy-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--zalgo-generator-primary);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.zalgo-generator-copy-btn:hover {
+  opacity: 0.9;
+}

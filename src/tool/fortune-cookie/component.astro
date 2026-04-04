@@ -1,0 +1,297 @@
+---
+import { Icon } from 'astro-icon/components';
+import './style.css';
+import type { FortuneCookieUI } from './index';
+
+interface Props {
+  ui: FortuneCookieUI;
+}
+
+const { ui } = Astro.props;
+
+const ASSETS = {
+  whole: '/images/utilities/fortune/fc-whole.webp',
+  cracked1: '/images/utilities/fortune/fc-crack-1.webp',
+  cracked2: '/images/utilities/fortune/fc-crack-2.webp',
+  left: '/images/utilities/fortune/fc-left.webp',
+  right: '/images/utilities/fortune/fc-right.webp',
+  paper: '/images/utilities/fortune/fc-paper.webp',
+  crumbs: '/images/utilities/fortune/fc-crumbs.webp',
+};
+---
+
+<div id="fortune-cookie-root" class="fortune-cookie" data-ui={JSON.stringify(ui)}>
+  <div class="fortune-cookie-root">
+    <div class="fortune-cookie-card">
+      <div class="fortune-cookie-glow"></div>
+
+      <div class="fortune-cookie-content">
+        <h2 id="fortune-instruction" class="fortune-cookie-instruction">
+          {ui.instruction}
+        </h2>
+
+        <div id="fortune-cookie-stage" class="fortune-cookie-stage">
+          <div id="fortune-cookie-body" class="fortune-cookie-body">
+            <img
+              src={ASSETS.whole}
+              alt="Fortune Cookie"
+              class="fortune-cookie-img"
+              id="fortune-cookie-img"
+              loading="eager"
+            />
+          </div>
+
+          <div id="fortune-cookie-broken" class="fortune-cookie-broken hidden">
+            <img
+              src={ASSETS.left}
+              class="fortune-cookie-half fortune-cookie-half-left"
+              id="fortune-half-left"
+              loading="eager"
+            />
+            <img
+              src={ASSETS.right}
+              class="fortune-cookie-half fortune-cookie-half-right"
+              id="fortune-half-right"
+              loading="eager"
+            />
+          </div>
+
+          <div id="fortune-paper" class="fortune-cookie-paper">
+            <img src={ASSETS.paper} class="fortune-cookie-paper-img" />
+
+            <div class="fortune-cookie-paper-content">
+              <p id="fortune-text" class="fortune-cookie-text">
+                "..."
+              </p>
+              <div id="fortune-lucky-numbers" class="fortune-cookie-lucky-numbers"></div>
+            </div>
+          </div>
+
+          <div id="fortune-particles" class="fortune-cookie-particles"></div>
+        </div>
+
+        <div id="fortune-reset-ui" class="fortune-cookie-reset">
+          <p class="fortune-cookie-status">{ui.dailyStatus}</p>
+          <button id="fortune-share-btn" class="fortune-cookie-share-btn">
+            <Icon name="mdi:share-variant" /> {ui.shareBtn}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.getElementById('fortune-cookie-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
+
+  const fortunes = JSON.parse(ui.fortunes) as string[];
+
+  function getLuckyNumbers() {
+    const nums = new Set<number>();
+    while (nums.size < 6) {
+      nums.add(Math.floor(Math.random() * 49) + 1);
+    }
+    return Array.from(nums).sort((a, b) => a - b);
+  }
+
+  class FortuneCookie {
+    private health = 3;
+    private isBroken = false;
+    private el = {
+      stage: document.getElementById('fortune-cookie-stage')!,
+      body: document.getElementById('fortune-cookie-body')!,
+      img: document.getElementById('fortune-cookie-img') as HTMLImageElement,
+      broken: document.getElementById('fortune-cookie-broken')!,
+      halfLeft: document.getElementById('fortune-half-left') as HTMLElement,
+      halfRight: document.getElementById('fortune-half-right') as HTMLElement,
+      paper: document.getElementById('fortune-paper')!,
+      text: document.getElementById('fortune-text')!,
+      numbers: document.getElementById('fortune-lucky-numbers')!,
+      instruction: document.getElementById('fortune-instruction')!,
+      particles: document.getElementById('fortune-particles')!,
+      resetUi: document.getElementById('fortune-reset-ui')!,
+      shareBtn: document.getElementById('fortune-share-btn') as HTMLButtonElement,
+    };
+
+    private assets = {
+      cracked1: '/images/utilities/fortune/fc-crack-1.webp',
+      cracked2: '/images/utilities/fortune/fc-crack-2.webp',
+    };
+
+    constructor() {
+      this.checkDaily();
+      this.el.stage.addEventListener('click', () => this.tap());
+      this.el.shareBtn?.addEventListener('click', () => this.shareFortune());
+    }
+
+    private async shareFortune() {
+      const text = this.el.text.innerText;
+      const nums = this.el.numbers.innerText.replace(/\n/g, ' ');
+
+      const shareTextCompiled = ui.shareText
+        .replace('$TEXT', text)
+        .replace('$NUMS', nums);
+
+      const shareData = {
+        title: ui.shareTitle,
+        text: shareTextCompiled,
+        url: window.location.href,
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else {
+          await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+          const originalText = this.el.shareBtn.innerHTML;
+          this.el.shareBtn.innerHTML = `<span>${ui.copied}</span>`;
+          setTimeout(() => {
+            this.el.shareBtn.innerHTML = originalText;
+          }, 2000);
+        }
+      } catch (err) {
+        console.error('Error sharing:', err);
+      }
+    }
+
+    private checkDaily() {
+      const today = new Date().toISOString().split('T')[0];
+      const storedData = localStorage.getItem('jjlmoya-creative-fortune');
+
+      if (storedData) {
+        try {
+          const data = JSON.parse(storedData);
+          if (data.date === today) {
+            this.setupFortuneContent(data.msgIndex, data.nums);
+            this.instantOpen();
+          }
+        } catch (e) {
+          localStorage.removeItem('jjlmoya-creative-fortune');
+        }
+      }
+    }
+
+    private prepareNewFortune(today: string) {
+      const index = Math.floor(Math.random() * fortunes.length);
+      const nums = getLuckyNumbers();
+
+      const fortuneData = {
+        date: today,
+        msgIndex: index,
+        nums: nums,
+      };
+      localStorage.setItem('jjlmoya-creative-fortune', JSON.stringify(fortuneData));
+
+      this.setupFortuneContent(index, nums);
+    }
+
+    private setupFortuneContent(index: number, nums: number[]) {
+      this.el.text.innerText = fortunes[index] || '';
+      this.el.numbers.innerHTML = nums
+        .map(
+          (n) =>
+            `<span class="fortune-cookie-number">${n}</span>`
+        )
+        .join('');
+    }
+
+    private tap() {
+      if (this.isBroken) return;
+
+      this.health--;
+      this.spawnCrumbs(5);
+
+      this.el.body.classList.remove('fortune-cookie-shake-1', 'fortune-cookie-shake-2', 'fortune-cookie-shake-3');
+      void this.el.body.offsetWidth;
+      this.el.body.classList.add(`fortune-cookie-shake-${4 - this.health}`);
+
+      if (this.health === 2) {
+        this.el.img.src = this.assets.cracked1;
+      } else if (this.health === 1) {
+        this.el.img.src = this.assets.cracked2;
+      } else if (this.health <= 0) {
+        this.breakOpen();
+      }
+    }
+
+    private breakOpen() {
+      this.isBroken = true;
+
+      const today = new Date().toISOString().split('T')[0];
+      this.prepareNewFortune(today);
+
+      this.el.instruction.innerText = ui.title;
+
+      this.el.broken.classList.remove('hidden');
+      this.el.body.classList.add('hidden');
+
+      void this.el.broken.offsetWidth;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          this.el.halfLeft.style.transform = 'translate(-120px, 60px) rotate(-45deg)';
+          this.el.halfLeft.style.opacity = '0';
+          this.el.halfRight.style.transform = 'translate(120px, 60px) rotate(45deg)';
+          this.el.halfRight.style.opacity = '0';
+        });
+      });
+
+      setTimeout(() => {
+        this.el.paper.classList.add('visible');
+      }, 100);
+
+      this.spawnCrumbs(20);
+
+      setTimeout(() => {
+        this.el.resetUi.classList.add('visible');
+      }, 1000);
+    }
+
+    private instantOpen() {
+      this.isBroken = true;
+      this.el.instruction.innerText = ui.title;
+      this.el.body.classList.add('hidden');
+      this.el.paper.classList.add('visible');
+      this.el.resetUi.classList.add('visible');
+    }
+
+    private spawnCrumbs(amount: number) {
+      for (let i = 0; i < amount; i++) {
+        const crumb = document.createElement('div');
+        crumb.classList.add('fortune-cookie-crumb');
+
+        const size = Math.random() * 4 + 2;
+        crumb.style.width = `${size}px`;
+        crumb.style.height = `${size}px`;
+        crumb.style.left = '50%';
+        crumb.style.top = '50%';
+
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 50 + 20;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+
+        this.el.particles.appendChild(crumb);
+
+        const anim = crumb.animate(
+          [
+            { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+            {
+              transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty + 50}px)) scale(0)`,
+              opacity: 0,
+            },
+          ],
+          {
+            duration: 600 + Math.random() * 400,
+            easing: 'cubic-bezier(0,0,0.2,1)',
+          }
+        );
+
+        anim.onfinish = () => crumb.remove();
+      }
+    }
+  }
+
+  const cookie = new FortuneCookie();
+</script>

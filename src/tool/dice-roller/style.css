@@ -1,0 +1,107 @@
+.dice-roller {
+  --dice-roller-bg: #fff;
+  --dice-roller-bg-muted: #f8fafc;
+  --dice-roller-text: #0f172a;
+  --dice-roller-text-muted: #475569;
+  --dice-roller-border: #e2e8f0;
+  --dice-roller-primary: #10b981;
+  --dice-roller-shadow: rgba(0, 0, 0, 0.05);
+}
+
+.theme-dark .dice-roller {
+  --dice-roller-bg: #0f172a;
+  --dice-roller-bg-muted: #1e293b;
+  --dice-roller-text: #f8fafc;
+  --dice-roller-text-muted: #94a3b8;
+  --dice-roller-border: #334155;
+  --dice-roller-primary: #34d399;
+  --dice-roller-shadow: rgba(0, 0, 0, 0.3);
+}
+
+.dice-roller-card {
+  background-color: var(--dice-roller-bg);
+  border-radius: 2rem;
+  border: 1px solid var(--dice-roller-border);
+  box-shadow: 0 10px 15px -3px var(--dice-roller-shadow);
+  padding: 2rem;
+}
+
+.dice-roller-display {
+  background-color: var(--dice-roller-bg-muted);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dice-roller-total-val {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--dice-roller-primary);
+}
+
+.dice-roller-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.dice-roller-btn {
+  padding: 1rem 1.5rem;
+  background-color: var(--dice-roller-bg);
+  border: 1px solid var(--dice-roller-border);
+  border-radius: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--dice-roller-text);
+}
+
+.dice-roller-btn:hover {
+  background-color: var(--dice-roller-primary);
+  color: #fff;
+  border-color: var(--dice-roller-primary);
+}
+
+.dice-roller-roll-btn {
+  width: 100%;
+  padding: 1.25rem;
+  background-color: var(--dice-roller-primary);
+  color: #fff;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+.dice-roller-history {
+  margin-top: 2rem;
+  border-top: 1px solid var(--dice-roller-border);
+  padding-top: 2rem;
+}
+
+.dice-roller-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dice-roller-history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: var(--dice-roller-bg-muted);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}

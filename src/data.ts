@@ -1,11 +1,4 @@
-export { creativeCategory } from './category';
+import { CREATIVE_CATEGORY, CREATIVE_TOOLS } from './category';
 
-export type {
-  KnownLocale,
-  ToolLocaleContent,
-  CategoryLocaleContent,
-  LocaleMap,
-  CreativeToolEntry,
-  CreativeCategoryEntry,
-} from './types';
-
+export * from './types';
+export { CREATIVE_CATEGORY, CREATIVE_TOOLS };

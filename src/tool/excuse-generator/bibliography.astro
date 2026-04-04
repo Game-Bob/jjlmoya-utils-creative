@@ -1,0 +1,57 @@
+---
+import type { ExcuseGeneratorLocaleContent } from './index';
+
+interface Props {
+  content: ExcuseGeneratorLocaleContent;
+}
+
+const { content } = Astro.props;
+if (!content || !content.bibliography || content.bibliography.length === 0) return null;
+
+const { title = 'Bibliografía', bibliography } = content;
+---
+
+<div class="excuse-generator-bibliography">
+  <h2 class="excuse-generator-bibliography-title">{title}</h2>
+  <ul class="excuse-generator-bibliography-list">
+    {bibliography.map((item) => (
+      <li class="excuse-generator-bibliography-item">
+        <a href={item.url} target="_blank" rel="noopener noreferrer" class="excuse-generator-bibliography-link">
+          {item.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .excuse-generator-bibliography {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #f1f5f9;
+    border-radius: 1rem;
+  }
+  .theme-dark .excuse-generator-bibliography {
+    background-color: #1e293b;
+  }
+  .excuse-generator-bibliography-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0f172a;
+  }
+  .theme-dark .excuse-generator-bibliography-title {
+    color: #f8fafc;
+  }
+  .excuse-generator-bibliography-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  .excuse-generator-bibliography-link {
+    color: #ec4899;
+    text-decoration: underline;
+  }
+  .excuse-generator-bibliography-link:hover {
+    color: #f43f5e;
+  }
+</style>

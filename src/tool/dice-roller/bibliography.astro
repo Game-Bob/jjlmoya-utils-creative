@@ -1,0 +1,41 @@
+---
+import type { DiceRollerLocaleContent } from './index';
+
+interface Props {
+  content: DiceRollerLocaleContent;
+}
+
+const { content } = Astro.props;
+if (!content || !content.bibliography || content.bibliography.length === 0) return null;
+
+const { bibliographyTitle = 'Bibliografía', bibliography } = content;
+---
+
+<div class="dice-roller-bibliography">
+  <h2 class="dice-roller-bibliography-title">{bibliographyTitle}</h2>
+  <ul class="dice-roller-history-list">
+    {bibliography.map((item) => (
+      <li class="dice-roller-history-item">
+        <a href={item.url} target="_blank" rel="noopener noreferrer" style="color: var(--dice-roller-primary)">
+          {item.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .dice-roller-bibliography {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--dice-roller-bg-muted);
+    border-radius: 1rem;
+    border: 1px solid var(--dice-roller-border);
+  }
+  .dice-roller-bibliography-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dice-roller-text);
+  }
+</style>

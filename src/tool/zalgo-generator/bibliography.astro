@@ -1,0 +1,57 @@
+---
+import type { ZalgoGeneratorLocaleContent } from './index';
+
+interface Props {
+  content: ZalgoGeneratorLocaleContent;
+}
+
+const { content } = Astro.props;
+if (!content || !content.bibliography || content.bibliography.length === 0) return null;
+
+const { bibliographyTitle = 'Bibliografía', bibliography } = content;
+---
+
+<div class="zalgo-generator-bibliography">
+  <h2 class="zalgo-generator-bibliography-title">{bibliographyTitle}</h2>
+  <ul class="zalgo-generator-bibliography-list">
+    {bibliography.map((item) => (
+      <li class="zalgo-generator-bibliography-item">
+        <a href={item.url} target="_blank" rel="noopener noreferrer" class="zalgo-generator-bibliography-link">
+          {item.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .zalgo-generator-bibliography {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #f1f5f9;
+    border-radius: 1rem;
+  }
+  .theme-dark .zalgo-generator-bibliography {
+    background-color: #1e293b;
+  }
+  .zalgo-generator-bibliography-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0f172a;
+  }
+  .theme-dark .zalgo-generator-bibliography-title {
+    color: #f8fafc;
+  }
+  .zalgo-generator-bibliography-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  .zalgo-generator-bibliography-link {
+    color: #9333ea;
+    text-decoration: underline;
+  }
+  .zalgo-generator-bibliography-link:hover {
+    color: #a855f7;
+  }
+</style>

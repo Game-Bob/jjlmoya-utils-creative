@@ -1,0 +1,124 @@
+---
+import { Icon } from 'astro-icon/components';
+import './style.css';
+import type { SynesthesiaPainterUI } from './index';
+
+interface Props {
+  ui: SynesthesiaPainterUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div id="synesthesia-painter-root" class="synesthesia-painter" data-ui={JSON.stringify(ui)}>
+  <div class="synesthesia-painter-shell">
+    <div class="synesthesia-painter-card">
+      <div class="synesthesia-painter-header">
+        <button class="synesthesia-painter-mode-btn active" data-mode="letters">
+          {ui.modeLetters}
+        </button>
+        <button class="synesthesia-painter-mode-btn" data-mode="dots">
+          {ui.modeDots}
+        </button>
+        <button class="synesthesia-painter-mode-btn" data-mode="aura">
+          {ui.modeAura}
+        </button>
+      </div>
+
+      <div id="synesthesia-painter-canvas" class="synesthesia-painter-canvas-wrapper">
+        <div id="synesthesia-painter-viz" class="synesthesia-painter-viz-layer"></div>
+        <textarea id="synesthesia-painter-input" class="synesthesia-painter-input" autofocus></textarea>
+        <div id="synesthesia-painter-placeholder" class="synesthesia-painter-placeholder">
+          <span class="synesthesia-painter-placeholder-text">{ui.placeholder}</span>
+        </div>
+      </div>
+
+      <div class="synesthesia-painter-footer">
+        <p class="synesthesia-painter-tooltip">{ui.footerText}</p>
+        <button id="synesthesia-painter-clear" class="synesthesia-painter-clear-btn">
+          <span>{ui.clearBtn}</span>
+          <Icon name="mdi:delete-outline" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.getElementById('synesthesia-painter-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
+
+  const colorMap: Record<string, string> = {
+    a: "#ef4444", b: "#3b82f6", c: "#eab308", d: "#78350f", e: "#22c55e",
+    f: "#64748b", g: "#8b5cf6", h: "#f97316", i: "#ffffff", j: "#d946ef",
+    k: "#ec4899", l: "#fef08a", m: "#b91c1c", n: "#fb923c", o: "#000000",
+    p: "#9333ea", q: "#a8a29e", r: "#dc2626", s: "#14b8a6", t: "#1d4ed8",
+    u: "#f59e0b", v: "#7c3aed", w: "#1e293b", x: "#111827", y: "#facc15",
+    z: "#ffffff", "0": "#ffffff", "1": "#ffffff", "2": "#ef4444", "3": "#22c55e",
+    "4": "#3b82f6", "5": "#eab308", "6": "#8b5cf6", "7": "#f97316",
+    "8": "#9333ea", "9": "#ec4899"
+  };
+
+  const isDark = document.documentElement.classList.contains('dark');
+  const viz = document.getElementById('synesthesia-painter-viz') as HTMLElement;
+  const input = document.getElementById('synesthesia-painter-input') as HTMLTextAreaElement;
+  const placeholder = document.getElementById('synesthesia-painter-placeholder') as HTMLElement;
+  const clearBtn = document.getElementById('synesthesia-painter-clear') as HTMLButtonElement;
+  const modeBtns = document.querySelectorAll('.synesthesia-painter-mode-btn');
+
+  let currentMode = 'letters';
+
+  function render() {
+    const text = input.value;
+    placeholder.style.display = text.length > 0 ? 'none' : 'block';
+    viz.innerHTML = '';
+
+    for (const char of text) {
+      if (char === '\n') {
+        viz.appendChild(document.createElement('br'));
+        continue;
+      }
+
+      const span = document.createElement('span');
+      const lower = char.toLowerCase();
+      let color = colorMap[lower];
+
+      if (!color) {
+        color = isDark ? "#94a3b8" : "#475569";
+      }
+
+      if (color === '#ffffff' && !isDark) color = '#0f172a';
+      if (color === '#000000' && isDark) color = '#f8fafc';
+
+      span.textContent = char;
+      span.classList.add('synesthesia-painter-char');
+      span.style.color = color;
+      span.style.setProperty('--char-color', color);
+      viz.appendChild(span);
+    }
+
+    const cursor = document.createElement('span');
+    cursor.className = 'synesthesia-painter-cursor';
+    viz.appendChild(cursor);
+  }
+
+  input.addEventListener('input', render);
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    render();
+    input.focus();
+  });
+
+  modeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      modeBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = (btn as HTMLElement).dataset.mode!;
+      viz.className = `synesthesia-painter-viz-layer ${mode}`;
+      render();
+    });
+  });
+
+  document.getElementById('synesthesia-painter-canvas')?.addEventListener('click', () => input.focus());
+  render();
+</script>

@@ -1,0 +1,97 @@
+---
+import { Icon } from 'astro-icon/components';
+import './style.css';
+import type { BeadPatternGeneratorUI } from './index';
+
+interface Props {
+  ui: BeadPatternGeneratorUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div id="bead-pattern-root" class="bead-pattern-generator" data-ui={JSON.stringify(ui)}>
+  <div class="bead-pattern-shell">
+    <div class="bead-pattern-card">
+      <div class="bead-pattern-controls">
+        <div class="bead-pattern-group">
+          <label class="bead-pattern-label">{ui.uploadLabel}</label>
+          <input type="file" id="bead-image-input" class="bead-pattern-input" accept="image/*" />
+        </div>
+        <div class="bead-pattern-group">
+          <label class="bead-pattern-label">{ui.gridSizeLabel}</label>
+          <input type="number" id="bead-grid-size" class="bead-pattern-input" value="50" min="10" max="150" />
+        </div>
+      </div>
+
+      <div class="bead-pattern-preview-container">
+        <canvas id="bead-canvas" class="bead-pattern-canvas"></canvas>
+      </div>
+
+      <div class="bead-pattern-actions">
+        <button id="bead-generate-btn" class="bead-pattern-btn bead-pattern-btn-primary">
+          <Icon name="mdi:auto-fix" />
+          {ui.pixelateBtn}
+        </button>
+        <button id="bead-download-btn" class="bead-pattern-btn bead-pattern-btn-secondary" disabled>
+          <Icon name="mdi:download" />
+          {ui.downloadBtn}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.getElementById('bead-pattern-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui as string);
+
+  const imageInput = document.getElementById('bead-image-input') as HTMLInputElement;
+  const gridSizeInput = document.getElementById('bead-grid-size') as HTMLInputElement;
+  const generateBtn = document.getElementById('bead-generate-btn') as HTMLButtonElement;
+  const downloadBtn = document.getElementById('bead-download-btn') as HTMLButtonElement;
+  const canvas = document.getElementById('bead-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+
+  let originalImage: HTMLImageElement | null = null;
+
+  imageInput.addEventListener('change', (e) => {
+    const file = (e.target as HTMLInputElement).files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        originalImage = img;
+        renderPattern();
+      };
+      img.src = event.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function renderPattern() {
+    if (!originalImage) return;
+
+    const size = parseInt(gridSizeInput.value) || 50;
+    const ratio = originalImage.height / originalImage.width;
+    
+    canvas.width = size;
+    canvas.height = Math.round(size * ratio);
+
+    ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
+    
+    // Draw grid effect (optional but nice)
+    downloadBtn.disabled = false;
+  }
+
+  generateBtn.addEventListener('click', renderPattern);
+
+  downloadBtn.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = 'bead-pattern.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+</script>

@@ -1,0 +1,57 @@
+---
+import type { SynesthesiaPainterLocaleContent } from './index';
+
+interface Props {
+  content: SynesthesiaPainterLocaleContent;
+}
+
+const { content } = Astro.props;
+if (!content || !content.bibliography || content.bibliography.length === 0) return null;
+
+const { bibliographyTitle = 'Bibliografía', bibliography } = content;
+---
+
+<div class="synesthesia-painter-bibliography">
+  <h2 class="synesthesia-painter-bibliography-title">{bibliographyTitle}</h2>
+  <ul class="synesthesia-painter-bibliography-list">
+    {bibliography.map((item) => (
+      <li class="synesthesia-painter-bibliography-item">
+        <a href={item.url} target="_blank" rel="noopener noreferrer" class="synesthesia-painter-bibliography-link">
+          {item.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .synesthesia-painter-bibliography {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #f1f5f9;
+    border-radius: 1rem;
+  }
+  .theme-dark .synesthesia-painter-bibliography {
+    background-color: #1e293b;
+  }
+  .synesthesia-painter-bibliography-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0f172a;
+  }
+  .theme-dark .synesthesia-painter-bibliography-title {
+    color: #f8fafc;
+  }
+  .synesthesia-painter-bibliography-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  .synesthesia-painter-bibliography-link {
+    color: #6366f1;
+    text-decoration: underline;
+  }
+  .synesthesia-painter-bibliography-link:hover {
+    color: #8b5cf6;
+  }
+</style>

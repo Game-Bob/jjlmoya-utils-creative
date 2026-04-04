@@ -1,24 +1,8 @@
-import type { CategoryLocaleContent } from '../../types';
-
-export const content: CategoryLocaleContent = {
-  slug: 'categoria-template',
-  title: 'Categoría Template',
-  description: 'Descripción de la categoría.',
+export const content = {
+  title: 'Creatividad y Ocio',
+  description: 'Herramientas diseñadas para inspirar, divertir y crear.',
   seo: [
-    {
-      type: 'summary',
-      title: 'Resumen',
-      items: ['Punto 1', 'Punto 2', 'Punto 3'],
-    },
-    {
-      type: 'title',
-      text: 'Título de sección',
-      level: 2,
-    },
-    {
-      type: 'paragraph',
-      html: 'Contenido SEO de la categoría.',
-    },
-  ],
+    { type: 'title', text: 'Utilerías Creativas para el Día a Día', level: 2 },
+    { type: 'paragraph', html: 'Desde generadores de excusas hasta patrones para manualidades, nuestra colección de herramientas creativas está pensada para el entretenimiento y la utilidad práctica.' }
+  ]
 };
-

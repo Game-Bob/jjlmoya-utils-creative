@@ -1,0 +1,73 @@
+---
+import { Icon } from 'astro-icon/components';
+import './style.css';
+import type { DiceRollerUI } from './index';
+
+interface Props {
+  ui: DiceRollerUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div id="dice-roller-root" class="dice-roller" data-ui={JSON.stringify(ui)}>
+  <div class="dice-roller-shell">
+    <div class="dice-roller-card">
+      <div class="dice-roller-display">
+        <span class="dice-roller-total-label">{ui.totalLabel}</span>
+        <span id="dice-total" class="dice-roller-total-val">0</span>
+      </div>
+
+      <div class="dice-roller-grid">
+        <button class="dice-roller-btn" data-sides="4">d4</button>
+        <button class="dice-roller-btn" data-sides="6">d6</button>
+        <button class="dice-roller-btn" data-sides="8">d8</button>
+        <button class="dice-roller-btn" data-sides="10">d10</button>
+        <button class="dice-roller-btn" data-sides="12">d12</button>
+        <button class="dice-roller-btn" data-sides="20">d20</button>
+        <button class="dice-roller-btn" data-sides="100">d100</button>
+      </div>
+
+      <button id="dice-clear-history" class="dice-roller-btn" style="width: 100%; margin-bottom: 1rem;">
+        {ui.clearHistoryBtn}
+      </button>
+
+      <div class="dice-roller-history">
+        <h3 class="dice-roller-label">{ui.historyLabel}</h3>
+        <div id="dice-history-list" class="dice-roller-history-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.getElementById('dice-roller-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui as string);
+
+  const totalEl = document.getElementById('dice-total') as HTMLElement;
+  const historyList = document.getElementById('dice-history-list') as HTMLElement;
+  const clearBtn = document.getElementById('dice-clear-history') as HTMLButtonElement;
+  const diceBtns = document.querySelectorAll('.dice-roller-btn[data-sides]');
+
+  function rollDie(sides: number) {
+    const result = Math.floor(Math.random() * sides) + 1;
+    totalEl.textContent = result.toString();
+    
+    const item = document.createElement('div');
+    item.className = 'dice-roller-history-item';
+    item.innerHTML = `<span>d${sides}</span> <strong>${result}</strong>`;
+    historyList.prepend(item);
+  }
+
+  diceBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sides = parseInt((btn as HTMLElement).dataset.sides!);
+      rollDie(sides);
+    });
+  });
+
+  clearBtn.addEventListener('click', () => {
+    historyList.innerHTML = '';
+    totalEl.textContent = '0';
+  });
+</script>

@@ -1,0 +1,59 @@
+---
+import { SEOTitle, SEOTip, SEOArticle, SEOList } from '@jjlmoya/utils-shared';
+import type { ZalgoGeneratorLocaleContent } from './index';
+
+interface Props {
+  content: ZalgoGeneratorLocaleContent;
+}
+
+const { content } = Astro.props;
+if (!content) return null;
+
+const { seo, faqTitle, faq } = content;
+---
+
+<SEOArticle>
+  {seo.map((section: any) => {
+    switch (section.type) {
+      case 'title':
+        return <SEOTitle title={section.text} level={section.level || 2} />;
+      case 'paragraph':
+        return <p set:html={section.html} />;
+      case 'list':
+        return <SEOList items={section.items} />;
+      case 'tip':
+        return <SEOTip title={section.title}><Fragment set:html={section.html} /></SEOTip>;
+      default:
+        return null;
+    }
+  })}
+
+  {faq && faq.length > 0 && (
+    <div class="zalgo-generator-faq">
+      <SEOTitle title={faqTitle || 'FAQ'} level={2} />
+      {faq.map((item) => (
+        <div class="zalgo-generator-faq-item">
+          <SEOTitle title={item.question} level={4} />
+          <p>{item.answer}</p>
+        </div>
+      ))}
+    </div>
+  )}
+</SEOArticle>
+
+<style>
+  .zalgo-generator-faq {
+    margin-top: 4rem;
+  }
+  .zalgo-generator-faq-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+  }
+  .theme-dark .zalgo-generator-faq-item {
+    background-color: #1e293b;
+    border-color: #334155;
+  }
+</style>

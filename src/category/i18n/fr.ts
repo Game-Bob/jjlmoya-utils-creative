@@ -1,24 +1,8 @@
-import type { CategoryLocaleContent } from '../../types';
-
-export const content: CategoryLocaleContent = {
-  slug: 'categorie-template',
-  title: 'Catégorie Template',
-  description: 'Description de la catégorie.',
+export const content = {
+  title: 'Créativité et Loisirs',
+  description: 'Outils conçus pour inspirer, amuser et créer.',
   seo: [
-    {
-      type: 'summary',
-      title: 'Résumé',
-      items: ['Point 1', 'Point 2', 'Point 3'],
-    },
-    {
-      type: 'title',
-      text: 'Titre de section',
-      level: 2,
-    },
-    {
-      type: 'paragraph',
-      html: 'Contenu SEO de la catégorie.',
-    },
-  ],
+    { type: 'title', text: 'Utilitaires Créatifs Quotidiens', level: 2 },
+    { type: 'paragraph', html: "Des générateurs d'excuses aux modèles d'artisanat, notre collection d'outils créatifs est conçue pour le divertissement et l'utilité pratique." }
+  ]
 };
-

@@ -1,0 +1,140 @@
+---
+import { Icon } from 'astro-icon/components';
+import './style.css';
+import type { ExcuseGeneratorUI } from './index';
+
+interface Props {
+  ui: ExcuseGeneratorUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div id="excuse-generator-root" class="excuse-generator" data-ui={JSON.stringify(ui)}>
+  <div class="excuse-generator-root">
+    <div class="excuse-generator-card">
+      <div class="excuse-generator-blob excuse-generator-blob-1"></div>
+      <div class="excuse-generator-blob excuse-generator-blob-2"></div>
+
+      <div class="excuse-generator-slots">
+        <div id="excuse-part-1" class="excuse-generator-slot">
+          <span class="excuse-generator-slot-label">{ui.subjectLabel}</span>
+          <p class="excuse-generator-slot-text">?</p>
+        </div>
+
+        <div class="excuse-generator-separator">
+          <Icon name="mdi:plus" />
+        </div>
+        <div class="excuse-generator-separator-mobile">
+          <Icon name="mdi:arrow-down" />
+        </div>
+
+        <div id="excuse-part-2" class="excuse-generator-slot">
+          <span class="excuse-generator-slot-label">{ui.actionLabel}</span>
+          <p class="excuse-generator-slot-text">?</p>
+        </div>
+
+        <div class="excuse-generator-separator">
+          <Icon name="mdi:arrow-right" />
+        </div>
+        <div class="excuse-generator-separator-mobile">
+          <Icon name="mdi:arrow-down" />
+        </div>
+
+        <div id="excuse-part-3" class="excuse-generator-slot">
+          <span class="excuse-generator-slot-label">{ui.victimLabel}</span>
+          <p class="excuse-generator-slot-text">?</p>
+        </div>
+      </div>
+
+      <div class="excuse-generator-actions">
+        <button id="excuse-generate-btn" class="excuse-generator-btn">
+          <span class="excuse-generator-btn-content">
+            <Icon name="mdi:creation" />
+            {ui.generateBtn}
+          </span>
+          <div class="excuse-generator-btn-gradient"></div>
+        </button>
+
+        <button id="excuse-copy-btn" class="excuse-generator-copy">
+          <Icon name="mdi:content-copy" />
+          {ui.copyBtn}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.getElementById('excuse-generator-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
+
+  const starts = JSON.parse(ui.starts) as string[];
+  const middles = JSON.parse(ui.middles) as string[];
+  const ends = JSON.parse(ui.ends) as string[];
+
+  const els = {
+    p1: document.querySelector('#excuse-part-1 .excuse-generator-slot-text') as HTMLElement,
+    p2: document.querySelector('#excuse-part-2 .excuse-generator-slot-text') as HTMLElement,
+    p3: document.querySelector('#excuse-part-3 .excuse-generator-slot-text') as HTMLElement,
+    genBtn: document.getElementById('excuse-generate-btn') as HTMLButtonElement,
+    copyBtn: document.getElementById('excuse-copy-btn') as HTMLElement,
+  };
+
+  let generatedText = '';
+
+  function runSlot(element: HTMLElement, options: string[], duration: number): Promise<string> {
+    return new Promise((resolve) => {
+      const intervalTime = 50;
+      const steps = duration / intervalTime;
+      let currentStep = 0;
+
+      element.classList.add('blur');
+
+      const timer = setInterval(() => {
+        const randomText = options[Math.floor(Math.random() * options.length)];
+        element.innerText = randomText || '';
+        currentStep++;
+
+        if (currentStep >= steps) {
+          clearInterval(timer);
+          element.classList.remove('blur');
+          const final = options[Math.floor(Math.random() * options.length)] || '';
+          element.innerText = final;
+          resolve(final);
+        }
+      }, intervalTime);
+    });
+  }
+
+  async function generateExcuse() {
+    if (!els.p1 || !els.p2 || !els.p3 || !els.genBtn) return;
+
+    els.genBtn.disabled = true;
+    if (els.copyBtn) {
+      els.copyBtn.classList.remove('visible');
+    }
+
+    const res1 = await runSlot(els.p1, starts, 800);
+    const res2 = await runSlot(els.p2, middles, 1400);
+    const res3 = await runSlot(els.p3, ends, 2000);
+
+    generatedText = `${res1} ${res2} ${res3}`;
+
+    els.genBtn.disabled = false;
+    if (els.copyBtn) {
+      els.copyBtn.classList.add('visible');
+
+      els.copyBtn.onclick = () => {
+        navigator.clipboard.writeText(generatedText);
+        const original = els.copyBtn.innerHTML;
+        els.copyBtn.innerHTML = `<span class="excuse-generator-copy-success">${ui.copied}</span>`;
+        setTimeout(() => {
+          els.copyBtn.innerHTML = original;
+        }, 2000);
+      };
+    }
+  }
+
+  els.genBtn?.addEventListener('click', generateExcuse);
+</script>

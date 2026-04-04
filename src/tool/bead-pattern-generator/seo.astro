@@ -1,0 +1,59 @@
+---
+import { SEOTitle, SEOTip, SEOArticle, SEOList } from '@jjlmoya/utils-shared';
+import type { BeadPatternGeneratorLocaleContent } from './index';
+
+interface Props {
+  content: BeadPatternGeneratorLocaleContent;
+}
+
+const { content } = Astro.props;
+if (!content) return null;
+
+const { seo, faqTitle, faq } = content;
+---
+
+<SEOArticle>
+  {seo.map((section: any) => {
+    switch (section.type) {
+      case 'title':
+        return <SEOTitle title={section.text} level={section.level || 2} />;
+      case 'paragraph':
+        return <p set:html={section.html} />;
+      case 'list':
+        return <SEOList items={section.items} />;
+      case 'tip':
+        return <SEOTip title={section.title}><Fragment set:html={section.html} /></SEOTip>;
+      default:
+        return null;
+    }
+  })}
+
+  {faq && faq.length > 0 && (
+    <div class="bead-pattern-faq">
+      <SEOTitle title={faqTitle || 'FAQ'} level={2} />
+      {faq.map((item) => (
+        <div class="bead-pattern-faq-item">
+          <SEOTitle title={item.question} level={4} />
+          <p>{item.answer}</p>
+        </div>
+      ))}
+    </div>
+  )}
+</SEOArticle>
+
+<style>
+  .bead-pattern-faq {
+    margin-top: 4rem;
+  }
+  .bead-pattern-faq-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fdf2f8;
+    border-radius: 1rem;
+    border: 1px solid #fce7f3;
+  }
+  .theme-dark .bead-pattern-faq-item {
+    background-color: #1e293b;
+    border-color: #334155;
+  }
+</style>

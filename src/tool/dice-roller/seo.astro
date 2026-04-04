@@ -1,0 +1,26 @@
+---
+import { SEOTitle, SEOArticle } from '@jjlmoya/utils-shared';
+import type { DiceRollerLocaleContent } from './index';
+
+interface Props {
+  content: DiceRollerLocaleContent;
+}
+
+const { content } = Astro.props;
+if (!content) return null;
+
+const { seo } = content;
+---
+
+<SEOArticle>
+  {seo.map((section: any) => {
+    switch (section.type) {
+      case 'title':
+        return <SEOTitle title={section.text} level={section.level || 2} />;
+      case 'paragraph':
+        return <p set:html={section.html} />;
+      default:
+        return null;
+    }
+  })}
+</SEOArticle>

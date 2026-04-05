@@ -15,7 +15,7 @@ export const CREATIVE_TOOLS: Record<string, ToolDefinition> = {
   'dice-roller': DICE_ROLLER_TOOL,
 };
 
-export const CREATIVE_CATEGORY: {
+export const creativeCategory: {
   id: string;
   icons: { bg: string; fg: string };
   i18n: {

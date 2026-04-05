@@ -1,6 +1,6 @@
-import { CREATIVE_CATEGORY, CREATIVE_TOOLS } from './category';
-export const creativeCategory = CREATIVE_CATEGORY;
-export const templateCategory = CREATIVE_CATEGORY;
+import { creativeCategory, CREATIVE_TOOLS } from './category';
+export { creativeCategory };
+export const templateCategory = creativeCategory;
 export const ALL_TOOLS = Object.values(CREATIVE_TOOLS);
 
 export * from './tool/excuse-generator';

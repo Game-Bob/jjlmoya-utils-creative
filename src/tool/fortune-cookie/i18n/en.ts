@@ -12,8 +12,8 @@ export const content: FortuneCookieLocaleContent = {
     instruction: 'Hit the cookie to open your destiny',
     dailyStatus: 'Your destiny has been revealed for today.',
     shareBtn: 'Share Wisdom',
-    shareTitle: 'My Fortune Cookie 🥠',
-    shareText: '🥠 Destiny has spoken: "$TEXT"\n✨ My numbers: $NUMS\n\nDiscover your fortune here:',
+    shareTitle: 'My Fortune Cookie',
+    shareText: 'Destiny has spoken: "$TEXT"\nMy numbers: $NUMS\n\nDiscover your fortune here:',
     copied: 'Copied!',
     fortunes: JSON.stringify([
       "The fortune you seek is in another cookie.",

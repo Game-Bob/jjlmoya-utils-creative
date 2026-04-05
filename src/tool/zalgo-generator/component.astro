@@ -6,127 +6,189 @@ import type { ZalgoGeneratorUI } from './index';
 interface Props {
   ui: ZalgoGeneratorUI;
 }
-
-const { ui } = Astro.props;
 ---
 
-<div id="zalgo-generator-root" class="zalgo-generator" data-ui={JSON.stringify(ui)}>
-  <div class="zalgo-generator-shell">
-    <div class="zalgo-generator-card">
-      <p class="zalgo-generator-description">{ui.description}</p>
+<section class="zg-section">
+    <div class="zg-grid">
+        <div class="zg-left">
+            <div class="zg-config-card">
+                <div class="zg-config-hover-bg"></div>
+                <h3 class="zg-config-title">
+                    <Icon name="mdi:tune-variant" style="width:1.25rem;height:1.25rem;color:#9333ea" />
+                    Configuración
+                </h3>
 
-      <div class="zalgo-generator-group">
-        <label class="zalgo-generator-label" for="zalgo-input">
-          {ui.inputPlaceholder}
-        </label>
-        <textarea
-          id="zalgo-input"
-          class="zalgo-generator-input"
-          placeholder={ui.inputPlaceholder}
-        ></textarea>
-      </div>
+                <div class="zg-config-body">
+                    <div class="zg-field">
+                        <div class="zg-field-header">
+                            <label class="zg-field-label">Intensidad</label>
+                            <span id="intensity-value" class="zg-intensity-val">50%</span>
+                        </div>
+                        <input type="range" id="intensity-slider" min="0.1" max="1.5" step="0.1" value="0.5" class="zg-slider" />
+                    </div>
 
-      <div class="zalgo-generator-group">
-        <label class="zalgo-generator-label" for="zalgo-intensity">
-          {ui.intensityLabel}
-        </label>
-        <input
-          type="range"
-          id="zalgo-intensity"
-          class="zalgo-generator-intensity"
-          min="1"
-          max="50"
-          value="10"
-        />
-      </div>
+                    <div class="zg-toggles">
+                        <label class="zg-toggle-row">
+                            <span class="zg-toggle-label">Corrupción Superior</span>
+                            <div class="zg-switch">
+                                <input type="checkbox" id="opt-up" checked class="zg-switch-input" />
+                                <div class="zg-switch-track"></div>
+                            </div>
+                        </label>
+                        <label class="zg-toggle-row">
+                            <span class="zg-toggle-label">Ruido Central</span>
+                            <div class="zg-switch">
+                                <input type="checkbox" id="opt-middle" checked class="zg-switch-input" />
+                                <div class="zg-switch-track"></div>
+                            </div>
+                        </label>
+                        <label class="zg-toggle-row">
+                            <span class="zg-toggle-label">Corrupción Inferior</span>
+                            <div class="zg-switch">
+                                <input type="checkbox" id="opt-down" checked class="zg-switch-input" />
+                                <div class="zg-switch-track"></div>
+                            </div>
+                        </label>
+                    </div>
 
-      <div class="zalgo-generator-group">
-        <span class="zalgo-generator-label">{ui.outputLabel}</span>
-        <div id="zalgo-output" class="zalgo-generator-output"></div>
-      </div>
+                    <button id="reset-options" class="zg-reset-btn">
+                        <Icon name="mdi:history" style="width:1rem;height:1rem" />
+                        Restablecer Valores
+                    </button>
+                </div>
+            </div>
 
-      <button id="zalgo-copy-btn" class="zalgo-generator-copy-btn">
-        <Icon name="mdi:content-copy" />
-        {ui.copyBtn}
-      </button>
+            <div class="zg-warning">
+                <p>ADVERTENCIA: El texto Zalgo utiliza caracteres combinados de Unicode que pueden desbordar visualmente su contenedor. Úsese con precaución en redes sociales.</p>
+            </div>
+        </div>
+
+        <div class="zg-right">
+            <div class="zg-editor-card">
+                <div class="zg-editor-bar">
+                    <div class="zg-editor-bar-left">
+                        <Icon name="mdi:code-tags" style="width:1rem;height:1rem;color:#9333ea;opacity:0.5" />
+                        <span class="zg-editor-filename">Zalgo_Editor.sh</span>
+                    </div>
+                </div>
+                <textarea
+                    id="input-text"
+                    class="zg-textarea"
+                    placeholder="Escribe aquí el mensaje que deseas corromper..."
+                ></textarea>
+                <div class="zg-editor-footer">
+                    <span id="char-count" class="zg-char-count">0 CARACTERES</span>
+                    <div class="zg-footer-sep"></div>
+                    <button id="copy-btn" class="zg-copy-btn">
+                        <Icon name="mdi:content-copy" style="width:1.25rem;height:1.25rem" />
+                        Copiar Resultado
+                    </button>
+                    <button id="clear-btn" class="zg-clear-btn">
+                        <Icon name="mdi:trash-can-outline" style="width:1.25rem;height:1.25rem" />
+                    </button>
+                </div>
+            </div>
+
+            <div class="zg-preview-wrap">
+                <div class="zg-preview-badge">Vista Previa en Tiempo Real</div>
+                <div id="fake-ui-body" class="zg-preview-body">
+                    <div class="zg-preview-dots"></div>
+                    <div id="zalgo-output" class="zg-output">
+                        <span class="zg-output-empty">Vacío</span>
+                    </div>
+                    <div id="glitch-overlay" class="zg-glitch-overlay">
+                        <div class="zg-glitch-line zg-glitch-line-1"></div>
+                        <div class="zg-glitch-line zg-glitch-line-2"></div>
+                    </div>
+                </div>
+                <p class="zg-preview-note">Nota: Algunos navegadores pueden limitar el renderizado de caracteres combinados</p>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+</section>
 
 <script>
-  const root = document.getElementById('zalgo-generator-root') as HTMLElement;
-  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
+    const UP = ["\u030d","\u030e","\u0304","\u0305","\u033f","\u0311","\u0306","\u0310","\u0352","\u0357","\u0351","\u0307","\u0308","\u030a","\u0342","\u0343","\u0344","\u034a","\u034b","\u034c","\u0303","\u0302","\u030c","\u0350","\u0300","\u0301","\u030b","\u030f","\u0312","\u0313","\u0314","\u033d","\u0309","\u0363","\u0364","\u0365","\u0366","\u0367","\u0368","\u0369","\u036a","\u036b","\u036c","\u036d","\u036e","\u036f","\u033e","\u035b","\u0346","\u031a"];
+    const MID = ["\u0315","\u031b","\u0340","\u0341","\u0358","\u0321","\u0322","\u0327","\u0328","\u0334","\u0335","\u0336","\u034f","\u035c","\u035d","\u035e","\u035f","\u0360","\u0362","\u0338","\u0337","\u0361","\u0489"];
+    const DOWN = ["\u0316","\u0317","\u0318","\u0319","\u031c","\u031d","\u031e","\u031f","\u0320","\u0324","\u0325","\u0326","\u0329","\u032a","\u032b","\u032c","\u032d","\u032e","\u032f","\u0330","\u0331","\u0332","\u0333","\u0339","\u033a","\u033b","\u033c","\u0345","\u0347","\u0348","\u0349","\u034d","\u034e","\u0353","\u0354","\u0355","\u0356","\u0359","\u035a","\u0323"];
 
-  const input = document.getElementById('zalgo-input') as HTMLTextAreaElement;
-  const output = document.getElementById('zalgo-output') as HTMLElement;
-  const intensity = document.getElementById('zalgo-intensity') as HTMLInputElement;
-  const copyBtn = document.getElementById('zalgo-copy-btn') as HTMLButtonElement;
-
-  const zalgoChars = {
-    up: [
-      '\u030d', '\u030e', '\u0304', '\u0305', '\u033f', '\u0311', '\u0306', '\u0310',
-      '\u0352', '\u0357', '\u0351', '\u0307', '\u0308', '\u030a', '\u0342', '\u0343',
-      '\u0344', '\u034a', '\u034b', '\u034c', '\u0303', '\u0302', '\u030c', '\u0350',
-      '\u0300', '\u0301', '\u030b', '\u030f', '\u0312', '\u0313', '\u0314', '\u033d',
-      '\u0309', '\u0363', '\u0364', '\u0365', '\u0366', '\u0367', '\u0368', '\u0369',
-      '\u036a', '\u036b', '\u036c', '\u036d', '\u036e', '\u036f', '\u033e', '\u035b',
-      '\u0346', '\u031a'
-    ],
-    mid: [
-      '\u0315', '\u031b', '\u0340', '\u0341', '\u0358', '\u0321', '\u0322', '\u0327',
-      '\u0328', '\u0334', '\u0335', '\u0336', '\u034f', '\u035c', '\u035d', '\u035e',
-      '\u035f', '\u0360', '\u0362', '\u0338', '\u0337', '\u0361', '\u0489'
-    ],
-    down: [
-      '\u0316', '\u0317', '\u0318', '\u0319', '\u031c', '\u031d', '\u031e', '\u031f',
-      '\u0320', '\u0324', '\u0325', '\u0326', '\u0329', '\u032a', '\u032b', '\u032c',
-      '\u032d', '\u032e', '\u032f', '\u0330', '\u0331', '\u0332', '\u0333', '\u0339',
-      '\u033a', '\u033b', '\u033c', '\u0345', '\u0347', '\u0348', '\u0349', '\u034d',
-      '\u034e', '\u0353', '\u0354', '\u0355', '\u0356', '\u0359', '\u035a', '\u0323'
-    ]
-  };
-
-  function rand(max: number) {
-    return Math.floor(Math.random() * max);
-  }
-
-  function generateZalgo(text: string, level: number) {
-    let result = '';
-    for (let i = 0; i < text.length; i++) {
-      const char = text[i];
-      if (zalgoChars.up.includes(char) || zalgoChars.mid.includes(char) || zalgoChars.down.includes(char)) {
-        continue;
-      }
-      result += char;
-
-      for (let j = 0; j < level; j++) {
-        result += zalgoChars.up[rand(zalgoChars.up.length)];
-        result += zalgoChars.mid[rand(zalgoChars.mid.length)];
-        result += zalgoChars.down[rand(zalgoChars.down.length)];
-      }
+    function processZalgo(text: string, opts: { up: boolean; middle: boolean; down: boolean; intensity: number }): string {
+        let result = "";
+        const count = Math.floor(opts.intensity * 30);
+        for (let i = 0; i < text.length; i++) {
+            result += text[i];
+            if (/\s/.test(text[i] ?? '')) continue;
+            if (opts.up) for (let j = 0; j < count; j++) result += UP[Math.floor(Math.random() * UP.length)];
+            if (opts.middle) { const m = Math.max(1, Math.floor(count/3)); for (let j=0;j<m;j++) result += MID[Math.floor(Math.random()*MID.length)]; }
+            if (opts.down) for (let j = 0; j < count; j++) result += DOWN[Math.floor(Math.random() * DOWN.length)];
+        }
+        return result;
     }
-    return result;
-  }
 
-  function update() {
-    const text = input.value;
-    const level = parseInt(intensity.value) / 5;
-    output.textContent = text ? generateZalgo(text, level) : '';
-  }
+    const input = document.getElementById("input-text") as HTMLTextAreaElement;
+    const output = document.getElementById("zalgo-output") as HTMLDivElement;
+    const intensitySlider = document.getElementById("intensity-slider") as HTMLInputElement;
+    const intensityValue = document.getElementById("intensity-value");
+    const optUp = document.getElementById("opt-up") as HTMLInputElement;
+    const optMiddle = document.getElementById("opt-middle") as HTMLInputElement;
+    const optDown = document.getElementById("opt-down") as HTMLInputElement;
+    const copyBtn = document.getElementById("copy-btn");
+    const clearBtn = document.getElementById("clear-btn");
+    const charCount = document.getElementById("char-count");
+    const resetBtn = document.getElementById("reset-options");
+    const glitchOverlay = document.getElementById("glitch-overlay") as HTMLElement;
+    const fakeUiBody = document.getElementById("fake-ui-body") as HTMLElement;
 
-  input.addEventListener('input', update);
-  intensity.addEventListener('input', update);
+    function update() {
+        const text = input.value;
+        const intensity = parseFloat(intensitySlider.value);
+        if (charCount) charCount.textContent = `${text.length} CARACTERES`;
+        if (intensityValue) intensityValue.textContent = `${Math.round(intensity * 100)}%`;
+        if (!text.trim()) {
+            output.innerHTML = '<span class="zg-output-empty">Vacío</span>';
+            glitchOverlay.style.opacity = "0";
+            fakeUiBody.style.borderColor = "";
+            fakeUiBody.style.boxShadow = "";
+            return;
+        }
+        const zalgoText = processZalgo(text, { up: optUp.checked, middle: optMiddle.checked, down: optDown.checked, intensity });
+        output.textContent = zalgoText;
+        if (intensity > 1.0) {
+            glitchOverlay.style.opacity = "1";
+            fakeUiBody.style.borderColor = intensity > 1.3 ? "rgba(147,51,234,0.3)" : "";
+            fakeUiBody.style.boxShadow = `inset 0 0 ${intensity * 10}px rgba(147,51,234,0.1)`;
+        } else {
+            glitchOverlay.style.opacity = "0";
+            fakeUiBody.style.borderColor = "";
+            fakeUiBody.style.boxShadow = "";
+        }
+        if (intensity > 1.2) output.style.setProperty("--zalgo-color","#9333ea");
+        else output.style.removeProperty("--zalgo-color");
+    }
 
-  copyBtn.addEventListener('click', () => {
-    const text = output.textContent;
-    if (!text) return;
-    navigator.clipboard.writeText(text);
-    const original = copyBtn.innerHTML;
-    copyBtn.innerHTML = `<span>${ui.copied}</span>`;
-    setTimeout(() => {
-      copyBtn.innerHTML = original;
-    }, 2000);
-  });
+    input?.addEventListener("input", update);
+    intensitySlider?.addEventListener("input", update);
+    optUp?.addEventListener("change", update);
+    optMiddle?.addEventListener("change", update);
+    optDown?.addEventListener("change", update);
 
-  update();
+    copyBtn?.addEventListener("click", () => {
+        const text = output.textContent || "";
+        if (text && text !== "Vacío") {
+            navigator.clipboard.writeText(text);
+            const orig = copyBtn.innerHTML;
+            copyBtn.innerHTML = "¡Copiado!";
+            setTimeout(() => { copyBtn.innerHTML = orig; }, 2000);
+        }
+    });
+
+    clearBtn?.addEventListener("click", () => { input.value = ""; update(); });
+
+    resetBtn?.addEventListener("click", () => {
+        intensitySlider.value = "0.5";
+        optUp.checked = true; optMiddle.checked = true; optDown.checked = true;
+        update();
+    });
+
+    update();
 </script>

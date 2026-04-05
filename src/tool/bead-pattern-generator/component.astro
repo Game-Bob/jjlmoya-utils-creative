@@ -1,97 +1,345 @@
 ---
-import { Icon } from 'astro-icon/components';
 import './style.css';
 import type { BeadPatternGeneratorUI } from './index';
 
 interface Props {
   ui: BeadPatternGeneratorUI;
 }
-
-const { ui } = Astro.props;
 ---
 
-<div id="bead-pattern-root" class="bead-pattern-generator" data-ui={JSON.stringify(ui)}>
-  <div class="bead-pattern-shell">
-    <div class="bead-pattern-card">
-      <div class="bead-pattern-controls">
-        <div class="bead-pattern-group">
-          <label class="bead-pattern-label">{ui.uploadLabel}</label>
-          <input type="file" id="bead-image-input" class="bead-pattern-input" accept="image/*" />
-        </div>
-        <div class="bead-pattern-group">
-          <label class="bead-pattern-label">{ui.gridSizeLabel}</label>
-          <input type="number" id="bead-grid-size" class="bead-pattern-input" value="50" min="10" max="150" />
-        </div>
-      </div>
+<div class="bead-wrapper">
+    <div class="bead-card" id="main-container">
+        <div class="bead-top-bar"></div>
 
-      <div class="bead-pattern-preview-container">
-        <canvas id="bead-canvas" class="bead-pattern-canvas"></canvas>
-      </div>
+        <div class="bead-inner">
+            <div class="bead-header">
+                <div class="bead-header-title">
+                    <h2>Laboratorio de Patrones</h2>
+                    <p>Ingeniería de color para tus manos</p>
+                </div>
 
-      <div class="bead-pattern-actions">
-        <button id="bead-generate-btn" class="bead-pattern-btn bead-pattern-btn-primary">
-          <Icon name="mdi:auto-fix" />
-          {ui.pixelateBtn}
-        </button>
-        <button id="bead-download-btn" class="bead-pattern-btn bead-pattern-btn-secondary" disabled>
-          <Icon name="mdi:download" />
-          {ui.downloadBtn}
-        </button>
-      </div>
+                <div class="bead-controls">
+                    <div class="bead-control-group">
+                        <label class="bead-control-label">Tamaño (Ancho)</label>
+                        <div class="bead-slider-row">
+                            <input type="range" id="grid-width" min="10" max="100" value="40" class="bead-slider bead-slider-pink" />
+                            <span id="grid-width-value" class="bead-slider-val bead-val-pink">40</span>
+                        </div>
+                    </div>
+
+                    <div class="bead-control-group">
+                        <label class="bead-control-label">Colores</label>
+                        <div class="bead-slider-row">
+                            <input type="range" id="color-count" min="2" max="32" value="12" class="bead-slider bead-slider-purple" />
+                            <span id="color-count-value" class="bead-slider-val bead-val-purple">12</span>
+                        </div>
+                    </div>
+
+                    <div class="bead-control-group">
+                        <label class="bead-control-label">Opciones</label>
+                        <div class="bead-options-row">
+                            <label class="bead-checkbox-label">
+                                <input type="checkbox" id="show-rulers" class="bead-checkbox" />
+                                <span>Reglas</span>
+                            </label>
+                            <div class="bead-divider"></div>
+                            <label class="bead-checkbox-label" title="Patrón Sorpresa">
+                                <input type="checkbox" id="show-symbols" class="bead-checkbox" />
+                                <span>Símbolos</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="download-btn" disabled class="bead-download-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Descargar</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bead-canvas-area">
+                <div class="bead-drop-zone" id="drop-zone">
+                    <input type="file" id="image-upload" accept="image/*" class="bead-file-input" />
+                    <div class="bead-drop-content">
+                        <div class="bead-upload-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3>Carga tu Visión</h3>
+                        <p>y deja que la magia digital ocurra</p>
+                    </div>
+                </div>
+
+                <div id="result-area" class="bead-result bead-hidden">
+                    <div class="bead-result-inner">
+                        <div class="bead-palette-col">
+                            <h3 class="bead-palette-title">ADN Cromático</h3>
+                            <div id="palette-grid" class="bead-palette-grid"></div>
+                            <button id="reupload-btn" class="bead-reupload-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                Cambiar Imagen
+                            </button>
+                        </div>
+                        <div class="bead-canvas-col">
+                            <canvas id="pattern-canvas" class="bead-canvas"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bead-tunnel-bar">
+                        <div>
+                            <h3 class="bead-tunnel-title">Visión de Túnel</h3>
+                            <p class="bead-tunnel-sub">Tu asistente de precisión fila por fila.</p>
+                        </div>
+                        <div class="bead-tunnel-controls">
+                            <button id="focus-prev" class="bead-tunnel-btn">▲</button>
+                            <span id="focus-row-display" class="bead-tunnel-display">--</span>
+                            <button id="focus-next" class="bead-tunnel-btn">▼</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <script>
-  const root = document.getElementById('bead-pattern-root') as HTMLElement;
-  const ui = JSON.parse(root.dataset.ui as string);
+    const SYMBOLS = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-  const imageInput = document.getElementById('bead-image-input') as HTMLInputElement;
-  const gridSizeInput = document.getElementById('bead-grid-size') as HTMLInputElement;
-  const generateBtn = document.getElementById('bead-generate-btn') as HTMLButtonElement;
-  const downloadBtn = document.getElementById('bead-download-btn') as HTMLButtonElement;
-  const canvas = document.getElementById('bead-canvas') as HTMLCanvasElement;
-  const ctx = canvas.getContext('2d')!;
+    function simpleQuantize(imageData: ImageData, colorCount: number): number[][] {
+        const pixels = imageData.data;
+        const pixelArray: number[][] = [];
+        for (let i = 0; i < pixels.length; i += 4 * 10) {
+            if (pixels[i + 3] > 128) pixelArray.push([pixels[i], pixels[i + 1], pixels[i + 2]]);
+        }
+        if (pixelArray.length === 0) return [];
+        const centers: number[][] = [];
+        for (let i = 0; i < colorCount; i++) centers.push(pixelArray[Math.floor(Math.random() * pixelArray.length)]);
+        for (let iter = 0; iter < 5; iter++) {
+            const clusters: number[][][] = Array(colorCount).fill(null).map(() => []);
+            for (const p of pixelArray) {
+                let minDist = Infinity, idx = 0;
+                for (let c = 0; c < centers.length; c++) {
+                    const d = (p[0]-centers[c][0])**2 + (p[1]-centers[c][1])**2 + (p[2]-centers[c][2])**2;
+                    if (d < minDist) { minDist = d; idx = c; }
+                }
+                clusters[idx].push(p);
+            }
+            for (let c = 0; c < colorCount; c++) {
+                if (clusters[c].length > 0) {
+                    let r = 0, g = 0, b = 0;
+                    for (const p of clusters[c]) { r += p[0]; g += p[1]; b += p[2]; }
+                    centers[c] = [Math.floor(r/clusters[c].length), Math.floor(g/clusters[c].length), Math.floor(b/clusters[c].length)];
+                }
+            }
+        }
+        return centers;
+    }
 
-  let originalImage: HTMLImageElement | null = null;
+    function findClosestColorIndex(r: number, g: number, b: number, palette: number[][]): number {
+        let minDist = Infinity, closestIdx = 0;
+        for (let i = 0; i < palette.length; i++) {
+            const d = (r-palette[i][0])**2 + (g-palette[i][1])**2 + (b-palette[i][2])**2;
+            if (d < minDist) { minDist = d; closestIdx = i; }
+        }
+        return closestIdx;
+    }
 
-  imageInput.addEventListener('change', (e) => {
-    const file = (e.target as HTMLInputElement).files?.[0];
-    if (!file) return;
+    const dropZone = document.getElementById("drop-zone") as HTMLDivElement;
+    const imageInput = document.getElementById("image-upload") as HTMLInputElement;
+    const resultArea = document.getElementById("result-area") as HTMLDivElement;
+    const reuploadBtn = document.getElementById("reupload-btn") as HTMLButtonElement;
+    const gridWidthInput = document.getElementById("grid-width") as HTMLInputElement;
+    const gridWidthValue = document.getElementById("grid-width-value") as HTMLSpanElement;
+    const colorCountInput = document.getElementById("color-count") as HTMLInputElement;
+    const colorCountValue = document.getElementById("color-count-value") as HTMLSpanElement;
+    const rulersToggle = document.getElementById("show-rulers") as HTMLInputElement;
+    const symbolsToggle = document.getElementById("show-symbols") as HTMLInputElement;
+    const downloadBtn = document.getElementById("download-btn") as HTMLButtonElement;
+    const patternCanvas = document.getElementById("pattern-canvas") as HTMLCanvasElement;
+    const paletteGrid = document.getElementById("palette-grid") as HTMLDivElement;
+    const focusPrevBtn = document.getElementById("focus-prev") as HTMLButtonElement;
+    const focusNextBtn = document.getElementById("focus-next") as HTMLButtonElement;
+    const focusDisplay = document.getElementById("focus-row-display") as HTMLSpanElement;
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const img = new Image();
-      img.onload = () => {
-        originalImage = img;
-        renderPattern();
-      };
-      img.src = event.target?.result as string;
-    };
-    reader.readAsDataURL(file);
-  });
+    let currentImage: HTMLImageElement | null = null;
+    let currentFileName = "patron";
+    let currentRow = -1;
+    let totalRows = 0;
+    interface LastData { grid: number[]; palette: number[][]; cols: number; rows: number; }
+    let lastData: LastData = { grid: [], palette: [], cols: 0, rows: 0 };
+    let debounceTimer: ReturnType<typeof setTimeout>;
 
-  function renderPattern() {
-    if (!originalImage) return;
+    imageInput?.addEventListener("change", (e) => {
+        const files = (e.target as HTMLInputElement).files;
+        if (files?.length) handleFile(files[0]);
+    });
 
-    const size = parseInt(gridSizeInput.value) || 50;
-    const ratio = originalImage.height / originalImage.width;
-    
-    canvas.width = size;
-    canvas.height = Math.round(size * ratio);
+    if (dropZone) {
+        ["dragover","dragenter"].forEach(evt => dropZone.addEventListener(evt, (e) => { e.preventDefault(); dropZone.classList.add("bead-drop-active"); }));
+        ["dragleave","drop"].forEach(evt => dropZone.addEventListener(evt, (e) => { e.preventDefault(); dropZone.classList.remove("bead-drop-active"); }));
+        dropZone.addEventListener("drop", (e) => { if (e.dataTransfer?.files.length) handleFile(e.dataTransfer.files[0]); });
+    }
 
-    ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
-    
-    // Draw grid effect (optional but nice)
-    downloadBtn.disabled = false;
-  }
+    reuploadBtn?.addEventListener("click", () => {
+        dropZone?.classList.remove("bead-hidden");
+        resultArea?.classList.add("bead-hidden");
+        currentImage = null;
+        if (downloadBtn) downloadBtn.disabled = true;
+        if (imageInput) imageInput.value = "";
+    });
 
-  generateBtn.addEventListener('click', renderPattern);
+    function handleFile(file: File) {
+        currentFileName = file.name.split(".").slice(0,-1).join(".") || "patron";
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            if (e.target?.result) {
+                const img = new Image();
+                img.onload = () => { currentImage = img; dropZone?.classList.add("bead-hidden"); resultArea?.classList.remove("bead-hidden"); generatePattern(); };
+                img.src = e.target.result as string;
+            }
+        };
+        reader.readAsDataURL(file);
+    }
 
-  downloadBtn.addEventListener('click', () => {
-    const link = document.createElement('a');
-    link.download = 'bead-pattern.png';
-    link.href = canvas.toDataURL();
-    link.click();
-  });
+    gridWidthInput?.addEventListener("input", (e) => { if (gridWidthValue) gridWidthValue.textContent = (e.target as HTMLInputElement).value; debounceGenerate(); });
+    colorCountInput?.addEventListener("input", (e) => { if (colorCountValue) colorCountValue.textContent = (e.target as HTMLInputElement).value; debounceGenerate(); });
+    rulersToggle?.addEventListener("change", drawGrid);
+    symbolsToggle?.addEventListener("change", drawGrid);
+
+    function debounceGenerate() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(generatePattern, 300);
+    }
+
+    function generatePattern() {
+        if (!currentImage || !patternCanvas) return;
+        const width = parseInt(gridWidthInput?.value || "40");
+        const colors = parseInt(colorCountInput?.value || "12");
+        const height = Math.round(width * (currentImage.height / currentImage.width));
+        totalRows = height;
+        const tmp = document.createElement("canvas");
+        tmp.width = width; tmp.height = height;
+        const ctx = tmp.getContext("2d");
+        if (!ctx) return;
+        ctx.drawImage(currentImage, 0, 0, width, height);
+        const imageData = ctx.getImageData(0, 0, width, height);
+        const palette = simpleQuantize(imageData, colors);
+        if (!palette.length) return;
+        const grid: number[] = [];
+        for (let i = 0; i < imageData.data.length; i += 4)
+            grid.push(findClosestColorIndex(imageData.data[i], imageData.data[i+1], imageData.data[i+2], palette));
+        lastData = { grid, palette, cols: width, rows: height };
+        currentRow = -1;
+        if (focusDisplay) focusDisplay.textContent = "--";
+        drawGrid();
+        displayPalette(palette);
+        if (downloadBtn) downloadBtn.disabled = false;
+    }
+
+    function drawGrid() {
+        if (!patternCanvas) return;
+        const { grid, cols, rows, palette } = lastData;
+        if (!grid?.length) return;
+        const S = 25, G = 2;
+        const rulers = rulersToggle?.checked || false;
+        const symbols = symbolsToggle?.checked || false;
+        const R = rulers ? 25 : 0;
+        patternCanvas.width = cols*(S+G)+G+R;
+        patternCanvas.height = rows*(S+G)+G+R;
+        const ctx = patternCanvas.getContext("2d");
+        if (!ctx) return;
+        ctx.fillStyle = "#fff"; ctx.fillRect(0,0,patternCanvas.width,patternCanvas.height);
+        if (rulers) {
+            ctx.fillStyle="#64748b"; ctx.font="10px monospace"; ctx.textAlign="center"; ctx.textBaseline="middle";
+            for (let i=0;i<cols;i++) if ((i+1)%5===0||i===0) ctx.fillText((i+1).toString(), R+G+i*(S+G)+S/2, R/2);
+            for (let j=0;j<rows;j++) if ((j+1)%5===0||j===0) ctx.fillText((j+1).toString(), R/2, R+G+j*(S+G)+S/2);
+            ctx.strokeStyle="#e2e8f0"; ctx.lineWidth=1; ctx.beginPath();
+            ctx.moveTo(R,0); ctx.lineTo(R,patternCanvas.height);
+            ctx.moveTo(0,R); ctx.lineTo(patternCanvas.width,R); ctx.stroke();
+        }
+        grid.forEach((ci,idx) => {
+            const x=idx%cols, y=Math.floor(idx/cols);
+            const px=R+G+x*(S+G), py=R+G+y*(S+G);
+            const c=palette[ci];
+            ctx.fillStyle = symbols ? "#fff" : `rgb(${c[0]},${c[1]},${c[2]})`;
+            if (symbols) { ctx.strokeStyle="#cbd5e1"; ctx.lineWidth=1; }
+            ctx.beginPath();
+            if ("roundRect" in ctx) (ctx as any).roundRect(px,py,S,S,4); else ctx.rect(px,py,S,S);
+            ctx.fill();
+            if (symbols) {
+                ctx.stroke();
+                ctx.fillStyle="#000"; ctx.font="bold 14px sans-serif"; ctx.textAlign="center"; ctx.textBaseline="middle";
+                ctx.fillText(SYMBOLS[ci%SYMBOLS.length], px+S/2, py+S/2+1);
+            }
+            if (currentRow !== -1) {
+                if (y===currentRow) { ctx.strokeStyle="#db2777"; ctx.lineWidth=3; ctx.stroke(); }
+                else { ctx.fillStyle="rgba(255,255,255,0.75)"; ctx.fillRect(px,py,S,S); }
+            }
+        });
+    }
+
+    function displayPalette(palette: number[][]) {
+        if (!paletteGrid) return;
+        paletteGrid.innerHTML = "";
+        palette.forEach((c, idx) => {
+            const brightness = (c[0]*299+c[1]*587+c[2]*114)/1000;
+            const wrap = document.createElement("div"); wrap.className = "bead-palette-item";
+            const swatch = document.createElement("div"); swatch.className = "bead-color-swatch";
+            swatch.style.backgroundColor = `rgb(${c[0]},${c[1]},${c[2]})`;
+            swatch.title = `Color ${idx+1}: RGB(${c[0]},${c[1]},${c[2]})`;
+            const sym = document.createElement("span");
+            sym.className = "bead-symbol " + (brightness > 128 ? "bead-symbol-dark" : "bead-symbol-light");
+            sym.textContent = SYMBOLS[idx%SYMBOLS.length];
+            swatch.appendChild(sym); wrap.appendChild(swatch); paletteGrid.appendChild(wrap);
+        });
+    }
+
+    downloadBtn?.addEventListener("click", async () => {
+        if (!patternCanvas || !currentImage) return;
+        let JSZip: any;
+        try { const m = await import("jszip"); JSZip = m.default; }
+        catch { try { const m = await import("https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm"); JSZip = m.default; } catch { alert("Error cargando librería. Recarga la página."); return; } }
+        const zip = new JSZip();
+        const base = currentFileName ? `${currentFileName}_patron_jjlmoya` : "patron_jjlmoya";
+        zip.file(`${base}_pattern.webp`, await (await fetch(patternCanvas.toDataURL("image/webp"))).blob());
+        zip.file(`${base}_guia.webp`, await (await fetch(generateLegendCanvas().toDataURL("image/webp"))).blob());
+        const blob = await zip.generateAsync({ type: "blob" });
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `${base}.zip`; a.click();
+    });
+
+    function generateLegendCanvas(): HTMLCanvasElement {
+        const { palette } = lastData;
+        const c = document.createElement("canvas"), ctx = c.getContext("2d");
+        if (!ctx) return c;
+        const rh=40, p=20, hh=60, w=400;
+        c.width=w; c.height=hh+palette.length*rh+p;
+        ctx.fillStyle="#fff"; ctx.fillRect(0,0,c.width,c.height);
+        ctx.fillStyle="#1e293b"; ctx.font="bold 20px sans-serif"; ctx.textAlign="center"; ctx.textBaseline="middle";
+        ctx.fillText("Guía Maestra de Ejecución", w/2, 30);
+        ctx.font="14px sans-serif"; ctx.fillStyle="#64748b"; ctx.fillText(currentFileName||"Sin título", w/2, 50);
+        ctx.textAlign="left";
+        palette.forEach((col, idx) => {
+            const y=hh+idx*rh+rh/2;
+            ctx.fillStyle=`rgb(${col[0]},${col[1]},${col[2]})`;
+            ctx.beginPath();
+            if ("roundRect" in ctx) (ctx as any).roundRect(p, hh+idx*rh+5, 30, 30, 8); else ctx.rect(p, hh+idx*rh+5, 30, 30);
+            ctx.fill(); ctx.strokeStyle="#e2e8f0"; ctx.lineWidth=1; ctx.stroke();
+            const br=(col[0]*299+col[1]*587+col[2]*114)/1000;
+            ctx.fillStyle=br>128?"#000":"#fff"; ctx.font="bold 16px monospace"; ctx.textAlign="center";
+            ctx.fillText(SYMBOLS[idx%SYMBOLS.length], p+15, y+2);
+            ctx.fillStyle="#334155"; ctx.font="bold 16px sans-serif"; ctx.textAlign="left";
+            ctx.fillText(`Color ${idx+1}`, p+45, y);
+            ctx.fillStyle="#64748b"; ctx.font="14px monospace";
+            ctx.fillText(`RGB(${col[0]},${col[1]},${col[2]})`, p+120, y);
+        });
+        return c;
+    }
+
+    focusPrevBtn?.addEventListener("click", () => { currentRow = currentRow > -1 ? currentRow-1 : totalRows-1; if (focusDisplay) focusDisplay.textContent = currentRow===-1?"--":(currentRow+1).toString(); drawGrid(); });
+    focusNextBtn?.addEventListener("click", () => { currentRow = currentRow < totalRows-1 ? currentRow+1 : -1; if (focusDisplay) focusDisplay.textContent = currentRow===-1?"--":(currentRow+1).toString(); drawGrid(); });
 </script>

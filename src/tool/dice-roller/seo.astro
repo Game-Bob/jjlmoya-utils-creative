@@ -1,12 +1,14 @@
 ---
-import { SEOTitle, SEOArticle } from '@jjlmoya/utils-shared';
-import type { DiceRollerLocaleContent } from './index';
+import { SEOTitle, SEOTip, SEOArticle, SEOList, SEOCard } from '@jjlmoya/utils-shared';
+import { diceRoller } from './index';
+import type { KnownLocale } from '../../types';
 
 interface Props {
-  content: DiceRollerLocaleContent;
+  locale?: KnownLocale;
 }
 
-const { content } = Astro.props;
+const { locale = 'es' } = Astro.props;
+const content = await diceRoller.i18n[locale]?.();
 if (!content) return null;
 
 const { seo } = content;
@@ -19,6 +21,12 @@ const { seo } = content;
         return <SEOTitle title={section.text} level={section.level || 2} />;
       case 'paragraph':
         return <p set:html={section.html} />;
+      case 'list':
+        return <SEOList items={section.items} />;
+      case 'tip':
+        return <SEOTip title={section.title}><Fragment set:html={section.html} /></SEOTip>;
+      case 'card':
+        return <SEOCard icon={section.icon}><Fragment set:html={section.html} /></SEOCard>;
       default:
         return null;
     }

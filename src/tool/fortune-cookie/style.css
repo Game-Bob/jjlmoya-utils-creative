@@ -204,10 +204,8 @@
 
 .fortune-cookie-text {
   color: #0f172a;
-  font-family: sans-serif;
   font-weight: 900;
   font-size: 1.125rem;
-  line-height: 1.75rem;
   line-height: 1.25;
   transform: rotate(-1deg);
   user-select: text;

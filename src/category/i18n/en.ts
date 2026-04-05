@@ -1,4 +1,5 @@
 export const content = {
+  slug: 'creativity-leisure',
   title: 'Creativity and Leisure',
   description: 'Tools designed to inspire, amuse, and create.',
   seo: [

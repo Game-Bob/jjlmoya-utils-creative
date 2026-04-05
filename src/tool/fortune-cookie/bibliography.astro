@@ -1,59 +1,18 @@
 ---
-import type { FortuneCookieLocaleContent } from './index';
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
+import { fortuneCookie, type FortuneCookieLocaleContent } from './index';
+import type { KnownLocale } from '../../types';
 
 interface Props {
-  content: FortuneCookieLocaleContent;
+  locale?: KnownLocale;
 }
 
-const { content } = Astro.props;
-if (!content || !content.bibliography || content.bibliography.length === 0) return null;
+const { locale = 'es' } = Astro.props;
+const localeContentLoader = (fortuneCookie.i18n as Record<string, () => Promise<FortuneCookieLocaleContent>>)[locale];
+const content = localeContentLoader ? await localeContentLoader() : null;
+if (!content) return null;
 
-const { bibliographyTitle = 'Bibliografía', bibliography } = content;
+const { bibliography } = content;
 ---
 
-<div class="fortune-cookie-bibliography">
-  <h2 class="fortune-cookie-bibliography-title">{bibliographyTitle}</h2>
-  <ul class="fortune-cookie-bibliography-list">
-    {bibliography.map((item) => (
-      <li class="fortune-cookie-bibliography-item">
-        <a href={item.url} target="_blank" rel="noopener noreferrer" class="fortune-cookie-bibliography-link">
-          {item.name}
-        </a>
-      </li>
-    ))}
-  </ul>
-</div>
-
-<style>
-  .fortune-cookie-bibliography {
-    margin-top: 4rem;
-    padding: 2rem;
-    background-color: #fffbeb;
-    border-radius: 1rem;
-    border: 1px solid #fef3c7;
-  }
-  .theme-dark .fortune-cookie-bibliography {
-    background-color: #1e293b;
-    border-color: #334155;
-  }
-  .fortune-cookie-bibliography-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #450a0a;
-  }
-  .theme-dark .fortune-cookie-bibliography-title {
-    color: #fbbf24;
-  }
-  .fortune-cookie-bibliography-list {
-    list-style: disc;
-    padding-left: 1.5rem;
-  }
-  .fortune-cookie-bibliography-link {
-    color: #b45309;
-    text-decoration: underline;
-  }
-  .fortune-cookie-bibliography-link:hover {
-    color: #d97706;
-  }
-</style>
+<SharedBibliography links={bibliography} />

@@ -1,73 +1,237 @@
 ---
-import { Icon } from 'astro-icon/components';
 import './style.css';
-import type { DiceRollerUI } from './index';
-
-interface Props {
-  ui: DiceRollerUI;
-}
-
-const { ui } = Astro.props;
 ---
 
-<div id="dice-roller-root" class="dice-roller" data-ui={JSON.stringify(ui)}>
-  <div class="dice-roller-shell">
-    <div class="dice-roller-card">
-      <div class="dice-roller-display">
-        <span class="dice-roller-total-label">{ui.totalLabel}</span>
-        <span id="dice-total" class="dice-roller-total-val">0</span>
-      </div>
+<div id="dice-roller-root" class="dr-root">
+  <div class="dr-panel">
 
-      <div class="dice-roller-grid">
-        <button class="dice-roller-btn" data-sides="4">d4</button>
-        <button class="dice-roller-btn" data-sides="6">d6</button>
-        <button class="dice-roller-btn" data-sides="8">d8</button>
-        <button class="dice-roller-btn" data-sides="10">d10</button>
-        <button class="dice-roller-btn" data-sides="12">d12</button>
-        <button class="dice-roller-btn" data-sides="20">d20</button>
-        <button class="dice-roller-btn" data-sides="100">d100</button>
-      </div>
-
-      <button id="dice-clear-history" class="dice-roller-btn" style="width: 100%; margin-bottom: 1rem;">
-        {ui.clearHistoryBtn}
-      </button>
-
-      <div class="dice-roller-history">
-        <h3 class="dice-roller-label">{ui.historyLabel}</h3>
-        <div id="dice-history-list" class="dice-roller-history-list"></div>
+    <!-- Selector de dados -->
+    <div class="dr-selector">
+      <p class="dr-label">Añadir dados a la bolsa</p>
+      <div class="dr-dice-grid">
+        <button class="dr-die-btn" data-sides="4">d4</button>
+        <button class="dr-die-btn" data-sides="6">d6</button>
+        <button class="dr-die-btn" data-sides="8">d8</button>
+        <button class="dr-die-btn" data-sides="10">d10</button>
+        <button class="dr-die-btn" data-sides="12">d12</button>
+        <button class="dr-die-btn" data-sides="20">d20</button>
+        <button class="dr-die-btn" data-sides="100">d%</button>
       </div>
     </div>
+
+    <!-- Bolsa actual -->
+    <div class="dr-pool-section">
+      <div class="dr-pool-header">
+        <p class="dr-label">Bolsa de dados</p>
+        <button id="dr-clear-pool" class="dr-clear-btn">Vaciar</button>
+      </div>
+      <div id="dr-pool" class="dr-pool-display">
+        <span class="dr-pool-empty">Haz clic en los dados para añadirlos</span>
+      </div>
+    </div>
+
+    <!-- Modificador -->
+    <div class="dr-modifier-section">
+      <label class="dr-label" for="dr-modifier">Modificador</label>
+      <div class="dr-modifier-controls">
+        <button id="dr-mod-dec" class="dr-mod-btn">−</button>
+        <span id="dr-modifier-val" class="dr-modifier-display">0</span>
+        <button id="dr-mod-inc" class="dr-mod-btn">+</button>
+      </div>
+    </div>
+
+    <!-- Botón de lanzar -->
+    <button id="dr-roll-btn" class="dr-roll-btn" disabled>
+      <span id="dr-roll-text">Lanzar dados</span>
+    </button>
+
+  </div>
+
+  <!-- Panel de resultados -->
+  <div class="dr-results-panel">
+
+    <!-- Resultado actual -->
+    <div class="dr-result-card" id="dr-result-card">
+      <div class="dr-result-empty" id="dr-result-empty">
+        <p>Añade dados y lanza</p>
+      </div>
+      <div class="dr-result-content" id="dr-result-content" style="display:none">
+        <div class="dr-total-area">
+          <span class="dr-total-label">Total</span>
+          <span id="dr-total" class="dr-total-val">0</span>
+          <span id="dr-roll-expr" class="dr-roll-expr"></span>
+        </div>
+        <div id="dr-dice-results" class="dr-dice-results"></div>
+      </div>
+    </div>
+
+    <!-- Historial -->
+    <div class="dr-history-section">
+      <div class="dr-history-header">
+        <span class="dr-label">Historial</span>
+        <button id="dr-clear-history" class="dr-clear-btn">Limpiar</button>
+      </div>
+      <div id="dr-history-list" class="dr-history-list">
+        <p class="dr-history-empty">El historial de tiradas aparecerá aquí</p>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <script>
-  const root = document.getElementById('dice-roller-root') as HTMLElement;
-  const ui = JSON.parse(root.dataset.ui as string);
+  type Pool = { sides: number; count: number }[];
 
-  const totalEl = document.getElementById('dice-total') as HTMLElement;
-  const historyList = document.getElementById('dice-history-list') as HTMLElement;
-  const clearBtn = document.getElementById('dice-clear-history') as HTMLButtonElement;
-  const diceBtns = document.querySelectorAll('.dice-roller-btn[data-sides]');
+  let pool: Pool = [];
+  let modifier = 0;
 
-  function rollDie(sides: number) {
-    const result = Math.floor(Math.random() * sides) + 1;
-    totalEl.textContent = result.toString();
-    
+  const poolDisplay = document.getElementById('dr-pool') as HTMLElement;
+  const resultEmpty = document.getElementById('dr-result-empty') as HTMLElement;
+  const resultContent = document.getElementById('dr-result-content') as HTMLElement;
+  const totalEl = document.getElementById('dr-total') as HTMLElement;
+  const rollExpr = document.getElementById('dr-roll-expr') as HTMLElement;
+  const diceResultsEl = document.getElementById('dr-dice-results') as HTMLElement;
+  const historyList = document.getElementById('dr-history-list') as HTMLElement;
+  const rollBtn = document.getElementById('dr-roll-btn') as HTMLButtonElement;
+  const modifierVal = document.getElementById('dr-modifier-val') as HTMLElement;
+  const rollText = document.getElementById('dr-roll-text') as HTMLElement;
+
+  function poolTotal(): number {
+    return pool.reduce((acc, d) => acc + d.count, 0);
+  }
+
+  function renderPool(): void {
+    if (pool.length === 0) {
+      poolDisplay.innerHTML = '<span class="dr-pool-empty">Haz clic en los dados para añadirlos</span>';
+      rollBtn.disabled = true;
+      rollText.textContent = 'Lanzar dados';
+      return;
+    }
+
+    poolDisplay.innerHTML = '';
+    pool.forEach(({ sides, count }) => {
+      const chip = document.createElement('div');
+      chip.className = 'dr-pool-chip';
+      chip.innerHTML = `
+        <span class="dr-chip-label">${count}d${sides}</span>
+        <button class="dr-chip-remove" data-sides="${sides}" title="Quitar un d${sides}">−</button>
+      `;
+      poolDisplay.appendChild(chip);
+    });
+
+    const total = poolTotal();
+    rollBtn.disabled = false;
+    rollText.textContent = `Lanzar ${total} dado${total !== 1 ? 's' : ''}`;
+  }
+
+  function addDie(sides: number): void {
+    const existing = pool.find(d => d.sides === sides);
+    if (existing) {
+      existing.count++;
+    } else {
+      pool.push({ sides, count: 1 });
+      pool.sort((a, b) => a.sides - b.sides);
+    }
+    renderPool();
+  }
+
+  function removeDie(sides: number): void {
+    const idx = pool.findIndex(d => d.sides === sides);
+    if (idx === -1) return;
+    const entry = pool[idx];
+    if (!entry) return;
+    entry.count--;
+    if (entry.count <= 0) pool.splice(idx, 1);
+    renderPool();
+  }
+
+  function rollAll(): void {
+    if (pool.length === 0) return;
+
+    rollBtn.classList.add('dr-rolling');
+    setTimeout(() => rollBtn.classList.remove('dr-rolling'), 400);
+
+    const rolls: { sides: number; value: number }[] = [];
+    pool.forEach(({ sides, count }) => {
+      for (let i = 0; i < count; i++) {
+        rolls.push({ sides, value: Math.floor(Math.random() * sides) + 1 });
+      }
+    });
+
+    const sum = rolls.reduce((acc, r) => acc + r.value, 0) + modifier;
+    const expr = pool.map(d => `${d.count}d${d.sides}`).join(' + ') + (modifier !== 0 ? ` ${modifier > 0 ? '+' : ''}${modifier}` : '');
+
+    // Mostrar resultado
+    resultEmpty.style.display = 'none';
+    resultContent.style.display = 'flex';
+    totalEl.textContent = sum.toString();
+    rollExpr.textContent = expr;
+
+    diceResultsEl.innerHTML = '';
+    rolls.forEach(r => {
+      const pip = document.createElement('div');
+      const isMax = r.value === r.sides;
+      const isMin = r.value === 1;
+      pip.className = `dr-result-pip ${isMax ? 'dr-pip-max' : ''} ${isMin ? 'dr-pip-min' : ''}`;
+      pip.setAttribute('title', `d${r.sides}`);
+      pip.innerHTML = `<span class="dr-pip-val">${r.value}</span><span class="dr-pip-die">d${r.sides}</span>`;
+      diceResultsEl.appendChild(pip);
+    });
+
+    // Añadir al historial
+    const histEmpty = historyList.querySelector('.dr-history-empty');
+    if (histEmpty) histEmpty.remove();
+
     const item = document.createElement('div');
-    item.className = 'dice-roller-history-item';
-    item.innerHTML = `<span>d${sides}</span> <strong>${result}</strong>`;
+    item.className = 'dr-history-item';
+    const now = new Date();
+    const time = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+    item.innerHTML = `
+      <span class="dr-hist-expr">${expr}</span>
+      <span class="dr-hist-result">${sum}</span>
+      <span class="dr-hist-time">${time}</span>
+    `;
     historyList.prepend(item);
   }
 
-  diceBtns.forEach(btn => {
+  // Eventos — dados
+  document.querySelectorAll('.dr-die-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const sides = parseInt((btn as HTMLElement).dataset.sides!);
-      rollDie(sides);
+      const sides = parseInt((btn as HTMLElement).dataset.sides ?? '0');
+      if (sides) addDie(sides);
     });
   });
 
-  clearBtn.addEventListener('click', () => {
-    historyList.innerHTML = '';
-    totalEl.textContent = '0';
+  // Quitar dado de bolsa
+  poolDisplay.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('dr-chip-remove')) {
+      const sides = parseInt(target.dataset.sides ?? '0');
+      if (sides) removeDie(sides);
+    }
+  });
+
+  // Vaciar bolsa
+  document.getElementById('dr-clear-pool')?.addEventListener('click', () => {
+    pool = [];
+    renderPool();
+  });
+
+  // Modificador
+  document.getElementById('dr-mod-inc')?.addEventListener('click', () => {
+    modifier++;
+    modifierVal.textContent = modifier > 0 ? `+${modifier}` : modifier.toString();
+  });
+  document.getElementById('dr-mod-dec')?.addEventListener('click', () => {
+    modifier--;
+    modifierVal.textContent = modifier > 0 ? `+${modifier}` : modifier.toString();
+  });
+
+  // Lanzar
+  rollBtn.addEventListener('click', rollAll);
+
+  // Limpiar historial
+  document.getElementById('dr-clear-history')?.addEventListener('click', () => {
+    historyList.innerHTML = '<p class="dr-history-empty">El historial de tiradas aparecerá aquí</p>';
   });
 </script>

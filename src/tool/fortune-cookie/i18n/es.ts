@@ -12,8 +12,8 @@ export const content: FortuneCookieLocaleContent = {
     instruction: 'Golpea la galleta para abrir tu destino',
     dailyStatus: 'Tu destino ha sido revelado por hoy.',
     shareBtn: 'Compartir Sabiduría',
-    shareTitle: 'Mi Galleta de la Fortuna 🥠',
-    shareText: '🥠 El destino me ha hablado: "$TEXT"\n✨ Mis números: $NUMS\n\nDescubre tu fortuna aquí:',
+    shareTitle: 'Mi Galleta de la Fortuna',
+    shareText: 'El destino me ha hablado: "$TEXT"\nMis números: $NUMS\n\nDescubre tu fortuna aquí:',
     copied: '¡Copiado!',
     fortunes: JSON.stringify([
       "La suerte que buscas está en otra galleta.",

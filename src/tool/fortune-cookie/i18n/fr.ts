@@ -12,8 +12,8 @@ export const content: FortuneCookieLocaleContent = {
     instruction: 'Frappez le biscuit pour ouvrir votre destin',
     dailyStatus: 'Votre destin a été révélé pour aujourd\'hui.',
     shareBtn: 'Partager la Sagesse',
-    shareTitle: 'Mon Biscuit de la Fortune 🥠',
-    shareText: '🥠 Le destin m\'a parlé : "$TEXT"\n✨ Mes numéros : $NUMS\n\nDécouvrez votre fortune ici :',
+    shareTitle: 'Mon Biscuit de la Fortune',
+    shareText: 'Le destin m\'a parlé : "$TEXT"\nMes numéros : $NUMS\n\nDécouvrez votre fortune ici :',
     copied: 'Copié!',
     fortunes: JSON.stringify([
       "La chance que tu cherches est dans un autre biscuit.",

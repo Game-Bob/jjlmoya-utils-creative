@@ -1,53 +1,40 @@
 ---
-import { Icon } from 'astro-icon/components';
 import './style.css';
-import type { SynesthesiaPainterUI } from './index';
-
-interface Props {
-  ui: SynesthesiaPainterUI;
-}
-
-const { ui } = Astro.props;
 ---
 
-<div id="synesthesia-painter-root" class="synesthesia-painter" data-ui={JSON.stringify(ui)}>
-  <div class="synesthesia-painter-shell">
-    <div class="synesthesia-painter-card">
-      <div class="synesthesia-painter-header">
-        <button class="synesthesia-painter-mode-btn active" data-mode="letters">
-          {ui.modeLetters}
-        </button>
-        <button class="synesthesia-painter-mode-btn" data-mode="dots">
-          {ui.modeDots}
-        </button>
-        <button class="synesthesia-painter-mode-btn" data-mode="aura">
-          {ui.modeAura}
-        </button>
-      </div>
+<div id="synesthesia-painter-root" class="synesthesia-painter">
+  <div class="synesthesia-painter-card">
+    <div class="synesthesia-painter-header">
+      <button class="synesthesia-painter-mode-btn active" data-mode="letters">Letras</button>
+      <button class="synesthesia-painter-mode-btn" data-mode="dots">Puntos</button>
+      <button class="synesthesia-painter-mode-btn" data-mode="aura">Aura</button>
+    </div>
 
-      <div id="synesthesia-painter-canvas" class="synesthesia-painter-canvas-wrapper">
-        <div id="synesthesia-painter-viz" class="synesthesia-painter-viz-layer"></div>
-        <textarea id="synesthesia-painter-input" class="synesthesia-painter-input" autofocus></textarea>
-        <div id="synesthesia-painter-placeholder" class="synesthesia-painter-placeholder">
-          <span class="synesthesia-painter-placeholder-text">{ui.placeholder}</span>
-        </div>
+    <div id="synesthesia-painter-canvas" class="synesthesia-painter-canvas-wrapper">
+      <div id="synesthesia-painter-viz" class="synesthesia-painter-viz-layer"></div>
+      <textarea id="synesthesia-painter-input" class="synesthesia-painter-input" autofocus></textarea>
+      <div id="synesthesia-painter-placeholder" class="synesthesia-painter-placeholder">
+        <span class="synesthesia-painter-placeholder-text">Escribe aquí...</span>
       </div>
+    </div>
 
-      <div class="synesthesia-painter-footer">
-        <p class="synesthesia-painter-tooltip">{ui.footerText}</p>
-        <button id="synesthesia-painter-clear" class="synesthesia-painter-clear-btn">
-          <span>{ui.clearBtn}</span>
-          <Icon name="mdi:delete-outline" />
-        </button>
-      </div>
+    <div class="synesthesia-painter-footer">
+      <p class="synesthesia-painter-tooltip">Escribe para descubrir tu paleta de colores personal</p>
+      <button id="synesthesia-painter-clear" class="synesthesia-painter-clear-btn">
+        <span>Borrar</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="3 6 5 6 21 6"></polyline>
+          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+          <path d="M10 11v6"></path>
+          <path d="M14 11v6"></path>
+          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
+        </svg>
+      </button>
     </div>
   </div>
 </div>
 
 <script>
-  const root = document.getElementById('synesthesia-painter-root') as HTMLElement;
-  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
-
   const colorMap: Record<string, string> = {
     a: "#ef4444", b: "#3b82f6", c: "#eab308", d: "#78350f", e: "#22c55e",
     f: "#64748b", g: "#8b5cf6", h: "#f97316", i: "#ffffff", j: "#d946ef",
@@ -59,16 +46,23 @@ const { ui } = Astro.props;
     "8": "#9333ea", "9": "#ec4899"
   };
 
-  const isDark = document.documentElement.classList.contains('dark');
+  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const viz = document.getElementById('synesthesia-painter-viz') as HTMLElement;
   const input = document.getElementById('synesthesia-painter-input') as HTMLTextAreaElement;
   const placeholder = document.getElementById('synesthesia-painter-placeholder') as HTMLElement;
   const clearBtn = document.getElementById('synesthesia-painter-clear') as HTMLButtonElement;
   const modeBtns = document.querySelectorAll('.synesthesia-painter-mode-btn');
 
-  let currentMode = 'letters';
+  function getCharColor(char: string): string {
+    const lower = char.toLowerCase();
+    const color = colorMap[lower];
+    if (!color) return isDark ? "#94a3b8" : "#475569";
+    if (color === '#ffffff' && !isDark) return '#0f172a';
+    if (color === '#000000' && isDark) return '#f8fafc';
+    return color;
+  }
 
-  function render() {
+  function render(): void {
     const text = input.value;
     placeholder.style.display = text.length > 0 ? 'none' : 'block';
     viz.innerHTML = '';
@@ -78,21 +72,10 @@ const { ui } = Astro.props;
         viz.appendChild(document.createElement('br'));
         continue;
       }
-
       const span = document.createElement('span');
-      const lower = char.toLowerCase();
-      let color = colorMap[lower];
-
-      if (!color) {
-        color = isDark ? "#94a3b8" : "#475569";
-      }
-
-      if (color === '#ffffff' && !isDark) color = '#0f172a';
-      if (color === '#000000' && isDark) color = '#f8fafc';
-
+      const color = getCharColor(char);
       span.textContent = char;
       span.classList.add('synesthesia-painter-char');
-      span.style.color = color;
       span.style.setProperty('--char-color', color);
       viz.appendChild(span);
     }
@@ -103,6 +86,7 @@ const { ui } = Astro.props;
   }
 
   input.addEventListener('input', render);
+
   clearBtn.addEventListener('click', () => {
     input.value = '';
     render();
@@ -113,7 +97,7 @@ const { ui } = Astro.props;
     btn.addEventListener('click', () => {
       modeBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-      const mode = (btn as HTMLElement).dataset.mode!;
+      const mode = (btn as HTMLElement).dataset.mode ?? 'letters';
       viz.className = `synesthesia-painter-viz-layer ${mode}`;
       render();
     });

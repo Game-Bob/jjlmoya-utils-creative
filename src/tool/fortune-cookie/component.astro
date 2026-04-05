@@ -82,10 +82,12 @@ const ASSETS = {
 </div>
 
 <script>
-  const root = document.getElementById('fortune-cookie-root') as HTMLElement;
-  const ui = JSON.parse(root.dataset.ui as string) as Record<string, string>;
+  import type { FortuneCookieUI } from './index';
 
-  const fortunes = JSON.parse(ui.fortunes) as string[];
+  const root = document.getElementById('fortune-cookie-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui || '{}') as FortuneCookieUI;
+
+  const fortunes = JSON.parse(ui.fortunes || '[]') as string[];
 
   function getLuckyNumbers() {
     const nums = new Set<number>();
@@ -129,12 +131,12 @@ const ASSETS = {
       const text = this.el.text.innerText;
       const nums = this.el.numbers.innerText.replace(/\n/g, ' ');
 
-      const shareTextCompiled = ui.shareText
+      const shareTextCompiled = (ui.shareText || '')
         .replace('$TEXT', text)
         .replace('$NUMS', nums);
 
       const shareData = {
-        title: ui.shareTitle,
+        title: ui.shareTitle || '',
         text: shareTextCompiled,
         url: window.location.href,
       };
@@ -145,7 +147,7 @@ const ASSETS = {
         } else {
           await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
           const originalText = this.el.shareBtn.innerHTML;
-          this.el.shareBtn.innerHTML = `<span>${ui.copied}</span>`;
+          this.el.shareBtn.innerHTML = `<span>${ui.copied || ''}</span>`;
           setTimeout(() => {
             this.el.shareBtn.innerHTML = originalText;
           }, 2000);
@@ -166,7 +168,7 @@ const ASSETS = {
             this.setupFortuneContent(data.msgIndex, data.nums);
             this.instantOpen();
           }
-        } catch (e) {
+        } catch {
           localStorage.removeItem('jjlmoya-creative-fortune');
         }
       }
@@ -218,10 +220,10 @@ const ASSETS = {
     private breakOpen() {
       this.isBroken = true;
 
-      const today = new Date().toISOString().split('T')[0];
+      const today = new Date().toISOString().split('T')[0] as string;
       this.prepareNewFortune(today);
 
-      this.el.instruction.innerText = ui.title;
+      this.el.instruction.innerText = ui.title || '';
 
       this.el.broken.classList.remove('hidden');
       this.el.body.classList.add('hidden');
@@ -250,7 +252,7 @@ const ASSETS = {
 
     private instantOpen() {
       this.isBroken = true;
-      this.el.instruction.innerText = ui.title;
+      this.el.instruction.innerText = ui.title || '';
       this.el.body.classList.add('hidden');
       this.el.paper.classList.add('visible');
       this.el.resetUi.classList.add('visible');
@@ -293,5 +295,5 @@ const ASSETS = {
     }
   }
 
-  const cookie = new FortuneCookie();
+  new FortuneCookie();
 </script>

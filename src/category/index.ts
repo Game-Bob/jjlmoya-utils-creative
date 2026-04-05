@@ -1,4 +1,4 @@
-import type { CreativeToolEntry, ToolDefinition } from '../types';
+import type { CategoryLocaleContent, ToolDefinition } from '../types';
 import { EXCUSE_GENERATOR_TOOL } from '../tool/excuse-generator';
 import { FORTUNE_COOKIE_TOOL } from '../tool/fortune-cookie';
 import { SYNESTHESIA_PAINTER_TOOL } from '../tool/synesthesia-painter';
@@ -19,9 +19,9 @@ export const CREATIVE_CATEGORY: {
   id: string;
   icons: { bg: string; fg: string };
   i18n: {
-    es: () => Promise<any>;
-    en: () => Promise<any>;
-    fr: () => Promise<any>;
+    es: () => Promise<CategoryLocaleContent>;
+    en: () => Promise<CategoryLocaleContent>;
+    fr: () => Promise<CategoryLocaleContent>;
   };
 } = {
   id: 'creative',

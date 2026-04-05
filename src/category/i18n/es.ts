@@ -1,4 +1,5 @@
 export const content = {
+  slug: 'creatividad-ocio',
   title: 'Creatividad y Ocio',
   description: 'Herramientas diseñadas para inspirar, divertir y crear.',
   seo: [

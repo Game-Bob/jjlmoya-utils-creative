@@ -1,59 +1,18 @@
 ---
-import type { BeadPatternGeneratorLocaleContent } from './index';
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
+import { beadPatternGenerator, type BeadPatternGeneratorLocaleContent } from './index';
+import type { KnownLocale } from '../../types';
 
 interface Props {
-  content: BeadPatternGeneratorLocaleContent;
+  locale?: KnownLocale;
 }
 
-const { content } = Astro.props;
-if (!content || !content.bibliography || content.bibliography.length === 0) return null;
+const { locale = 'es' } = Astro.props;
+const localeContentLoader = (beadPatternGenerator.i18n as Record<string, () => Promise<BeadPatternGeneratorLocaleContent>>)[locale];
+const content = localeContentLoader ? await localeContentLoader() : null;
+if (!content) return null;
 
-const { bibliographyTitle = 'Bibliografía', bibliography } = content;
+const { bibliography } = content;
 ---
 
-<div class="bead-pattern-bibliography">
-  <h2 class="bead-pattern-bibliography-title">{bibliographyTitle}</h2>
-  <ul class="bead-pattern-bibliography-list">
-    {bibliography.map((item) => (
-      <li class="bead-pattern-bibliography-item">
-        <a href={item.url} target="_blank" rel="noopener noreferrer" class="bead-pattern-bibliography-link">
-          {item.name}
-        </a>
-      </li>
-    ))}
-  </ul>
-</div>
-
-<style>
-  .bead-pattern-bibliography {
-    margin-top: 4rem;
-    padding: 2rem;
-    background-color: #fdf2f8;
-    border-radius: 1rem;
-    border: 1px solid #fce7f3;
-  }
-  .theme-dark .bead-pattern-bibliography {
-    background-color: #1e293b;
-    border-color: #334155;
-  }
-  .bead-pattern-bibliography-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #831843;
-  }
-  .theme-dark .bead-pattern-bibliography-title {
-    color: #f472b6;
-  }
-  .bead-pattern-bibliography-list {
-    list-style: disc;
-    padding-left: 1.5rem;
-  }
-  .bead-pattern-bibliography-link {
-    color: #db2777;
-    text-decoration: underline;
-  }
-  .bead-pattern-bibliography-link:hover {
-    color: #be185d;
-  }
-</style>
+<SharedBibliography links={bibliography} />

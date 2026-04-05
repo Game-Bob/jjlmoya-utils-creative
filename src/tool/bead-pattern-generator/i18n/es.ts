@@ -17,11 +17,39 @@ export const content: BeadPatternGeneratorLocaleContent = {
     bibliographyTitle: 'Referencias'
   },
   seo: [
-    { type: 'title', text: 'El Arte de las Cuentas Miyuki y Hama', level: 2 },
-    { type: 'paragraph', html: 'Crear patrones a mano puede ser tedioso. Nuestra herramienta utiliza algoritmos de cuantización de color para convertir cualquier imagen en un esquema manejable de cuentas.' }
+    { type: 'title', text: 'Alquimia Digital: Transmuta Píxeles en Arte Tangible', level: 2 },
+    { type: 'paragraph', html: 'Bienvenido al <strong>Estudio Definitivo de Patrones</strong>. Un motor de <em>inteligencia cromática</em> diseñado para arquitectos del Pixel Art, maestros del Miyuki y visionarios del punto de cruz. Tu puente entre lo digital y lo artesanal.' },
+    { type: 'card', icon: 'mdi:grid', title: 'La Retícula Inteligente', html: 'Nuestro algoritmo de <strong>submuestreo espacial</strong> no solo "encoge" tu imagen. Analiza la estructura visual para mapear grupos de píxeles complejos a celdas individuales, preservando la integridad de siluetas y bordes como un dibujante experto.' },
+    { type: 'card', icon: 'mdi:palette', title: 'Cuantización K-Means', html: 'Implementamos una variante del algoritmo <strong>K-Means Clustering</strong> que encuentra matemáticamente los tonos "centroides" de tu imagen. Fidelidad visual asombrosa con una paleta minimalista de 12, 24 o 32 tonos.' },
+    { type: 'title', text: 'Maestría en 3 Pasos', level: 3 },
+    { type: 'card', icon: 'mdi:image-search', title: 'La Selección Perfecta', html: 'Busca <strong>alto contraste</strong>, iluminación dramática y formas icónicas. Los retratos con fondo limpio, logotipos y arte vectorial se traducen maravillosamente.' },
+    { type: 'card', icon: 'mdi:ruler', title: 'Calibración Dimensional', html: '<strong>Miyuki Delica:</strong> 50 cuentas ≈ 8cm · <strong>Hama Midi:</strong> 50 cuentas ≈ 25cm · <strong>Punto de Cruz:</strong> 1 celda = 1 puntada.' },
+    { type: 'card', icon: 'mdi:eye-check', title: 'Ejecución Zen (Modo Visión de Túnel)', html: 'Nuestro sistema <strong>Visión de Túnel</strong> actúa como tu asistente personal, oscureciendo el ruido visual y resaltando quirúrgicamente solo la fila activa. Concentración absoluta.' },
+    { type: 'title', text: 'Lienzos Infinitos', level: 3 },
+    { type: 'list', items: [
+      '<strong>Joyería Textil:</strong> Patrones intrincados para telares y brazaletes geométricos.',
+      '<strong>Cross-Stitch:</strong> Esquemas modernos listos para ser bordados pixel a pixel.',
+      '<strong>Mosaicos:</strong> Murales de gran escala usando teselas cerámicas simplificadas.',
+      '<strong>Retro Gaming:</strong> Assets y sprites con estética 8-bit auténtica en segundos.',
+    ]},
+    { type: 'paragraph', html: 'En una era de pantallas efímeras, crear algo físico es un acto revolucionario. Esta herramienta no busca automatizar el arte, sino <strong>empoderar al artesano</strong>. Te damos la precisión computacional para que tus manos puedan construir legados duraderos.' },
   ],
-  faq: [],
-  bibliography: [],
-  howTo: [],
+  faq: [
+    { question: '¿Qué es la cuantización de color en patrones?', answer: 'Es el proceso de reducir los miles de colores de una foto a solo unos pocos que correspondan con los colores reales de las cuentas (ej. Miyuki o Hama). Usamos algoritmos inteligentes para mantener el parecido visual con la mínima paleta posible.' },
+    { question: '¿Puedo usar este patrón para punto de cruz?', answer: 'Sí, el generador crea una malla cuadriculada (gráfico) que es perfectamente compatible con el punto de cruz. Solo debes elegir un tamaño de rejilla que se adapte a tu tela (Aida 14, 18, etc.).' },
+    { question: '¿Qué diferencia hay entre Miyuki y Hama Beads?', answer: 'Las Miyuki Delica son cuentas de cristal muy pequeñas y precisas para joyería. Los Hama Beads son de plástico y se funden con plancha. Nuestra herramienta permite ajustar la relación de aspecto para que el patrón no se deforme según el material usado.' },
+    { question: '¿Cómo funciona el algoritmo de tramado (Dithering)?', answer: 'El tramado crea la ilusión de más colores mezclando píxeles de colores diferentes en patrones espaciados. Ayuda a que las degradaciones de color se vean más suaves incluso con una paleta limitada de cuentas.' },
+  ],
+  bibliography: [
+    { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
+    { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
+    { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
+  ],
+  howTo: [
+    { name: 'Subir una imagen clara', text: 'Selecciona una foto con buen contraste y pocos detalles pequeños para que el patrón sea más fácil de seguir.' },
+    { name: 'Ajustar el tamaño de la rejilla', text: 'Define cuántas cuentas de ancho y alto tendrá tu pieza final. Recuerda que a más tamaño, más detalle pero más dificultad.' },
+    { name: 'Optimizar la paleta de colores', text: 'Reduce el número de colores hasta que coincidan con las cuentas que tienes disponibles en tu kit de manualidades.' },
+    { name: 'Exportar el esquema guía', text: 'Genera el patrón final con códigos de color para usarlo como referencia mientras montas tus cuentas en la placa o el hilo.' },
+  ],
   schemas: []
 };

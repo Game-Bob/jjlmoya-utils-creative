@@ -1,15 +1,17 @@
 ---
 import { SEOTitle, SEOTip, SEOArticle, SEOList } from '@jjlmoya/utils-shared';
-import type { ExcuseGeneratorLocaleContent } from './index';
+import { excuseGenerator } from './index';
+import type { KnownLocale } from '../../types';
 
 interface Props {
-  content: ExcuseGeneratorLocaleContent;
+  locale?: KnownLocale;
 }
 
-const { content } = Astro.props;
+const { locale = 'es' } = Astro.props;
+const content = await excuseGenerator.i18n[locale]?.();
 if (!content) return null;
 
-const { seo, faqTitle, faq } = content;
+const { seo } = content;
 ---
 
 <SEOArticle>
@@ -27,10 +29,7 @@ const { seo, faqTitle, faq } = content;
         return null;
     }
   })}
-
-  {faq && faq.length > 0 && (
-    <div class="excuse-generator-faq">
-      <SEOTitle title={faqTitle || 'FAQ'} level={2} />
+level={2} />
       {faq.map((item) => (
         <div class="excuse-generator-faq-item">
           <SEOTitle title={item.question} level={4} />
@@ -41,19 +40,3 @@ const { seo, faqTitle, faq } = content;
   )}
 </SEOArticle>
 
-<style>
-  .excuse-generator-faq {
-    margin-top: 4rem;
-  }
-  .excuse-generator-faq-item {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: #f8fafc;
-    border-radius: 1rem;
-    border: 1px solid #e2e8f0;
-  }
-  .theme-dark .excuse-generator-faq-item {
-    background-color: #1e293b;
-    border-color: #334155;
-  }
-</style>

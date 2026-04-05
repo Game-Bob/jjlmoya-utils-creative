@@ -13,7 +13,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     modeDots: 'Dots',
     modeAura: 'Aura',
     placeholder: 'Type here...',
-    footerText: '✨ Type to discover your personal color palette',
+    footerText: 'Type to discover your personal color palette',
     clearBtn: 'Clear',
     faqTitle: 'FAQ',
     bibliographyTitle: 'References'

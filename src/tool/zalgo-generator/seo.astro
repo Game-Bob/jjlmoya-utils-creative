@@ -1,15 +1,17 @@
 ---
 import { SEOTitle, SEOTip, SEOArticle, SEOList } from '@jjlmoya/utils-shared';
-import type { ZalgoGeneratorLocaleContent } from './index';
+import { zalgoGenerator } from './index';
+import type { KnownLocale } from '../../types';
 
 interface Props {
-  content: ZalgoGeneratorLocaleContent;
+  locale?: KnownLocale;
 }
 
-const { content } = Astro.props;
+const { locale = 'es' } = Astro.props;
+const content = await zalgoGenerator.i18n[locale]?.();
 if (!content) return null;
 
-const { seo, faqTitle, faq } = content;
+const { seo } = content;
 ---
 
 <SEOArticle>
@@ -28,32 +30,4 @@ const { seo, faqTitle, faq } = content;
     }
   })}
 
-  {faq && faq.length > 0 && (
-    <div class="zalgo-generator-faq">
-      <SEOTitle title={faqTitle || 'FAQ'} level={2} />
-      {faq.map((item) => (
-        <div class="zalgo-generator-faq-item">
-          <SEOTitle title={item.question} level={4} />
-          <p>{item.answer}</p>
-        </div>
-      ))}
-    </div>
-  )}
 </SEOArticle>
-
-<style>
-  .zalgo-generator-faq {
-    margin-top: 4rem;
-  }
-  .zalgo-generator-faq-item {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: #f8fafc;
-    border-radius: 1rem;
-    border: 1px solid #e2e8f0;
-  }
-  .theme-dark .zalgo-generator-faq-item {
-    background-color: #1e293b;
-    border-color: #334155;
-  }
-</style>

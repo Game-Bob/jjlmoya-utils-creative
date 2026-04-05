@@ -1,28 +1,35 @@
 ---
+import type { SynesthesiaPainterUI } from './index';
 import './style.css';
+
+interface Props {
+  ui: SynesthesiaPainterUI;
+}
+
+const { ui } = Astro.props;
 ---
 
-<div id="synesthesia-painter-root" class="synesthesia-painter">
+<div id="sp-root" class="synesthesia-painter" data-ui={JSON.stringify(ui)}>
   <div class="synesthesia-painter-card">
     <div class="synesthesia-painter-header">
-      <button class="synesthesia-painter-mode-btn active" data-mode="letters">Letras</button>
-      <button class="synesthesia-painter-mode-btn" data-mode="dots">Puntos</button>
-      <button class="synesthesia-painter-mode-btn" data-mode="aura">Aura</button>
+      <button class="synesthesia-painter-mode-btn active" data-mode="letters">{ui.modeLetters}</button>
+      <button class="synesthesia-painter-mode-btn" data-mode="dots">{ui.modeDots}</button>
+      <button class="synesthesia-painter-mode-btn" data-mode="aura">{ui.modeAura}</button>
     </div>
 
-    <div id="synesthesia-painter-canvas" class="synesthesia-painter-canvas-wrapper">
-      <div id="synesthesia-painter-viz" class="synesthesia-painter-viz-layer"></div>
-      <textarea id="synesthesia-painter-input" class="synesthesia-painter-input" autofocus></textarea>
-      <div id="synesthesia-painter-placeholder" class="synesthesia-painter-placeholder">
-        <span class="synesthesia-painter-placeholder-text">Escribe aquí...</span>
+    <div id="sp-canvas" class="synesthesia-painter-canvas-wrapper">
+      <div id="sp-viz" class="synesthesia-painter-viz-layer"></div>
+      <textarea id="sp-input" class="synesthesia-painter-input" autofocus></textarea>
+      <div id="sp-placeholder" class="synesthesia-painter-placeholder">
+        <span class="synesthesia-painter-placeholder-text">{ui.placeholder}</span>
       </div>
     </div>
 
     <div class="synesthesia-painter-footer">
-      <p class="synesthesia-painter-tooltip">Escribe para descubrir tu paleta de colores personal</p>
-      <button id="synesthesia-painter-clear" class="synesthesia-painter-clear-btn">
-        <span>Borrar</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <p class="synesthesia-painter-tooltip">{ui.footerText}</p>
+      <button id="sp-clear" class="synesthesia-painter-clear-btn">
+        <span>{ui.clearBtn}</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16">
           <polyline points="3 6 5 6 21 6"></polyline>
           <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
           <path d="M10 11v6"></path>
@@ -45,12 +52,11 @@ import './style.css';
     "4": "#3b82f6", "5": "#eab308", "6": "#8b5cf6", "7": "#f97316",
     "8": "#9333ea", "9": "#ec4899"
   };
-
-  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const viz = document.getElementById('synesthesia-painter-viz') as HTMLElement;
-  const input = document.getElementById('synesthesia-painter-input') as HTMLTextAreaElement;
-  const placeholder = document.getElementById('synesthesia-painter-placeholder') as HTMLElement;
-  const clearBtn = document.getElementById('synesthesia-painter-clear') as HTMLButtonElement;
+  const isDark = document.documentElement.classList.contains('dark');
+  const viz = document.getElementById('sp-viz') as HTMLElement;
+  const input = document.getElementById('sp-input') as HTMLTextAreaElement;
+  const placeholder = document.getElementById('sp-placeholder') as HTMLElement;
+  const clearBtn = document.getElementById('sp-clear') as HTMLButtonElement;
   const modeBtns = document.querySelectorAll('.synesthesia-painter-mode-btn');
 
   function getCharColor(char: string): string {
@@ -66,33 +72,21 @@ import './style.css';
     const text = input.value;
     placeholder.style.display = text.length > 0 ? 'none' : 'block';
     viz.innerHTML = '';
-
     for (const char of text) {
-      if (char === '\n') {
-        viz.appendChild(document.createElement('br'));
-        continue;
-      }
+      if (char === '\n') { viz.appendChild(document.createElement('br')); continue; }
       const span = document.createElement('span');
-      const color = getCharColor(char);
       span.textContent = char;
       span.classList.add('synesthesia-painter-char');
-      span.style.setProperty('--char-color', color);
+      span.style.setProperty('--char-color', getCharColor(char));
       viz.appendChild(span);
     }
-
     const cursor = document.createElement('span');
     cursor.className = 'synesthesia-painter-cursor';
     viz.appendChild(cursor);
   }
 
   input.addEventListener('input', render);
-
-  clearBtn.addEventListener('click', () => {
-    input.value = '';
-    render();
-    input.focus();
-  });
-
+  clearBtn.addEventListener('click', () => { input.value = ''; render(); input.focus(); });
   modeBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       modeBtns.forEach((b) => b.classList.remove('active'));
@@ -102,7 +96,15 @@ import './style.css';
       render();
     });
   });
+  document.getElementById('sp-canvas')?.addEventListener('click', () => input.focus());
 
-  document.getElementById('synesthesia-painter-canvas')?.addEventListener('click', () => input.focus());
-  render();
+  function init() {
+    const root = document.getElementById('sp-root');
+    if (!root) return;
+    render();
+    document.addEventListener('astro:page-load', () => render());
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
 </script>

@@ -1,7 +1,7 @@
 .dr-root {
-  --dr-bg: #ffffff;
+  --dr-bg: #fff;
   --dr-bg-muted: #f8fafc;
-  --dr-bg-card: #ffffff;
+  --dr-bg-card: #fff;
   --dr-text: #0f172a;
   --dr-text-muted: #64748b;
   --dr-border: #e2e8f0;
@@ -47,7 +47,7 @@
   }
 }
 
-/* ── Panel izquierdo ── */
+/* ── panel izquierdo ── */
 .dr-panel {
   background: var(--dr-bg-card);
   border: 1px solid var(--dr-border);
@@ -65,10 +65,10 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--dr-text-muted);
-  margin: 0 0 0.625rem 0;
+  margin: 0 0 0.625rem;
 }
 
-/* ── Cuadrícula de dados ── */
+/* ── cuadrícula de dados ── */
 .dr-dice-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -100,7 +100,7 @@
   transform: translateY(0);
 }
 
-/* ── Bolsa ── */
+/* ── bolsa ── */
 .dr-pool-section {
   border: 1px solid var(--dr-border);
   border-radius: var(--dr-radius-sm);
@@ -187,7 +187,7 @@
   background: var(--dr-primary-dark);
 }
 
-/* ── Modificador ── */
+/* ── modificador ── */
 .dr-modifier-section {
   display: flex;
   align-items: center;
@@ -235,7 +235,7 @@
   color: var(--dr-text);
 }
 
-/* ── Botón lanzar ── */
+/* ── botón lanzar ── */
 .dr-roll-btn {
   display: flex;
   align-items: center;
@@ -282,7 +282,7 @@
   animation: dr-shake 0.4s ease-in-out;
 }
 
-/* ── Panel de resultados ── */
+/* ── panel de resultados ── */
 .dr-results-panel {
   display: flex;
   flex-direction: column;
@@ -392,7 +392,7 @@
   font-weight: 600;
 }
 
-/* ── Historial ── */
+/* ── historial ── */
 .dr-history-section {
   background: var(--dr-bg-card);
   border: 1px solid var(--dr-border);
@@ -451,8 +451,15 @@
 }
 
 @keyframes dr-fadein {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translate-y(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dr-hist-expr {

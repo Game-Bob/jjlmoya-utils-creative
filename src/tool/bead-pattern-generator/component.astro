@@ -106,6 +106,27 @@ import './style.css';
     const SYMBOLS = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     type RoundCtx = CanvasRenderingContext2D & { roundRect?: (...args: number[]) => void };
 
+    function getClosestCenterIdx(p: number[], centers: number[][]): number {
+        let minDist = Infinity, idx = 0;
+        for (let c = 0; c < centers.length; c++) {
+            const cc = centers[c] ?? [0,0,0];
+            const d = (p[0]-cc[0])**2 + (p[1]-cc[1])**2 + (p[2]-cc[2])**2;
+            if (d < minDist) { minDist = d; idx = c; }
+        }
+        return idx;
+    }
+
+    function updateCenters(clusters: number[][][], colorCount: number, centers: number[][]): void {
+        for (let c = 0; c < colorCount; c++) {
+            const cluster = clusters[c] ?? [];
+            if (cluster.length > 0) {
+                let r = 0, g = 0, b = 0;
+                for (const p of cluster) { r += p[0] ?? 0; g += p[1] ?? 0; b += p[2] ?? 0; }
+                centers[c] = [Math.floor(r/cluster.length), Math.floor(g/cluster.length), Math.floor(b/cluster.length)];
+            }
+        }
+    }
+
     function simpleQuantize(imageData: ImageData, colorCount: number): number[][] {
         const pixels = imageData.data;
         const pixelArray: number[][] = [];
@@ -117,23 +138,8 @@ import './style.css';
         for (let i = 0; i < colorCount; i++) centers.push(pixelArray[Math.floor(Math.random() * pixelArray.length)] ?? [0,0,0]);
         for (let iter = 0; iter < 5; iter++) {
             const clusters: number[][][] = Array(colorCount).fill(null).map(() => []);
-            for (const p of pixelArray) {
-                let minDist = Infinity, idx = 0;
-                for (let c = 0; c < centers.length; c++) {
-                    const cc = centers[c] ?? [0,0,0];
-                    const d = (p[0]-cc[0])**2 + (p[1]-cc[1])**2 + (p[2]-cc[2])**2;
-                    if (d < minDist) { minDist = d; idx = c; }
-                }
-                clusters[idx].push(p);
-            }
-            for (let c = 0; c < colorCount; c++) {
-                const cluster = clusters[c] ?? [];
-                if (cluster.length > 0) {
-                    let r = 0, g = 0, b = 0;
-                    for (const p of cluster) { r += p[0] ?? 0; g += p[1] ?? 0; b += p[2] ?? 0; }
-                    centers[c] = [Math.floor(r/cluster.length), Math.floor(g/cluster.length), Math.floor(b/cluster.length)];
-                }
-            }
+            for (const p of pixelArray) clusters[getClosestCenterIdx(p, centers)].push(p);
+            updateCenters(clusters, colorCount, centers);
         }
         return centers;
     }
@@ -215,74 +221,96 @@ import './style.css';
         debounceTimer = setTimeout(generatePattern, 300);
     }
 
-    function generatePattern() {
-        if (!currentImage || !patternCanvas) return;
-        const width = parseInt(gridWidthInput?.value || "40");
-        const colors = parseInt(colorCountInput?.value || "12");
+    function createGridFromImage(width: number, colors: number): { grid: number[]; palette: number[][] } | null {
+        if (!currentImage) return null;
         const height = Math.round(width * (currentImage.height / currentImage.width));
-        totalRows = height;
         const tmp = document.createElement("canvas");
         tmp.width = width; tmp.height = height;
         const ctx = tmp.getContext("2d");
-        if (!ctx) return;
+        if (!ctx) return null;
         ctx.drawImage(currentImage, 0, 0, width, height);
         const imageData = ctx.getImageData(0, 0, width, height);
         const palette = simpleQuantize(imageData, colors);
-        if (!palette.length) return;
+        if (!palette.length) return null;
         const grid: number[] = [];
         for (let i = 0; i < imageData.data.length; i += 4)
             grid.push(findClosestColorIndex(imageData.data[i], imageData.data[i+1], imageData.data[i+2], palette));
+        return { grid, palette };
+    }
+    function updatePatternState(grid: number[], palette: number[][], width: number, height: number): void {
         lastData = { grid, palette, cols: width, rows: height };
+        totalRows = height;
         currentRow = -1;
         if (focusDisplay) focusDisplay.textContent = "--";
-        drawGrid();
         displayPalette(palette);
         if (downloadBtn) downloadBtn.disabled = false;
     }
 
-    function drawGrid() {
-        if (!patternCanvas) return;
-        const { grid, cols, rows, palette } = lastData;
-        if (!grid?.length) return;
-        const S = 25, G = 2;
-        const rulers = rulersToggle?.checked || false;
-        const symbols = symbolsToggle?.checked || false;
-        const R = rulers ? 25 : 0;
+    function generatePattern() {
+        if (!currentImage || !patternCanvas) return;
+        const width = parseInt(gridWidthInput?.value || "40");
+        const colors = parseInt(colorCountInput?.value || "12");
+        const result = createGridFromImage(width, colors);
+        if (!result) return;
+        const height = Math.round(width * (currentImage.height / currentImage.width));
+        updatePatternState(result.grid, result.palette, width, height);
+        drawGrid();
+    }
+    interface DrawConfig { S: number; G: number; R: number; ctx: CanvasRenderingContext2D; cols: number; rows: number; palette: number[][]; symbols: boolean; }
+    function drawRulers(cfg: DrawConfig): void {
+        const { S, G, R, ctx, cols, rows } = cfg;
+        ctx.fillStyle="#64748b"; ctx.font="10px monospace"; ctx.textAlign="center"; ctx.textBaseline="middle";
+        for (let i=0;i<cols;i++) if ((i+1)%5===0||i===0) ctx.fillText((i+1).toString(), R+G+i*(S+G)+S/2, R/2);
+        for (let j=0;j<rows;j++) if ((j+1)%5===0||j===0) ctx.fillText((j+1).toString(), R/2, R+G+j*(S+G)+S/2);
+        ctx.strokeStyle="#e2e8f0"; ctx.lineWidth=1; ctx.beginPath();
+        ctx.moveTo(R,0); ctx.lineTo(R, (rows*(S+G)+G+R));
+        ctx.moveTo(0,R); ctx.lineTo((cols*(S+G)+G+R),R); ctx.stroke();
+    }
+    function drawCell(cfg: DrawConfig, ci: number, x: number, y: number): void {
+        const { S, G, R, ctx, palette, symbols } = cfg;
+        const px=R+G+x*(S+G), py=R+G+y*(S+G);
+        const c=palette[ci] ?? [0,0,0];
+        ctx.fillStyle = symbols ? "#fff" : `rgb(${c[0]},${c[1]},${c[2]})`;
+        if (symbols) { ctx.strokeStyle="#cbd5e1"; ctx.lineWidth=1; }
+        ctx.beginPath();
+        const rCtx = ctx as RoundCtx;
+        if (rCtx.roundRect) rCtx.roundRect(px,py,S,S,4); else ctx.rect(px,py,S,S);
+        ctx.fill();
+        if (symbols) {
+            ctx.stroke();
+            ctx.fillStyle="#000"; ctx.font="bold 14px sans-serif"; ctx.textAlign="center"; ctx.textBaseline="middle";
+            ctx.fillText(SYMBOLS[ci%SYMBOLS.length], px+S/2, py+S/2+1);
+        }
+    }
+    function highlightRow(cfg: DrawConfig, x: number, y: number): void {
+        const { S, G, R, ctx } = cfg, px=R+G+x*(S+G), py=R+G+y*(S+G);
+        if (y===currentRow) { ctx.strokeStyle="#db2777"; ctx.lineWidth=3; ctx.stroke(); }
+        else { ctx.fillStyle="rgba(255,255,255,0.75)"; ctx.fillRect(px,py,S,S); }
+    }
+    function drawGridCells(cfg: DrawConfig, grid: number[], cols: number): void {
+        grid.forEach((ci,idx) => {
+            const x=idx%cols, y=Math.floor(idx/cols);
+            drawCell(cfg, ci, x, y);
+            if (currentRow !== -1) highlightRow(cfg, x, y);
+        });
+    }
+    function prepareDrawConfig(cols: number, rows: number, palette: number[][]): DrawConfig | null {
+        if (!patternCanvas) return null;
+        const S = 25, G = 2, R = (rulersToggle?.checked) ? 25 : 0;
         patternCanvas.width = cols*(S+G)+G+R;
         patternCanvas.height = rows*(S+G)+G+R;
         const ctx = patternCanvas.getContext("2d");
-        if (!ctx) return;
-        ctx.fillStyle = "#fff"; ctx.fillRect(0,0,patternCanvas.width,patternCanvas.height);
-        if (rulers) {
-            ctx.fillStyle="#64748b"; ctx.font="10px monospace"; ctx.textAlign="center"; ctx.textBaseline="middle";
-            for (let i=0;i<cols;i++) if ((i+1)%5===0||i===0) ctx.fillText((i+1).toString(), R+G+i*(S+G)+S/2, R/2);
-            for (let j=0;j<rows;j++) if ((j+1)%5===0||j===0) ctx.fillText((j+1).toString(), R/2, R+G+j*(S+G)+S/2);
-            ctx.strokeStyle="#e2e8f0"; ctx.lineWidth=1; ctx.beginPath();
-            ctx.moveTo(R,0); ctx.lineTo(R,patternCanvas.height);
-            ctx.moveTo(0,R); ctx.lineTo(patternCanvas.width,R); ctx.stroke();
-        }
-        grid.forEach((ci,idx) => {
-            const x=idx%cols, y=Math.floor(idx/cols);
-            const px=R+G+x*(S+G), py=R+G+y*(S+G);
-            const c=palette[ci] ?? [0,0,0];
-            ctx.fillStyle = symbols ? "#fff" : `rgb(${c[0]},${c[1]},${c[2]})`;
-            if (symbols) { ctx.strokeStyle="#cbd5e1"; ctx.lineWidth=1; }
-            ctx.beginPath();
-            const rCtx = ctx as RoundCtx;
-            if (rCtx.roundRect) rCtx.roundRect(px,py,S,S,4); else ctx.rect(px,py,S,S);
-            ctx.fill();
-            if (symbols) {
-                ctx.stroke();
-                ctx.fillStyle="#000"; ctx.font="bold 14px sans-serif"; ctx.textAlign="center"; ctx.textBaseline="middle";
-                ctx.fillText(SYMBOLS[ci%SYMBOLS.length], px+S/2, py+S/2+1);
-            }
-            if (currentRow !== -1) {
-                if (y===currentRow) { ctx.strokeStyle="#db2777"; ctx.lineWidth=3; ctx.stroke(); }
-                else { ctx.fillStyle="rgba(255,255,255,0.75)"; ctx.fillRect(px,py,S,S); }
-            }
-        });
+        return ctx ? { S, G, R, ctx, cols, rows, palette, symbols: symbolsToggle?.checked || false } : null;
     }
-
+    function drawGrid() {
+        if (!lastData.grid?.length) return;
+        const { grid, cols, rows, palette } = lastData;
+        const cfg = prepareDrawConfig(cols, rows, palette);
+        if (!cfg) return;
+        cfg.ctx.fillStyle = "#fff"; cfg.ctx.fillRect(0,0,cfg.ctx.canvas.width,cfg.ctx.canvas.height);
+        if (cfg.R > 0) drawRulers(cfg);
+        drawGridCells(cfg, grid, cols);
+    }
     function displayPalette(palette: number[][]) {
         if (!paletteGrid) return;
         paletteGrid.innerHTML = "";
@@ -310,7 +338,6 @@ import './style.css';
         const blob = await zip.generateAsync({ type: "blob" });
         const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `${base}.zip`; a.click();
     });
-
     function generateLegendCanvas(): HTMLCanvasElement {
         const { palette } = lastData;
         const c = document.createElement("canvas"), ctx = c.getContext("2d");
@@ -340,7 +367,6 @@ import './style.css';
         });
         return c;
     }
-
     focusPrevBtn?.addEventListener("click", () => { currentRow = currentRow > -1 ? currentRow-1 : totalRows-1; if (focusDisplay) focusDisplay.textContent = currentRow===-1?"--":(currentRow+1).toString(); drawGrid(); });
     focusNextBtn?.addEventListener("click", () => { currentRow = currentRow < totalRows-1 ? currentRow+1 : -1; if (focusDisplay) focusDisplay.textContent = currentRow===-1?"--":(currentRow+1).toString(); drawGrid(); });
 </script>

@@ -1,5 +1,5 @@
 .synesthesia-painter {
-  --sp-bg: #ffffff;
+  --sp-bg: #fff;
   --sp-bg-muted: #f8fafc;
   --sp-text: #0f172a;
   --sp-text-muted: #475569;
@@ -7,7 +7,7 @@
   --sp-border: #e2e8f0;
   --sp-shadow: rgba(0, 0, 0, 0.08);
   --sp-primary: #6366f1;
-  --sp-primary-on: #ffffff;
+  --sp-primary-on: #fff;
   --sp-header-bg: rgba(255, 255, 255, 0.92);
 }
 
@@ -35,7 +35,7 @@
   overflow: hidden;
 }
 
-/* ── Mode selector ── */
+/* ── mode selector ── */
 .synesthesia-painter-header {
   position: absolute;
   top: 1rem;
@@ -76,7 +76,7 @@
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);
 }
 
-/* ── Canvas area ── */
+/* ── canvas area ── */
 .synesthesia-painter-canvas-wrapper {
   position: relative;
   flex-grow: 1;
@@ -136,7 +136,7 @@
   font-style: italic;
 }
 
-/* ── Footer ── */
+/* ── footer ── */
 .synesthesia-painter-footer {
   background-color: var(--sp-bg-muted);
   border-top: 1px solid var(--sp-border);
@@ -174,7 +174,7 @@
   color: #ef4444;
 }
 
-/* ── Characters ── */
+/* ── characters ── */
 .synesthesia-painter-char {
   display: inline-block;
   color: var(--char-color);
@@ -183,11 +183,18 @@
 }
 
 @keyframes sp-fade-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translate-y(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate-y(0);
+  }
 }
 
-/* Mode: dots */
+/* mode: dots */
 .synesthesia-painter-viz-layer.dots .synesthesia-painter-char {
   color: transparent;
   font-size: 0;
@@ -199,7 +206,7 @@
   box-shadow: 0 0 8px var(--char-color);
 }
 
-/* Mode: aura */
+/* mode: aura */
 .synesthesia-painter-viz-layer.aura .synesthesia-painter-char {
   color: rgba(255, 255, 255, 0.15);
   text-shadow: 0 0 18px var(--char-color), 0 0 36px var(--char-color);
@@ -210,7 +217,7 @@
   text-shadow: 0 0 14px var(--char-color), 0 0 28px var(--char-color), 0 0 56px var(--char-color);
 }
 
-/* Cursor */
+/* cursor */
 .synesthesia-painter-cursor {
   display: inline-block;
   width: 2px;

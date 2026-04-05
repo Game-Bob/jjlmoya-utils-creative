@@ -3,7 +3,7 @@ import type { BeadPatternGeneratorLocaleContent } from '../index';
 export const content: BeadPatternGeneratorLocaleContent = {
   slug: 'bead-pattern-generator',
   title: 'Pattern Generator',
-  description: 'Create pixel art and bead schemes for Miyuki or Hama from your photos.',
+  description: 'Create pixel art and bead schemes for Miyuki or Hama from your photos. Color quantization algorithm, tunnel vision mode, and ZIP export.',
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Artisan Bibliography',
   ui: {
@@ -17,11 +17,45 @@ export const content: BeadPatternGeneratorLocaleContent = {
     bibliographyTitle: 'References'
   },
   seo: [
-    { type: 'title', text: 'The Art of Miyuki and Hama Beads', level: 2 },
-    { type: 'paragraph', html: 'Creating patterns by hand can be tedious. Our tool uses color quantization algorithms to convert any image into a manageable bead scheme.' }
+    { type: 'title', text: 'Digital Alchemy: Transmute Pixels into Tangible Art', level: 2 },
+    { type: 'paragraph', html: 'Welcome to the <strong>Ultimate Pattern Studio</strong>. A <em>chromatic intelligence engine</em> designed for Pixel Art architects, Miyuki masters, and cross-stitch visionaries. Your bridge between the digital and the handmade.' },
+    { type: 'card', icon: 'mdi:grid', title: 'The Intelligent Grid', html: 'Our <strong>spatial subsampling</strong> algorithm does not just "shrink" your image. It analyzes the visual structure to map complex pixel groups to individual cells, preserving the integrity of silhouettes and edges like an expert illustrator.' },
+    { type: 'card', icon: 'mdi:palette', title: 'K-Means Color Quantization', html: 'We implement a variant of the <strong>K-Means Clustering</strong> algorithm that mathematically finds the "centroid" tones of your image. Astonishing visual fidelity with a minimalist palette of 12, 24 or 32 colors.' },
+    { type: 'title', text: 'Mastery in 3 Steps', level: 3 },
+    { type: 'card', icon: 'mdi:image-search', title: 'The Perfect Selection', html: 'Look for <strong>high contrast</strong>, dramatic lighting and iconic shapes. Portraits with clean backgrounds, logos, and vector art translate beautifully.' },
+    { type: 'card', icon: 'mdi:ruler', title: 'Dimensional Calibration', html: '<strong>Miyuki Delica:</strong> 50 beads ≈ 8cm · <strong>Hama Midi:</strong> 50 beads ≈ 25cm · <strong>Cross-Stitch:</strong> 1 cell = 1 stitch.' },
+    { type: 'card', icon: 'mdi:eye-check', title: 'Zen Execution (Tunnel Vision Mode)', html: 'Our <strong>Tunnel Vision</strong> system acts as your personal assistant, dimming visual noise and surgically highlighting only the active row. Absolute concentration.' },
+    { type: 'title', text: 'Infinite Canvases', level: 3 },
+    { type: 'list', items: [
+      '<strong>Textile Jewelry:</strong> Intricate patterns for looms and geometric bracelets.',
+      '<strong>Cross-Stitch:</strong> Modern schemes ready to be embroidered pixel by pixel.',
+      '<strong>Mosaics:</strong> Large-scale murals using simplified ceramic tesserae.',
+      '<strong>Retro Gaming:</strong> 8-bit authentic assets and sprites in seconds.',
+    ]},
+    { type: 'stats', items: [
+      { value: '10–100', label: 'Bead width range', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2–32', label: 'Color palette slots', icon: 'mdi:palette-swatch' },
+      { value: 'K-Means', label: 'Quantization algorithm', icon: 'mdi:function-variant' },
+      { value: 'ZIP', label: 'Export format (pattern + guide)', icon: 'mdi:zip-box' },
+    ], columns: 4 },
+    { type: 'paragraph', html: 'In an era of ephemeral screens, creating something physical is a revolutionary act. This tool does not seek to automate art, but to <strong>empower the artisan</strong>. We give you computational precision so your hands can build lasting legacies.' },
   ],
-  faq: [],
-  bibliography: [],
-  howTo: [],
+  faq: [
+    { question: 'What is color quantization in patterns?', answer: 'It is the process of reducing the thousands of colors in a photo to just a few that correspond to the actual bead colors available (e.g., Miyuki or Hama). We use smart algorithms to maintain visual resemblance with the minimum possible palette.' },
+    { question: 'Can I use this pattern for cross-stitch?', answer: 'Yes, the generator creates a grid chart that is perfectly compatible with cross-stitch. You just need to choose a grid size that matches your fabric (Aida 14, 18, etc.).' },
+    { question: 'What is the difference between Miyuki and Hama Beads?', answer: 'Miyuki Delica beads are very small, precise glass beads for jewelry. Hama Beads are plastic and are fused with an iron. Our tool lets you adjust the aspect ratio so the pattern does not distort depending on the material used.' },
+    { question: 'How does the dithering algorithm work?', answer: 'Dithering creates the illusion of more colors by mixing pixels of different colors in spaced patterns. It helps color gradients look smoother even with a limited bead palette.' },
+  ],
+  bibliography: [
+    { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
+    { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
+    { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
+  ],
+  howTo: [
+    { name: 'Upload a clear image', text: 'Select a photo with good contrast and few small details so the pattern is easier to follow.' },
+    { name: 'Adjust the grid size', text: 'Define how many beads wide and tall your final piece will be. More beads = more detail but more difficulty.' },
+    { name: 'Optimize the color palette', text: 'Reduce the number of colors until they match the beads you have available in your craft kit.' },
+    { name: 'Export the guide scheme', text: 'Generate the final pattern with color codes to use as a reference while assembling your beads on the board or thread.' },
+  ],
   schemas: []
 };

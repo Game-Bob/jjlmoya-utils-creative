@@ -33,6 +33,19 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>Retro Gaming:</strong> Assets y sprites con estética 8-bit auténtica en segundos.',
     ]},
     { type: 'paragraph', html: 'En una era de pantallas efímeras, crear algo físico es un acto revolucionario. Esta herramienta no busca automatizar el arte, sino <strong>empoderar al artesano</strong>. Te damos la precisión computacional para que tus manos puedan construir legados duraderos.' },
+    { type: 'stats', items: [
+      { value: '10–100', label: 'Ancho del patrón (cuentas)', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2–32', label: 'Colores en la paleta', icon: 'mdi:palette-swatch' },
+      { value: 'K-Means', label: 'Algoritmo de cuantización', icon: 'mdi:function-variant' },
+      { value: 'ZIP', label: 'Exportación (patrón + guía)', icon: 'mdi:zip-box' },
+    ], columns: 4 },
+    { type: 'glossary', items: [
+      { term: 'Miyuki Delica', definition: 'Cuentas de cristal japonesas de alta precisión, cilíndricas y uniformes. Ideales para joyería y patrones geométricos complejos.' },
+      { term: 'Hama Beads', definition: 'Cuentas de plástico que se fusionan con calor (plancha). Perfectas para proyectos de pixel art de gran formato.' },
+      { term: 'Cuantización de color', definition: 'Proceso matemático para reducir los miles de colores de una imagen a una paleta limitada, manteniendo la fidelidad visual máxima posible.' },
+      { term: 'Visión de túnel', definition: 'Modo de trabajo fila a fila que oscurece el resto del patrón para ayudar a concentrarse en la fila activa sin errores.' },
+      { term: 'K-Means Clustering', definition: 'Algoritmo de aprendizaje no supervisado que agrupa píxeles por similitud cromática para encontrar los colores "centroide" de la imagen.' },
+    ]},
   ],
   faq: [
     { question: '¿Qué es la cuantización de color en patrones?', answer: 'Es el proceso de reducir los miles de colores de una foto a solo unos pocos que correspondan con los colores reales de las cuentas (ej. Miyuki o Hama). Usamos algoritmos inteligentes para mantener el parecido visual con la mínima paleta posible.' },

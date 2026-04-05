@@ -5,7 +5,6 @@ import './style.css';
 <div id="dice-roller-root" class="dr-root">
   <div class="dr-panel">
 
-    <!-- Selector de dados -->
     <div class="dr-selector">
       <p class="dr-label">Añadir dados a la bolsa</p>
       <div class="dr-dice-grid">
@@ -19,7 +18,6 @@ import './style.css';
       </div>
     </div>
 
-    <!-- Bolsa actual -->
     <div class="dr-pool-section">
       <div class="dr-pool-header">
         <p class="dr-label">Bolsa de dados</p>
@@ -30,7 +28,6 @@ import './style.css';
       </div>
     </div>
 
-    <!-- Modificador -->
     <div class="dr-modifier-section">
       <label class="dr-label" for="dr-modifier">Modificador</label>
       <div class="dr-modifier-controls">
@@ -40,17 +37,14 @@ import './style.css';
       </div>
     </div>
 
-    <!-- Botón de lanzar -->
     <button id="dr-roll-btn" class="dr-roll-btn" disabled>
       <span id="dr-roll-text">Lanzar dados</span>
     </button>
 
   </div>
 
-  <!-- Panel de resultados -->
   <div class="dr-results-panel">
 
-    <!-- Resultado actual -->
     <div class="dr-result-card" id="dr-result-card">
       <div class="dr-result-empty" id="dr-result-empty">
         <p>Añade dados y lanza</p>
@@ -65,7 +59,6 @@ import './style.css';
       </div>
     </div>
 
-    <!-- Historial -->
     <div class="dr-history-section">
       <div class="dr-history-header">
         <span class="dr-label">Historial</span>
@@ -145,23 +138,19 @@ import './style.css';
     renderPool();
   }
 
-  function rollAll(): void {
-    if (pool.length === 0) return;
-
-    rollBtn.classList.add('dr-rolling');
-    setTimeout(() => rollBtn.classList.remove('dr-rolling'), 400);
-
+  function buildRollResult(): { rolls: { sides: number; value: number }[]; sum: number; expr: string } {
     const rolls: { sides: number; value: number }[] = [];
     pool.forEach(({ sides, count }) => {
       for (let i = 0; i < count; i++) {
         rolls.push({ sides, value: Math.floor(Math.random() * sides) + 1 });
       }
     });
-
     const sum = rolls.reduce((acc, r) => acc + r.value, 0) + modifier;
     const expr = pool.map(d => `${d.count}d${d.sides}`).join(' + ') + (modifier !== 0 ? ` ${modifier > 0 ? '+' : ''}${modifier}` : '');
+    return { rolls, sum, expr };
+  }
 
-    // Mostrar resultado
+  function renderRollResult(rolls: { sides: number; value: number }[], sum: number, expr: string): void {
     resultEmpty.style.display = 'none';
     resultContent.style.display = 'flex';
     totalEl.textContent = sum.toString();
@@ -177,8 +166,9 @@ import './style.css';
       pip.innerHTML = `<span class="dr-pip-val">${r.value}</span><span class="dr-pip-die">d${r.sides}</span>`;
       diceResultsEl.appendChild(pip);
     });
+  }
 
-    // Añadir al historial
+  function appendHistory(expr: string, sum: number): void {
     const histEmpty = historyList.querySelector('.dr-history-empty');
     if (histEmpty) histEmpty.remove();
 
@@ -194,7 +184,15 @@ import './style.css';
     historyList.prepend(item);
   }
 
-  // Eventos — dados
+  function rollAll(): void {
+    if (pool.length === 0) return;
+    rollBtn.classList.add('dr-rolling');
+    setTimeout(() => rollBtn.classList.remove('dr-rolling'), 400);
+    const { rolls, sum, expr } = buildRollResult();
+    renderRollResult(rolls, sum, expr);
+    appendHistory(expr, sum);
+  }
+
   document.querySelectorAll('.dr-die-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const sides = parseInt((btn as HTMLElement).dataset.sides ?? '0');
@@ -202,7 +200,6 @@ import './style.css';
     });
   });
 
-  // Quitar dado de bolsa
   poolDisplay.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     if (target.classList.contains('dr-chip-remove')) {
@@ -211,13 +208,11 @@ import './style.css';
     }
   });
 
-  // Vaciar bolsa
   document.getElementById('dr-clear-pool')?.addEventListener('click', () => {
     pool = [];
     renderPool();
   });
 
-  // Modificador
   document.getElementById('dr-mod-inc')?.addEventListener('click', () => {
     modifier++;
     modifierVal.textContent = modifier > 0 ? `+${modifier}` : modifier.toString();
@@ -227,10 +222,8 @@ import './style.css';
     modifierVal.textContent = modifier > 0 ? `+${modifier}` : modifier.toString();
   });
 
-  // Lanzar
   rollBtn.addEventListener('click', rollAll);
 
-  // Limpiar historial
   document.getElementById('dr-clear-history')?.addEventListener('click', () => {
     historyList.innerHTML = '<p class="dr-history-empty">El historial de tiradas aparecerá aquí</p>';
   });

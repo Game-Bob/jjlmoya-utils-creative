@@ -3,7 +3,7 @@ import type { FortuneCookieLocaleContent } from '../index';
 export const content: FortuneCookieLocaleContent = {
   slug: 'fortune-cookie',
   title: 'Fortune Cookie',
-  description: 'Check your daily destiny and discover your lucky numbers.',
+  description: 'Check your daily destiny and discover your lucky numbers. One fortune per day, revealed with a click.',
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Destiny Bibliography',
   ui: {
@@ -47,10 +47,39 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'The Mystery of the Fortune Cookie', level: 2 },
-    { type: 'paragraph', html: 'Ever wondered where these curious cookies come from? Although we associate them with Chinese food, their origin is a fascinating journey between Japan and the United States.' }
+    { type: 'paragraph', html: 'Ever wondered where these curious cookies come from? Although we associate them with Chinese food, their origin is a fascinating journey between Japan and the United States. The fortune cookie as we know it today was likely invented in early 20th-century California, not China — where they are virtually unknown.' },
+    { type: 'tip', title: 'How Our Oracle Works', html: 'Each day you can open one cookie. The system saves your destiny so you remember it for 24 hours. The fortune is stored locally in your browser — completely private, no server involved. Come back tomorrow for a new prediction!' },
+    { type: 'title', text: 'The Philosophy of Oracles', level: 3 },
+    { type: 'paragraph', html: 'Humans have always sought guidance in uncertain times. From the Oracle of Delphi to the I Ching, fortune-telling systems serve a consistent psychological function: they give us permission to <strong>pause and reflect</strong>. A fortune cookie does not predict the future — it prompts you to think about it.' },
+    { type: 'list', items: [
+      '<strong>Ancient China:</strong> The I Ching (Book of Changes, ~1000 BC) used hexagrams to guide decisions and interpret destiny.',
+      '<strong>Classical Greece:</strong> The Oracle of Delphi attracted rulers and citizens alike with cryptic pronouncements interpreted as divine guidance.',
+      '<strong>Modern Japan:</strong> Omikuji fortune slips at Shinto shrines, tied to tree branches, blend fate with ritual.',
+      '<strong>20th-century USA:</strong> Fortune cookies emerged in Japanese-American communities before becoming synonymous with Chinese-American cuisine.',
+    ]},
+    { type: 'stats', items: [
+      { value: '3 billion+', label: 'Fortune cookies made annually', icon: 'mdi:cookie' },
+      { value: '~1000 BC', label: 'I Ching origin', icon: 'mdi:book-open-variant' },
+      { value: '25', label: 'Fortunes in this oracle', icon: 'mdi:star-shooting' },
+      { value: '1/day', label: 'One destiny per day', icon: 'mdi:calendar-today' },
+    ], columns: 4 },
   ],
-  faq: [],
-  bibliography: [],
-  howTo: [],
+  faq: [
+    {
+      question: 'Can I open more than one cookie per day?',
+      answer: 'Destiny only speaks once a day. We save your fortune on the device so it guides you throughout the day.'
+    },
+    {
+      question: 'Are the fortunes randomly generated?',
+      answer: 'Yes — a random fortune is selected each day and saved locally. Each of the 25 fortunes has an equal chance of being chosen, ensuring variety over time.'
+    }
+  ],
+  bibliography: [
+    { name: 'History of the Fortune Cookie', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
+  ],
+  howTo: [
+    { name: 'Break the cookie', text: 'Click repeatedly on the cookie to crack it open.' },
+    { name: 'Read your fortune', text: 'Discover the hidden message inside and your lucky numbers for the day.' }
+  ],
   schemas: []
 };

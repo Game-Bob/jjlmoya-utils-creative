@@ -33,6 +33,18 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'title', text: 'El Origen: De Something Awful al Glitch Art', level: 3 },
     { type: 'paragraph', html: 'Zalgo no nació como un generador, sino como una intervención en tiras cómicas clásicas. El usuario Shmorky, a mediados de los 2000, empezó a deformar personajes como Nancy o Archie, añadiendo manchas y distorsiones. La frase <strong>"He comes"</strong> sellaba el destino de estas obras, anunciando la llegada de una entidad que devoraba la realidad.' },
     { type: 'paragraph', html: 'La transición al texto puro fue un descubrimiento técnico fascinante. Al identificar los caracteres combinados destinados a lenguas con diacríticos complejos, los usuarios de foros aprendieron que podían "apuñalar" las palabras originales, creando esa sensación de sangrado tipográfico tan icónica.' },
+    { type: 'stats', items: [
+      { value: '50', label: 'Diacríticos superiores disponibles', icon: 'mdi:arrow-up-bold' },
+      { value: '23', label: 'Modificadores centrales', icon: 'mdi:minus' },
+      { value: '40', label: 'Diacríticos inferiores disponibles', icon: 'mdi:arrow-down-bold' },
+      { value: '×30', label: 'Multiplicador de intensidad máxima', icon: 'mdi:lightning-bolt' },
+    ], columns: 4 },
+    { type: 'glossary', items: [
+      { term: 'Carácter combinado', definition: 'Punto de código Unicode diseñado para colocarse encima, debajo o a través de un carácter base. Se usa legítimamente en árabe, vietnamita e hindi.' },
+      { term: 'Diacrítico', definition: 'Marca añadida a una letra base para modificar su pronunciación o significado. Zalgo abusa de ellos para crear desbordamiento visual.' },
+      { term: 'Bloque Unicode', definition: 'Rango contiguo de puntos de código Unicode. Los caracteres Zalgo provienen principalmente del bloque "Combining Diacritical Marks" (U+0300–U+036F).' },
+      { term: 'Glitch Art', definition: 'Estética que incorpora intencionalmente errores, artefactos y corrupciones en medios digitales como técnica expresiva.' },
+    ]},
   ],
   faq: [
     { question: '¿Qué es el texto Zalgo?', answer: 'Es un tipo de texto que utiliza caracteres Unicode de combinación (diacríticos) de forma excesiva. Al apilarse verticalmente, estos caracteres "desbordan" su línea original, creando un efecto visual de corrupción, desorden o terror muy popular en la cultura de internet.' },

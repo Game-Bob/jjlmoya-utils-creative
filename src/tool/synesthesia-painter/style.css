@@ -11,18 +11,16 @@
   --sp-header-bg: rgba(255, 255, 255, 0.92);
 }
 
-@media (prefers-color-scheme: dark) {
-  .synesthesia-painter {
-    --sp-bg: #0f172a;
-    --sp-bg-muted: #1e293b;
-    --sp-text: #f8fafc;
-    --sp-text-muted: #94a3b8;
-    --sp-text-dim: #64748b;
-    --sp-border: #334155;
-    --sp-shadow: rgba(0, 0, 0, 0.35);
-    --sp-primary: #818cf8;
-    --sp-header-bg: rgba(30, 41, 59, 0.92);
-  }
+.theme-dark .synesthesia-painter {
+  --sp-bg: #0f172a;
+  --sp-bg-muted: #1e293b;
+  --sp-text: #f8fafc;
+  --sp-text-muted: #94a3b8;
+  --sp-text-dim: #64748b;
+  --sp-border: #334155;
+  --sp-shadow: rgba(0, 0, 0, 0.35);
+  --sp-primary: #818cf8;
+  --sp-header-bg: rgba(30, 41, 59, 0.92);
 }
 
 .synesthesia-painter-card {
@@ -207,11 +205,9 @@
   text-shadow: 0 0 18px var(--char-color), 0 0 36px var(--char-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  .synesthesia-painter-viz-layer.aura .synesthesia-painter-char {
-    color: rgba(255, 255, 255, 0.85);
-    text-shadow: 0 0 14px var(--char-color), 0 0 28px var(--char-color), 0 0 56px var(--char-color);
-  }
+.theme-dark .synesthesia-painter-viz-layer.aura .synesthesia-painter-char {
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 0 14px var(--char-color), 0 0 28px var(--char-color), 0 0 56px var(--char-color);
 }
 
 /* Cursor */

@@ -190,11 +190,12 @@ export default [
         },
     },
     {
-        files: ["**/tool/**/component.astro"],
+        files: ["**/component.astro"],
         rules: {
             "max-lines": "off",
             "max-lines-per-function": "off",
             "complexity": "off",
+            "max-depth": "off",
         },
     },
 ];

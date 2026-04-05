@@ -1,10 +1,5 @@
 ---
 import './style.css';
-import type { BeadPatternGeneratorUI } from './index';
-
-interface Props {
-  ui: BeadPatternGeneratorUI;
-}
 ---
 
 <div class="bead-wrapper">
@@ -109,6 +104,7 @@ interface Props {
 
 <script>
     const SYMBOLS = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    type RoundCtx = CanvasRenderingContext2D & { roundRect?: (...args: number[]) => void };
 
     function simpleQuantize(imageData: ImageData, colorCount: number): number[][] {
         const pixels = imageData.data;
@@ -118,22 +114,24 @@ interface Props {
         }
         if (pixelArray.length === 0) return [];
         const centers: number[][] = [];
-        for (let i = 0; i < colorCount; i++) centers.push(pixelArray[Math.floor(Math.random() * pixelArray.length)]);
+        for (let i = 0; i < colorCount; i++) centers.push(pixelArray[Math.floor(Math.random() * pixelArray.length)] ?? [0,0,0]);
         for (let iter = 0; iter < 5; iter++) {
             const clusters: number[][][] = Array(colorCount).fill(null).map(() => []);
             for (const p of pixelArray) {
                 let minDist = Infinity, idx = 0;
                 for (let c = 0; c < centers.length; c++) {
-                    const d = (p[0]-centers[c][0])**2 + (p[1]-centers[c][1])**2 + (p[2]-centers[c][2])**2;
+                    const cc = centers[c] ?? [0,0,0];
+                    const d = (p[0]-cc[0])**2 + (p[1]-cc[1])**2 + (p[2]-cc[2])**2;
                     if (d < minDist) { minDist = d; idx = c; }
                 }
                 clusters[idx].push(p);
             }
             for (let c = 0; c < colorCount; c++) {
-                if (clusters[c].length > 0) {
+                const cluster = clusters[c] ?? [];
+                if (cluster.length > 0) {
                     let r = 0, g = 0, b = 0;
-                    for (const p of clusters[c]) { r += p[0]; g += p[1]; b += p[2]; }
-                    centers[c] = [Math.floor(r/clusters[c].length), Math.floor(g/clusters[c].length), Math.floor(b/clusters[c].length)];
+                    for (const p of cluster) { r += p[0] ?? 0; g += p[1] ?? 0; b += p[2] ?? 0; }
+                    centers[c] = [Math.floor(r/cluster.length), Math.floor(g/cluster.length), Math.floor(b/cluster.length)];
                 }
             }
         }
@@ -143,7 +141,8 @@ interface Props {
     function findClosestColorIndex(r: number, g: number, b: number, palette: number[][]): number {
         let minDist = Infinity, closestIdx = 0;
         for (let i = 0; i < palette.length; i++) {
-            const d = (r-palette[i][0])**2 + (g-palette[i][1])**2 + (b-palette[i][2])**2;
+            const p = palette[i] ?? [0,0,0];
+            const d = (r-p[0])**2 + (g-p[1])**2 + (b-p[2])**2;
             if (d < minDist) { minDist = d; closestIdx = i; }
         }
         return closestIdx;
@@ -265,11 +264,12 @@ interface Props {
         grid.forEach((ci,idx) => {
             const x=idx%cols, y=Math.floor(idx/cols);
             const px=R+G+x*(S+G), py=R+G+y*(S+G);
-            const c=palette[ci];
+            const c=palette[ci] ?? [0,0,0];
             ctx.fillStyle = symbols ? "#fff" : `rgb(${c[0]},${c[1]},${c[2]})`;
             if (symbols) { ctx.strokeStyle="#cbd5e1"; ctx.lineWidth=1; }
             ctx.beginPath();
-            if ("roundRect" in ctx) (ctx as any).roundRect(px,py,S,S,4); else ctx.rect(px,py,S,S);
+            const rCtx = ctx as RoundCtx;
+            if (rCtx.roundRect) rCtx.roundRect(px,py,S,S,4); else ctx.rect(px,py,S,S);
             ctx.fill();
             if (symbols) {
                 ctx.stroke();
@@ -287,23 +287,22 @@ interface Props {
         if (!paletteGrid) return;
         paletteGrid.innerHTML = "";
         palette.forEach((c, idx) => {
-            const brightness = (c[0]*299+c[1]*587+c[2]*114)/1000;
+            const [r0=0,g0=0,b0=0] = c;
+            const brightness = (r0*299+g0*587+b0*114)/1000;
             const wrap = document.createElement("div"); wrap.className = "bead-palette-item";
             const swatch = document.createElement("div"); swatch.className = "bead-color-swatch";
-            swatch.style.backgroundColor = `rgb(${c[0]},${c[1]},${c[2]})`;
-            swatch.title = `Color ${idx+1}: RGB(${c[0]},${c[1]},${c[2]})`;
+            swatch.style.backgroundColor = `rgb(${r0},${g0},${b0})`;
+            swatch.title = `Color ${idx+1}: RGB(${r0},${g0},${b0})`;
             const sym = document.createElement("span");
             sym.className = "bead-symbol " + (brightness > 128 ? "bead-symbol-dark" : "bead-symbol-light");
-            sym.textContent = SYMBOLS[idx%SYMBOLS.length];
+            sym.textContent = SYMBOLS[idx%SYMBOLS.length] ?? '';
             swatch.appendChild(sym); wrap.appendChild(swatch); paletteGrid.appendChild(wrap);
         });
     }
 
     downloadBtn?.addEventListener("click", async () => {
         if (!patternCanvas || !currentImage) return;
-        let JSZip: any;
-        try { const m = await import("jszip"); JSZip = m.default; }
-        catch { try { const m = await import("https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm"); JSZip = m.default; } catch { alert("Error cargando librería. Recarga la página."); return; } }
+        const { default: JSZip } = await import("jszip");
         const zip = new JSZip();
         const base = currentFileName ? `${currentFileName}_patron_jjlmoya` : "patron_jjlmoya";
         zip.file(`${base}_pattern.webp`, await (await fetch(patternCanvas.toDataURL("image/webp"))).blob());
@@ -324,18 +323,20 @@ interface Props {
         ctx.font="14px sans-serif"; ctx.fillStyle="#64748b"; ctx.fillText(currentFileName||"Sin título", w/2, 50);
         ctx.textAlign="left";
         palette.forEach((col, idx) => {
+            const [r0=0,g0=0,b0=0] = col;
             const y=hh+idx*rh+rh/2;
-            ctx.fillStyle=`rgb(${col[0]},${col[1]},${col[2]})`;
+            ctx.fillStyle=`rgb(${r0},${g0},${b0})`;
             ctx.beginPath();
-            if ("roundRect" in ctx) (ctx as any).roundRect(p, hh+idx*rh+5, 30, 30, 8); else ctx.rect(p, hh+idx*rh+5, 30, 30);
+            const rCtx = ctx as RoundCtx;
+            if (rCtx.roundRect) rCtx.roundRect(p, hh+idx*rh+5, 30, 30, 8); else ctx.rect(p, hh+idx*rh+5, 30, 30);
             ctx.fill(); ctx.strokeStyle="#e2e8f0"; ctx.lineWidth=1; ctx.stroke();
-            const br=(col[0]*299+col[1]*587+col[2]*114)/1000;
+            const br=(r0*299+g0*587+b0*114)/1000;
             ctx.fillStyle=br>128?"#000":"#fff"; ctx.font="bold 16px monospace"; ctx.textAlign="center";
-            ctx.fillText(SYMBOLS[idx%SYMBOLS.length], p+15, y+2);
+            ctx.fillText(SYMBOLS[idx%SYMBOLS.length] ?? '', p+15, y+2);
             ctx.fillStyle="#334155"; ctx.font="bold 16px sans-serif"; ctx.textAlign="left";
             ctx.fillText(`Color ${idx+1}`, p+45, y);
             ctx.fillStyle="#64748b"; ctx.font="14px monospace";
-            ctx.fillText(`RGB(${col[0]},${col[1]},${col[2]})`, p+120, y);
+            ctx.fillText(`RGB(${r0},${g0},${b0})`, p+120, y);
         });
         return c;
     }

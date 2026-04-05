@@ -3,7 +3,7 @@ import type { ZalgoGeneratorLocaleContent } from '../index';
 export const content: ZalgoGeneratorLocaleContent = {
   slug: 'zalgo-generator',
   title: 'Zalgo Generator',
-  description: 'Corrupt your messages with cascading overflowing Unicode characters.',
+  description: 'Corrupt your messages with cascading overflowing Unicode characters. Adjust intensity and direction of the glitch effect.',
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Chaos Bibliography',
   ui: {
@@ -18,11 +18,43 @@ export const content: ZalgoGeneratorLocaleContent = {
     bibliographyTitle: 'References'
   },
   seo: [
-    { type: 'title', text: 'H̷E̵ ̸C̸O̵M̷E̴S̸: The Origin of Zalgo', level: 2 },
-    { type: 'paragraph', html: 'Zalgo is an internet "creepypasta" that represents a malevolent entity capable of corrupting the fabric of reality, manifesting commonly through distorted and visually glitchy text.' }
+    { type: 'title', text: 'What Is Zalgo Text and How Does Visual Corruption Work?', level: 2 },
+    { type: 'paragraph', html: 'Zalgo Text is a form of typographic manipulation that exploits a specific feature of the Unicode standard: <strong>combining characters</strong>. Unlike normal characters, these diacritics take up no horizontal space — they stack vertically on top of the base letter, creating that "digital chaos" or "cosmic horror" aesthetic so popular in internet culture.' },
+    { type: 'title', text: 'Anatomy of the Process', level: 3 },
+    { type: 'paragraph', html: 'Our generator processes each character independently, injecting random bursts of Unicode code points in three distinct vectors: <strong>upper</strong> (diacritics that stack above), <strong>middle</strong> (which pierce through the letter), and <strong>lower</strong> (hanging below).' },
+    { type: 'tip', title: 'Corruption Algorithm', html: 'For each base character, a <code>count = intensity × 30</code> is calculated. That many random diacritics are added in each vector. At intensity 1.5 you can get up to 45 combining characters per letter.' },
+    { type: 'title', text: 'Etiquette and Applications', level: 3 },
+    { type: 'list', items: [
+      '<strong>Social Media:</strong> Grab attention on Instagram or TikTok. Perfect for bios seeking to break with convention.',
+      '<strong>Horror Storytelling:</strong> Dramatize fiction narratives, creepypastas, or simulations of compromised systems.',
+      '<strong>Accessibility:</strong> Warning — Zalgo text is unreadable by screen readers. Use it only as visual decoration, never for critical content.',
+      '<strong>SEO:</strong> Never use Zalgo in core keywords (H1, meta titles). Indexing bots may fail to normalize these characters.',
+    ]},
+    { type: 'title', text: 'The Origin: From Something Awful to Glitch Art', level: 3 },
+    { type: 'paragraph', html: 'Zalgo did not begin as a generator, but as an intervention in classic comic strips. The user Shmorky, in the mid-2000s, began deforming characters like Nancy or Archie, adding stains and distortions. The phrase <strong>"He comes"</strong> sealed the fate of these works, announcing the arrival of an entity that devoured reality.' },
+    { type: 'glossary', items: [
+      { term: 'Combining Character', definition: 'A Unicode code point designed to be placed on top of, below, or through a base character. Used legitimately in languages like Arabic, Vietnamese, and Hindi.' },
+      { term: 'Diacritic', definition: 'A mark added to a base letter to modify its pronunciation or meaning. Zalgo abuses these to create visual overflow.' },
+      { term: 'Unicode Block', definition: 'A contiguous range of Unicode code points. Zalgo characters mostly come from the "Combining Diacritical Marks" block (U+0300–U+036F).' },
+      { term: 'Glitch Art', definition: 'An aesthetic that intentionally incorporates or simulates errors, artifacts, and corruptions in digital media as an expressive technique.' },
+    ]},
   ],
-  faq: [],
-  bibliography: [],
-  howTo: [],
+  faq: [
+    { question: 'What is Zalgo text?', answer: 'It is a type of text that uses Unicode combining characters (diacritics) excessively. When stacked vertically, these characters "overflow" their original line, creating a visual effect of corruption, disorder, or horror popular in internet culture.' },
+    { question: 'Why does Zalgo text look so strange?', answer: 'It exploits a feature of the Unicode standard that allows adding marks above, below, or through a base letter. Since there is no strict limit on how many marks can be added, the text can "invade" lines above or below.' },
+    { question: 'Can I use this text on social media?', answer: 'Yes, most modern platforms (Instagram, Twitter, Discord) support Unicode. However, some networks or devices may filter or truncate excess characters at very high intensity to maintain interface readability.' },
+    { question: 'How can I remove the Zalgo effect from text?', answer: 'To clean corrupted text, you can use JavaScript string normalization or simply paste it into a basic text editor that only accepts plain text. Our tool is purely creative and does not damage the original content.' },
+  ],
+  bibliography: [
+    { name: 'Unicode Standard - Combining Characters', url: 'https://www.unicode.org/standard/principles.html#Combining_Characters' },
+    { name: 'The Zalgo Text Phenomenon', url: 'https://knowyourmeme.com/memes/zalgo' },
+    { name: 'MDN - String normalization', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize' },
+  ],
+  howTo: [
+    { name: 'Write the base message', text: 'Enter the text you want to "corrupt" in the main text box.' },
+    { name: 'Adjust the chaos intensity', text: 'Move the slider to define how many combining characters to stack. Higher intensity = harder to read.' },
+    { name: 'Select the overflow direction', text: 'Choose whether corruption should grow upward, downward, or in all directions simultaneously.' },
+    { name: 'Copy the result', text: 'Click the copy button. The resulting text includes all the invisible bytes needed to maintain the glitch effect.' },
+  ],
   schemas: []
 };

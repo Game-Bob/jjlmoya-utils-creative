@@ -38,6 +38,19 @@ export const content: DiceRollerLocaleContent = {
     { type: 'title', text: 'Integridad aleatoria: ¿son justos los dados digitales?', level: 3 },
     { type: 'paragraph', html: 'El método <code>Math.random()</code> de JavaScript utiliza un algoritmo <strong>xorshift128+</strong> (en los motores V8 modernos), que produce valores pseudoaleatorios con un período de 2¹²⁸. Para los propósitos del juego de mesa y del rol, esta calidad estadística es completamente suficiente. De hecho, supera en uniformidad a un dado físico mal equilibrado. La crítica principal es que no es criptográficamente seguro (no deberías usar <code>Math.random()</code> para claves de seguridad), pero para determinar si tu Ladrón roba con éxito es más que adecuado.' },
     { type: 'tip', title: 'Bolsa de dados y notación estándar', html: 'La notación <strong>XdY+Z</strong> es el estándar de facto en juegos de rol: X dados de Y caras con modificador Z. "3d6+2" significa lanzar tres dados de seis y sumar 2 al total. Nuestra herramienta utiliza esta notación en el historial para que puedas compartir o anotar tus tiradas fácilmente.' },
+    { type: 'stats', items: [
+      { value: '5000 a.C.', label: 'Primeros dados (astrágalos)', icon: 'mdi:history' },
+      { value: '1974', label: 'D&D popularizó el set', icon: 'mdi:sword' },
+      { value: '7 tipos', label: 'Dados estándar de rol', icon: 'mdi:dice-multiple' },
+      { value: '2¹²⁸', label: 'Período del aleatorio JS', icon: 'mdi:function-variant' },
+    ], columns: 4 },
+    { type: 'glossary', items: [
+      { term: 'Crítico', definition: 'Obtener el valor máximo en un dado (ej. sacar 20 en un d20). Normalmente activa efectos especiales de bonificación en la mayoría de sistemas.' },
+      { term: 'Pifia / Nat 1', definition: 'Sacar el valor mínimo (1) en un dado. A menudo resulta en un fallo dramático o consecuencia negativa.' },
+      { term: 'Bolsa de dados', definition: 'Conjunto de dados lanzados simultáneamente. La bolsa en nuestra herramienta muestra cada tipo de dado agrupado por cantidad (ej. 3d6 + 2d8).' },
+      { term: 'Modificador', definition: 'Número fijo que se suma o resta al resultado de un dado, representando la habilidad o atributo de un personaje.' },
+      { term: 'Tirada percentil', definition: 'Tirada usando dos d10 para producir un resultado del 1 al 100, usada en sistemas de habilidades basados en porcentajes.' },
+    ]},
   ],
   faq: [
     {

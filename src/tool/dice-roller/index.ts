@@ -13,6 +13,15 @@ export interface DiceRollerUI {
   clearHistoryBtn: string;
   faqTitle: string;
   bibliographyTitle: string;
+  addDiceLabel: string;
+  bagLabel: string;
+  emptyBagBtn: string;
+  emptyBagText: string;
+  modifierLabel: string;
+  rollManyLabel: string;
+  rollOneLabel: string;
+  preRollText: string;
+  emptyHistoryText: string;
 }
 
 export type DiceRollerLocaleContent = ToolLocaleContent<DiceRollerUI>;

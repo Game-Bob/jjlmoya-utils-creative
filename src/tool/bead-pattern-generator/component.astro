@@ -1,4 +1,11 @@
 ---
+import type { BeadPatternGeneratorUI } from './index';
+
+interface Props {
+  ui: BeadPatternGeneratorUI;
+}
+
+const { ui } = Astro.props;
 ---
 
 <div class="bead-wrapper">
@@ -8,13 +15,13 @@
         <div class="bead-inner">
             <div class="bead-header">
                 <div class="bead-header-title">
-                    <h2>Laboratorio de Patrones</h2>
-                    <p>Ingeniería de color para tus manos</p>
+                    <h2>{ui.title}</h2>
+                    <p>{ui.subtitle}</p>
                 </div>
 
                 <div class="bead-controls">
                     <div class="bead-control-group">
-                        <label class="bead-control-label">Tamaño (Ancho)</label>
+                        <label class="bead-control-label">{ui.gridSizeLabel}</label>
                         <div class="bead-slider-row">
                             <input type="range" id="grid-width" min="10" max="100" value="40" class="bead-slider bead-slider-pink" />
                             <span id="grid-width-value" class="bead-slider-val bead-val-pink">40</span>
@@ -22,7 +29,7 @@
                     </div>
 
                     <div class="bead-control-group">
-                        <label class="bead-control-label">Colores</label>
+                        <label class="bead-control-label">{ui.colorCountLabel}</label>
                         <div class="bead-slider-row">
                             <input type="range" id="color-count" min="2" max="32" value="12" class="bead-slider bead-slider-purple" />
                             <span id="color-count-value" class="bead-slider-val bead-val-purple">12</span>
@@ -30,16 +37,16 @@
                     </div>
 
                     <div class="bead-control-group">
-                        <label class="bead-control-label">Opciones</label>
+                        <label class="bead-control-label">{ui.optionsLabel}</label>
                         <div class="bead-options-row">
                             <label class="bead-checkbox-label">
                                 <input type="checkbox" id="show-rulers" class="bead-checkbox" />
-                                <span>Reglas</span>
+                                <span>{ui.rulersLabel}</span>
                             </label>
                             <div class="bead-divider"></div>
-                            <label class="bead-checkbox-label" title="Patrón Sorpresa">
+                            <label class="bead-checkbox-label" title={ui.symbolsTooltip}>
                                 <input type="checkbox" id="show-symbols" class="bead-checkbox" />
-                                <span>Símbolos</span>
+                                <span>{ui.symbolsLabel}</span>
                             </label>
                         </div>
                     </div>
@@ -48,7 +55,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
-                        <span>Descargar</span>
+                        <span>{ui.downloadBtn}</span>
                     </button>
                 </div>
             </div>
@@ -62,21 +69,21 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3>Carga tu Visión</h3>
-                        <p>y deja que la magia digital ocurra</p>
+                        <h3>{ui.uploadTitle}</h3>
+                        <p>{ui.uploadSubtitle}</p>
                     </div>
                 </div>
 
                 <div id="result-area" class="bead-result bead-hidden">
                     <div class="bead-result-inner">
                         <div class="bead-palette-col">
-                            <h3 class="bead-palette-title">ADN Cromático</h3>
+                            <h3 class="bead-palette-title">{ui.paletteTitle}</h3>
                             <div id="palette-grid" class="bead-palette-grid"></div>
                             <button id="reupload-btn" class="bead-reupload-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                                 </svg>
-                                Cambiar Imagen
+                                {ui.reuploadBtn}
                             </button>
                         </div>
                         <div class="bead-canvas-col">
@@ -86,8 +93,8 @@
 
                     <div class="bead-tunnel-bar">
                         <div>
-                            <h3 class="bead-tunnel-title">Visión de Túnel</h3>
-                            <p class="bead-tunnel-sub">Tu asistente de precisión fila por fila.</p>
+                            <h3 class="bead-tunnel-title">{ui.tunnelVisionTitle}</h3>
+                            <p class="bead-tunnel-sub">{ui.tunnelVisionSubtitle}</p>
                         </div>
                         <div class="bead-tunnel-controls">
                             <button id="focus-prev" class="bead-tunnel-btn">▲</button>
@@ -590,6 +597,7 @@
     min-height: 25rem;
     display: flex;
     flex-direction: column;
+    gap: 3rem;
   }
 
   .bead-drop-zone {
@@ -716,13 +724,13 @@
     gap: 0.5rem;
   }
 
-  .bead-palette-item {
+  :global(.bead-palette-item) {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .bead-color-swatch {
+  :global(.bead-color-swatch) {
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -734,21 +742,21 @@
     justify-content: center;
   }
 
-  :global(.theme-dark) .bead-color-swatch {
+  :global(.theme-dark .bead-color-swatch) {
     border-color: #1f2937;
     outline-color: #374151;
   }
 
-  .bead-symbol {
+  :global(.bead-symbol) {
     font-size: 0.75rem;
     font-weight: 700;
     user-select: none;
   }
-  .bead-symbol-dark {
+  :global(.bead-symbol-dark) {
     color: #000;
   }
 
-  .bead-symbol-light {
+  :global(.bead-symbol-light) {
     color: #fff;
   }
 

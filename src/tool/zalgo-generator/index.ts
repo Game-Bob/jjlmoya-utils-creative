@@ -14,6 +14,17 @@ export interface ZalgoGeneratorUI {
   copied: string;
   faqTitle: string;
   bibliographyTitle: string;
+  configTitle: string;
+  intensity: string;
+  upLabel: string;
+  midLabel: string;
+  downLabel: string;
+  resetBtn: string;
+  warningText: string;
+  previewLabel: string;
+  emptyLabel: string;
+  charLabel: string;
+  noteText: string;
 }
 
 export type ZalgoGeneratorLocaleContent = ToolLocaleContent<ZalgoGeneratorUI>;

@@ -7,10 +7,22 @@ export interface BeadPatternGeneratorUI {
   [key: string]: string;
   title: string;
   description: string;
-  uploadLabel: string;
+  subtitle: string;
   gridSizeLabel: string;
-  pixelateBtn: string;
+  colorCountLabel: string;
+  optionsLabel: string;
+  rulersLabel: string;
+  symbolsTooltip: string;
+  symbolsLabel: string;
   downloadBtn: string;
+  uploadTitle: string;
+  uploadSubtitle: string;
+  paletteTitle: string;
+  reuploadBtn: string;
+  tunnelVisionTitle: string;
+  tunnelVisionSubtitle: string;
+  uploadLabel: string;
+  pixelateBtn: string;
   faqTitle: string;
   bibliographyTitle: string;
 }

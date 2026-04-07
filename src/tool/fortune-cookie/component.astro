@@ -470,25 +470,35 @@ const ASSETS = {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.5);
-  width: 75%;
-  max-width: 280px;
+  width: 85%;
+  max-width: 320px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.2),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1),
+    inset 0 0 20px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-duration: 800ms;
   z-index: 0;
+  overflow: hidden;
 }
 
 .fortune-cookie-paper.visible {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1) rotate(-1deg);
   z-index: 20;
 }
 
 .fortune-cookie-paper-img {
   width: 100%;
-  filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
-  transform: rotate(1deg);
+  height: auto;
+  display: block;
+  opacity: 0.15;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
 .fortune-cookie-paper-content {
@@ -498,23 +508,24 @@ const ASSETS = {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
+  z-index: 10;
 }
 
 .fortune-cookie-text {
-  color: #0f172a;
-  font-weight: 900;
+  color: #1e293b;
+  font-weight: 800;
   font-size: 1.125rem;
-  line-height: 1.25;
+  line-height: 1.4;
   transform: rotate(-1deg);
   user-select: text;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
   .fortune-cookie-text {
     font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }
 
@@ -527,12 +538,12 @@ const ASSETS = {
   transform: rotate(-1deg);
 }
 
-.fortune-cookie-number {
+:global(.fortune-cookie-number) {
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #450a0a;
+  background-color: #f1f5f9;
+  color: #dc2626;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 0.125rem;
@@ -621,7 +632,7 @@ const ASSETS = {
   40%, 60% { transform: translate3d(4px, 0, 0) rotate(4deg); }
 }
 
-.fortune-cookie-crumb {
+:global(.fortune-cookie-crumb) {
   position: absolute;
   width: 20px;
   height: 20px;

@@ -1,11 +1,18 @@
 ---
+import type { DiceRollerUI } from './index';
+
+interface Props {
+  ui: DiceRollerUI;
+}
+
+const { ui } = Astro.props;
 ---
 
-<div id="dice-roller-root" class="dr-root">
+<div id="dice-roller-root" class="dr-root" data-ui={JSON.stringify(ui)}>
   <div class="dr-panel">
 
     <div class="dr-selector">
-      <p class="dr-label">Añadir dados a la bolsa</p>
+      <p class="dr-label">{ui.addDiceLabel}</p>
       <div class="dr-dice-grid">
         <button class="dr-die-btn" data-sides="4">d4</button>
         <button class="dr-die-btn" data-sides="6">d6</button>
@@ -19,16 +26,16 @@
 
     <div class="dr-pool-section">
       <div class="dr-pool-header">
-        <p class="dr-label">Bolsa de dados</p>
-        <button id="dr-clear-pool" class="dr-clear-btn">Vaciar</button>
+        <p class="dr-label">{ui.bagLabel}</p>
+        <button id="dr-clear-pool" class="dr-clear-btn">{ui.emptyBagBtn}</button>
       </div>
       <div id="dr-pool" class="dr-pool-display">
-        <span class="dr-pool-empty">Haz clic en los dados para añadirlos</span>
+        <span class="dr-pool-empty">{ui.emptyBagText}</span>
       </div>
     </div>
 
     <div class="dr-modifier-section">
-      <label class="dr-label" for="dr-modifier">Modificador</label>
+      <label class="dr-label" for="dr-modifier">{ui.modifierLabel}</label>
       <div class="dr-modifier-controls">
         <button id="dr-mod-dec" class="dr-mod-btn">−</button>
         <span id="dr-modifier-val" class="dr-modifier-display">0</span>
@@ -37,7 +44,7 @@
     </div>
 
     <button id="dr-roll-btn" class="dr-roll-btn" disabled>
-      <span id="dr-roll-text">Lanzar dados</span>
+      <span id="dr-roll-text">{ui.rollBtn}</span>
     </button>
 
   </div>
@@ -46,11 +53,11 @@
 
     <div class="dr-result-card" id="dr-result-card">
       <div class="dr-result-empty" id="dr-result-empty">
-        <p>Añade dados y lanza</p>
+        <p>{ui.preRollText}</p>
       </div>
       <div class="dr-result-content" id="dr-result-content" style="display:none">
         <div class="dr-total-area">
-          <span class="dr-total-label">Total</span>
+          <span class="dr-total-label">{ui.totalLabel}</span>
           <span id="dr-total" class="dr-total-val">0</span>
           <span id="dr-roll-expr" class="dr-roll-expr"></span>
         </div>
@@ -60,11 +67,11 @@
 
     <div class="dr-history-section">
       <div class="dr-history-header">
-        <span class="dr-label">Historial</span>
-        <button id="dr-clear-history" class="dr-clear-btn">Limpiar</button>
+        <span class="dr-label">{ui.historyLabel}</span>
+        <button id="dr-clear-history" class="dr-clear-btn">{ui.clearHistoryBtn}</button>
       </div>
       <div id="dr-history-list" class="dr-history-list">
-        <p class="dr-history-empty">El historial de tiradas aparecerá aquí</p>
+        <p class="dr-history-empty">{ui.emptyHistoryText}</p>
       </div>
     </div>
 
@@ -72,6 +79,10 @@
 </div>
 
 <script>
+  import type { DiceRollerUI } from './index';
+  const root = document.getElementById('dice-roller-root') as HTMLElement;
+  const ui = JSON.parse(root.dataset.ui || '{}') as DiceRollerUI;
+
   type Pool = { sides: number; count: number }[];
 
   let pool: Pool = [];
@@ -94,9 +105,9 @@
 
   function renderPool(): void {
     if (pool.length === 0) {
-      poolDisplay.innerHTML = '<span class="dr-pool-empty">Haz clic en los dados para añadirlos</span>';
+      poolDisplay.innerHTML = `<span class="dr-pool-empty">${ui.emptyBagText}</span>`;
       rollBtn.disabled = true;
-      rollText.textContent = 'Lanzar dados';
+      rollText.textContent = ui.rollBtn;
       return;
     }
 
@@ -106,14 +117,15 @@
       chip.className = 'dr-pool-chip';
       chip.innerHTML = `
         <span class="dr-chip-label">${count}d${sides}</span>
-        <button class="dr-chip-remove" data-sides="${sides}" title="Quitar un d${sides}">−</button>
+        <button class="dr-chip-remove" data-sides="${sides}">−</button>
       `;
       poolDisplay.appendChild(chip);
     });
 
     const total = poolTotal();
     rollBtn.disabled = false;
-    rollText.textContent = `Lanzar ${total} dado${total !== 1 ? 's' : ''}`;
+    const label = total === 1 ? ui.rollOneLabel : ui.rollManyLabel;
+    rollText.textContent = label.replace('$COUNT', total.toString());
   }
 
   function addDie(sides: number): void {
@@ -224,7 +236,7 @@
   rollBtn.addEventListener('click', rollAll);
 
   document.getElementById('dr-clear-history')?.addEventListener('click', () => {
-    historyList.innerHTML = '<p class="dr-history-empty">El historial de tiradas aparecerá aquí</p>';
+    historyList.innerHTML = `<p class="dr-history-empty">${ui.emptyHistoryText}</p>`;
   });
 </script>
 
@@ -378,7 +390,7 @@
   font-style: italic;
 }
 
-.dr-pool-chip {
+:global(.dr-pool-chip) {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -388,13 +400,13 @@
   padding: 0.2rem 0.5rem 0.2rem 0.75rem;
 }
 
-.dr-chip-label {
+:global(.dr-chip-label) {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--dr-primary);
 }
 
-.dr-chip-remove {
+:global(.dr-chip-remove) {
   width: 1.125rem;
   height: 1.125rem;
   border-radius: 50%;
@@ -411,7 +423,7 @@
   padding: 0;
 }
 
-.dr-chip-remove:hover {
+:global(.dr-chip-remove:hover) {
   background: var(--dr-primary-dark);
 }
 
@@ -581,7 +593,7 @@
   justify-content: center;
 }
 
-.dr-result-pip {
+:global(.dr-result-pip) {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -594,24 +606,24 @@
   transition: border-color 0.2s;
 }
 
-.dr-pip-max {
+:global(.dr-pip-max) {
   border-color: var(--dr-success);
   background: rgba(16, 185, 129, 0.1);
 }
 
-.dr-pip-min {
+:global(.dr-pip-min) {
   border-color: var(--dr-danger);
   background: rgba(239, 68, 68, 0.1);
 }
 
-.dr-pip-val {
+:global(.dr-pip-val) {
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--dr-text);
   line-height: 1;
 }
 
-.dr-pip-die {
+:global(.dr-pip-die) {
   font-size: 0.65rem;
   color: var(--dr-text-muted);
   font-weight: 600;
@@ -662,7 +674,7 @@
   margin: 1rem 0;
 }
 
-.dr-history-item {
+:global(.dr-history-item) {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
@@ -686,7 +698,7 @@
   }
 }
 
-.dr-hist-expr {
+:global(.dr-hist-expr) {
   color: var(--dr-text-muted);
   font-size: 0.75rem;
   overflow: hidden;
@@ -694,13 +706,13 @@
   white-space: nowrap;
 }
 
-.dr-hist-result {
+:global(.dr-hist-result) {
   font-weight: 800;
   font-size: 1rem;
   color: var(--dr-primary);
 }
 
-.dr-hist-time {
+:global(.dr-hist-time) {
   font-size: 0.7rem;
   color: var(--dr-text-muted);
 }

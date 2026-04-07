@@ -14,7 +14,16 @@ export const content: DiceRollerLocaleContent = {
     historyLabel: 'Historial',
     clearHistoryBtn: 'Limpiar Historial',
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Referencias'
+    bibliographyTitle: 'Referencias',
+    addDiceLabel: 'Añadir dados a la bolsa',
+    bagLabel: 'Bolsa de dados',
+    emptyBagBtn: 'Vaciar',
+    emptyBagText: 'Haz clic en los dados para añadirlos',
+    modifierLabel: 'Modificador',
+    rollManyLabel: 'Lanzar $COUNT dados',
+    rollOneLabel: 'Lanzar $COUNT dado',
+    preRollText: 'Añade dados y lanza',
+    emptyHistoryText: 'El historial de tiradas aparecerá aquí'
   },
   seo: [
     { type: 'title', text: 'El arte de la aleatoriedad: historia y matemáticas de los dados', level: 2 },

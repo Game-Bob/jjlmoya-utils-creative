@@ -1,21 +1,28 @@
 ---
 import { Icon } from 'astro-icon/components';
+import type { ZalgoGeneratorUI } from './index';
+
+interface Props {
+    ui: ZalgoGeneratorUI;
+}
+
+const { ui } = Astro.props;
 ---
 
-<section class="zg-section">
+<section class="zg-section" id="zalgo-generator-root" data-ui={JSON.stringify(ui)}>
     <div class="zg-grid">
         <div class="zg-left">
             <div class="zg-config-card">
                 <div class="zg-config-hover-bg"></div>
                 <h3 class="zg-config-title">
                     <Icon name="mdi:tune-variant" style="width:1.25rem;height:1.25rem;color:#9333ea" />
-                    Configuración
+                    {ui.configTitle}
                 </h3>
 
                 <div class="zg-config-body">
                     <div class="zg-field">
                         <div class="zg-field-header">
-                            <label class="zg-field-label">Intensidad</label>
+                            <label class="zg-field-label">{ui.intensity}</label>
                             <span id="intensity-value" class="zg-intensity-val">50%</span>
                         </div>
                         <input type="range" id="intensity-slider" min="0.1" max="1.5" step="0.1" value="0.5" class="zg-slider" />
@@ -23,21 +30,21 @@ import { Icon } from 'astro-icon/components';
 
                     <div class="zg-toggles">
                         <label class="zg-toggle-row">
-                            <span class="zg-toggle-label">Corrupción Superior</span>
+                            <span class="zg-toggle-label">{ui.upLabel}</span>
                             <div class="zg-switch">
                                 <input type="checkbox" id="opt-up" checked class="zg-switch-input" />
                                 <div class="zg-switch-track"></div>
                             </div>
                         </label>
                         <label class="zg-toggle-row">
-                            <span class="zg-toggle-label">Ruido Central</span>
+                            <span class="zg-toggle-label">{ui.midLabel}</span>
                             <div class="zg-switch">
                                 <input type="checkbox" id="opt-middle" checked class="zg-switch-input" />
                                 <div class="zg-switch-track"></div>
                             </div>
                         </label>
                         <label class="zg-toggle-row">
-                            <span class="zg-toggle-label">Corrupción Inferior</span>
+                            <span class="zg-toggle-label">{ui.downLabel}</span>
                             <div class="zg-switch">
                                 <input type="checkbox" id="opt-down" checked class="zg-switch-input" />
                                 <div class="zg-switch-track"></div>
@@ -47,13 +54,13 @@ import { Icon } from 'astro-icon/components';
 
                     <button id="reset-options" class="zg-reset-btn">
                         <Icon name="mdi:history" style="width:1rem;height:1rem" />
-                        Restablecer Valores
+                        {ui.resetBtn}
                     </button>
                 </div>
             </div>
 
             <div class="zg-warning">
-                <p>ADVERTENCIA: El texto Zalgo utiliza caracteres combinados de Unicode que pueden desbordar visualmente su contenedor. Úsese con precaución en redes sociales.</p>
+                <p>{ui.warningText}</p>
             </div>
         </div>
 
@@ -68,14 +75,14 @@ import { Icon } from 'astro-icon/components';
                 <textarea
                     id="input-text"
                     class="zg-textarea"
-                    placeholder="Escribe aquí el mensaje que deseas corromper..."
+                    placeholder={ui.inputPlaceholder}
                 ></textarea>
                 <div class="zg-editor-footer">
-                    <span id="char-count" class="zg-char-count">0 CARACTERES</span>
+                    <span id="char-count" class="zg-char-count">0 {ui.charLabel}</span>
                     <div class="zg-footer-sep"></div>
                     <button id="copy-btn" class="zg-copy-btn">
                         <Icon name="mdi:content-copy" style="width:1.25rem;height:1.25rem" />
-                        Copiar Resultado
+                        {ui.copyBtn}
                     </button>
                     <button id="clear-btn" class="zg-clear-btn">
                         <Icon name="mdi:trash-can-outline" style="width:1.25rem;height:1.25rem" />
@@ -84,24 +91,28 @@ import { Icon } from 'astro-icon/components';
             </div>
 
             <div class="zg-preview-wrap">
-                <div class="zg-preview-badge">Vista Previa en Tiempo Real</div>
+                <div class="zg-preview-badge">{ui.previewLabel}</div>
                 <div id="fake-ui-body" class="zg-preview-body">
                     <div class="zg-preview-dots"></div>
                     <div id="zalgo-output" class="zg-output">
-                        <span class="zg-output-empty">Vacío</span>
+                        <span class="zg-output-empty">{ui.emptyLabel}</span>
                     </div>
                     <div id="glitch-overlay" class="zg-glitch-overlay">
                         <div class="zg-glitch-line zg-glitch-line-1"></div>
                         <div class="zg-glitch-line zg-glitch-line-2"></div>
                     </div>
                 </div>
-                <p class="zg-preview-note">Nota: Algunos navegadores pueden limitar el renderizado de caracteres combinados</p>
+                <p class="zg-preview-note">{ui.noteText}</p>
             </div>
         </div>
     </div>
 </section>
 
 <script>
+    import type { ZalgoGeneratorUI } from './index';
+    const root = document.getElementById('zalgo-generator-root') as HTMLElement;
+    const ui = JSON.parse(root.dataset.ui || '{}') as ZalgoGeneratorUI;
+
     const UP = ["\u030d","\u030e","\u0304","\u0305","\u033f","\u0311","\u0306","\u0310","\u0352","\u0357","\u0351","\u0307","\u0308","\u030a","\u0342","\u0343","\u0344","\u034a","\u034b","\u034c","\u0303","\u0302","\u030c","\u0350","\u0300","\u0301","\u030b","\u030f","\u0312","\u0313","\u0314","\u033d","\u0309","\u0363","\u0364","\u0365","\u0366","\u0367","\u0368","\u0369","\u036a","\u036b","\u036c","\u036d","\u036e","\u036f","\u033e","\u035b","\u0346","\u031a"];
     const MID = ["\u0315","\u031b","\u0340","\u0341","\u0358","\u0321","\u0322","\u0327","\u0328","\u0334","\u0335","\u0336","\u034f","\u035c","\u035d","\u035e","\u035f","\u0360","\u0362","\u0338","\u0337","\u0361","\u0489"];
     const DOWN = ["\u0316","\u0317","\u0318","\u0319","\u031c","\u031d","\u031e","\u031f","\u0320","\u0324","\u0325","\u0326","\u0329","\u032a","\u032b","\u032c","\u032d","\u032e","\u032f","\u0330","\u0331","\u0332","\u0333","\u0339","\u033a","\u033b","\u033c","\u0345","\u0347","\u0348","\u0349","\u034d","\u034e","\u0353","\u0354","\u0355","\u0356","\u0359","\u035a","\u0323"];
@@ -142,10 +153,10 @@ import { Icon } from 'astro-icon/components';
     function update() {
         const text = input.value;
         const intensity = parseFloat(intensitySlider.value);
-        if (charCount) charCount.textContent = `${text.length} CARACTERES`;
+        if (charCount) charCount.textContent = `${text.length} ${ui.charLabel}`;
         if (intensityValue) intensityValue.textContent = `${Math.round(intensity * 100)}%`;
         if (!text.trim()) {
-            output.innerHTML = '<span class="zg-output-empty">Vacío</span>';
+            output.innerHTML = `<span class="zg-output-empty">${ui.emptyLabel}</span>`;
             glitchOverlay.style.opacity = "0";
             fakeUiBody.style.borderColor = "";
             fakeUiBody.style.boxShadow = "";
@@ -174,10 +185,10 @@ import { Icon } from 'astro-icon/components';
 
     copyBtn?.addEventListener("click", () => {
         const text = output.textContent || "";
-        if (text && text !== "Vacío") {
+        if (text && text !== ui.emptyLabel) {
             navigator.clipboard.writeText(text);
             const orig = copyBtn.innerHTML;
-            copyBtn.innerHTML = "¡Copiado!";
+            copyBtn.innerHTML = ui.copied || '¡Copiado!';
             setTimeout(() => { copyBtn.innerHTML = orig; }, 2000);
         }
     });

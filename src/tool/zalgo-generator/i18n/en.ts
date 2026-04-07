@@ -15,7 +15,18 @@ export const content: ZalgoGeneratorLocaleContent = {
     copyBtn: 'Copy Chaos',
     copied: 'Copied!',
     faqTitle: 'FAQ',
-    bibliographyTitle: 'References'
+    bibliographyTitle: 'References',
+    configTitle: 'Configuration',
+    intensity: 'Intensity',
+    upLabel: 'Upper Corruption',
+    midLabel: 'Middle Noise',
+    downLabel: 'Lower Corruption',
+    resetBtn: 'Reset Values',
+    warningText: 'WARNING: Zalgo text uses combined Unicode characters that may visually overflow their container. Use with caution on social media.',
+    previewLabel: 'Real-time Preview',
+    emptyLabel: 'Empty',
+    charLabel: 'CHARACTERS',
+    noteText: 'Note: Some browsers may limit the rendering of combined characters'
   },
   seo: [
     { type: 'title', text: 'What Is Zalgo Text and How Does Visual Corruption Work?', level: 2 },

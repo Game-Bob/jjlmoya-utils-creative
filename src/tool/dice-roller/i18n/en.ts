@@ -14,7 +14,16 @@ export const content: DiceRollerLocaleContent = {
     historyLabel: 'History',
     clearHistoryBtn: 'Clear History',
     faqTitle: 'FAQ',
-    bibliographyTitle: 'References'
+    bibliographyTitle: 'References',
+    addDiceLabel: 'Add dice to the bag',
+    bagLabel: 'Dice bag',
+    emptyBagBtn: 'Empty',
+    emptyBagText: 'Click the dice to add them',
+    modifierLabel: 'Modifier',
+    rollManyLabel: 'Roll $COUNT dice',
+    rollOneLabel: 'Roll $COUNT die',
+    preRollText: 'Add dice and roll',
+    emptyHistoryText: 'Roll history will appear here'
   },
   seo: [
     { type: 'title', text: 'The Art of Randomness: History and Mathematics of Dice', level: 2 },

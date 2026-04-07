@@ -14,7 +14,16 @@ export const content: DiceRollerLocaleContent = {
     historyLabel: 'Historique',
     clearHistoryBtn: 'Effacer l\'historique',
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Références'
+    bibliographyTitle: 'Références',
+    addDiceLabel: 'Ajouter des dés au sac',
+    bagLabel: 'Sac de dés',
+    emptyBagBtn: 'Vider',
+    emptyBagText: 'Cliquez sur les dés pour les ajouter',
+    modifierLabel: 'Modificateur',
+    rollManyLabel: 'Lancer $COUNT dés',
+    rollOneLabel: 'Lancer $COUNT dé',
+    preRollText: 'Ajoutez des dés et lancez',
+    emptyHistoryText: 'L\'historique des lancers apparaîtra ici'
   },
   seo: [
     { type: 'title', text: 'L\'Art du Hasard : Histoire et Mathématiques des Dés', level: 2 },

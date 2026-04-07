@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
-    "@jjlmoya/utils-shared": "1.0.2",
+    "@jjlmoya/utils-shared": "^1.1.0",
     "astro": "^6.1.2",
     "astro-icon": "^1.1.0"
   },
@@ -46,11 +46,11 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
-    "jszip": "^3.10.1",
     "eslint": "^9.39.4",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-no-comments": "^1.1.10",
     "husky": "^9.1.7",
+    "jszip": "^3.10.1",
     "lint-staged": "^16.4.0",
     "postcss-html": "^1.8.1",
     "schema-dts": "^1.1.2",

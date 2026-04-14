@@ -1,9 +1,77 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { DiceRollerLocaleContent } from '../index';
 
+const slug = 'lanceur-de-des';
+const title = 'Lanceur de Dés';
+const description = 'Un simulateur de dés complet pour vos JdR et jeux de société. Lancez des d4, d6, d8, d10, d12, d20 et d100 avec modificateurs et historique.';
+
+const faq: DiceRollerLocaleContent['faq'] = [
+  {
+    question: 'Comment simuler un lancer avec avantage (D&D) ?',
+    answer: 'Ajoutez deux dés d20 à votre réserve en cliquant deux fois sur le bouton d20. Lors du lancer, observez les deux résultats individuels et gardez le plus élevé. Le total affiché sera la somme, mais vous pouvez voir chaque dé séparément dans le détail du résultat.',
+  },
+  {
+    question: 'Que signifient les couleurs verte ou rouge sur les résultats ?',
+    answer: 'Les résultats en vert indiquent que le dé a obtenu sa valeur maximale possible (un "critique"). Les résultats en rouge indiquent la valeur minimale (un "1", le pire résultat possible). Cela permet de repérer les critiques et les échecs d\'un coup d\'œil.',
+  },
+  {
+    question: 'Puis-je ajouter plusieurs dés du même type ?',
+    answer: 'Oui. Chaque clic sur un dé l\'ajoute à votre réserve. Si vous cliquez trois fois sur le d6, la réserve affichera "3d6". Pour réduire le nombre, cliquez sur le bouton "−" qui apparaît à côté de chaque groupe de dés.',
+  },
+  {
+    question: 'Les dés numériques sont-ils aussi aléatoires que les physiques ?',
+    answer: 'Statistiquement, oui. Les moteurs JavaScript modernes utilisent des algorithmes pseudo-aléatoires (xorshift128+) avec une distribution uniforme de très haute qualité. Un vrai dé physique peut présenter de petites imperfections de fabrication qui biaisent les résultats ; le dé numérique n\'a pas ce problème.',
+  },
+  {
+    question: 'Qu\'est-ce que le d100 et comment est-il utilisé ?',
+    answer: 'Le d100 (ou d%) génère un nombre de 1 à 100 et est utilisé dans les systèmes de jeu basés sur les pourcentages, tels que l\'Appel de Cthulhu ou Warhammer Fantasy. Il représente une "probabilité directe" : si votre compétence en Discrétion est de 65 %, vous devez obtenir 65 ou moins pour réussir.',
+  },
+];
+
+const howTo: DiceRollerLocaleContent['howTo'] = [
+  { name: 'Composer la réserve de dés', text: 'Cliquez sur les boutons des dés (d4, d6, d8...) pour les ajouter à votre réserve. Chaque clic ajoute un dé du type sélectionné. Vous pouvez mélanger différents types dans le même lancer.' },
+  { name: 'Ajuster le modificateur', text: 'Utilisez les boutons "+" et "−" à côté du modificateur pour appliquer des bonus ou des pénalités (comme le modificateur de caractéristique dans D&D). Le modificateur est automatiquement ajouté au total.' },
+  { name: 'Lancer les dés', text: 'Appuyez sur le bouton "Lancer les dés". Le panneau de droite affiche le total final et le détail de chaque dé individuel, avec les critiques (maximum) en vert et les échecs (minimum) en rouge.' },
+  { name: 'Consulter l\'historique', text: 'Chaque lancer est enregistré dans l\'historique avec l\'expression de dés utilisée, le résultat total et l\'heure exacte. Vous pouvez effacer l\'historique avec le bouton correspondant.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
+
 export const content: DiceRollerLocaleContent = {
-  slug: 'lanceur-de-des',
-  title: 'Lanceur de Dés',
-  description: 'Un simulateur de dés complet pour vos JdR et jeux de société. Lancez des d4, d6, d8, d10, d12, d20 et d100 avec modificateurs et historique.',
+  slug,
+  title,
+  description,
   faqTitle: 'Questions Fréquemment Posées',
   bibliographyTitle: 'Bibliographie du Hasard',
   ui: {
@@ -59,38 +127,12 @@ export const content: DiceRollerLocaleContent = {
       { term: 'Lancer Centile', definition: 'Un lancer utilisant deux d10 pour produire un résultat de 1 à 100, utilisé dans les systèmes basés sur les compétences où les capacités sont mesurées en pourcentages.' },
     ]},
   ],
-  faq: [
-    {
-      question: 'Comment simuler un lancer avec avantage (D&D) ?',
-      answer: 'Ajoutez deux dés d20 à votre réserve en cliquant deux fois sur le bouton d20. Lors du lancer, observez les deux résultats individuels et gardez le plus élevé. Le total affiché sera la somme, mais vous pouvez voir chaque dé séparément dans le détail du résultat.',
-    },
-    {
-      question: 'Que signifient les couleurs verte ou rouge sur les résultats ?',
-      answer: 'Les résultats en vert indiquent que le dé a obtenu sa valeur maximale possible (un "critique"). Les résultats en rouge indiquent la valeur minimale (un "1", le pire résultat possible). Cela permet de repérer les critiques et les échecs d\'un coup d\'œil.',
-    },
-    {
-      question: 'Puis-je ajouter plusieurs dés du même type ?',
-      answer: 'Oui. Chaque clic sur un dé l\'ajoute à votre réserve. Si vous cliquez trois fois sur le d6, la réserve affichera "3d6". Pour réduire le nombre, cliquez sur le bouton "−" qui apparaît à côté de chaque groupe de dés.',
-    },
-    {
-      question: 'Les dés numériques sont-ils aussi aléatoires que les physiques ?',
-      answer: 'Statistiquement, oui. Les moteurs JavaScript modernes utilisent des algorithmes pseudo-aléatoires (xorshift128+) avec une distribution uniforme de très haute qualité. Un vrai dé physique peut présenter de petites imperfections de fabrication qui biaisent les résultats ; le dé numérique n\'a pas ce problème.',
-    },
-    {
-      question: 'Qu\'est-ce que le d100 et comment est-il utilisé ?',
-      answer: 'Le d100 (ou d%) génère un nombre de 1 à 100 et est utilisé dans les systèmes de jeu basés sur les pourcentages, tels que l\'Appel de Cthulhu ou Warhammer Fantasy. Il représente une "probabilité directe" : si votre compétence en Discrétion est de 65 %, vous devez obtenir 65 ou moins pour réussir.',
-    },
-  ],
+  faq,
   bibliography: [
     { name: 'D&D Beyond – Règles des mécaniques de dés', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
     { name: 'Roll20 – Table de jeu virtuelle et systèmes de dés', url: 'https://roll20.net/' },
     { name: 'Pathfinder – Référence du système d20', url: 'https://paizo.com/pathfinder' },
   ],
-  howTo: [
-    { name: 'Composer la réserve de dés', text: 'Cliquez sur les boutons des dés (d4, d6, d8...) pour les ajouter à votre réserve. Chaque clic ajoute un dé du type sélectionné. Vous pouvez mélanger différents types dans le même lancer.' },
-    { name: 'Ajuster le modificateur', text: 'Utilisez les boutons "+" et "−" à côté du modificateur pour appliquer des bonus ou des pénalités (comme le modificateur de caractéristique dans D&D). Le modificateur est automatiquement ajouté au total.' },
-    { name: 'Lancer les dés', text: 'Appuyez sur le bouton "Lancer les dés". Le panneau de droite affiche le total final et le détail de chaque dé individuel, avec les critiques (maximum) en vert et les échecs (minimum) en rouge.' },
-    { name: 'Consulter l\'historique', text: 'Chaque lancer est enregistré dans l\'historique avec l\'expression de dés utilisée, le résultat total et l\'heure exacte. Vous pouvez effacer l\'historique avec le bouton correspondant.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

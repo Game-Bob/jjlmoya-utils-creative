@@ -1,9 +1,63 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ExcuseGeneratorLocaleContent } from '../index';
 
+const slug = 'generador-excusas';
+const title = 'Generador de Excusas';
+const description = 'Máquina de azar semántica para librarte de compromisos con estilo.';
+
+const faq: ExcuseGeneratorLocaleContent['faq'] = [
+  {
+    question: '¿Puede este generador salvar mi matrimonio?',
+    answer: 'Aunque no somos terapeutas, evitar esa cena con los suegros utilizando una emergencia técnica plausible puede reducir la tensión significativamente.'
+  },
+  {
+    question: '¿Por qué frases tan surrealistas?',
+    answer: 'La estrategia se basa en la Disonancia Cognitiva. Si dices algo aburrido es comprobable. Si dices algo absurdo, la sorpresa bloquea la capacidad de enfado.'
+  }
+];
+
+const howTo: ExcuseGeneratorLocaleContent['howTo'] = [
+  { name: 'Generar', text: 'Pulsa el botón de generar para crear una nueva excusa.' },
+  { name: 'Copiar', text: 'Haz clic en el botón de copiar para llevar la excusa a tu portapapeles.' }
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
+
 export const content: ExcuseGeneratorLocaleContent = {
-  slug: 'generador-excusas',
-  title: 'Generador de Excusas',
-  description: 'Máquina de azar semántica para librarte de compromisos con estilo.',
+  slug,
+  title,
+  description,
   faqTitle: 'Preguntas Frecuentes',
   bibliographyTitle: 'Bibliografía del Ocio',
   ui: {
@@ -63,22 +117,10 @@ export const content: ExcuseGeneratorLocaleContent = {
       { pro: 'El tono creativo y humorístico difunde la tensión', con: 'No apta para contextos formales o profesionales' },
     ]},
   ],
-  faq: [
-    {
-      question: '¿Puede este generador salvar mi matrimonio?',
-      answer: 'Aunque no somos terapeutas, evitar esa cena con los suegros utilizando una emergencia técnica plausible puede reducir la tensión significativamente.'
-    },
-    {
-      question: '¿Por qué frases tan surrealistas?',
-      answer: 'La estrategia se basa en la Disonancia Cognitiva. Si dices algo aburrido es comprobable. Si dices algo absurdo, la sorpresa bloquea la capacidad de enfado.'
-    }
-  ],
+  faq,
   bibliography: [
     { name: 'Manifesto del Procrastinador', url: 'https://example.com/manifesto' }
   ],
-  howTo: [
-    { name: 'Generar', text: 'Pulsa el botón de generar para crear una nueva excusa.' },
-    { name: 'Copiar', text: 'Haz clic en el botón de copiar para llevar la excusa a tu portapapeles.' }
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

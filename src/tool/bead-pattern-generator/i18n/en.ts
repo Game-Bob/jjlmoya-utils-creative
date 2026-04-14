@@ -1,9 +1,61 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
+const slug = 'bead-pattern-generator';
+const title = 'Pattern Generator';
+const description = 'Create pixel art and bead schemes for Miyuki or Hama from your photos. Color quantization algorithm, tunnel vision mode, and ZIP export.';
+
+const faq: BeadPatternGeneratorLocaleContent['faq'] = [
+  { question: 'What is color quantization in patterns?', answer: 'It is the process of reducing the thousands of colors in a photo to just a few that correspond to the actual bead colors available (e.g., Miyuki or Hama). We use smart algorithms to maintain visual resemblance with the minimum possible palette.' },
+  { question: 'Can I use this pattern for cross-stitch?', answer: 'Yes, the generator creates a grid chart that is perfectly compatible with cross-stitch. You just need to choose a grid size that matches your fabric (Aida 14, 18, etc.).' },
+  { question: 'What is the difference between Miyuki and Hama Beads?', answer: 'Miyuki Delica beads are very small, precise glass beads for jewelry. Hama Beads are plastic and are fused with an iron. Our tool lets you adjust the aspect ratio so the pattern does not distort depending on the material used.' },
+  { question: 'How does the dithering algorithm work?', answer: 'Dithering creates the illusion of more colors by mixing pixels of different colors in spaced patterns. It helps color gradients look smoother even with a limited bead palette.' },
+];
+
+const howTo: BeadPatternGeneratorLocaleContent['howTo'] = [
+  { name: 'Upload a clear image', text: 'Select a photo with good contrast and few small details so the pattern is easier to follow.' },
+  { name: 'Adjust the grid size', text: 'Define how many beads wide and tall your final piece will be. More beads = more detail but more difficulty.' },
+  { name: 'Optimize the color palette', text: 'Reduce the number of colors until they match the beads you have available in your craft kit.' },
+  { name: 'Export the guide scheme', text: 'Generate the final pattern with color codes to use as a reference while assembling your beads on the board or thread.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
+
 export const content: BeadPatternGeneratorLocaleContent = {
-  slug: 'bead-pattern-generator',
-  title: 'Pattern Generator',
-  description: 'Create pixel art and bead schemes for Miyuki or Hama from your photos. Color quantization algorithm, tunnel vision mode, and ZIP export.',
+  slug,
+  title,
+  description,
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Artisan Bibliography',
   ui: {
@@ -52,22 +104,12 @@ export const content: BeadPatternGeneratorLocaleContent = {
     ], columns: 4 },
     { type: 'paragraph', html: 'In an era of ephemeral screens, creating something physical is a revolutionary act. This tool does not seek to automate art, but to <strong>empower the artisan</strong>. We give you computational precision so your hands can build lasting legacies.' },
   ],
-  faq: [
-    { question: 'What is color quantization in patterns?', answer: 'It is the process of reducing the thousands of colors in a photo to just a few that correspond to the actual bead colors available (e.g., Miyuki or Hama). We use smart algorithms to maintain visual resemblance with the minimum possible palette.' },
-    { question: 'Can I use this pattern for cross-stitch?', answer: 'Yes, the generator creates a grid chart that is perfectly compatible with cross-stitch. You just need to choose a grid size that matches your fabric (Aida 14, 18, etc.).' },
-    { question: 'What is the difference between Miyuki and Hama Beads?', answer: 'Miyuki Delica beads are very small, precise glass beads for jewelry. Hama Beads are plastic and are fused with an iron. Our tool lets you adjust the aspect ratio so the pattern does not distort depending on the material used.' },
-    { question: 'How does the dithering algorithm work?', answer: 'Dithering creates the illusion of more colors by mixing pixels of different colors in spaced patterns. It helps color gradients look smoother even with a limited bead palette.' },
-  ],
+  faq,
   bibliography: [
     { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
     { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
     { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
   ],
-  howTo: [
-    { name: 'Upload a clear image', text: 'Select a photo with good contrast and few small details so the pattern is easier to follow.' },
-    { name: 'Adjust the grid size', text: 'Define how many beads wide and tall your final piece will be. More beads = more detail but more difficulty.' },
-    { name: 'Optimize the color palette', text: 'Reduce the number of colors until they match the beads you have available in your craft kit.' },
-    { name: 'Export the guide scheme', text: 'Generate the final pattern with color codes to use as a reference while assembling your beads on the board or thread.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

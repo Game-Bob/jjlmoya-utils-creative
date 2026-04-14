@@ -1,9 +1,77 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
+const slug = 'pintor-sinestesia';
+const title = 'Pintor de Sinestesia';
+const description = 'Visualiza tus palabras en color según la sinestesia grafema-color. Cada letra tiene su propio color, convirtiendo el texto en arte cromático.';
+
+const faq: SynesthesiaPainterLocaleContent['faq'] = [
+  {
+    question: '¿Todos los sinestésicos ven los mismos colores para cada letra?',
+    answer: 'No. Los colores sinestésicos son únicos para cada persona. Existen tendencias estadísticas (la A tiende a ser roja para muchos), pero no hay dos sinestésicos con exactamente la misma paleta. Esta herramienta usa los colores más frecuentemente reportados en estudios de población, no los "correctos".',
+  },
+  {
+    question: '¿Puedo desarrollar sinestesia con el uso continuado de esta herramienta?',
+    answer: 'No en el sentido neurológico estricto. La sinestesia genuina es una característica del sistema nervioso, no una habilidad aprendida. Sin embargo, el uso repetido de asociaciones color-letra sí puede crear memorias asociativas fuertes. Algunos estudios sugieren que practicar con estas asociaciones puede mejorar la memoria de textos.',
+  },
+  {
+    question: '¿Para qué sirve el modo "Aura"?',
+    answer: 'El modo Aura simula cómo algunos sinestésicos describen ver colores "flotando" o "brillando" alrededor de las letras en lugar de estar integrados en ellas. Crea una experiencia visual más atmosférica e inmersiva, especialmente sobre fondo oscuro.',
+  },
+  {
+    question: '¿El modo "Puntos" tiene alguna base científica?',
+    answer: 'Es una abstracción artística. Reduce el texto a su "esencia cromática" eliminando la forma reconocible de las letras. El resultado se parece a visualizaciones de datos cromáticos o a pinturas puntillistas, y permite ver la "firma de color" de un texto sin que el significado interfiera.',
+  },
+  {
+    question: '¿Por qué algunas letras como la I y la O son blancas o negras?',
+    answer: 'En los estudios de sinestesia, las vocales I y O, y la letra W, son frecuentemente descritas como blancas, transparentes o negras. Esta herramienta adapta esos colores al fondo activo: blanco sobre fondo oscuro, negro sobre fondo claro, para garantizar siempre visibilidad.',
+  },
+];
+
+const howTo: SynesthesiaPainterLocaleContent['howTo'] = [
+  { name: 'Escribir el texto', text: 'Haz clic en el área de escritura y empieza a escribir. Cada letra aparecerá coloreada según su asociación sinestésica estadística.' },
+  { name: 'Cambiar el modo de visualización', text: 'Usa los botones de la esquina superior derecha para cambiar entre Letras (texto coloreado), Puntos (círculos de color) y Aura (letras luminosas con halo cromático).' },
+  { name: 'Explorar diferentes textos', text: 'Escribe nombres, palabras en distintos idiomas o frases para descubrir su paleta cromática única. Las palabras largas crean gradientes visuales fascinantes.' },
+  { name: 'Borrar y empezar de nuevo', text: 'Usa el botón "Borrar" en la barra inferior para limpiar el lienzo y explorar un nuevo texto.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
+
 export const content: SynesthesiaPainterLocaleContent = {
-  slug: 'pintor-sinestesia',
-  title: 'Pintor de Sinestesia',
-  description: 'Visualiza tus palabras en color según la sinestesia grafema-color. Cada letra tiene su propio color, convirtiendo el texto en arte cromático.',
+  slug,
+  title,
+  description,
   faqTitle: 'Preguntas Frecuentes',
   bibliographyTitle: 'Bibliografía de la Mente',
   ui: {
@@ -45,38 +113,12 @@ export const content: SynesthesiaPainterLocaleContent = {
       { value: '26+10', label: 'Letras y dígitos coloreados', icon: 'mdi:alphabetical' },
     ], columns: 4 },
   ],
-  faq: [
-    {
-      question: '¿Todos los sinestésicos ven los mismos colores para cada letra?',
-      answer: 'No. Los colores sinestésicos son únicos para cada persona. Existen tendencias estadísticas (la A tiende a ser roja para muchos), pero no hay dos sinestésicos con exactamente la misma paleta. Esta herramienta usa los colores más frecuentemente reportados en estudios de población, no los "correctos".',
-    },
-    {
-      question: '¿Puedo desarrollar sinestesia con el uso continuado de esta herramienta?',
-      answer: 'No en el sentido neurológico estricto. La sinestesia genuina es una característica del sistema nervioso, no una habilidad aprendida. Sin embargo, el uso repetido de asociaciones color-letra sí puede crear memorias asociativas fuertes. Algunos estudios sugieren que practicar con estas asociaciones puede mejorar la memoria de textos.',
-    },
-    {
-      question: '¿Para qué sirve el modo "Aura"?',
-      answer: 'El modo Aura simula cómo algunos sinestésicos describen ver colores "flotando" o "brillando" alrededor de las letras en lugar de estar integrados en ellas. Crea una experiencia visual más atmosférica e inmersiva, especialmente sobre fondo oscuro.',
-    },
-    {
-      question: '¿El modo "Puntos" tiene alguna base científica?',
-      answer: 'Es una abstracción artística. Reduce el texto a su "esencia cromática" eliminando la forma reconocible de las letras. El resultado se parece a visualizaciones de datos cromáticos o a pinturas puntillistas, y permite ver la "firma de color" de un texto sin que el significado interfiera.',
-    },
-    {
-      question: '¿Por qué algunas letras como la I y la O son blancas o negras?',
-      answer: 'En los estudios de sinestesia, las vocales I y O, y la letra W, son frecuentemente descritas como blancas, transparentes o negras. Esta herramienta adapta esos colores al fondo activo: blanco sobre fondo oscuro, negro sobre fondo claro, para garantizar siempre visibilidad.',
-    },
-  ],
+  faq,
   bibliography: [
     { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
     { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
     { name: 'Kandinsky, W. – De lo espiritual en el arte (1911)', url: 'https://es.wikipedia.org/wiki/De_lo_espiritual_en_el_arte' },
   ],
-  howTo: [
-    { name: 'Escribir el texto', text: 'Haz clic en el área de escritura y empieza a escribir. Cada letra aparecerá coloreada según su asociación sinestésica estadística.' },
-    { name: 'Cambiar el modo de visualización', text: 'Usa los botones de la esquina superior derecha para cambiar entre Letras (texto coloreado), Puntos (círculos de color) y Aura (letras luminosas con halo cromático).' },
-    { name: 'Explorar diferentes textos', text: 'Escribe nombres, palabras en distintos idiomas o frases para descubrir su paleta cromática única. Las palabras largas crean gradientes visuales fascinantes.' },
-    { name: 'Borrar y empezar de nuevo', text: 'Usa el botón "Borrar" en la barra inferior para limpiar el lienzo y explorar un nuevo texto.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

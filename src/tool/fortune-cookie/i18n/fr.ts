@@ -1,9 +1,63 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
 
+const slug = 'biscuit-de-la-fortune';
+const title = 'Biscuit de la Fortune';
+const description = 'Consultez votre destin quotidien et découvrez vos numéros de chance. Un biscuit par jour, révélé d\'un simple clic.';
+
+const faq: FortuneCookieLocaleContent['faq'] = [
+  {
+    question: 'Puis-je ouvrir plus d\'un biscuit par jour ?',
+    answer: 'Le destin ne parle qu\'une fois par jour. Nous enregistrons votre fortune sur l\'appareil pour qu\'elle vous guide tout au long de la journée.'
+  },
+  {
+    question: 'Les fortunes sont-elles générées aléatoirement ?',
+    answer: 'Oui — une fortune aléatoire est sélectionnée chaque jour et sauvegardée localement. Chacune des 25 fortunes a une chance égale d\'être choisie, garantissant une variété au fil du temps.'
+  }
+];
+
+const howTo: FortuneCookieLocaleContent['howTo'] = [
+  { name: 'Casser le biscuit', text: 'Cliquez de façon répétée sur le biscuit pour l\'ouvrir.' },
+  { name: 'Lire votre fortune', text: 'Découvrez le message caché à l\'intérieur et vos numéros de chance pour la journée.' }
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
+
 export const content: FortuneCookieLocaleContent = {
-  slug: 'biscuit-de-la-fortune',
-  title: 'Biscuit de la Fortune',
-  description: 'Consultez votre destin quotidien et découvrez vos numéros de chance. Un biscuit par jour, révélé d\'un simple clic.',
+  slug,
+  title,
+  description,
   faqTitle: 'Questions Fréquemment Posées',
   bibliographyTitle: 'Bibliographie du Destin',
   ui: {
@@ -64,22 +118,10 @@ export const content: FortuneCookieLocaleContent = {
       { value: '1/jour', label: 'Un destin par jour', icon: 'mdi:calendar-today' },
     ], columns: 4 },
   ],
-  faq: [
-    {
-      question: 'Puis-je ouvrir plus d\'un biscuit par jour ?',
-      answer: 'Le destin ne parle qu\'une fois par jour. Nous enregistrons votre fortune sur l\'appareil pour qu\'elle vous guide tout au long de la journée.'
-    },
-    {
-      question: 'Les fortunes sont-elles générées aléatoirement ?',
-      answer: 'Oui — une fortune aléatoire est sélectionnée chaque jour et sauvegardée localement. Chacune des 25 fortunes a une chance égale d\'être choisie, garantissant une variété au fil du temps.'
-    }
-  ],
+  faq,
   bibliography: [
     { name: 'Histoire du Fortune Cookie', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
   ],
-  howTo: [
-    { name: 'Casser le biscuit', text: 'Cliquez de façon répétée sur le biscuit pour l\'ouvrir.' },
-    { name: 'Lire votre fortune', text: 'Découvrez le message caché à l\'intérieur et vos numéros de chance pour la journée.' }
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,9 +1,63 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
 
+const slug = 'galleta-fortuna';
+const title = 'Galleta de la Fortuna';
+const description = 'Consulta tu destino diario y descubre tus números de la suerte. Una fortuna al día, revelada con un clic.';
+
+const faq: FortuneCookieLocaleContent['faq'] = [
+  {
+    question: '¿Puedo abrir más de una galleta al día?',
+    answer: 'El destino solo habla una vez al día. Guardamos tu fortuna en el dispositivo para que sea tu guía durante la jornada.'
+  },
+  {
+    question: '¿Las fortunas se generan aleatoriamente?',
+    answer: 'Sí: se selecciona una fortuna aleatoria cada día y se guarda localmente. Las 25 fortunas tienen la misma probabilidad de ser elegidas, asegurando variedad con el tiempo.'
+  }
+];
+
+const howTo: FortuneCookieLocaleContent['howTo'] = [
+  { name: 'Golpear', text: 'Haz clic varias veces sobre la galleta para romperla.' },
+  { name: 'Leer', text: 'Descubre el mensaje oculto en su interior y tus números de la suerte.' }
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
+
 export const content: FortuneCookieLocaleContent = {
-  slug: 'galleta-fortuna',
-  title: 'Galleta de la Fortuna',
-  description: 'Consulta tu destino diario y descubre tus números de la suerte. Una fortuna al día, revelada con un clic.',
+  slug,
+  title,
+  description,
   faqTitle: 'Preguntas Frecuentes',
   bibliographyTitle: 'Bibliografía del Destino',
   ui: {
@@ -69,22 +123,10 @@ export const content: FortuneCookieLocaleContent = {
       { pro: 'Completamente privado, sin datos enviados al servidor', con: 'Solo una fortuna al día (¡diseño intencionado!)' },
     ]},
   ],
-  faq: [
-    {
-      question: '¿Puedo abrir más de una galleta al día?',
-      answer: 'El destino solo habla una vez al día. Guardamos tu fortuna en el dispositivo para que sea tu guía durante la jornada.'
-    },
-    {
-      question: '¿Las fortunas se generan aleatoriamente?',
-      answer: 'Sí: se selecciona una fortuna aleatoria cada día y se guarda localmente. Las 25 fortunas tienen la misma probabilidad de ser elegidas, asegurando variedad con el tiempo.'
-    }
-  ],
+  faq,
   bibliography: [
     { name: 'Historia de la Galleta de la Fortuna', url: 'https://es.wikipedia.org/wiki/Galleta_de_la_fortuna' }
   ],
-  howTo: [
-    { name: 'Golpear', text: 'Haz clic varias veces sobre la galleta para romperla.' },
-    { name: 'Leer', text: 'Descubre el mensaje oculto en su interior y tus números de la suerte.' }
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

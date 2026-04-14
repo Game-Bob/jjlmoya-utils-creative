@@ -1,9 +1,61 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
+const slug = 'zalgo-generator';
+const title = 'Zalgo Generator';
+const description = 'Corrupt your messages with cascading overflowing Unicode characters. Adjust intensity and direction of the glitch effect.';
+
+const faq: ZalgoGeneratorLocaleContent['faq'] = [
+  { question: 'What is Zalgo text?', answer: 'It is a type of text that uses Unicode combining characters (diacritics) excessively. When stacked vertically, these characters "overflow" their original line, creating a visual effect of corruption, disorder, or horror popular in internet culture.' },
+  { question: 'Why does Zalgo text look so strange?', answer: 'It exploits a feature of the Unicode standard that allows adding marks above, below, or through a base letter. Since there is no strict limit on how many marks can be added, the text can "invade" lines above or below.' },
+  { question: 'Can I use this text on social media?', answer: 'Yes, most modern platforms (Instagram, Twitter, Discord) support Unicode. However, some networks or devices may filter or truncate excess characters at very high intensity to maintain interface readability.' },
+  { question: 'How can I remove the Zalgo effect from text?', answer: 'To clean corrupted text, you can use JavaScript string normalization or simply paste it into a basic text editor that only accepts plain text. Our tool is purely creative and does not damage the original content.' },
+];
+
+const howTo: ZalgoGeneratorLocaleContent['howTo'] = [
+  { name: 'Write the base message', text: 'Enter the text you want to "corrupt" in the main text box.' },
+  { name: 'Adjust the chaos intensity', text: 'Move the slider to define how many combining characters to stack. Higher intensity = harder to read.' },
+  { name: 'Select the overflow direction', text: 'Choose whether corruption should grow upward, downward, or in all directions simultaneously.' },
+  { name: 'Copy the result', text: 'Click the copy button. The resulting text includes all the invisible bytes needed to maintain the glitch effect.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
+
 export const content: ZalgoGeneratorLocaleContent = {
-  slug: 'zalgo-generator',
-  title: 'Zalgo Generator',
-  description: 'Corrupt your messages with cascading overflowing Unicode characters. Adjust intensity and direction of the glitch effect.',
+  slug,
+  title,
+  description,
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Chaos Bibliography',
   ui: {
@@ -50,22 +102,12 @@ export const content: ZalgoGeneratorLocaleContent = {
       { term: 'Glitch Art', definition: 'An aesthetic that intentionally incorporates or simulates errors, artifacts, and corruptions in digital media as an expressive technique.' },
     ]},
   ],
-  faq: [
-    { question: 'What is Zalgo text?', answer: 'It is a type of text that uses Unicode combining characters (diacritics) excessively. When stacked vertically, these characters "overflow" their original line, creating a visual effect of corruption, disorder, or horror popular in internet culture.' },
-    { question: 'Why does Zalgo text look so strange?', answer: 'It exploits a feature of the Unicode standard that allows adding marks above, below, or through a base letter. Since there is no strict limit on how many marks can be added, the text can "invade" lines above or below.' },
-    { question: 'Can I use this text on social media?', answer: 'Yes, most modern platforms (Instagram, Twitter, Discord) support Unicode. However, some networks or devices may filter or truncate excess characters at very high intensity to maintain interface readability.' },
-    { question: 'How can I remove the Zalgo effect from text?', answer: 'To clean corrupted text, you can use JavaScript string normalization or simply paste it into a basic text editor that only accepts plain text. Our tool is purely creative and does not damage the original content.' },
-  ],
+  faq,
   bibliography: [
     { name: 'Unicode Standard - Combining Characters', url: 'https://www.unicode.org/standard/principles.html#Combining_Characters' },
     { name: 'The Zalgo Text Phenomenon', url: 'https://knowyourmeme.com/memes/zalgo' },
     { name: 'MDN - String normalization', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize' },
   ],
-  howTo: [
-    { name: 'Write the base message', text: 'Enter the text you want to "corrupt" in the main text box.' },
-    { name: 'Adjust the chaos intensity', text: 'Move the slider to define how many combining characters to stack. Higher intensity = harder to read.' },
-    { name: 'Select the overflow direction', text: 'Choose whether corruption should grow upward, downward, or in all directions simultaneously.' },
-    { name: 'Copy the result', text: 'Click the copy button. The resulting text includes all the invisible bytes needed to maintain the glitch effect.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

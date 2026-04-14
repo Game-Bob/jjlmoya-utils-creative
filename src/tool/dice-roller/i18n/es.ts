@@ -1,9 +1,77 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { DiceRollerLocaleContent } from '../index';
 
+const slug = 'lanzador-dados';
+const title = 'Tirador de Dados';
+const description = 'Simulador de dados virtual con bolsa personalizable, modificadores y historial de tiradas para tus juegos de rol y tablero.';
+
+const faq: DiceRollerLocaleContent['faq'] = [
+  {
+    question: '¿Cómo puedo simular una tirada con ventaja (D&D)?',
+    answer: 'Añade dos dados d20 a la bolsa haciendo clic dos veces en el botón d20. Al lanzar, observa los dos resultados individuales y quédate con el mayor. El total mostrado será la suma, pero puedes ver cada dado por separado en el desglose de resultados.',
+  },
+  {
+    question: '¿Qué significa el color verde o rojo en los resultados?',
+    answer: 'Los resultados en verde indican que ese dado ha sacado su valor máximo posible (un "crítico"). Los resultados en rojo indican el valor mínimo (un "1", el peor resultado posible). Esto facilita identificar críticos y pifias de un vistazo.',
+  },
+  {
+    question: '¿Puedo añadir varios dados del mismo tipo?',
+    answer: 'Sí. Cada clic en un dado lo añade a la bolsa. Si haces clic tres veces en d6, la bolsa mostrará "3d6". Para reducir la cantidad, haz clic en el botón "−" que aparece junto a cada grupo de dados en la bolsa.',
+  },
+  {
+    question: '¿Los dados digitales son tan aleatorios como los físicos?',
+    answer: 'Estadísticamente, sí. Los motores JavaScript modernos usan algoritmos pseudoaleatorios (xorshift128+) con distribución uniforme de muy alta calidad. Un dado físico real puede tener pequeñas imperfecciones de fabricación que sesguen los resultados; el dado digital no tiene ese problema.',
+  },
+  {
+    question: '¿Qué es el d100 y cómo se usa?',
+    answer: 'El d100 (o d%) genera un número del 1 al 100 y se usa en sistemas de juego basados en porcentajes, como Call of Cthulhu o Warhammer Fantasy Roleplay. Representa "probabilidad directa": si tu habilidad de Sigilo es 65%, necesitas sacar 65 o menos para tener éxito.',
+  },
+];
+
+const howTo: DiceRollerLocaleContent['howTo'] = [
+  { name: 'Construir la bolsa de dados', text: 'Haz clic en los botones de dado (d4, d6, d8...) para añadirlos a tu bolsa. Cada clic añade un dado del tipo seleccionado. Puedes mezclar tipos distintos en la misma tirada.' },
+  { name: 'Ajustar el modificador', text: 'Usa los botones "+" y "−" junto al modificador para aplicar bonificaciones o penalizaciones (como el modificador de habilidad en D&D). El modificador se suma automáticamente al total.' },
+  { name: 'Lanzar los dados', text: 'Pulsa el botón "Lanzar dados". El panel derecho muestra el total final y el desglose de cada dado individual, con los críticos (máximo) en verde y las pifias (mínimo) en rojo.' },
+  { name: 'Consultar el historial', text: 'Cada tirada queda registrada en el historial con la expresión de dados usada, el resultado total y la hora exacta. Puedes limpiar el historial con el botón correspondiente.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'es',
+};
+
 export const content: DiceRollerLocaleContent = {
-  slug: 'tirador-dados',
-  title: 'Tirador de Dados',
-  description: 'Simulador de dados virtual con bolsa personalizable, modificadores y historial de tiradas para tus juegos de rol y tablero.',
+  slug,
+  title,
+  description,
   faqTitle: 'Preguntas Frecuentes',
   bibliographyTitle: 'Bibliografía del Azar',
   ui: {
@@ -61,38 +129,12 @@ export const content: DiceRollerLocaleContent = {
       { term: 'Tirada percentil', definition: 'Tirada usando dos d10 para producir un resultado del 1 al 100, usada en sistemas de habilidades basados en porcentajes.' },
     ]},
   ],
-  faq: [
-    {
-      question: '¿Cómo puedo simular una tirada con ventaja (D&D)?',
-      answer: 'Añade dos dados d20 a la bolsa haciendo clic dos veces en el botón d20. Al lanzar, observa los dos resultados individuales y quédate con el mayor. El total mostrado será la suma, pero puedes ver cada dado por separado en el desglose de resultados.',
-    },
-    {
-      question: '¿Qué significa el color verde o rojo en los resultados?',
-      answer: 'Los resultados en verde indican que ese dado ha sacado su valor máximo posible (un "crítico"). Los resultados en rojo indican el valor mínimo (un "1", el peor resultado posible). Esto facilita identificar críticos y pifias de un vistazo.',
-    },
-    {
-      question: '¿Puedo añadir varios dados del mismo tipo?',
-      answer: 'Sí. Cada clic en un dado lo añade a la bolsa. Si haces clic tres veces en d6, la bolsa mostrará "3d6". Para reducir la cantidad, haz clic en el botón "−" que aparece junto a cada grupo de dados en la bolsa.',
-    },
-    {
-      question: '¿Los dados digitales son tan aleatorios como los físicos?',
-      answer: 'Estadísticamente, sí. Los motores JavaScript modernos usan algoritmos pseudoaleatorios (xorshift128+) con distribución uniforme de muy alta calidad. Un dado físico real puede tener pequeñas imperfecciones de fabricación que sesguen los resultados; el dado digital no tiene ese problema.',
-    },
-    {
-      question: '¿Qué es el d100 y cómo se usa?',
-      answer: 'El d100 (o d%) genera un número del 1 al 100 y se usa en sistemas de juego basados en porcentajes, como Call of Cthulhu o Warhammer Fantasy Roleplay. Representa "probabilidad directa": si tu habilidad de Sigilo es 65%, necesitas sacar 65 o menos para tener éxito.',
-    },
-  ],
+  faq,
   bibliography: [
     { name: 'D&D Beyond – Reglas de mecánicas de dados', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
     { name: 'Roll20 – Virtual tabletop y sistemas de dados', url: 'https://roll20.net/' },
     { name: 'Pathfinder – Sistema d20 de referencia', url: 'https://paizo.com/pathfinder' },
   ],
-  howTo: [
-    { name: 'Construir la bolsa de dados', text: 'Haz clic en los botones de dado (d4, d6, d8...) para añadirlos a tu bolsa. Cada clic añade un dado del tipo seleccionado. Puedes mezclar tipos distintos en la misma tirada.' },
-    { name: 'Ajustar el modificador', text: 'Usa los botones "+" y "−" junto al modificador para aplicar bonificaciones o penalizaciones (como el modificador de habilidad en D&D). El modificador se suma automáticamente al total.' },
-    { name: 'Lanzar los dados', text: 'Pulsa el botón "Lanzar dados". El panel derecho muestra el total final y el desglose de cada dado individual, con los críticos (máximo) en verde y las pifias (mínimo) en rojo.' },
-    { name: 'Consultar el historial', text: 'Cada tirada queda registrada en el historial con la expresión de dados usada, el resultado total y la hora exacta. Puedes limpiar el historial con el botón correspondiente.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

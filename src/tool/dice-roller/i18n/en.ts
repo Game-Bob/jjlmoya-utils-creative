@@ -1,9 +1,77 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { DiceRollerLocaleContent } from '../index';
 
+const slug = 'dice-roller';
+const title = 'Dice Roller';
+const description = 'A complete dice simulator for your RPG and board games. Roll d4, d6, d8, d10, d12, d20 and d100 with modifiers and history.';
+
+const faq: DiceRollerLocaleContent['faq'] = [
+  {
+    question: 'How can I simulate a roll with advantage (D&D)?',
+    answer: 'Add two d20 dice to the bag by clicking the d20 button twice. When rolling, observe the two individual results and keep the higher one. The displayed total will be the sum, but you can see each die separately in the result breakdown.',
+  },
+  {
+    question: 'What does the green or red color on results mean?',
+    answer: 'Green results indicate that die rolled its maximum possible value (a "critical"). Red results indicate the minimum value (a "1", the worst possible result). This makes it easy to spot crits and fumbles at a glance.',
+  },
+  {
+    question: 'Can I add multiple dice of the same type?',
+    answer: 'Yes. Each click on a die adds it to the bag. If you click the d6 three times, the bag will show "3d6". To reduce the count, click the "−" button that appears next to each die group in the bag.',
+  },
+  {
+    question: 'Are digital dice as random as physical ones?',
+    answer: 'Statistically, yes. Modern JavaScript engines use pseudorandom algorithms (xorshift128+) with very high quality uniform distribution. A real physical die can have small manufacturing imperfections that bias results; the digital die does not have that problem.',
+  },
+  {
+    question: 'What is the d100 and how is it used?',
+    answer: 'The d100 (or d%) generates a number from 1 to 100 and is used in percentage-based game systems, such as Call of Cthulhu or Warhammer Fantasy Roleplay. It represents "direct probability": if your Stealth skill is 65%, you need to roll 65 or less to succeed.',
+  },
+];
+
+const howTo: DiceRollerLocaleContent['howTo'] = [
+  { name: 'Build the dice pool', text: 'Click the die buttons (d4, d6, d8...) to add them to your pool. Each click adds one die of the selected type. You can mix different types in the same roll.' },
+  { name: 'Adjust the modifier', text: 'Use the "+" and "−" buttons next to the modifier to apply bonuses or penalties (like the ability modifier in D&D). The modifier is automatically added to the total.' },
+  { name: 'Roll the dice', text: 'Press the "Roll Dice" button. The right panel shows the final total and the breakdown of each individual die, with crits (maximum) in green and fumbles (minimum) in red.' },
+  { name: 'Check the history', text: 'Each roll is recorded in the history with the dice expression used, the total result, and the exact time. You can clear the history with the corresponding button.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
+
 export const content: DiceRollerLocaleContent = {
-  slug: 'dice-roller',
-  title: 'Dice Roller',
-  description: 'A complete dice simulator for your RPG and board games. Roll d4, d6, d8, d10, d12, d20 and d100 with modifiers and history.',
+  slug,
+  title,
+  description,
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Chance Bibliography',
   ui: {
@@ -59,38 +127,12 @@ export const content: DiceRollerLocaleContent = {
       { term: 'Percentile Roll', definition: 'A roll using two d10 to produce a result from 1–100, used in skill-based systems where abilities are measured as percentages.' },
     ]},
   ],
-  faq: [
-    {
-      question: 'How can I simulate a roll with advantage (D&D)?',
-      answer: 'Add two d20 dice to the bag by clicking the d20 button twice. When rolling, observe the two individual results and keep the higher one. The displayed total will be the sum, but you can see each die separately in the result breakdown.',
-    },
-    {
-      question: 'What does the green or red color on results mean?',
-      answer: 'Green results indicate that die rolled its maximum possible value (a "critical"). Red results indicate the minimum value (a "1", the worst possible result). This makes it easy to spot crits and fumbles at a glance.',
-    },
-    {
-      question: 'Can I add multiple dice of the same type?',
-      answer: 'Yes. Each click on a die adds it to the bag. If you click the d6 three times, the bag will show "3d6". To reduce the count, click the "−" button that appears next to each die group in the bag.',
-    },
-    {
-      question: 'Are digital dice as random as physical ones?',
-      answer: 'Statistically, yes. Modern JavaScript engines use pseudorandom algorithms (xorshift128+) with very high quality uniform distribution. A real physical die can have small manufacturing imperfections that bias results; the digital die does not have that problem.',
-    },
-    {
-      question: 'What is the d100 and how is it used?',
-      answer: 'The d100 (or d%) generates a number from 1 to 100 and is used in percentage-based game systems, such as Call of Cthulhu or Warhammer Fantasy Roleplay. It represents "direct probability": if your Stealth skill is 65%, you need to roll 65 or less to succeed.',
-    },
-  ],
+  faq,
   bibliography: [
     { name: 'D&D Beyond – Dice mechanics rules', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
     { name: 'Roll20 – Virtual tabletop and dice systems', url: 'https://roll20.net/' },
     { name: 'Pathfinder – d20 System Reference', url: 'https://paizo.com/pathfinder' },
   ],
-  howTo: [
-    { name: 'Build the dice pool', text: 'Click the die buttons (d4, d6, d8...) to add them to your pool. Each click adds one die of the selected type. You can mix different types in the same roll.' },
-    { name: 'Adjust the modifier', text: 'Use the "+" and "−" buttons next to the modifier to apply bonuses or penalties (like the ability modifier in D&D). The modifier is automatically added to the total.' },
-    { name: 'Roll the dice', text: 'Press the "Roll Dice" button. The right panel shows the final total and the breakdown of each individual die, with crits (maximum) in green and fumbles (minimum) in red.' },
-    { name: 'Check the history', text: 'Each roll is recorded in the history with the dice expression used, the total result, and the exact time. You can clear the history with the corresponding button.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

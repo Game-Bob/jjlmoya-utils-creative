@@ -1,9 +1,77 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
+const slug = 'peintre-de-synesthesie';
+const title = 'Peintre de Synesthésie';
+const description = 'Visualisez la couleur des mots selon la synesthésie graphème-couleur. Chaque lettre possède sa propre couleur, transformant le texte en art chromatique.';
+
+const faq: SynesthesiaPainterLocaleContent['faq'] = [
+  {
+    question: 'Tous les synesthètes voient-ils les mêmes couleurs pour chaque lettre ?',
+    answer: 'Non. Les couleurs synesthésiques sont uniques à chaque personne. Il existe des tendances statistiques (le A a tendance à être rouge pour beaucoup), mais aucun couple de synesthètes n\'a exactement la même palette. Cet outil utilise les couleurs les plus fréquemment rapportées dans les études de population, et non les "bonnes" couleurs.',
+  },
+  {
+    question: 'Puis-je développer la synesthésie en utilisant cet outil de manière continue ?',
+    answer: 'Pas au sens neurologique strict. La véritable synesthésie est une caractéristique du système nerveux, pas une compétence acquise. Cependant, l\'utilisation répétée d\'associations couleur-lettre peut créer de forts souvenirs associatifs. Certaines études suggèrent que pratiquer ces associations peut améliorer la mémoire textuelle.',
+  },
+  {
+    question: 'À quoi sert le mode "Aura" ?',
+    answer: 'Le mode Aura simule la façon dont certains synesthètes décrivent voir les couleurs "flotter" ou "rayonner" autour des lettres plutôt qu\'intégrées à celles-ci. Cela crée une expérience visuelle plus atmosphérique et immersive, particulièrement sur un fond sombre.',
+  },
+  {
+    question: 'Le mode "Points" a-t-il une base scientifique ?',
+    answer: 'C\'est une abstraction artistique. Il réduit le texte à son "essence chromatique" en éliminant la forme reconnaissable des lettres. Le résultat ressemble à des visualisations de données chromatiques ou à des peintures pointillistes, et permet de voir la "signature colorée" d\'un texte sans que le sens n\'interfère.',
+  },
+  {
+    question: 'Pourquoi certaines lettres comme I et O sont-elles blanches ou noires ?',
+    answer: 'Dans les études sur la synesthésie, les voyelles I et O, ainsi que la lettre W, sont fréquemment décrites comme blanches, transparentes ou noires. Cet outil adapte ces couleurs au fond actif : blanc sur fond sombre, noir sur fond clair, pour toujours garantir la visibilité.',
+  },
+];
+
+const howTo: SynesthesiaPainterLocaleContent['howTo'] = [
+  { name: 'Écrire du texte', text: 'Cliquez sur la zone d\'écriture et commencez à taper. Chaque lettre apparaîtra colorée selon son association synesthésique statistique.' },
+  { name: 'Changer le mode de visualisation', text: 'Utilisez les boutons en haut à droite pour basculer entre Lettres (texte coloré), Points (cercles de couleur) et Aura (lettres lumineuses avec halos chromatiques).' },
+  { name: 'Explorer différents textes', text: 'Écrivez des noms, des mots dans différentes langues ou des phrases pour découvrir leur palette chromatique unique. Les mots longs créent des dégradés visuels fascinants.' },
+  { name: 'Effacer et recommencer', text: 'Utilisez le bouton "Effacer" dans la barre inférieure pour vider le canevas et explorer un nouveau texte.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
+
 export const content: SynesthesiaPainterLocaleContent = {
-  slug: 'peintre-de-synesthesie',
-  title: 'Peintre de Synesthésie',
-  description: 'Visualisez la couleur des mots selon la synesthésie graphème-couleur. Chaque lettre possède sa propre couleur, transformant le texte en art chromatique.',
+  slug,
+  title,
+  description,
   faqTitle: 'Questions Fréquemment Posées',
   bibliographyTitle: 'Bibliographie de l\'Esprit',
   ui: {
@@ -43,38 +111,12 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'paragraph', html: '<strong>Wassily Kandinsky</strong>, fondateur de l\'expressionnisme abstrait, expérimentait à la fois la synesthésie graphème-couleur et musique-couleur : il entendait les instruments en couleurs (le jaune était une trompette, le bleu profond un violoncelle) et utilisait ces perceptions pour créer sa théorie de l\'art abstrait. En musique, <strong>Alexandre Scriabine</strong> a composé <em>Prométhée : Le Poème du Feu</em> avec une partie pour "clavier à lumières" (tastiera per luce), conçue pour projeter des couleurs correspondant à chaque note.' },
     { type: 'tip', title: 'Palette de Couleurs de cet Outil', html: 'Les attributions de couleurs s\'inspirent des données statistiques les plus courantes dans la littérature scientifique. <strong>A → rouge</strong>, <strong>E → vert</strong>, <strong>I → blanc/noir selon le fond</strong>, <strong>O → noir/blanc</strong>, <strong>U → ambre</strong>. Les consonnes suivent des schémas moins uniformes, mais le contraste avec l\'arrière-plan est toujours privilégié pour garantir la lisibilité.' },
   ],
-  faq: [
-    {
-      question: 'Tous les synesthètes voient-ils les mêmes couleurs pour chaque lettre ?',
-      answer: 'Non. Les couleurs synesthésiques sont uniques à chaque personne. Il existe des tendances statistiques (le A a tendance à être rouge pour beaucoup), mais aucun couple de synesthètes n\'a exactement la même palette. Cet outil utilise les couleurs les plus fréquemment rapportées dans les études de population, et non les "bonnes" couleurs.',
-    },
-    {
-      question: 'Puis-je développer la synesthésie en utilisant cet outil de manière continue ?',
-      answer: 'Pas au sens neurologique strict. La véritable synesthésie est une caractéristique du système nerveux, pas une compétence acquise. Cependant, l\'utilisation répétée d\'associations couleur-lettre peut créer de forts souvenirs associatifs. Certaines études suggèrent que pratiquer ces associations peut améliorer la mémoire textuelle.',
-    },
-    {
-      question: 'À quoi sert le mode "Aura" ?',
-      answer: 'Le mode Aura simule la façon dont certains synesthètes décrivent voir les couleurs "flotter" ou "rayonner" autour des lettres plutôt qu\'intégrées à celles-ci. Cela crée une expérience visuelle plus atmosphérique et immersive, particulièrement sur un fond sombre.',
-    },
-    {
-      question: 'Le mode "Points" a-t-il une base scientifique ?',
-      answer: 'C\'est une abstraction artistique. Il réduit le texte à son "essence chromatique" en éliminant la forme reconnaissable des lettres. Le résultat ressemble à des visualisations de données chromatiques ou à des peintures pointillistes, et permet de voir la "signature colorée" d\'un texte sans que le sens n\'interfère.',
-    },
-    {
-      question: 'Pourquoi certaines lettres comme I et O sont-elles blanches ou noires ?',
-      answer: 'Dans les études sur la synesthésie, les voyelles I et O, ainsi que la lettre W, sont fréquemment décrites comme blanches, transparentes ou noires. Cet outil adapte ces couleurs au fond actif : blanc sur fond sombre, noir sur fond clair, pour toujours garantir la visibilité.',
-    },
-  ],
+  faq,
   bibliography: [
     { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
     { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
     { name: 'Kandinsky, W. – Du Spirituel dans l\'Art (1911)', url: 'https://fr.wikipedia.org/wiki/Du_spirituel_dans_l\'art' },
   ],
-  howTo: [
-    { name: 'Écrire du texte', text: 'Cliquez sur la zone d\'écriture et commencez à taper. Chaque lettre apparaîtra colorée selon son association synesthésique statistique.' },
-    { name: 'Changer le mode de visualisation', text: 'Utilisez les boutons en haut à droite pour basculer entre Lettres (texte coloré), Points (cercles de couleur) et Aura (lettres lumineuses avec halos chromatiques).' },
-    { name: 'Explorer différents textes', text: 'Écrivez des noms, des mots dans différentes langues ou des phrases pour découvrir leur palette chromatique unique. Les mots longs créent des dégradés visuels fascinants.' },
-    { name: 'Effacer et recommencer', text: 'Utilisez le bouton "Effacer" dans la barre inférieure pour vider le canevas et explorer un nouveau texte.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

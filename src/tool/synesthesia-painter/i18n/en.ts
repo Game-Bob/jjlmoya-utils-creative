@@ -1,9 +1,77 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
+const slug = 'synesthesia-painter';
+const title = 'Synesthesia Painter';
+const description = 'Visualize the color of words according to grapheme-color synesthesia. Each letter has its own color, turning text into chromatic art.';
+
+const faq: SynesthesiaPainterLocaleContent['faq'] = [
+  {
+    question: 'Do all synesthetes see the same colors for each letter?',
+    answer: 'No. Synesthetic colors are unique to each person. Statistical tendencies exist (A tends to be red for many), but no two synesthetes have exactly the same palette. This tool uses the colors most frequently reported in population studies, not the "correct" ones.',
+  },
+  {
+    question: 'Can I develop synesthesia by using this tool continuously?',
+    answer: 'Not in the strict neurological sense. Genuine synesthesia is a characteristic of the nervous system, not a learned skill. However, repeated use of color-letter associations can create strong associative memories. Some studies suggest that practicing these associations can improve text memory.',
+  },
+  {
+    question: 'What is the "Aura" mode for?',
+    answer: 'Aura mode simulates how some synesthetes describe seeing colors "floating" or "glowing" around letters rather than integrated into them. It creates a more atmospheric and immersive visual experience, especially on a dark background.',
+  },
+  {
+    question: 'Does the "Dots" mode have any scientific basis?',
+    answer: 'It is an artistic abstraction. It reduces the text to its "chromatic essence" by eliminating the recognizable shape of the letters. The result resembles chromatic data visualizations or pointillist paintings, and allows you to see the "color signature" of a text without meaning interfering.',
+  },
+  {
+    question: 'Why are some letters like I and O white or black?',
+    answer: 'In synesthesia studies, the vowels I and O, and the letter W, are frequently described as white, transparent, or black. This tool adapts those colors to the active background: white on dark background, black on light background, to always guarantee visibility.',
+  },
+];
+
+const howTo: SynesthesiaPainterLocaleContent['howTo'] = [
+  { name: 'Write text', text: 'Click the writing area and start typing. Each letter will appear colored according to its statistical synesthetic association.' },
+  { name: 'Change visualization mode', text: 'Use the buttons in the top right corner to switch between Letters (colored text), Dots (color circles), and Aura (luminous letters with chromatic halos).' },
+  { name: 'Explore different texts', text: 'Write names, words in different languages, or sentences to discover their unique chromatic palette. Long words create fascinating visual gradients.' },
+  { name: 'Clear and start again', text: 'Use the "Clear" button in the bottom bar to wipe the canvas and explore a new text.' },
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
+
 export const content: SynesthesiaPainterLocaleContent = {
-  slug: 'synesthesia-painter',
-  title: 'Synesthesia Painter',
-  description: 'Visualize the color of words according to grapheme-color synesthesia. Each letter has its own color, turning text into chromatic art.',
+  slug,
+  title,
+  description,
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Mind Bibliography',
   ui: {
@@ -43,38 +111,12 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'paragraph', html: '<strong>Wassily Kandinsky</strong>, founder of abstract expressionism, experienced both grapheme-color and music-color synesthesia: he heard instruments in colors (yellow was a trumpet, deep blue a cello) and used these perceptions to create his theory of abstract art. In music, <strong>Alexander Scriabin</strong> composed <em>Prometheus: The Poem of Fire</em> with a part for "tastiera per luce" (light keyboard), designed to project colors corresponding to each note.' },
     { type: 'tip', title: 'Color Palette of This Tool', html: 'The color assignments are inspired by the most common statistical data in scientific literature. <strong>A → red</strong>, <strong>E → green</strong>, <strong>I → white/black depending on background</strong>, <strong>O → black/white</strong>, <strong>U → amber</strong>. Consonants follow less uniform patterns, but contrast with the background is always prioritized to guarantee readability.' },
   ],
-  faq: [
-    {
-      question: 'Do all synesthetes see the same colors for each letter?',
-      answer: 'No. Synesthetic colors are unique to each person. Statistical tendencies exist (A tends to be red for many), but no two synesthetes have exactly the same palette. This tool uses the colors most frequently reported in population studies, not the "correct" ones.',
-    },
-    {
-      question: 'Can I develop synesthesia by using this tool continuously?',
-      answer: 'Not in the strict neurological sense. Genuine synesthesia is a characteristic of the nervous system, not a learned skill. However, repeated use of color-letter associations can create strong associative memories. Some studies suggest that practicing these associations can improve text memory.',
-    },
-    {
-      question: 'What is the "Aura" mode for?',
-      answer: 'Aura mode simulates how some synesthetes describe seeing colors "floating" or "glowing" around letters rather than integrated into them. It creates a more atmospheric and immersive visual experience, especially on a dark background.',
-    },
-    {
-      question: 'Does the "Dots" mode have any scientific basis?',
-      answer: 'It is an artistic abstraction. It reduces the text to its "chromatic essence" by eliminating the recognizable shape of the letters. The result resembles chromatic data visualizations or pointillist paintings, and allows you to see the "color signature" of a text without meaning interfering.',
-    },
-    {
-      question: 'Why are some letters like I and O white or black?',
-      answer: 'In synesthesia studies, the vowels I and O, and the letter W, are frequently described as white, transparent, or black. This tool adapts those colors to the active background: white on dark background, black on light background, to always guarantee visibility.',
-    },
-  ],
+  faq,
   bibliography: [
     { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
     { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
     { name: 'Kandinsky, W. – Concerning the Spiritual in Art (1911)', url: 'https://en.wikipedia.org/wiki/Concerning_the_Spiritual_in_Art' },
   ],
-  howTo: [
-    { name: 'Write text', text: 'Click the writing area and start typing. Each letter will appear colored according to its statistical synesthetic association.' },
-    { name: 'Change visualization mode', text: 'Use the buttons in the top right corner to switch between Letters (colored text), Dots (color circles), and Aura (luminous letters with chromatic halos).' },
-    { name: 'Explore different texts', text: 'Write names, words in different languages, or sentences to discover their unique chromatic palette. Long words create fascinating visual gradients.' },
-    { name: 'Clear and start again', text: 'Use the "Clear" button in the bottom bar to wipe the canvas and explore a new text.' },
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

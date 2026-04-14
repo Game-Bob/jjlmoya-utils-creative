@@ -1,9 +1,63 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
 
+const slug = 'fortune-cookie';
+const title = 'Fortune Cookie';
+const description = 'Check your daily destiny and discover your lucky numbers. One fortune per day, revealed with a click.';
+
+const faq: FortuneCookieLocaleContent['faq'] = [
+  {
+    question: 'Can I open more than one cookie per day?',
+    answer: 'Destiny only speaks once a day. We save your fortune on the device so it guides you throughout the day.'
+  },
+  {
+    question: 'Are the fortunes randomly generated?',
+    answer: 'Yes — a random fortune is selected each day and saved locally. Each of the 25 fortunes has an equal chance of being chosen, ensuring variety over time.'
+  }
+];
+
+const howTo: FortuneCookieLocaleContent['howTo'] = [
+  { name: 'Break the cookie', text: 'Click repeatedly on the cookie to crack it open.' },
+  { name: 'Read your fortune', text: 'Discover the hidden message inside and your lucky numbers for the day.' }
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'en',
+};
+
 export const content: FortuneCookieLocaleContent = {
-  slug: 'fortune-cookie',
-  title: 'Fortune Cookie',
-  description: 'Check your daily destiny and discover your lucky numbers. One fortune per day, revealed with a click.',
+  slug,
+  title,
+  description,
   faqTitle: 'Frequently Asked Questions',
   bibliographyTitle: 'Destiny Bibliography',
   ui: {
@@ -64,22 +118,10 @@ export const content: FortuneCookieLocaleContent = {
       { value: '1/day', label: 'One destiny per day', icon: 'mdi:calendar-today' },
     ], columns: 4 },
   ],
-  faq: [
-    {
-      question: 'Can I open more than one cookie per day?',
-      answer: 'Destiny only speaks once a day. We save your fortune on the device so it guides you throughout the day.'
-    },
-    {
-      question: 'Are the fortunes randomly generated?',
-      answer: 'Yes — a random fortune is selected each day and saved locally. Each of the 25 fortunes has an equal chance of being chosen, ensuring variety over time.'
-    }
-  ],
+  faq,
   bibliography: [
     { name: 'History of the Fortune Cookie', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
   ],
-  howTo: [
-    { name: 'Break the cookie', text: 'Click repeatedly on the cookie to crack it open.' },
-    { name: 'Read your fortune', text: 'Discover the hidden message inside and your lucky numbers for the day.' }
-  ],
-  schemas: []
+  howTo,
+  schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

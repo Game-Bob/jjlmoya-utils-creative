@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ExcuseGeneratorLocaleContent } from '../index';
 
-const slug = 'генератор-отговорок';
+const slug = 'generator-otgovorki';
 const title = 'Генератор отговорок';
 const description = 'Семантическая машина для стильного избавления от обязательств. Мгновенно создавайте сюрреалистичные и неопровержимые отговорки.';
 

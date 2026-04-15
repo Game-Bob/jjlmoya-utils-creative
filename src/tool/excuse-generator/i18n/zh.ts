@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ExcuseGeneratorLocaleContent } from '../index';
 
-const slug = 'excuse-generator-zh';
+const slug = 'excuse-generator';
 const title = '借口生成器';
 const description = '语义化的随机机器，让您有格调地摆脱承诺。瞬间生成超现实且无可辩驳的借口。';
 

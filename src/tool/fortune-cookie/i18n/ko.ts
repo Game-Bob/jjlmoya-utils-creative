@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
 
-const slug = 'online-fortune-cookie-ko';
+const slug = 'fortune-cookie';
 const title = '포춘 쿠키';
 const description = '오늘의 운세를 확인하고 행운의 숫자를 발견하세요. 하루에 하나의 운세를 클릭 한 번으로 확인해보세요.';
 

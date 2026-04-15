@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
-const slug = 'zalgo-generator-ja';
+const slug = 'zalgo-generator';
 const title = 'Zalgoテキスト生成器';
 const description = 'カスケード状に溢れ出すUnicode文字でメッセージを破壊します。グリッチ効果の強さと方向を調整できます。';
 

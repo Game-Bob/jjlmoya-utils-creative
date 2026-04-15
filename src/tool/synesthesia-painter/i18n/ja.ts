@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
-const slug = 'synesthesia-painter-ja';
+const slug = 'synesthesia-painter';
 const title = '共感覚ペインター';
 const description = '書記素-色共感覚に基づき、文字の色を可視化します。各文字が固有の色を持ち、テキストを色彩豊かなアートへと変換します。';
 

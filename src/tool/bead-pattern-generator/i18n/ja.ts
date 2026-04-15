@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
-const slug = 'bead-pattern-generator-ja';
+const slug = 'bead-pattern-generator';
 const title = 'パターンジェネレーター';
 const description = 'あなたの写真から、デリカビーズ（Miyuki）やアイロンビーズ（Hama）のピクセルアートや図案を作成します。減色アルゴリズム、トンネルビジョンモード、ZIPエクスポート機能を搭載。';
 

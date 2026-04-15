@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
-const slug = 'zalgo-generator-ko';
+const slug = 'zalgo-generator';
 const title = '잘고 텍스트 생성기';
 const description = '폭포수처럼 쏟아지는 유니코드 문자로 메시지를 오염시키세요. 글리치 효과의 강도와 방향을 조정할 수 있습니다.';
 

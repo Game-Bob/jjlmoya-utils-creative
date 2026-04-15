@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { DiceRollerLocaleContent } from '../index';
 
-const slug = 'dice-roller-ja';
+const slug = 'dice-roller';
 const title = 'ダイスローラー';
 const description = 'RPGやボードゲームに最適なダイスシミュレーター。d4, d6, d8, d10, d12, d20, d100に対応し、修正値の適用や履歴の確認も可能です。';
 

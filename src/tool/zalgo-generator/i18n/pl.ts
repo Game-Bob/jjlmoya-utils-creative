@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
-const slug = 'generator-zalgo';
+const slug = 'generatory-zalgo';
 const title = 'Generator Zalgo';
 const description = 'Skorumpuj swoje wiadomości kaskadowymi, przelewającymi się znakami Unicode. Dostosuj intensywność i kierunek efektu glitch.';
 

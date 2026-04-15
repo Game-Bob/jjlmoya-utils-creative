@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
 
-const slug = 'fortune-cookie-ja';
+const slug = 'fortune-cookie';
 const title = 'フォーチュンクッキー';
 const description = '一日の運勢を確認し、ラッキーナンバーを見つけましょう。一日に一回、クリックで運勢を占うことができます。';
 

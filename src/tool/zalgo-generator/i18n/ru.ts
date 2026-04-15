@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
-const slug = 'генератор-залго';
+const slug = 'generator-zalgo';
 const title = 'Генератор Залго';
 const description = 'Искажайте свои сообщения с помощью каскадных переливающихся символов Юникода. Настройте интенсивность и направление эффекта глюка.';
 

@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
-const slug = 'bead-pattern-generator-ko';
+const slug = 'bead-pattern-generator';
 const title = '도안 생성기';
 const description = '사진을 사용하여 미유키 또는 하마 비즈를 위한 픽셀 아트 및 도안을 만들어보세요. 색상 양자화 알고리즘, 터널 시야 모드, ZIP 내보내기 기능을 지원합니다.';
 

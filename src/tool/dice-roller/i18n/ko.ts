@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { DiceRollerLocaleContent } from '../index';
 
-const slug = 'dice-roller-ko';
+const slug = 'dice-roller';
 const title = '주사위 굴리기';
 const description = 'RPG 및 보드게임을 위한 완벽한 주사위 시뮬레이터입니다. 수정치 및 기록 기능과 함께 d4, d6, d8, d10, d12, d20, d100을 굴려보세요.';
 

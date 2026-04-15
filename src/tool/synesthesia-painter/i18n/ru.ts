@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
-const slug = 'художник-синестезии';
+const slug = 'khudozhnik-sinestezii';
 const title = 'Художник синестезии';
 const description = 'Визуализируйте цвет слов в соответствии с графемно-цветовой синестезией. Каждая буква имеет свой цвет, превращая текст в хроматическое искусство.';
 

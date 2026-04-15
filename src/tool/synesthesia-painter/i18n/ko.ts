@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
-const slug = 'synesthesia-painter-ko';
+const slug = 'synesthesia-painter';
 const title = '공감각 페인터';
 const description = '음소-색 공감각에 따라 단어의 색상을 시각화합니다. 각 글자는 고유한 색상을 가지며, 텍스트를 색채 예술로 변환합니다.';
 

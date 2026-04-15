@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
 
-const slug = 'печенье-с-предсказанием-онлайн';
+const slug = 'pechenie-s-predskazaniem-online';
 const title = 'Печенье с предсказанием';
 const description = 'Узнайте свою судьбу на сегодня и получите счастливые числа. Одно предсказание в день, доступное по клику.';
 

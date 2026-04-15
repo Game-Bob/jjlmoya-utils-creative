@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ExcuseGeneratorLocaleContent } from '../index';
 
-const slug = 'excuse-generator-ko';
+const slug = 'excuse-generator';
 const title = '핑계 생성기';
 const description = '의무감에서 멋지게 벗어나기 위한 시맨틱 도박기입니다. 초현실적이고 반박할 수 없는 핑계를 즉시 생성하세요.';
 

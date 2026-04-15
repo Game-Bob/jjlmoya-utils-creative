@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
-const slug = 'zalgo-generator-zh';
+const slug = 'zalgo-generator';
 const title = 'Zalgo 文本生成器';
 const description = '使用级联溢出的 Unicode 字符破坏您的信息。调整故障效果的强度和方向。';
 

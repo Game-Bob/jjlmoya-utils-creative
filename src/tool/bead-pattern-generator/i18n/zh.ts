@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
-const slug = 'bead-pattern-generator-zh';
+const slug = 'bead-pattern-generator';
 const title = '串珠图案生成器';
 const description = '根据您的照片生成适用于 Miyuki（米珠）或 Hama（拼拼豆豆）的像素艺术和串珠方案。包含颜色量化算法、隧道视野模式及 ZIP 导出功能。';
 

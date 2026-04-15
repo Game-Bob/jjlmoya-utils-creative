@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { DiceRollerLocaleContent } from '../index';
 
-const slug = 'dice-roller-zh';
+const slug = 'dice-roller';
 const title = '在线掷骰子';
 const description = '一个为您的 RPG 和桌面游戏而设计的全功能骰子模拟器。支持掷 d4、d6、d8、d10、d12、d20 和 d100，并带有修正值和历史记录功能。';
 

@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
-const slug = 'synesthesia-painter-zh';
+const slug = 'synesthesia-painter';
 const title = '联觉绘画家';
 const description = '根据“书记素-色彩联觉”可视化文字颜色。每个字母都有其专属色彩，将文本转化为色度艺术。';
 

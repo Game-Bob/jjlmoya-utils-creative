@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ExcuseGeneratorLocaleContent } from '../index';
 
-const slug = 'excuse-generator-ja';
+const slug = 'excuse-generator';
 const title = '言い訳ジェネレーター';
 const description = '付き合いを華麗にスルーするためのセマンティック・ギャンブルマシン。シュールで反論の余地のない言い訳を瞬時に生成します。';
 

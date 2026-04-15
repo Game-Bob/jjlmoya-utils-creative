@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
 
-const slug = 'fortune-cookie-zh';
+const slug = 'fortune-cookie';
 const title = '幸运饼干';
 const description = '查看您的每日运势并发现您的幸运数字。每天一个在线幸运饼干，一键开启您的预言。';
 

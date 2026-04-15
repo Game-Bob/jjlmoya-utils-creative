@@ -3,7 +3,7 @@ import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'peintre-de-synesthesie';
 const title = 'Peintre de Synesthésie';
-const description = 'Visualisez la couleur des mots selon la synesthésie graphème-couleur. Chaque lettre possède sa propre couleur, transformant le texte en art chromatique.';
+const description = 'Visualisez la couleur des mots selon la synesthésie graphème couleur. Chaque lettre possède sa propre couleur, transformant le texte en art chromatique.';
 
 const faq: SynesthesiaPainterLocaleContent['faq'] = [
   {
@@ -87,7 +87,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     bibliographyTitle: 'Références'
   },
   seo: [
-    { type: 'title', text: 'Qu\'est-ce que la Synesthésie Graphème-Couleur ?', level: 2 },
+    { type: 'title', text: 'Qu\'est-ce que la Synesthésie Graphème Couleur ?', level: 2 },
     { type: 'paragraph', html: 'La <strong>synesthésie</strong> est une condition neurologique dans laquelle la stimulation d\'un sens déclenche automatiquement une réponse dans un autre. La variante la plus étudiée et la plus répandue est la <strong>synesthésie graphème-couleur</strong> : ceux qui en sont atteints perçoivent chaque lettre ou chiffre avec une couleur intrinsèque, constante et vive. Ce n\'est ni de l\'imagination ni une métaphore ; pour un synesthète, la lettre "A" est rouge de la même manière que le feu est chaud. Cet outil applique une <em>palette statistique</em> basée sur les couleurs les plus fréquemment rapportées pour chaque graphème dans les études de population.' },
     { type: 'title', text: 'Neurosciences : La Théorie de l\'Activation Croisée', level: 3 },
     { type: 'paragraph', html: 'Le modèle neurologique le plus largement accepté pour la synesthésie graphème-couleur est l\'<strong>activation croisée</strong>. Les zones du cortex temporal impliquées dans la reconnaissance de la forme des lettres (gyrus fusiforme) sont anatomiquement adjacentes aux régions qui traitent la couleur (zone V4). Chez les personnes synesthètes, il existe une connectivité structurelle ou fonctionnelle accrue entre ces régions, de sorte que la reconnaissance d\'une lettre active également les neurones de la couleur. La recherche par neuro-imagerie fonctionnelle (IRMf) a confirmé que les synesthètes montrent une véritable activation de V4 lors de la lecture d\'un texte, même s\'il est monochromatique.' },

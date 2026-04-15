@@ -26,7 +26,7 @@ describe('Project Titles - Separator Validation', () => {
     ...getFiles(path.join(SRC_DIR, 'category'), ['.ts']),
   ].filter(f => f.includes('i18n'));
 
-  it.each(files)('Verify that titles in %s do not contain | or spaced -', (filePath) => {
+  it.each(files)('Verify that titles in %s do not contain | or -', (filePath) => {
     const content = fs.readFileSync(filePath, 'utf-8');
     const relativePath = path.relative(process.cwd(), filePath);
 
@@ -41,7 +41,7 @@ describe('Project Titles - Separator Validation', () => {
       let match;
       while ((match = pattern.exec(content)) !== null) {
         const title = match[1];
-        if (title.includes('|') || /\s-\s/.test(title)) {
+        if (title.includes('|') || title.includes('-')) {
           findings.push(title);
         }
       }
@@ -49,7 +49,7 @@ describe('Project Titles - Separator Validation', () => {
 
     if (findings.length > 0) {
       const list = findings.map((f) => `  - "${f}"`).join('\n');
-      throw new Error(`Forbidden separators (| or spaced -) found in titles in ${relativePath}:\n${list}`);
+      throw new Error(`Forbidden separators (| or -) found in titles in ${relativePath}:\n${list}`);
     }
   });
 });

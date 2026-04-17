@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { DiceRollerLocaleContent } from '../index';
 
-const slug = 'dice-roller-ru';
+const slug = 'simulator-kostey';
 const title = 'Симулятор костей';
 const description = 'Полный симулятор костей для ваших RPG и настольных игр. Бросайте d4, d6, d8, d10, d12, d20 и d100 с модификаторами и историей.';
 

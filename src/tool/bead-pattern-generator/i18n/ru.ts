@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
-const slug = 'bead-pattern-generator-ru';
+const slug = 'generator-skhem';
 const title = 'Генератор схем';
 const description = 'Создавайте пиксель-арт и схемы для бисероплетения (Miyuki) или термомозаики (Hama) из ваших фотографий. Алгоритм квантования цветов, режим туннельного зрения и экспорт в ZIP.';
 

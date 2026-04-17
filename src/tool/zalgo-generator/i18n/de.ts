@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
-const slug = 'zalgo-generator-de';
+const slug = 'zalgo-textgenerator';
 const title = 'Zalgo Generator';
 const description = 'Korrumpieren Sie Ihre Nachrichten mit kaskadierenden, überlaufenden Unicode-Zeichen. Passen Sie Intensität und Richtung des Glitch-Effekts an.';
 

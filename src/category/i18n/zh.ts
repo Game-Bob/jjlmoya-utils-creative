@@ -1,5 +1,5 @@
 export const content = {
-  slug: 'creativity-leisure-zh',
+  slug: 'creativity-leisure',
   title: '创意与休闲',
   description: '旨在激发灵感、提供娱乐和辅助创造的工具。',
   seo: [

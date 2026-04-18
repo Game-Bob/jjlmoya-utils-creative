@@ -1,5 +1,5 @@
 export const content = {
-  slug: 'creativity-leisure-ja',
+  slug: 'creativity-leisure',
   title: 'クリエイティビティとレジャー',
   description: 'インスピレーションを与え、楽しみ、創造するためのツール。',
   seo: [

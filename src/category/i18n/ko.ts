@@ -1,5 +1,5 @@
 export const content = {
-  slug: 'creativity-leisure-ko',
+  slug: 'creativity-leisure',
   title: '창의성과 여가',
   description: '영감을 주고, 즐거움을 선사하며, 창작을 돕기 위해 설계된 도구들입니다.',
   seo: [

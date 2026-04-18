@@ -1,18 +1,18 @@
-import type { CategoryLocaleContent, ToolDefinition } from '../types';
-import { EXCUSE_GENERATOR_TOOL } from '../tool/excuse-generator';
-import { FORTUNE_COOKIE_TOOL } from '../tool/fortune-cookie';
-import { SYNESTHESIA_PAINTER_TOOL } from '../tool/synesthesia-painter';
-import { ZALGO_GENERATOR_TOOL } from '../tool/zalgo-generator';
-import { BEAD_PATTERN_GENERATOR_TOOL } from '../tool/bead-pattern-generator';
-import { DICE_ROLLER_TOOL } from '../tool/dice-roller';
+import type { CategoryLocaleContent } from '../types';
+import { excuseGenerator } from '../tool/excuse-generator/entry';
+import { fortuneCookie } from '../tool/fortune-cookie/entry';
+import { synesthesiaPainter } from '../tool/synesthesia-painter/entry';
+import { zalgoGenerator } from '../tool/zalgo-generator/entry';
+import { beadPatternGenerator } from '../tool/bead-pattern-generator/entry';
+import { diceRoller } from '../tool/dice-roller/entry';
 
-export const CREATIVE_TOOLS: Record<string, ToolDefinition> = {
-  'excuse-generator': EXCUSE_GENERATOR_TOOL,
-  'fortune-cookie': FORTUNE_COOKIE_TOOL,
-  'synesthesia-painter': SYNESTHESIA_PAINTER_TOOL,
-  'zalgo-generator': ZALGO_GENERATOR_TOOL,
-  'bead-pattern-generator': BEAD_PATTERN_GENERATOR_TOOL,
-  'dice-roller': DICE_ROLLER_TOOL,
+export const CREATIVE_TOOLS = {
+  'excuse-generator': excuseGenerator,
+  'fortune-cookie': fortuneCookie,
+  'synesthesia-painter': synesthesiaPainter,
+  'zalgo-generator': zalgoGenerator,
+  'bead-pattern-generator': beadPatternGenerator,
+  'dice-roller': diceRoller,
 };
 
 export const creativeCategory: {

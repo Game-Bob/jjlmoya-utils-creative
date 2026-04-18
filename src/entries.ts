@@ -1,0 +1,14 @@
+export { beadPatternGenerator } from './tool/bead-pattern-generator/entry';
+export { diceRoller } from './tool/dice-roller/entry';
+export { excuseGenerator } from './tool/excuse-generator/entry';
+export { fortuneCookie } from './tool/fortune-cookie/entry';
+export { synesthesiaPainter } from './tool/synesthesia-painter/entry';
+export { zalgoGenerator } from './tool/zalgo-generator/entry';
+export { creativeCategory } from './category';
+import { beadPatternGenerator } from './tool/bead-pattern-generator/entry';
+import { diceRoller } from './tool/dice-roller/entry';
+import { excuseGenerator } from './tool/excuse-generator/entry';
+import { fortuneCookie } from './tool/fortune-cookie/entry';
+import { synesthesiaPainter } from './tool/synesthesia-painter/entry';
+import { zalgoGenerator } from './tool/zalgo-generator/entry';
+export const ALL_ENTRIES = [beadPatternGenerator, diceRoller, excuseGenerator, fortuneCookie, synesthesiaPainter, zalgoGenerator];

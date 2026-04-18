@@ -1,19 +1,4 @@
 import type { CategoryLocaleContent } from '../types';
-import { excuseGenerator } from '../tool/excuse-generator/entry';
-import { fortuneCookie } from '../tool/fortune-cookie/entry';
-import { synesthesiaPainter } from '../tool/synesthesia-painter/entry';
-import { zalgoGenerator } from '../tool/zalgo-generator/entry';
-import { beadPatternGenerator } from '../tool/bead-pattern-generator/entry';
-import { diceRoller } from '../tool/dice-roller/entry';
-
-export const CREATIVE_TOOLS = {
-  'excuse-generator': excuseGenerator,
-  'fortune-cookie': fortuneCookie,
-  'synesthesia-painter': synesthesiaPainter,
-  'zalgo-generator': zalgoGenerator,
-  'bead-pattern-generator': beadPatternGenerator,
-  'dice-roller': diceRoller,
-};
 
 export const creativeCategory: {
   id: string;

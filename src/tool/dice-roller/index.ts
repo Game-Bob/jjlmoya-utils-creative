@@ -1,7 +1,4 @@
 import type { CreativeToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import DiceRollerComponent from './component.astro';
-import DiceRollerSEO from './seo.astro';
-import DiceRollerBibliography from './bibliography.astro';
 
 export interface DiceRollerUI {
   [key: string]: string;
@@ -48,11 +45,10 @@ export const diceRoller: CreativeToolEntry<DiceRollerUI> = {
   },
 };
 
-export { DiceRollerComponent, DiceRollerSEO, DiceRollerBibliography };
 
 export const DICE_ROLLER_TOOL: ToolDefinition = {
   entry: diceRoller,
-  Component: DiceRollerComponent,
-  SEOComponent: DiceRollerSEO,
-  BibliographyComponent: DiceRollerBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

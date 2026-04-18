@@ -1,7 +1,4 @@
 import type { CreativeToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import ExcuseGeneratorComponent from './component.astro';
-import ExcuseGeneratorSEO from './seo.astro';
-import ExcuseGeneratorBibliography from './bibliography.astro';
 
 export interface ExcuseGeneratorUI {
   [key: string]: string;
@@ -44,11 +41,10 @@ export const excuseGenerator: CreativeToolEntry<ExcuseGeneratorUI> = {
   },
 };
 
-export { ExcuseGeneratorComponent, ExcuseGeneratorSEO, ExcuseGeneratorBibliography };
 
 export const EXCUSE_GENERATOR_TOOL: ToolDefinition = {
   entry: excuseGenerator,
-  Component: ExcuseGeneratorComponent,
-  SEOComponent: ExcuseGeneratorSEO,
-  BibliographyComponent: ExcuseGeneratorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

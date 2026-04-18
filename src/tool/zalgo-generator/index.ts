@@ -1,7 +1,4 @@
 import type { CreativeToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import ZalgoGeneratorComponent from './component.astro';
-import ZalgoGeneratorSEO from './seo.astro';
-import ZalgoGeneratorBibliography from './bibliography.astro';
 
 export interface ZalgoGeneratorUI {
   [key: string]: string;
@@ -51,11 +48,10 @@ export const zalgoGenerator: CreativeToolEntry<ZalgoGeneratorUI> = {
   },
 };
 
-export { ZalgoGeneratorComponent, ZalgoGeneratorSEO, ZalgoGeneratorBibliography };
 
 export const ZALGO_GENERATOR_TOOL: ToolDefinition = {
   entry: zalgoGenerator,
-  Component: ZalgoGeneratorComponent,
-  SEOComponent: ZalgoGeneratorSEO,
-  BibliographyComponent: ZalgoGeneratorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

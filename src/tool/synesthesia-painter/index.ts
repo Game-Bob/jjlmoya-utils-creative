@@ -1,7 +1,4 @@
 import type { CreativeToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import SynesthesiaPainterComponent from './component.astro';
-import SynesthesiaPainterSEO from './seo.astro';
-import SynesthesiaPainterBibliography from './bibliography.astro';
 
 export interface SynesthesiaPainterUI {
   [key: string]: string;
@@ -41,11 +38,10 @@ export const synesthesiaPainter: CreativeToolEntry<SynesthesiaPainterUI> = {
   },
 };
 
-export { SynesthesiaPainterComponent, SynesthesiaPainterSEO, SynesthesiaPainterBibliography };
 
 export const SYNESTHESIA_PAINTER_TOOL: ToolDefinition = {
   entry: synesthesiaPainter,
-  Component: SynesthesiaPainterComponent,
-  SEOComponent: SynesthesiaPainterSEO,
-  BibliographyComponent: SynesthesiaPainterBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

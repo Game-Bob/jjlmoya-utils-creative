@@ -1,7 +1,4 @@
 import type { CreativeToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import FortuneCookieComponent from './component.astro';
-import FortuneCookieSEO from './seo.astro';
-import FortuneCookieBibliography from './bibliography.astro';
 
 export interface FortuneCookieUI {
   [key: string]: string;
@@ -42,11 +39,10 @@ export const fortuneCookie: CreativeToolEntry<FortuneCookieUI> = {
   },
 };
 
-export { FortuneCookieComponent, FortuneCookieSEO, FortuneCookieBibliography };
 
 export const FORTUNE_COOKIE_TOOL: ToolDefinition = {
   entry: fortuneCookie,
-  Component: FortuneCookieComponent,
-  SEOComponent: FortuneCookieSEO,
-  BibliographyComponent: FortuneCookieBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

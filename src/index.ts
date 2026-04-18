@@ -9,7 +9,7 @@ export * from './tool/synesthesia-painter';
 export * from './tool/zalgo-generator';
 export * from './tool/bead-pattern-generator';
 export * from './tool/dice-roller';
-export { default as creativeCategorySEO } from './category/seo.astro';
+export const creativeCategorySEO = () => import('./category/seo.astro').then((m) => m.default);
 
 export type {
   KnownLocale,

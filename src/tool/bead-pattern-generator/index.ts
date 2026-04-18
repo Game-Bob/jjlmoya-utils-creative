@@ -1,7 +1,4 @@
 import type { CreativeToolEntry, ToolLocaleContent, ToolDefinition } from '../../types';
-import BeadPatternGeneratorComponent from './component.astro';
-import BeadPatternGeneratorSEO from './seo.astro';
-import BeadPatternGeneratorBibliography from './bibliography.astro';
 
 export interface BeadPatternGeneratorUI {
   [key: string]: string;
@@ -51,11 +48,10 @@ export const beadPatternGenerator: CreativeToolEntry<BeadPatternGeneratorUI> = {
   },
 };
 
-export { BeadPatternGeneratorComponent, BeadPatternGeneratorSEO, BeadPatternGeneratorBibliography };
 
 export const BEAD_PATTERN_GENERATOR_TOOL: ToolDefinition = {
   entry: beadPatternGenerator,
-  Component: BeadPatternGeneratorComponent,
-  SEOComponent: BeadPatternGeneratorSEO,
-  BibliographyComponent: BeadPatternGeneratorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

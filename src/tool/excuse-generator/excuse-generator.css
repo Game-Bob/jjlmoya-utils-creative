@@ -16,7 +16,7 @@
   --excuse-generator-ring: rgba(236, 72, 153, 0.2);
 }
 
-:global(.theme-dark) .excuse-generator {
+.theme-dark .excuse-generator {
   --excuse-generator-bg: #0f172a;
   --excuse-generator-bg-transparent: rgba(15, 23, 42, 0.8);
   --excuse-generator-bg-muted: #1e293b;
@@ -131,7 +131,7 @@
   transition-duration: 300ms;
 }
 
-:global(.theme-dark) .excuse-generator-slot {
+.theme-dark .excuse-generator-slot {
   background-color: rgba(15, 23, 42, 0.6);
 }
 
@@ -233,7 +233,7 @@
   transition-duration: 300ms;
 }
 
-:global(.theme-dark) .excuse-generator-btn {
+.theme-dark .excuse-generator-btn {
   background-color: #f8fafc;
   color: #0f172a;
 }

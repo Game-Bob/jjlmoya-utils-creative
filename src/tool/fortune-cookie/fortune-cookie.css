@@ -14,7 +14,7 @@
   --fortune-cookie-error: #f43f5e;
 }
 
-:global(.theme-dark) .fortune-cookie {
+.theme-dark .fortune-cookie {
   --fortune-cookie-bg: #0f172a;
   --fortune-cookie-bg-muted: #1e293b;
   --fortune-cookie-text: #f8fafc;
@@ -80,7 +80,7 @@
   animation: fortune-cookie-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-:global(.theme-dark) .fortune-cookie-instruction {
+.theme-dark .fortune-cookie-instruction {
   color: #fbbf24;
 }
 
@@ -238,7 +238,7 @@
   transform: rotate(-1deg);
 }
 
-:global(.fortune-cookie-number) {
+.fortune-cookie-number {
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
@@ -300,7 +300,7 @@
   transition-duration: 150ms;
 }
 
-:global(.theme-dark) .fortune-cookie-share-btn {
+.theme-dark .fortune-cookie-share-btn {
   background-color: #1e293b;
   color: #cbd5e1;
 }
@@ -309,7 +309,7 @@
   background-color: #e2e8f0;
 }
 
-:global(.theme-dark) .fortune-cookie-share-btn:hover {
+.theme-dark .fortune-cookie-share-btn:hover {
   background-color: #334155;
 }
 
@@ -332,7 +332,7 @@
   40%, 60% { transform: translate3d(4px, 0, 0) rotate(4deg); }
 }
 
-:global(.fortune-cookie-crumb) {
+.fortune-cookie-crumb {
   position: absolute;
   width: 20px;
   height: 20px;

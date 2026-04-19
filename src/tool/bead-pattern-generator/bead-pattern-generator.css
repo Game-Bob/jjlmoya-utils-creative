@@ -18,7 +18,7 @@
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.2);
   }
-  :global(.theme-dark) .bead-card {
+  .theme-dark .bead-card {
     background: rgba(17,24,39,0.85);
     border-color: rgba(55,65,81,0.3);
   }
@@ -53,7 +53,7 @@
     margin: 0;
   }
 
-  :global(.theme-dark) .bead-header-title h2 {
+  .theme-dark .bead-header-title h2 {
     color: #fff;
   }
 
@@ -63,7 +63,7 @@
     margin: 0.25rem 0 0;
   }
 
-  :global(.theme-dark) .bead-header-title p {
+  .theme-dark .bead-header-title p {
     color: #9ca3af;
   }
 
@@ -98,7 +98,7 @@
     border: 1px solid #e5e7eb;
   }
 
-  :global(.theme-dark) .bead-slider-row {
+  .theme-dark .bead-slider-row {
     background: #1f2937;
     border-color: #374151;
   }
@@ -112,7 +112,7 @@
     background: #d1d5db;
   }
 
-  :global(.theme-dark) .bead-slider {
+  .theme-dark .bead-slider {
     background: #4b5563;
   }
 
@@ -149,7 +149,7 @@
     border: 1px solid #e5e7eb;
   }
 
-  :global(.theme-dark) .bead-options-row {
+  .theme-dark .bead-options-row {
     background: #1f2937;
     border-color: #374151;
   }
@@ -165,7 +165,7 @@
     white-space: nowrap;
   }
 
-  :global(.theme-dark) .bead-checkbox-label {
+  .theme-dark .bead-checkbox-label {
     color: #d1d5db;
   }
 
@@ -182,7 +182,7 @@
     background: #d1d5db;
   }
 
-  :global(.theme-dark) .bead-divider {
+  .theme-dark .bead-divider {
     background: #4b5563;
   }
 
@@ -234,7 +234,7 @@
     transition: border-color 0.2s, background 0.2s, transform 0.2s;
     cursor: pointer;
   }
-  :global(.theme-dark) .bead-drop-zone {
+  .theme-dark .bead-drop-zone {
     border-color: #374151;
     background: rgba(31,41,55,0.5);
   }
@@ -284,7 +284,7 @@
     margin: 0;
   }
 
-  :global(.theme-dark) .bead-drop-content h3 {
+  .theme-dark .bead-drop-content h3 {
     color: #e5e7eb;
   }
 
@@ -344,13 +344,13 @@
     gap: 0.5rem;
   }
 
-  :global(.bead-palette-item) {
+  .bead-palette-item {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  :global(.bead-color-swatch) {
+  .bead-color-swatch {
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -362,21 +362,21 @@
     justify-content: center;
   }
 
-  :global(.theme-dark .bead-color-swatch) {
+  .theme-dark .bead-color-swatch {
     border-color: #1f2937;
     outline-color: #374151;
   }
 
-  :global(.bead-symbol) {
+  .bead-symbol {
     font-size: 0.75rem;
     font-weight: 700;
     user-select: none;
   }
-  :global(.bead-symbol-dark) {
+  .bead-symbol-dark {
     color: #000;
   }
 
-  :global(.bead-symbol-light) {
+  .bead-symbol-light {
     color: #fff;
   }
 
@@ -414,7 +414,7 @@
     text-align: center;
   }
 
-  :global(.theme-dark) .bead-canvas-col {
+  .theme-dark .bead-canvas-col {
     background: #030712;
     border-color: #1f2937;
   }
@@ -439,7 +439,7 @@
     border-radius: 0.75rem;
   }
 
-  :global(.theme-dark) .bead-tunnel-bar {
+  .theme-dark .bead-tunnel-bar {
     background: rgba(79,70,229,0.1);
     border-color: rgba(99,102,241,0.3);
   }
@@ -450,7 +450,7 @@
     margin: 0;
   }
 
-  :global(.theme-dark) .bead-tunnel-title {
+  .theme-dark .bead-tunnel-title {
     color: #c7d2fe;
   }
 
@@ -460,7 +460,7 @@
     margin: 0.25rem 0 0;
   }
 
-  :global(.theme-dark) .bead-tunnel-sub {
+  .theme-dark .bead-tunnel-sub {
     color: #818cf8;
   }
 
@@ -484,7 +484,7 @@
     background: #e0e7ff;
   }
 
-  :global(.theme-dark) .bead-tunnel-btn {
+  .theme-dark .bead-tunnel-btn {
     background: #1f2937;
     color: #818cf8;
   }
@@ -500,7 +500,7 @@
     text-align: center;
   }
 
-  :global(.theme-dark) .bead-tunnel-display {
+  .theme-dark .bead-tunnel-display {
     background: #1f2937;
     color: #818cf8;
     border-color: rgba(99,102,241,0.3);

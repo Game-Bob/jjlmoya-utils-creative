@@ -11,7 +11,7 @@
   --sp-header-bg: rgba(255, 255, 255, 0.92);
 }
 
-:global(.theme-dark) .synesthesia-painter {
+.theme-dark .synesthesia-painter {
   --sp-bg: #0f172a;
   --sp-bg-muted: #1e293b;
   --sp-text: #f8fafc;
@@ -171,7 +171,7 @@
   color: #ef4444;
 }
 
-:global(.synesthesia-painter-char) {
+.synesthesia-painter-char {
   display: inline-block;
   color: var(--char-color);
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -190,7 +190,7 @@
   }
 }
 
-:global(.synesthesia-painter-viz-layer.dots .synesthesia-painter-char) {
+.synesthesia-painter-viz-layer.dots .synesthesia-painter-char {
   color: transparent;
   font-size: 0;
   width: 1rem;
@@ -201,17 +201,17 @@
   box-shadow: 0 0 8px var(--char-color);
 }
 
-:global(.synesthesia-painter-viz-layer.aura .synesthesia-painter-char) {
+.synesthesia-painter-viz-layer.aura .synesthesia-painter-char {
   color: rgba(255, 255, 255, 0.15);
   text-shadow: 0 0 18px var(--char-color), 0 0 36px var(--char-color);
 }
 
-:global(.theme-dark .synesthesia-painter-viz-layer.aura .synesthesia-painter-char) {
+.theme-dark .synesthesia-painter-viz-layer.aura .synesthesia-painter-char {
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 0 14px var(--char-color), 0 0 28px var(--char-color), 0 0 56px var(--char-color);
 }
 
-:global(.synesthesia-painter-cursor) {
+.synesthesia-painter-cursor {
   display: inline-block;
   width: 2px;
   height: 2.5rem;

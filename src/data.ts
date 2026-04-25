@@ -1,4 +1,5 @@
-import { creativeCategory as _creativeCategory, CREATIVE_TOOLS } from './category';
+import { creativeCategory as _creativeCategory } from './category';
+import { CREATIVE_TOOLS } from './index';
 
 export * from './types';
 export { CREATIVE_TOOLS };

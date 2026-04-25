@@ -1,0 +1,495 @@
+---
+import type { GlitchImageDistorterUI } from './index';
+
+interface Props {
+  ui: GlitchImageDistorterUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div id="gid-root" class="glitch-image-distorter" data-ui={JSON.stringify(ui)}>
+  <div class="glitch-image-distorter-card">
+    <div class="glitch-image-distorter-canvas-wrapper" id="gid-canvas-wrapper">
+      <canvas id="gid-canvas" class="glitch-image-distorter-canvas"></canvas>
+      <div class="glitch-image-distorter-drop-zone" id="gid-drop-zone">
+        <svg class="glitch-image-distorter-drop-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        <span class="glitch-image-distorter-drop-text">{ui.dragDropText}</span>
+        <span class="glitch-image-distorter-paste-hint">{ui.pasteHint}</span>
+      </div>
+      <button class="glitch-image-distorter-example-btn" id="gid-example-btn">{ui.exampleImageBtn}</button>
+      <input type="file" id="gid-file-input" accept="image/*" hidden />
+    </div>
+
+    <div class="glitch-image-distorter-controls" id="gid-controls">
+      <div class="glitch-image-distorter-control">
+        <label class="glitch-image-distorter-label">{ui.corruptionLabel}</label>
+        <input type="range" id="gid-corruption" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
+        <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-corruption-val">0</span>
+      </div>
+
+      <div class="glitch-image-distorter-control">
+        <label class="glitch-image-distorter-label">{ui.interferenceLabel}</label>
+        <input type="range" id="gid-interference" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
+        <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-interference-val">0</span>
+      </div>
+
+      <div class="glitch-image-distorter-control">
+        <label class="glitch-image-distorter-label">{ui.tremorLabel}</label>
+        <input type="range" id="gid-tremor" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
+        <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-tremor-val">0</span>
+      </div>
+
+      <div class="glitch-image-distorter-control">
+        <label class="glitch-image-distorter-label">{ui.pixelSortLabel}</label>
+        <input type="range" id="gid-pixel-sort" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
+        <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-pixel-sort-val">0</span>
+      </div>
+
+      <div class="glitch-image-distorter-control">
+        <label class="glitch-image-distorter-label">{ui.pixelSortDirectionLabel}</label>
+        <select id="gid-sort-direction" class="glitch-image-distorter-select">
+          <option value="none">None</option>
+          <option value="up">Up</option>
+          <option value="down">Down</option>
+          <option value="left">Left</option>
+          <option value="right">Right</option>
+        </select>
+      </div>
+
+      <div class="glitch-image-distorter-control">
+        <label class="glitch-image-distorter-label">{ui.noiseLabel}</label>
+        <input type="range" id="gid-noise" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
+        <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-noise-val">0</span>
+      </div>
+
+      <div class="glitch-image-distorter-control">
+        <label class="glitch-image-distorter-checkbox">
+          <input type="checkbox" id="gid-animate" />
+          <span>{ui.animateBtn}</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="glitch-image-distorter-buttons">
+      <button class="glitch-image-distorter-btn" id="gid-chaos-btn">{ui.chaosBtn}</button>
+      <button class="glitch-image-distorter-btn" id="gid-undo-btn">{ui.undoBtn}</button>
+      <button class="glitch-image-distorter-btn" id="gid-redo-btn">{ui.redoBtn}</button>
+      <button class="glitch-image-distorter-btn primary" id="gid-download-png-btn">{ui.downloadPngBtn}</button>
+      <button class="glitch-image-distorter-btn primary" id="gid-download-gif-btn">{ui.downloadGifBtn}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  interface ImageState {
+    canvas: OffscreenCanvas | HTMLCanvasElement;
+    corruption: number;
+    interference: number;
+    tremor: number;
+    pixelSort: number;
+    sortDirection: string;
+    noise: number;
+    animate: boolean;
+  }
+
+  class GlitchDistorter {
+    canvas: HTMLCanvasElement;
+    ctx: CanvasRenderingContext2D | null;
+    sourceImage: HTMLImageElement | null = null;
+    animationFrameId: number | null = null;
+    state: ImageState;
+    history: ImageState[] = [];
+    historyIndex = -1;
+    isAnimating = false;
+
+    constructor() {
+      this.canvas = document.getElementById('gid-canvas') as HTMLCanvasElement;
+      this.ctx = this.canvas.getContext('2d');
+      this.state = {
+        canvas: this.canvas,
+        corruption: 0,
+        interference: 0,
+        tremor: 0,
+        pixelSort: 0,
+        sortDirection: 'none',
+        noise: 0,
+        animate: false,
+      };
+    }
+
+    loadExampleImage() {
+      const exampleSvg = `<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+            <stop offset="50%" style="stop-color:rgb(0,255,0);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect width="400" height="300" fill="url(#grad1)" />
+        <circle cx="100" cy="100" r="50" fill="rgba(255,255,255,0.5)" />
+        <circle cx="300" cy="200" r="60" fill="rgba(0,0,0,0.3)" />
+        <path d="M50,50 L350,250" stroke="white" stroke-width="3" />
+        <text x="200" y="150" font-size="40" fill="white" text-anchor="middle" font-weight="bold">GLITCH</text>
+      </svg>`;
+      const blob = new Blob([exampleSvg], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = () => {
+        this.sourceImage = img;
+        this.canvas.width = img.width;
+        this.canvas.height = img.height;
+        this.render();
+        this.updateDropZone();
+        URL.revokeObjectURL(url);
+      };
+      img.src = url;
+    }
+
+    loadImage(file: File) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          this.sourceImage = img;
+          this.canvas.width = img.width;
+          this.canvas.height = img.height;
+          this.applyDefaultGlitch();
+          this.updateDropZone();
+        };
+        img.src = e.target?.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    applyDefaultGlitch() {
+      this.state.corruption = 40;
+      this.state.interference = 50;
+      this.state.tremor = 30;
+      this.state.pixelSort = 35;
+      this.state.sortDirection = 'down';
+      this.state.noise = 25;
+      this.updateSliders();
+      this.saveState();
+      this.render();
+    }
+
+    updateDropZone() {
+      const dropZone = document.getElementById('gid-drop-zone') as HTMLElement;
+      if (this.sourceImage) {
+        dropZone.classList.add('hidden');
+      } else {
+        dropZone.classList.remove('hidden');
+      }
+    }
+
+    async render() {
+      if (!this.ctx || !this.sourceImage) return;
+
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.drawImage(this.sourceImage, 0, 0);
+
+      let imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
+      const data = imageData.data;
+
+      if (this.state.corruption > 0) {
+        this.applyRGBSplit(data, this.state.corruption);
+      }
+
+      if (this.state.interference > 0) {
+        this.applyScanlines(data, this.state.interference, this.state.tremor);
+      }
+
+      if (this.state.noise > 0) {
+        this.applyNoise(data, this.state.noise);
+      }
+
+      this.ctx.putImageData(imageData, 0, 0);
+
+      if (this.state.pixelSort > 0 && this.state.sortDirection !== 'none') {
+        this.applyPixelSort(this.state.pixelSort, this.state.sortDirection);
+      }
+    }
+
+    applyRGBSplit(data: Uint8ClampedArray, intensity: number) {
+      const offset = Math.floor((intensity / 100) * 20);
+      for (let i = 0; i < data.length; i += 4) {
+        if (Math.random() < intensity / 100) {
+          const temp = data[i] ?? 0;
+          const i2Val = data[i + 2] ?? 0;
+          data[i] = i2Val;
+          data[i + 2] = temp;
+          if (offset > 0 && i + offset * 4 + 1 < data.length) {
+            const offsetVal = data[i + offset * 4 + 1] ?? 0;
+            data[i + 1] = offsetVal;
+          }
+        }
+      }
+    }
+
+    applyScanlines(data: Uint8ClampedArray, frequency: number, tremor: number) {
+      const scanlineSpacing = Math.max(1, Math.floor((100 - frequency) / 10));
+      const width = this.canvas.width;
+
+      for (let y = 0; y < this.canvas.height; y += scanlineSpacing) {
+        const offset = Math.floor(y * width * 4);
+        for (let x = 0; x < width; x++) {
+          const idx = offset + x * 4;
+          if (idx + 2 < data.length) {
+            const tint = 0.8 + (Math.random() * 0.2 * (tremor / 100));
+            data[idx] = Math.floor((data[idx] ?? 0) * tint);
+            data[idx + 1] = Math.floor((data[idx + 1] ?? 0) * tint);
+            data[idx + 2] = Math.floor((data[idx + 2] ?? 0) * tint);
+          }
+        }
+      }
+    }
+
+    applyNoise(data: Uint8ClampedArray, intensity: number) {
+      const alpha = (intensity / 100) * 255;
+      for (let i = 0; i < data.length; i += 4) {
+        if (Math.random() < intensity / 100 && i + 3 < data.length) {
+          const noise = Math.random() * 255;
+          data[i] = Math.floor((data[i] ?? 0) * 0.7 + noise * 0.3);
+          data[i + 1] = Math.floor((data[i + 1] ?? 0) * 0.7 + noise * 0.3);
+          data[i + 2] = Math.floor((data[i + 2] ?? 0) * 0.7 + noise * 0.3);
+          data[i + 3] = Math.floor(alpha);
+        }
+      }
+    }
+
+    applyPixelSort(intensity: number, direction: string) {
+      if (!this.ctx) return;
+      const imageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
+      const data = imageData.data;
+      const width = this.canvas.width;
+      const height = this.canvas.height;
+      const threshold = (intensity / 100) * 255;
+
+      if (direction === 'up' || direction === 'down') {
+        for (let x = 0; x < width; x++) {
+          const column: number[] = [];
+          for (let y = 0; y < height; y++) {
+            const idx = (y * width + x) * 4;
+            if (idx + 2 < data.length) {
+              const r = data[idx] ?? 0;
+              const g = data[idx + 1] ?? 0;
+              const b = data[idx + 2] ?? 0;
+              const brightness = (r + g + b) / 3;
+              if (brightness > threshold) {
+                column.push(idx);
+              }
+            }
+          }
+          if (direction === 'down') column.reverse();
+          for (let i = 0; i < column.length; i++) {
+            const sourceIdx = column[i];
+            if (sourceIdx !== undefined) {
+              const shift = Math.floor((intensity / 100) * 30);
+              const targetIdx = sourceIdx + shift * width * 4;
+              if (targetIdx >= 0 && targetIdx + 3 < data.length && sourceIdx + 3 < data.length) {
+                for (let j = 0; j < 4; j++) {
+                  const srcVal = data[sourceIdx + j] ?? 0;
+                  data[targetIdx + j] = srcVal;
+                }
+              }
+            }
+          }
+        }
+      } else if (direction === 'left' || direction === 'right') {
+        for (let y = 0; y < height; y++) {
+          const row: number[] = [];
+          for (let x = 0; x < width; x++) {
+            const idx = (y * width + x) * 4;
+            if (idx + 2 < data.length) {
+              const r = data[idx] ?? 0;
+              const g = data[idx + 1] ?? 0;
+              const b = data[idx + 2] ?? 0;
+              const brightness = (r + g + b) / 3;
+              if (brightness > threshold) {
+                row.push(idx);
+              }
+            }
+          }
+          if (direction === 'left') row.reverse();
+          for (let i = 0; i < row.length; i++) {
+            const sourceIdx = row[i];
+            if (sourceIdx !== undefined) {
+              const shift = Math.floor((intensity / 100) * 30);
+              const targetIdx = sourceIdx + (direction === 'right' ? shift : -shift) * 4;
+              if (targetIdx >= 0 && targetIdx + 3 < data.length && sourceIdx + 3 < data.length) {
+                for (let j = 0; j < 4; j++) {
+                  const srcVal = data[sourceIdx + j] ?? 0;
+                  data[targetIdx + j] = srcVal;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      this.ctx.putImageData(imageData, 0, 0);
+    }
+
+    saveState() {
+      this.history = this.history.slice(0, this.historyIndex + 1);
+      this.history.push({ ...this.state });
+      this.historyIndex++;
+      if (this.history.length > 20) {
+        this.history.shift();
+        this.historyIndex--;
+      }
+    }
+
+    undo() {
+      if (this.historyIndex > 0) {
+        this.historyIndex--;
+        const prev = this.history[this.historyIndex];
+        if (prev) {
+          this.state = { ...prev, canvas: this.state.canvas };
+          this.updateSliders();
+          this.render();
+        }
+      }
+    }
+
+    redo() {
+      if (this.historyIndex < this.history.length - 1) {
+        this.historyIndex++;
+        const next = this.history[this.historyIndex];
+        if (next) {
+          this.state = { ...next, canvas: this.state.canvas };
+          this.updateSliders();
+          this.render();
+        }
+      }
+    }
+
+    updateSliders() {
+      (document.getElementById('gid-corruption') as HTMLInputElement).value = String(this.state.corruption);
+      (document.getElementById('gid-interference') as HTMLInputElement).value = String(this.state.interference);
+      (document.getElementById('gid-tremor') as HTMLInputElement).value = String(this.state.tremor);
+      (document.getElementById('gid-pixel-sort') as HTMLInputElement).value = String(this.state.pixelSort);
+      (document.getElementById('gid-sort-direction') as HTMLSelectElement).value = this.state.sortDirection;
+      (document.getElementById('gid-noise') as HTMLInputElement).value = String(this.state.noise);
+      (document.getElementById('gid-animate') as HTMLInputElement).checked = this.state.animate;
+      this.updateValueDisplays();
+    }
+
+    updateValueDisplays() {
+      (document.getElementById('gid-corruption-val') as HTMLElement).textContent = String(this.state.corruption);
+      (document.getElementById('gid-interference-val') as HTMLElement).textContent = String(this.state.interference);
+      (document.getElementById('gid-tremor-val') as HTMLElement).textContent = String(this.state.tremor);
+      (document.getElementById('gid-pixel-sort-val') as HTMLElement).textContent = String(this.state.pixelSort);
+      (document.getElementById('gid-noise-val') as HTMLElement).textContent = String(this.state.noise);
+    }
+
+    randomizeSettings() {
+      const directions = ['none', 'up', 'down', 'left', 'right'];
+      this.state.corruption = Math.floor(Math.random() * 100);
+      this.state.interference = Math.floor(Math.random() * 100);
+      this.state.tremor = Math.floor(Math.random() * 100);
+      this.state.pixelSort = Math.floor(Math.random() * 100);
+      this.state.sortDirection = directions[Math.floor(Math.random() * directions.length)] ?? 'none';
+      this.state.noise = Math.floor(Math.random() * 100);
+      this.updateSliders();
+      this.saveState();
+      this.render();
+    }
+
+    downloadPNG() {
+      if (!this.sourceImage) return;
+      const link = document.createElement('a');
+      link.href = this.canvas.toDataURL('image/png');
+      link.download = 'glitch-art.png';
+      link.click();
+    }
+
+    downloadGIF() {
+      if (!this.sourceImage) return;
+      alert('GIF export requires additional setup. For now, try using the PNG export or screen recording tools.');
+    }
+
+    init() {
+      const wrapper = document.getElementById('gid-canvas-wrapper');
+      const fileInput = document.getElementById('gid-file-input') as HTMLInputElement;
+      const exampleBtn = document.getElementById('gid-example-btn') as HTMLButtonElement;
+
+      wrapper?.addEventListener('click', () => fileInput.click());
+      wrapper?.addEventListener('dragover', (e) => e.preventDefault());
+      wrapper?.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const files = (e as DragEvent).dataTransfer?.files;
+        if (files?.[0]) this.loadImage(files[0]);
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        const files = (e.target as HTMLInputElement).files;
+        if (files?.[0]) this.loadImage(files[0]);
+      });
+
+      exampleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.loadExampleImage();
+      });
+
+      document.addEventListener('paste', (e) => {
+        const items = e.clipboardData?.items;
+        if (items) {
+          for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            if (item && item.type.includes('image')) {
+              const file = item.getAsFile();
+              if (file) this.loadImage(file);
+            }
+          }
+        }
+      });
+
+      const sliders: { id: string; key: keyof ImageState }[] = [
+        { id: 'gid-corruption', key: 'corruption' },
+        { id: 'gid-interference', key: 'interference' },
+        { id: 'gid-tremor', key: 'tremor' },
+        { id: 'gid-pixel-sort', key: 'pixelSort' },
+        { id: 'gid-noise', key: 'noise' },
+      ];
+      sliders.forEach(({ id, key }) => {
+        const slider = document.getElementById(id) as HTMLInputElement;
+        slider?.addEventListener('input', (e) => {
+          if (key !== 'canvas' && key !== 'sortDirection' && key !== 'animate') {
+            (this.state[key] as number) = Number((e.target as HTMLInputElement).value);
+          }
+          this.updateValueDisplays();
+          this.render();
+        });
+      });
+
+      const sortDir = document.getElementById('gid-sort-direction') as HTMLSelectElement;
+      sortDir?.addEventListener('change', (e) => {
+        this.state.sortDirection = (e.target as HTMLSelectElement).value;
+        this.render();
+      });
+
+      const animate = document.getElementById('gid-animate') as HTMLInputElement;
+      animate?.addEventListener('change', () => {
+        this.state.animate = animate.checked;
+      });
+
+      document.getElementById('gid-chaos-btn')?.addEventListener('click', () => this.randomizeSettings());
+      document.getElementById('gid-undo-btn')?.addEventListener('click', () => this.undo());
+      document.getElementById('gid-redo-btn')?.addEventListener('click', () => this.redo());
+      document.getElementById('gid-download-png-btn')?.addEventListener('click', () => this.downloadPNG());
+      document.getElementById('gid-download-gif-btn')?.addEventListener('click', () => this.downloadGIF());
+    }
+  }
+
+  const distorter = new GlitchDistorter();
+  distorter.init();
+  document.addEventListener('astro:page-load', () => {
+    const newDistorter = new GlitchDistorter();
+    newDistorter.init();
+  });
+</script>

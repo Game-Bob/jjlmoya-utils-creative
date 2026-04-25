@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'sans-kurabiyesi-online';
 const title = 'Şans Kurabiyesi';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Sıkça Sorulan Sorular',
-  bibliographyTitle: 'Kader Kaynakçası',
   ui: {
     title: 'Online Şans Kurabiyesi',
     description: 'Günlük dijital falınız.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "Beklenmedik bir yolculuk size büyük neşeler getirecek."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Referanslar'
   },
   seo: [
     { type: 'title', text: 'Şans Kurabiyesinin Gizemi', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Şans Kurabiyesi Tarihi (İngilizce)', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

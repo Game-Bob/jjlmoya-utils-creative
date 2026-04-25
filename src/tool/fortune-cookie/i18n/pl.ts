@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'ciasteczko-z-wrozba-online';
 const title = 'Ciasteczko z Wróżbą';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Najczęściej Zadawane Pytania',
-  bibliographyTitle: 'Bibliografia Przeznaczenia',
   ui: {
     title: 'Ciasteczko z Wróżbą Online',
     description: 'Twoja codzienna cyfrowa wyrocznia.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "Nieoczekiwana podróż przyniesie Ci wielkie radości."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Źródła'
   },
   seo: [
     { type: 'title', text: 'Tajemnica ciasteczka z wróżbą', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Historia ciasteczka z wróżbą', url: 'https://pl.wikipedia.org/wiki/Ciasteczko_z_wróżbą' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug = 'dice-roller';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: 'Frequently Asked Questions',
-  bibliographyTitle: 'Chance Bibliography',
   ui: {
     title: 'Dice Roller',
     description: 'May luck be with you.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – Dice mechanics rules', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – Virtual tabletop and dice systems', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – d20 System Reference', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

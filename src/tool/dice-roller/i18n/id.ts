@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug: string = 'pengocok-dadu';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: 'Pertanyaan yang Sering Diajukan',
-  bibliographyTitle: 'Bibliografi Peluang',
   ui: {
     title: 'Pengocok Dadu',
     description: 'Semoga keberuntungan menyertai Anda.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – Aturan mekanik dadu', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – Meja virtual dan sistem dadu', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – Referensi Sistem d20', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

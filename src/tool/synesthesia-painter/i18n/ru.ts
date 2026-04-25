@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'khudozhnik-sinestezii';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Часто задаваемые вопросы',
-  bibliographyTitle: 'Библиография разума',
   ui: {
     title: 'Художник синестезии',
     description: 'Превратите ваши слова в хроматическое искусство.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Цветовая палитра этого инструмента', html: 'Назначение цветов вдохновлено наиболее распространенными статистическими данными из научной литературы. <strong>А → красный</strong>, <strong>Е → зеленый</strong>, <strong>I → белый/черный в зависимости от фона</strong>, <strong>O → черный/белый</strong>, <strong>U → янтарный</strong>. Согласные следуют менее единообразным паттернам, но приоритет всегда отдается контрасту с фоном для обеспечения читаемости.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Симнер и др. (2006) – Синестезия: Распространенность атипичного кросс-модального опыта', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Иглмен и др. (2007) – Стандартизированный набор тестов для изучения синестезии', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Кандинский В. – О духовном в искусстве (1911)', url: 'https://ru.wikipedia.org/wiki/О_духовном_в_искусстве' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

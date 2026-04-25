@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { ExcuseGeneratorLocaleContent } from '../index';
 
 const slug = 'excuse-generator';
@@ -59,7 +60,6 @@ export const content: ExcuseGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Frequently Asked Questions',
-  bibliographyTitle: 'Leisure Bibliography',
   ui: {
     title: 'Surreal Excuse Generator',
     description: 'Next-generation alibi calculator.',
@@ -114,9 +114,7 @@ export const content: ExcuseGeneratorLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'Procrastinator\'s Manifesto', url: 'https://example.com/manifesto' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

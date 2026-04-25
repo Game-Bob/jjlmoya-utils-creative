@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug = 'lanciatore-di-dadi';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: 'Domande Frequenti',
-  bibliographyTitle: 'Bibliografia della Sorte',
   ui: {
     title: 'Lanciatore di Dadi',
     description: 'Che la fortuna sia con te.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – Regole sulle meccaniche dei dadi', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – Tavolo virtuale e sistemi di dadi', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – Riferimento Sistema d20', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

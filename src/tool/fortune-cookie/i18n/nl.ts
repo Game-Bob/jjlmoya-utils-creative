@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'gelukskoekje-online';
 const title = 'Gelukskoekje';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Veelgestelde Vragen',
-  bibliographyTitle: 'Bestemmingsbibliografie',
   ui: {
     title: 'Online Gelukskoekje',
     description: 'Jouw dagelijkse digitale orakel.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "Een onverwachte reis zal je veel plezier brengen."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Referenties'
   },
   seo: [
     { type: 'title', text: 'Het Mysterie van het Gelukskoekje', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Geschiedenis van het Gelukskoekje', url: 'https://nl.wikipedia.org/wiki/Gelukskoekje' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

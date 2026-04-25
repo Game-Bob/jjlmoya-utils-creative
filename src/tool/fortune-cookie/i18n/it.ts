@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'biscotto-della-fortuna-online';
 const title = 'Biscotto della Fortuna';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Domande Frequenti',
-  bibliographyTitle: 'Bibliografia del Destino',
   ui: {
     title: 'Biscotto della Fortuna Online',
     description: 'Il tuo oracolo digitale quotidiano.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "Un viaggio inaspettato ti porterà grandi gioie."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Riferimenti'
   },
   seo: [
     { type: 'title', text: 'Il Mistero del Biscotto della Fortuna', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Storia del Biscotto della Fortuna', url: 'https://it.wikipedia.org/wiki/Biscotto_della_fortuna' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

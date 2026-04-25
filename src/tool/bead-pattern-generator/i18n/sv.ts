@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
 const slug = 'monstergenerator-for-parlor';
@@ -57,7 +58,6 @@ export const content: BeadPatternGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Vanliga frågor',
-  bibliographyTitle: 'Hantverksbibliografi',
   ui: {
     title: 'Mönsterlaboratorium',
     subtitle: 'Färgteknik för dina händer',
@@ -105,11 +105,7 @@ export const content: BeadPatternGeneratorLocaleContent = {
     { type: 'paragraph', html: 'I en tid av flyktiga skärmar är skapandet av något fysiskt en revolutionerande handling. Detta verktyg söker inte efter att automatisera konst, utan att <strong>ge genkraft åt hantverkaren</strong>. Vi ger dig beräkningsprecision så att dina händer kan bygga varaktiga arv.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
-    { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
-    { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

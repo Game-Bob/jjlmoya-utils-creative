@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
 const slug = 'generateur-de-modeles-de-perles';
@@ -57,7 +58,6 @@ export const content: BeadPatternGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Questions Fréquemment Posées',
-  bibliographyTitle: 'Bibliographie de l\'Artisan',
   ui: {
     title: 'Laboratoire de Modèles',
     subtitle: 'Ingénierie chromatique pour vos mains',
@@ -105,11 +105,7 @@ export const content: BeadPatternGeneratorLocaleContent = {
     { type: 'paragraph', html: 'À l\'ère des écrans éphémères, créer quelque chose de physique est un acte révolutionnaire. Cet outil ne cherche pas à automatiser l\'art, mais à <strong>donner du pouvoir à l\'artisan</strong>. Nous vous offrons la précision informatique pour que vos mains puissent bâtir des héritages durables.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Scikit-Image: Quantification de couleurs utilisant K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
-    { name: 'Spécifications des Perles Miyuki Delica', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
-    { name: 'Visgraf Lab: Algorithmes de Tramage (Dithering)', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

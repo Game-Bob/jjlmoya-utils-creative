@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug = 'dice-roller';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: '자주 묻는 질문',
-  bibliographyTitle: '확률 참고 자료',
   ui: {
     title: '주사위 굴리기',
     description: '행운이 당신과 함께하기를.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – 주사위 메커니즘 규칙', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – 가상 테이블탑 및 주사위 시스템', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – d20 시스템 참조', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

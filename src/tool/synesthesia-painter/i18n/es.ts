@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'pintor-sinestesia';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Preguntas Frecuentes',
-  bibliographyTitle: 'Bibliografía de la Mente',
   ui: {
     title: 'Pintor de Sinestesia',
     description: 'Convierte tus palabras en arte cromático.',
@@ -114,11 +114,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – De lo espiritual en el arte (1911)', url: 'https://es.wikipedia.org/wiki/De_lo_espiritual_en_el_arte' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

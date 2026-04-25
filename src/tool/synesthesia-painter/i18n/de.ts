@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'synaesthesie-maler';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Häufig gestellte Fragen',
-  bibliographyTitle: 'Geistes-Bibliographie',
   ui: {
     title: 'Synästhesie Maler',
     description: 'Verwandeln Sie Ihre Worte in chromatische Kunst.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Farbpalette dieses Tools', html: 'Die Farbzuteilungen sind von den häufigsten statistischen Daten der wissenschaftlichen Literatur inspiriert. <strong>A → rot</strong>, <strong>E → grün</strong>, <strong>I → weiß/schwarz je nach Hintergrund</strong>, <strong>O → schwarz/weiß</strong>, <strong>U → bernsteinfarben</strong>. Konsonanten folgen weniger einheitlichen Mustern, aber der Kontrast zum Hintergrund wird immer priorisiert, um die Lesbarkeit zu gewährleisten.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Über das Geistige in der Kunst (1911)', url: 'https://de.wikipedia.org/wiki/Über_das_Geistige_in_der_Kunst' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

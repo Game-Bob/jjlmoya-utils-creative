@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'peintre-de-synesthesie';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Questions Fréquemment Posées',
-  bibliographyTitle: 'Bibliographie de l\'Esprit',
   ui: {
     title: 'Peintre de Synesthésie',
     description: 'Transformez vos mots en art chromatique.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Palette de Couleurs de cet Outil', html: 'Les attributions de couleurs s\'inspirent des données statistiques les plus courantes dans la littérature scientifique. <strong>A → rouge</strong>, <strong>E → vert</strong>, <strong>I → blanc/noir selon le fond</strong>, <strong>O → noir/blanc</strong>, <strong>U → ambre</strong>. Les consonnes suivent des schémas moins uniformes, mais le contraste avec l\'arrière-plan est toujours privilégié pour garantir la lisibilité.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Du Spirituel dans l\'Art (1911)', url: 'https://fr.wikipedia.org/wiki/Du_spirituel_dans_l\'art' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

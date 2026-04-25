@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug = 'zar-atma';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: 'Sıkça Sorulan Sorular',
-  bibliographyTitle: 'Şans Kaynakçası',
   ui: {
     title: 'Zar Atma',
     description: 'Şansınız bol olsun.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – Zar mekaniği kuralları', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – Sanal masaüstü ve zar sistemleri', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – d20 Sistem Referansı', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

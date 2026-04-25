@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug = 'lancador-de-dados';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: 'Perguntas Frequentes',
-  bibliographyTitle: 'Bibliografia da Sorte',
   ui: {
     title: 'Lançador de Dados',
     description: 'Que a sorte esteja contigo.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – Regras de mecânicas de dados', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – Mesa virtual e sistemas de dados', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – Referência de Sistema d20', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

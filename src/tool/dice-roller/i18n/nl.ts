@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug = 'dobbelsteen-roller';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: 'Veelgestelde Vragen',
-  bibliographyTitle: 'Waarschijnlijkheidsbibliografie',
   ui: {
     title: 'Dobbelsteen Roller',
     description: 'Moge het geluk aan jouw zijde staan.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – Dobbelsteenmechanica regels', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – Virtuele tafel en dobbelsteensystemen', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – d20 System Reference', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

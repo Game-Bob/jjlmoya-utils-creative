@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'galleta-fortuna';
 const title = 'Galleta de la Fortuna';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Preguntas Frecuentes',
-  bibliographyTitle: 'Bibliografía del Destino',
   ui: {
     title: 'Galleta de la Fortuna Online',
     description: 'Tu oráculo digital diario.',
@@ -124,9 +124,7 @@ export const content: FortuneCookieLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'Historia de la Galleta de la Fortuna', url: 'https://es.wikipedia.org/wiki/Galleta_de_la_fortuna' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

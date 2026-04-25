@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'synesthesia-painter';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Frequently Asked Questions',
-  bibliographyTitle: 'Mind Bibliography',
   ui: {
     title: 'Synesthesia Painter',
     description: 'Transform your words into chromatic art.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Color Palette of This Tool', html: 'The color assignments are inspired by the most common statistical data in scientific literature. <strong>A → red</strong>, <strong>E → green</strong>, <strong>I → white/black depending on background</strong>, <strong>O → black/white</strong>, <strong>U → amber</strong>. Consonants follow less uniform patterns, but contrast with the background is always prioritized to guarantee readability.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Concerning the Spiritual in Art (1911)', url: 'https://en.wikipedia.org/wiki/Concerning_the_Spiritual_in_Art' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'synesthesia-painter';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'よくある質問',
-  bibliographyTitle: '精神の参考文献',
   ui: {
     title: '共感覚ペインター',
     description: '言葉を色彩のアートへと変換。',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'このツールのカラーパレット', html: 'このツールの色割り当ては、科学文献における最も一般的な統計データに基づいています。<strong>A → 赤</strong>、<strong>E → 緑</strong>、<strong>I → 背景に応じた白/黒</strong>、<strong>O → 黒/白</strong>、<strong>U → 琥珀色</strong>。子音についてはパレットが多様ですが、視認性を最優先し、背景とのコントラストを重視しています。' }
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – 共感覚：非典型的な感覚統合体験の有病率', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – 共感覚研究のための標準テストバッテリー', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'カンディンスキー『芸術における精神的なものについて』（1911年）', url: 'https://ja.wikipedia.org/wiki/ワシリー・カンディンスキー' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

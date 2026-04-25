@@ -1,18 +1,8 @@
 ---
 import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
-import { zalgoGenerator, type ZalgoGeneratorLocaleContent } from './index';
-import type { KnownLocale } from '../../types';
+import { bibliography } from './bibliography';
 
-interface Props {
-  locale?: KnownLocale;
-}
-
-const { locale = 'es' } = Astro.props;
-const localeContentLoader = (zalgoGenerator.i18n as Record<string, () => Promise<ZalgoGeneratorLocaleContent>>)[locale];
-const content = localeContentLoader ? await localeContentLoader() : null;
-if (!content) return null;
-
-const { bibliography } = content;
+if (!bibliography || bibliography.length === 0) return null;
 ---
 
 <SharedBibliography links={bibliography} />

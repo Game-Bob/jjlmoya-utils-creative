@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'pittore-di-sinestesia';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Domande Frequenti',
-  bibliographyTitle: 'Bibliografia della Mente',
   ui: {
     title: 'Pittore di Sinestesia',
     description: 'Trasforma le tue parole in arte cromatica.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Tavolozza dei colori di questo strumento', html: 'Le assegnazioni dei colori sono ispirate ai dati statistici più comuni nella letteratura scientifica. <strong>A → rosso</strong>, <strong>E → verde</strong>, <strong>I → bianco/nero a seconda dello sfondo</strong>, <strong>O → nero/bianco</strong>, <strong>U → ambra</strong>. Le consonanti seguono modelli meno uniformi, ma viene sempre data priorità al contrasto con lo sfondo per garantire la leggibilità.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Sinestesia: prevalenza di esperienze cross-modali atipiche', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – Batteria di test standardizzati per lo studio della sinestesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Lo spirituale nell\'arte (1911)', url: 'https://it.wikipedia.org/wiki/Lo_spirituale_nell%27arte' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

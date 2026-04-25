@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'lyckokaka-online';
 const title = 'Lyckokaka';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Vanliga frågor',
-  bibliographyTitle: 'Ödesbibliografi',
   ui: {
     title: 'Online Lyckokaka',
     description: 'Ditt dagliga digitala orakel.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "En oväntad resa kommer att ge dig stor glädje."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Referenser'
   },
   seo: [
     { type: 'title', text: 'Lyckokakans mysterium', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Lyckokakans historia (engelska)', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

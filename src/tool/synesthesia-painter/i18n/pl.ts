@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'malarz-synestezji';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Najczęściej Zadawane Pytania',
-  bibliographyTitle: 'Bibliografia Umysłu',
   ui: {
     title: 'Malarz Synestezji',
     description: 'Zmień swoje słowa w sztukę chromatyczną.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Paleta kolorów tego narzędzia', html: 'Przypisywanie kolorów inspirowane jest najczęstszymi danymi statystycznymi w literaturze naukowej. <strong>A → czerwony</strong>, <strong>E → zielony</strong>, <strong>I → biały/czarny w zależności od tła</strong>, <strong>O → czarny/biały</strong>, <strong>U → bursztynowy</strong>. Spółgłoski podlegają mniej jednolitym wzorcom, ale kontrast z tłem jest zawsze traktowany priorytetowo, aby zagwarantować czytelność.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – O duchowości w sztuce (1911)', url: 'https://pl.wikipedia.org/wiki/Wassily_Kandinsky' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

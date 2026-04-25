@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
 const slug = 'bead-pattern-generator';
@@ -57,7 +58,6 @@ export const content: BeadPatternGeneratorLocaleContent = {
   title,
   description,
   faqTitle: '常见问题解答',
-  bibliographyTitle: '工匠参考文献',
   ui: {
     title: '图案实验室',
     subtitle: '指尖上的色彩工程',
@@ -105,11 +105,7 @@ export const content: BeadPatternGeneratorLocaleContent = {
     { type: 'paragraph', html: '在转瞬即逝的屏幕时代，亲手创造实体作品是一种革命性的行为。本工具不致力于取代艺术，而是旨在<strong>赋能工匠</strong>。我们为您提供计算精度，助您的双手打造持久的传承。' },
   ],
   faq,
-  bibliography: [
-    { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
-    { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
-    { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

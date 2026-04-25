@@ -14,7 +14,6 @@ export interface ExcuseGeneratorUI {
   middles: string;
   ends: string;
   faqTitle: string;
-  bibliographyTitle: string;
 }
 
 export type ExcuseGeneratorLocaleContent = ToolLocaleContent<ExcuseGeneratorUI>;

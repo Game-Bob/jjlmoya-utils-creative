@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'synesthesia-painter';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: '자주 묻는 질문',
-  bibliographyTitle: '정신의 참고 문헌',
   ui: {
     title: '공감각 페인터',
     description: '당신의 단어를 색채 예술로 변환하세요.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: '이 도구의 컬러 팔레트', html: '색상 할당은 과학 문헌의 가장 일반적인 통계 데이터에서 영감을 얻었습니다. <strong>A → 빨강</strong>, <strong>E → 초록</strong>, <strong>I → 배경에 따른 흰색/검은색</strong>, <strong>O → 검정/흰색</strong>, <strong>U → 황색</strong>. 자음은 비교적 덜 균일한 패턴을 따르지만, 가독성을 보장하기 위해 배경과의 대비를 항상 우선시합니다.' }
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – 공감각: 비전형적인 교차 감각 경험의 유병률', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – 공감각 연구를 위한 표준화된 테스트 배터리', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: '칸딘스키, 바실리 – 예술에 있어서 정신적인 것에 대하여 (1911)', url: 'https://ko.wikipedia.org/wiki/예술에_있어서_정신적인_것에_대하여' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

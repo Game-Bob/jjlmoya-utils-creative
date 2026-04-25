@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'kue-keberuntungan';
 const title = 'Kue Keberuntungan';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Pertanyaan yang Sering Diajukan',
-  bibliographyTitle: 'Bibliografi Nasib',
   ui: {
     title: 'Kue Keberuntungan Online',
     description: 'Peramal digital harian Anda.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "Perjalanan tak terduga akan membawakan Anda kegembiraan yang besar."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Referensi'
   },
   seo: [
     { type: 'title', text: 'Misteri Kue Keberuntungan', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Sejarah Kue Keberuntungan', url: 'https://id.wikipedia.org/wiki/Kue_keberuntungan' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

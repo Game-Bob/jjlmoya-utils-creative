@@ -11,7 +11,6 @@ export interface SynesthesiaPainterUI {
   footerText: string;
   clearBtn: string;
   faqTitle: string;
-  bibliographyTitle: string;
 }
 
 export type SynesthesiaPainterLocaleContent = ToolLocaleContent<SynesthesiaPainterUI>;

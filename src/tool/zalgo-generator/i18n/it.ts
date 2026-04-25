@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
 const slug = 'generatore-zalgo';
@@ -57,7 +58,6 @@ export const content: ZalgoGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Domande Frequenti',
-  bibliographyTitle: 'Bibliografia del Caos',
   ui: {
     title: 'Generatore Zalgo',
     description: 'T̴u̶t̸t̶o̸ ̵è̵ ̸c̸o̸r̶r̶o̸t̷t̶o̷',
@@ -103,11 +103,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'Standard Unicode - Caratteri di combinazione (inglese)', url: 'https://www.unicode.org/standard/principles.html#Combining_Characters' },
-    { name: 'Il fenomeno del testo Zalgo (inglese)', url: 'https://knowyourmeme.com/memes/zalgo' },
-    { name: 'MDN - Normalizzazione delle stringhe', url: 'https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/String/normalize' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

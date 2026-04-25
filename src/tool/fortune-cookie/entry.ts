@@ -12,7 +12,6 @@ export interface FortuneCookieUI {
   copied: string;
   fortunes: string;
   faqTitle: string;
-  bibliographyTitle: string;
 }
 
 export type FortuneCookieLocaleContent = ToolLocaleContent<FortuneCookieUI>;

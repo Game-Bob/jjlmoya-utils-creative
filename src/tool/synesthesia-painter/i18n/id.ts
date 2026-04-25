@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'pelukis-sinestesia';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Pertanyaan yang Sering Diajukan',
-  bibliographyTitle: 'Bibliografi Pikiran',
   ui: {
     title: 'Pelukis Sinestesia',
     description: 'Ubah kata-kata Anda menjadi seni kromatik.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Palet Warna Alat Ini', html: 'Penetapan warna terinspirasi oleh data statistik yang paling umum dalam literatur ilmiah. <strong>A → merah</strong>, <strong>E → hijau</strong>, <strong>I → putih/hitam tergantung latar belakang</strong>, <strong>O → hitam/putih</strong>, <strong>U → amber</strong>. Huruf konsonan mengikuti pola yang kurang seragam, tetapi kontras dengan latar belakang selalu diprioritaskan untuk menjamin keterbacaan.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Sinestesia: Prevalensi pengalaman lintas-modal atipikal', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – Baterai tes standar untuk studi sinestesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Tentang Spiritual dalam Seni (1911)', url: 'https://id.wikipedia.org/wiki/Wassily_Kandinsky' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

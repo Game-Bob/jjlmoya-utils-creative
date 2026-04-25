@@ -21,7 +21,6 @@ export interface BeadPatternGeneratorUI {
   uploadLabel: string;
   pixelateBtn: string;
   faqTitle: string;
-  bibliographyTitle: string;
 }
 
 export type BeadPatternGeneratorLocaleContent = ToolLocaleContent<BeadPatternGeneratorUI>;

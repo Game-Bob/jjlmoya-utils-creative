@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'fortune-cookie';
 const title = '포춘 쿠키';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: '자주 묻는 질문',
-  bibliographyTitle: '운명의 참고 문헌',
   ui: {
     title: '온라인 포춘 쿠키',
     description: '당신을 위한 매일의 디지털 신탁.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "예기치 못한 여행이 당신에게 큰 기쁨을 가져다줄 것입니다."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: '참고 문헌'
   },
   seo: [
     { type: 'title', text: '포춘 쿠키의 미스터리', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: '포춘 쿠키의 역사 (영문)', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
 const slug = 'generador-patrones-cuentas';
@@ -57,7 +58,6 @@ export const content: BeadPatternGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Preguntas Frecuentes',
-  bibliographyTitle: 'Bibliografía del Artesano',
   ui: {
     title: 'Laboratorio de Patrones',
     subtitle: 'Ingeniería de color para tus manos',
@@ -112,11 +112,7 @@ export const content: BeadPatternGeneratorLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
-    { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
-    { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

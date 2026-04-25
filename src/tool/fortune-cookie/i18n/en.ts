@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'fortune-cookie';
 const title = 'Fortune Cookie';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Frequently Asked Questions',
-  bibliographyTitle: 'Destiny Bibliography',
   ui: {
     title: 'Online Fortune Cookie',
     description: 'Your daily digital oracle.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "An unexpected trip will bring you great joys."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'References'
   },
   seo: [
     { type: 'title', text: 'The Mystery of the Fortune Cookie', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'History of the Fortune Cookie', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

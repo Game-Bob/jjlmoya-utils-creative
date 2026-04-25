@@ -10,7 +10,6 @@ export interface ZalgoGeneratorUI {
   copyBtn: string;
   copied: string;
   faqTitle: string;
-  bibliographyTitle: string;
   configTitle: string;
   intensity: string;
   upLabel: string;

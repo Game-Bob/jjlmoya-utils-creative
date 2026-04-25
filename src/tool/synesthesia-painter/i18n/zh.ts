@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'synesthesia-painter';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: '常见问题解答',
-  bibliographyTitle: '精神文献',
   ui: {
     title: '联觉绘画家',
     description: '将您的文字转化为色度艺术。',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: '此工具的色盘', html: '颜色分配受到科学文献中最常见的统计数据的启发。<strong>A → 红色</strong>，<strong>E → 绿色</strong>，<strong>I → 根据背景显示白/黑</strong>，<strong>O → 黑/白</strong>，<strong>U → 琥珀色</strong>。辅音遵循较不统一的模式，但始终优先考虑与背景的对比度，以保证可读性。' }
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – 联觉：非典型跨模态体验的流行率', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – 用于联觉研究的标准化测试电池', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: '康定斯基，《艺术中的精神性》（1911）', url: 'https://zh.wikipedia.org/wiki/瓦西里·康定斯基' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

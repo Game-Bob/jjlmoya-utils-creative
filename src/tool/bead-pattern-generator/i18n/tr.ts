@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
 const slug = 'boncuk-desen-olusturucu';
@@ -57,7 +58,6 @@ export const content: BeadPatternGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Sıkça Sorulan Sorular',
-  bibliographyTitle: 'Zanaatkar Kaynakçası',
   ui: {
     title: 'Desen Laboratuvarı',
     subtitle: 'Elleriniz için renk mühendisliği',
@@ -105,11 +105,7 @@ export const content: BeadPatternGeneratorLocaleContent = {
     { type: 'paragraph', html: 'Uçucu ekranlar çağında, fiziksel bir şey yaratmak devrimci bir eylemdir. Bu araç sanatı otomatikleştirmeyi değil, <strong>zanaatkarı güçlendirmeyi</strong> amaçlar. Ellerinizin kalıcı miraslar inşa edebilmesi için size hesaplamalı hassasiyet sağlıyoruz.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
-    { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
-    { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'synestesi-malare';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Vanliga frågor',
-  bibliographyTitle: 'Sinnets bibliografi',
   ui: {
     title: 'Synestesi målare',
     description: 'Förvandla dina ord till kromatisk konst.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Detta verktygs färgpalett', html: 'Färgtilldelningarna är inspirerade av de vanligaste statistiska data i vetenskaplig litteratur. <strong>A → röd</strong>, <strong>E → grön</strong>, <strong>I → vit/svart beroende på bakgrund</strong>, <strong>O → svart/vit</strong>, <strong>U → bärnsten</strong>. Konsonanter följer mindre enhetliga mönster, men kontrast mot bakgrunden prioriteras alltid för att garantera läsbarhet.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Om det andliga i konsten (1911)', url: 'https://sv.wikipedia.org/wiki/Om_det_andliga_i_konsten' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

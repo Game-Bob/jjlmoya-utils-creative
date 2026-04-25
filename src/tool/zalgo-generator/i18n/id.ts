@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
 const slug = 'pembuat-teks-zalgo';
@@ -57,7 +58,6 @@ export const content: ZalgoGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Pertanyaan yang Sering Diajukan',
-  bibliographyTitle: 'Bibliografi Kekacauan',
   ui: {
     title: 'Pembuat Teks Zalgo',
     description: 'S̷e̷m̴u̴a̷n̵y̸a̷ ̴r̸u̶s̷a̶k̵',
@@ -103,11 +103,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'Standar Unicode - Karakter Penggabung (Bahasa Inggris)', url: 'https://www.unicode.org/standard/principles.html#Combining_Characters' },
-    { name: 'Fenomena Teks Zalgo (Bahasa Inggris)', url: 'https://knowyourmeme.com/memes/zalgo' },
-    { name: 'MDN - Normalisasi string', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

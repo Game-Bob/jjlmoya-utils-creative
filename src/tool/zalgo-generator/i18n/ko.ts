@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { ZalgoGeneratorLocaleContent } from '../index';
 
 const slug = 'zalgo-generator';
@@ -57,7 +58,6 @@ export const content: ZalgoGeneratorLocaleContent = {
   title,
   description,
   faqTitle: '자주 묻는 질문',
-  bibliographyTitle: '혼돈의 참고 문헌',
   ui: {
     title: '잘고 생성기',
     description: '모̵든̵ ̷것̵이̸ ̴오̶염̷되̴었̴습̶니̸다̵',
@@ -103,11 +103,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: '유니코드 표준 - 결합 문자 (영어)', url: 'https://www.unicode.org/standard/principles.html#Combining_Characters' },
-    { name: '잘고 텍스트 현상 (영어)', url: 'https://knowyourmeme.com/memes/zalgo' },
-    { name: 'MDN - 문자열 정규화', url: 'https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/normalize' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

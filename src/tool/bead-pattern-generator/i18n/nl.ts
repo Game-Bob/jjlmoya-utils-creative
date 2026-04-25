@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { BeadPatternGeneratorLocaleContent } from '../index';
 
 const slug = 'kralenpatroon-generator';
@@ -57,7 +58,6 @@ export const content: BeadPatternGeneratorLocaleContent = {
   title,
   description,
   faqTitle: 'Veelgestelde Vragen',
-  bibliographyTitle: 'Ambachtelijke Bibliografie',
   ui: {
     title: 'Patroon Laboratorium',
     subtitle: 'Kleurtechniek voor je eigen handen',
@@ -105,11 +105,7 @@ export const content: BeadPatternGeneratorLocaleContent = {
     { type: 'paragraph', html: 'In een tijdperk van vluchtige schermen is het creëren van iets fysieks een revolutionaire daad. Deze tool probeert kunst niet te automatiseren, maar de <strong>ambachtsman te versterken</strong>. We geven je computationele precisie zodat jouw handen blijvende erfenissen kunnen bouwen.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Scikit-Image: Color Quantization using K-Means', url: 'https://scikit-learn.org/0.23/auto_examples/cluster/plot_color_quantization.html' },
-    { name: 'Miyuki Delica Beads Specification', url: 'https://www.miyuki-beads.co.jp/english/seedbeads/delica.html' },
-    { name: 'Visgraf Lab: Dithering Algorithms', url: 'https://www.visgraf.impa.br/Courses/ip00/proj/Dithering1/floyd_steinberg_dithering.html' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

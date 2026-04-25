@@ -9,7 +9,6 @@ export interface DiceRollerUI {
   historyLabel: string;
   clearHistoryBtn: string;
   faqTitle: string;
-  bibliographyTitle: string;
   addDiceLabel: string;
   bagLabel: string;
   emptyBagBtn: string;

@@ -1,17 +1,8 @@
 ---
 import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
-import { synesthesiaPainter } from './index';
-import type { KnownLocale } from '../../types';
+import { bibliography } from './bibliography';
 
-interface Props {
-  locale?: KnownLocale;
-}
-
-const { locale = 'es' } = Astro.props;
-const content = await synesthesiaPainter.i18n[locale]?.();
-if (!content || !content.bibliography || content.bibliography.length === 0) return null;
-
-const { bibliography, bibliographyTitle = 'Bibliografía' } = content;
+if (!bibliography || bibliography.length === 0) return null;
 ---
 
-<SharedBibliography title={bibliographyTitle} links={bibliography} />
+<SharedBibliography links={bibliography} />

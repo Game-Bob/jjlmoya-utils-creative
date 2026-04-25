@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'biscuit-de-la-fortune';
 const title = 'Biscuit de la Fortune';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Questions Fréquemment Posées',
-  bibliographyTitle: 'Bibliographie du Destin',
   ui: {
     title: 'Biscuit de la Fortune en Ligne',
     description: 'Votre oracle numérique quotidien.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "Un voyage inattendu vous apportera de grandes joies."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Références'
   },
   seo: [
     { type: 'title', text: 'Le Mystère du Biscuit de la Fortune', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Histoire du Fortune Cookie', url: 'https://en.wikipedia.org/wiki/Fortune_cookie' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

@@ -1,5 +1,6 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { FortuneCookieLocaleContent } from '../index';
+import { bibliography } from '../bibliography';
 
 const slug = 'glueckskeks-online';
 const title = 'Glückskeks';
@@ -59,7 +60,6 @@ export const content: FortuneCookieLocaleContent = {
   title,
   description,
   faqTitle: 'Häufig gestellte Fragen',
-  bibliographyTitle: 'Schicksals-Bibliographie',
   ui: {
     title: 'Online Glückskeks',
     description: 'Dein tägliches digitales Orakel.',
@@ -97,7 +97,6 @@ export const content: FortuneCookieLocaleContent = {
       "Eine unerwartete Reise wird dir große Freude bereiten."
     ]),
     faqTitle: 'FAQ',
-    bibliographyTitle: 'Referenzen'
   },
   seo: [
     { type: 'title', text: 'Das Geheimnis des Glückskekses', level: 2 },
@@ -119,9 +118,7 @@ export const content: FortuneCookieLocaleContent = {
     ], columns: 4 },
   ],
   faq,
-  bibliography: [
-    { name: 'Geschichte des Glückskekses', url: 'https://de.wikipedia.org/wiki/Glückskeks' }
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

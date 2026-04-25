@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'sinestezi-ressami';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Sıkça Sorulan Sorular',
-  bibliographyTitle: 'Zihin Kaynakçası',
   ui: {
     title: 'Sinestezi Ressamı',
     description: 'Kelimelerinizi kromatik sanata dönüştürün.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Bu Aracın Renk Paleti', html: 'Renk atamaları, bilimsel literatürdeki en yaygın istatistiksel verilerden esinlenmiştir. <strong>A → kırmızı</strong>, <strong>E → yeşil</strong>, <strong>I → arka plana göre beyaz/siyah</strong>, <strong>O → siyah/beyaz</strong>, <strong>U → kehribar</strong>. Ünsüzler daha az üniform modeller izlese de, okunabilirliği garanti etmek için arka planla kontrast her zaman önceliklidir.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Sinestezi: Atipik çapraz-modal deneyimlerin yaygınlığı', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – Sinestezi çalışması için standartlaştırılmış bir test bataryası', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Sanatta Spiritüel Üzerine (1911)', url: 'https://tr.wikipedia.org/wiki/Spritüel_Üstüne' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

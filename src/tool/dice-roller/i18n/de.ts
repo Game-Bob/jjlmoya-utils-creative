@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { DiceRollerLocaleContent } from '../index';
 
 const slug = 'wuerfel-simulator';
@@ -73,7 +74,6 @@ export const content: DiceRollerLocaleContent = {
   title,
   description,
   faqTitle: 'Häufig gestellte Fragen',
-  bibliographyTitle: 'Zufalls-Bibliographie',
   ui: {
     title: 'Würfel Simulator',
     description: 'Möge das Glück mit dir sein.',
@@ -128,11 +128,7 @@ export const content: DiceRollerLocaleContent = {
     ]},
   ],
   faq,
-  bibliography: [
-    { name: 'D&D Beyond – Regeln zur Würfelmechanik', url: 'https://www.dndbeyond.com/sources/basic-rules/using-ability-scores' },
-    { name: 'Roll20 – Virtueller Spieltisch und Würfelsysteme', url: 'https://roll20.net/' },
-    { name: 'Pathfinder – d20 System Reference', url: 'https://paizo.com/pathfinder' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

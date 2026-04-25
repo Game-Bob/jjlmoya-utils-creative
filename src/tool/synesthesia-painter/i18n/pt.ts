@@ -1,4 +1,5 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
+import { bibliography } from '../bibliography';
 import type { SynesthesiaPainterLocaleContent } from '../index';
 
 const slug = 'pintor-de-sinestesia';
@@ -73,7 +74,6 @@ export const content: SynesthesiaPainterLocaleContent = {
   title,
   description,
   faqTitle: 'Perguntas Frequentes',
-  bibliographyTitle: 'Bibliografia da Mente',
   ui: {
     title: 'Pintor de Sinestesia',
     description: 'Transforme as suas palavras em arte cromática.',
@@ -112,11 +112,7 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'tip', title: 'Paleta de Cores Desta Ferramenta', html: 'As atribuições de cores são inspiradas nos dados estatísticos mais comuns na literatura científica. <strong>A → vermelho</strong>, <strong>E → verde</strong>, <strong>I → branco/preto dependendo do fundo</strong>, <strong>O → preto/branco</strong>, <strong>U → âmbar</strong>. As consoantes seguem padrões menos uniformes, mas o contraste com o fundo é sempre priorizado para garantir a legibilidade.' },
   ],
   faq,
-  bibliography: [
-    { name: 'Simner et al. (2006) – Synaesthesia: The prevalence of atypical cross-modal experiences', url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1626536/' },
-    { name: 'Eagleman et al. (2007) – A standardized test battery for the study of synesthesia', url: 'https://www.sciencedirect.com/science/article/pii/S0010945207000087' },
-    { name: 'Kandinsky, W. – Do Espiritual na Arte (1911)', url: 'https://pt.wikipedia.org/wiki/Wassily_Kandinsky' },
-  ],
+  bibliography,
   howTo,
   schemas: [faqSchema as any, howToSchema as any, appSchema],
 };

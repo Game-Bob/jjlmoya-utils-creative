@@ -1,14 +1,19 @@
 ---
-import { SEORenderer } from '@jjlmoya/utils-shared';
-import { beadPatternGenerator } from './index';
-import type { KnownLocale } from '../../types';
+import { SEORenderer } from "@jjlmoya/utils-shared";
+import { beadPatternGenerator } from "./index";
+import type { KnownLocale } from "../../types";
 
 interface Props {
   locale?: KnownLocale;
 }
 
-const { locale = 'es' } = Astro.props;
+const { locale = "es" } = Astro.props;
 const content = await beadPatternGenerator.i18n[locale]?.();
+if (!content) return null;
 ---
 
-{content && <SEORenderer content={{ locale, sections: content.seo }} />}
+{
+  content.seo?.length > 0 && (
+    <SEORenderer content={{ locale, sections: content.seo }} />
+  )
+}

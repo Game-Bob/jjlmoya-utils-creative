@@ -6,7 +6,9 @@
       "Bash(sed -i \"s/const slug = 'dice-roller-ru';/const slug = 'simulator-kostey';/\" src/tool/dice-roller/i18n/ru.ts)",
       "Bash(sed -i \"s/const slug = 'zalgo-generator-de';/const slug = 'zalgo-textgenerator';/\" src/tool/zalgo-generator/i18n/de.ts)",
       "Bash(sed -i \"s/const slug = 'zalgo-generator-nl';/const slug = 'zalgo-tekstgenerator';/\" src/tool/zalgo-generator/i18n/nl.ts)",
-      "Bash(sed -i \"s/const slug = 'zalgo-generator-sv';/const slug = 'zalgo-textgenerator-sv';/\" src/tool/zalgo-generator/i18n/sv.ts)"
+      "Bash(sed -i \"s/const slug = 'zalgo-generator-sv';/const slug = 'zalgo-textgenerator-sv';/\" src/tool/zalgo-generator/i18n/sv.ts)",
+      "Bash(cd d:\\\\\\\\code\\\\\\\\jjlmoya-utils-creative)",
+      "Read(//d/d/code/**)"
     ]
   }
 }

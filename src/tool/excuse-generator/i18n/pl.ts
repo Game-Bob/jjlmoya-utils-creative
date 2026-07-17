@@ -97,15 +97,15 @@ export const content: ExcuseGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Naukowa sztuka wymówki doskonałej', level: 2 },
-    { type: 'paragraph', html: 'Żyjemy w erze hiperłączności. Twój telefon wibruje, zegarek wysyła powiadomienia, a Twój kalendarz towarzyski wygląda jak partia Tetrisa tuż przed przegraną. Presja, by na wszystko mówić „tak”, stworzyła epidemię wyczerpania społecznego.' },
+    { type: 'paragraph', html: 'Żyjemy w erze hiperłączności. Twój telefon wibruje, zegarek wysyła powiadomienia, a Twój kalendarz towarzyski wygląda jak partia Tetrisa tuż przed przegraną. Presja, by na wszystko mówić \"tak\", stworzyła epidemię wyczerpania społecznego.' },
     { type: 'title', text: 'Renesans JOMO (Joy of Missing Out)', level: 3 },
     { type: 'paragraph', html: 'Podczas gdy FOMO (Fear of Missing Out) dominowało w ostatniej dekadzie, eksperci od cyfrowego dobrostanu promują teraz <strong>JOMO: Radość z tego, że coś nas omija</strong>. Nie chodzi o izolację, ale o intencjonalność.' },
-    { type: 'tip', title: 'Formuła alibi nie do podważenia', html: '<strong>Podmiot zdystansowany:</strong> Nigdy nie Ty jesteś winny. To „wifi”, „mój kot”, „wszechświat”. Przerzuć winę na byt zewnętrzny.<br><strong>Hiperboliczna akcja:</strong> Sytuacja musi być wystarczająco absurdalna lub techniczna, by nikt nie dopytywał o szczegóły.<br><strong>Blokada fizyczna:</strong> Wynik końcowy musi być binarny: albo idę, albo zostaję w domu.' },
+    { type: 'tip', title: 'Formuła alibi nie do podważenia', html: '<strong>Podmiot zdystansowany:</strong> Nigdy nie Ty jesteś winny. To \"wifi\", \"mój kot\", \"wszechświat\". Przerzuć winę na byt zewnętrzny.<br><strong>Hiperboliczna akcja:</strong> Sytuacja musi być wystarczająco absurdalna lub techniczna, by nikt nie dopytywał o szczegóły.<br><strong>Blokada fizyczna:</strong> Wynik końcowy musi być binarny: albo idę, albo zostaję w domu.' },
     { type: 'title', text: 'Krótka historia wymówki', level: 3 },
     { type: 'list', items: [
-      '<strong>Średniowiecze:</strong> „Mój koń zgubił podkowę” (ponadczasowa klasyka).',
-      '<strong>Rewolucja przemysłowa:</strong> „Maszyna parowa się przegrzała”.',
-      '<strong>Era cyfrowa:</strong> „Internet padł mi w samym środku aktualizacji”.',
+      '<strong>Średniowiecze:</strong> \"Mój koń zgubił podkowę\" (ponadczasowa klasyka).',
+      '<strong>Rewolucja przemysłowa:</strong> \"Maszyna parowa się przegrzała\".',
+      '<strong>Era cyfrowa:</strong> \"Internet padł mi w samym środku aktualizacji\".',
     ]},
     { type: 'proscons', items: [
       { pro: 'Błyskawicznie łagodzi presję społeczną', con: 'Nadużywanie niszczy zaufanie' },

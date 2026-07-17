@@ -83,7 +83,7 @@ export const content: GlitchImageDistorterLocaleContent = {
     title: 'Distorsion Glitch',
     description: 'Créez de l\'art glitch en quelques secondes.',
     dragDropText: 'Glissez-déposez une image ici ou cliquez pour importer',
-    pasteHint: 'Astuce : Vous pouvez aussi coller une image avec Ctrl+V',
+    pasteHint: 'Astuce: Vous pouvez aussi coller une image avec Ctrl+V',
     exampleImageBtn: 'Utiliser l\'image d\'exemple',
     corruptionLabel: 'Corruption (Séparation RGB)',
     interferenceLabel: 'Interférence (Lignes)',
@@ -103,7 +103,7 @@ export const content: GlitchImageDistorterLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Qu\'est-ce que l\'Art Glitch ?', level: 2 },
-    { type: 'paragraph', html: 'L\'<strong>art glitch</strong> est une pratique créative qui exploite intentionnellement les erreurs numériques, les données corrompues et les artefacts visuels pour produire des résultats esthétiques. Contrairement à l\'art traditionnel qui recherche la perfection, le glitch célèbre la beauté inattendue de la panne technologique — des couleurs fragmentées et des motifs chaotiques surgissant de l\'erreur.' },
+    { type: 'paragraph', html: 'L\'<strong>art glitch</strong> est une pratique créative qui exploite intentionnellement les erreurs numériques, les données corrompues et les artefacts visuels pour produire des résultats esthétiques. Contrairement à l\'art traditionnel qui recherche la perfection, le glitch célèbre la beauté inattendue de la panne technologique - des couleurs fragmentées et des motifs chaotiques surgissant de l\'erreur.' },
     { type: 'title', text: 'Origines et Esthétique Numérique', level: 3 },
     { type: 'paragraph', html: 'L\'esthétique glitch est apparue au début des années 2000, lorsque des artistes numériques ont commencé à expérimenter avec des fichiers corrompus et des pannes matérielles. Des artistes comme <strong>Rosa Menkman</strong> ont élevé le glitch au rang d\'art en explorant la poétique des artefacts numériques. L\'esthétique s\'inspire de la dégradation VHS, des erreurs de transmission et du "bruit" des systèmes numériques.' },
     { type: 'title', text: 'Techniques Clés du Glitch', level: 3 },
@@ -116,7 +116,7 @@ export const content: GlitchImageDistorterLocaleContent = {
     ]},
     { type: 'tip', title: 'La Philosophie du Glitch', html: 'L\'art glitch remet en question l\'idée d\'une représentation numérique "parfaite". En acceptant l\'erreur, nous interrogeons la fiabilité de la technologie et explorons comment elle influence notre perception de la réalité. C\'est un art sur la défaillance du système et la beauté cachée dans le chaos.' },
     { type: 'title', text: 'Applications Contemporaines', level: 3 },
-    { type: 'paragraph', html: 'Aujourd\'hui, l\'esthétique glitch est partout : pochettes d\'albums, clips, mode et design graphique. Cet outil démocratise la création de ce style, permettant à chacun de générer des pièces professionnelles de corruption numérique sans connaissances techniques approfondies.' },
+    { type: 'paragraph', html: 'Aujourd\'hui, l\'esthétique glitch est partout: pochettes d\'albums, clips, mode et design graphique. Cet outil démocratise la création de ce style, permettant à chacun de générer des pièces professionnelles de corruption numérique sans connaissances techniques approfondies.' },
     { type: 'stats', items: [
       { value: '2000s', label: 'Apparition de l\'art glitch', icon: 'mdi:history' },
       { value: '∞', label: 'Combinaisons possibles', icon: 'mdi:shuffle-variant' },

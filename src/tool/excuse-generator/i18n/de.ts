@@ -97,15 +97,15 @@ export const content: ExcuseGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Die wissenschaftliche Kunst der perfekten Ausrede', level: 2 },
-    { type: 'paragraph', html: 'Wir leben im Zeitalter der Hyperkonnektivität. Ihr Telefon vibriert, Ihre Uhr benachrichtigt Sie und Ihr Terminkalender sieht aus wie ein Tetris-Spiel, das kurz vor dem Verlieren steht. Der Druck, zu allem „Ja“ zu sagen, hat eine Epidemie der sozialen Erschöpfung ausgelöst.' },
+    { type: 'paragraph', html: 'Wir leben im Zeitalter der Hyperkonnektivität. Ihr Telefon vibriert, Ihre Uhr benachrichtigt Sie und Ihr Terminkalender sieht aus wie ein Tetris-Spiel, das kurz vor dem Verlieren steht. Der Druck, zu allem \"Ja\" zu sagen, hat eine Epidemie der sozialen Erschöpfung ausgelöst.' },
     { type: 'title', text: 'Die Renaissance von JOMO (Joy of Missing Out)', level: 3 },
     { type: 'paragraph', html: 'Während FOMO (Fear of Missing Out) das letzte Jahrzehnt dominierte, plädieren Experten für digitales Wohlbefinden nun für <strong>JOMO: Die Freude am Verpassen</strong>. Es geht nicht um Isolation, sondern um Intentionalität.' },
-    { type: 'tip', title: 'Die Formel für das unwiderlegbare Alibi', html: '<strong>Das dissoziierte Subjekt:</strong> Sie sind niemals der Schuldige. Es ist „das WLAN“, „meine Katze“, „das Universum“. Schieben Sie die Schuld auf eine externe Instanz.<br><strong>Die hyperbolische Aktion:</strong> Die Situation muss so absurd oder technisch sein, dass niemand nach Details fragt.<br><strong>Die physische Blockade:</strong> Das Endergebnis muss binär sein: Entweder ich gehe oder ich bleibe zu Hause.' },
+    { type: 'tip', title: 'Die Formel für das unwiderlegbare Alibi', html: '<strong>Das dissoziierte Subjekt:</strong> Sie sind niemals der Schuldige. Es ist \"das WLAN\", \"meine Katze\", \"das Universum\". Schieben Sie die Schuld auf eine externe Instanz.<br><strong>Die hyperbolische Aktion:</strong> Die Situation muss so absurd oder technisch sein, dass niemand nach Details fragt.<br><strong>Die physische Blockade:</strong> Das Endergebnis muss binär sein: Entweder ich gehe oder ich bleibe zu Hause.' },
     { type: 'title', text: 'Eine kurze Geschichte der Ausrede', level: 3 },
     { type: 'list', items: [
-      '<strong>Mittelalter:</strong> „Mein Pferd hat ein Hufeisen verloren“ (Ein zeitloser Klassiker).',
-      '<strong>Industrielle Revolution:</strong> „Die Dampfmaschine ist überhitzt“.',
-      '<strong>Digitales Zeitalter:</strong> „Mein Internet ist mitten im Update ausgefallen“.',
+      '<strong>Mittelalter:</strong> \"Mein Pferd hat ein Hufeisen verloren\" (Ein zeitloser Klassiker).',
+      '<strong>Industrielle Revolution:</strong> \"Die Dampfmaschine ist überhitzt\".',
+      '<strong>Digitales Zeitalter:</strong> \"Mein Internet ist mitten im Update ausgefallen\".',
     ]},
     { type: 'proscons', items: [
       { pro: 'Befreit sofort von sozialem Druck', con: 'Übermäßiger Gebrauch untergräbt das Vertrauen' },

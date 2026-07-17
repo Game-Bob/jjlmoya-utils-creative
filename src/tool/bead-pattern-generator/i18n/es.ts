@@ -98,8 +98,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
     ]},
     { type: 'paragraph', html: 'En una era de pantallas efímeras, crear algo físico es un acto revolucionario. Esta herramienta no busca automatizar el arte, sino <strong>empoderar al artesano</strong>. Te damos la precisión computacional para que tus manos puedan construir legados duraderos.' },
     { type: 'stats', items: [
-      { value: '10–100', label: 'Ancho del patrón (cuentas)', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'Colores en la paleta', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'Ancho del patrón (cuentas)', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'Colores en la paleta', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: 'Algoritmo de cuantización', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: 'Exportación (patrón + guía)', icon: 'mdi:zip-box' },
     ], columns: 4 },

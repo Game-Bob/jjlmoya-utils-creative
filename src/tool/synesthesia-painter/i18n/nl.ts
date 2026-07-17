@@ -102,9 +102,9 @@ export const content: SynesthesiaPainterLocaleContent = {
       '<strong>Beroemde synestheten:</strong> Vladimir Nabokov, Wassily Kandinsky, Nikola Tesla en Billy Joel hebben publiekelijk synesthetische ervaringen beschreven die hun werk hebben beïnvloed.',
     ]},
     { type: 'stats', items: [
-      { value: '4–8%', label: 'Bevolking met synesthesie', icon: 'mdi:brain' },
+      { value: '4-8%', label: 'Bevolking met synesthesie', icon: 'mdi:brain' },
       { value: '90%+', label: 'Kleurconsistentie over 10 jaar', icon: 'mdi:check-circle' },
-      { value: '3–6×', label: 'Vaker voorkomend bij vrouwen', icon: 'mdi:gender-female' },
+      { value: '3-6×', label: 'Vaker voorkomend bij vrouwen', icon: 'mdi:gender-female' },
       { value: '26+10', label: 'Gekleurde letters & cijfers', icon: 'mdi:alphabetical' },
     ], columns: 4 },
     { type: 'title', text: 'Kunst en synesthesie: wanneer de zintuigen samensmelten', level: 3 },

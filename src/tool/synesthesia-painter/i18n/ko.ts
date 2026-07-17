@@ -102,9 +102,9 @@ export const content: SynesthesiaPainterLocaleContent = {
       '<strong>유명한 공감각자:</strong> 블라디미르 나보코프, 바실리 칸딘스키, 니콜라 테슬라, 빌리 조엘 등이 자신의 작품에 영향을 준 공감각적 경험을 공개적으로 묘사한 바 있습니다.'
     ]},
     { type: 'stats', items: [
-      { value: '4–8%', label: '공감각 보유 인구', icon: 'mdi:brain' },
+      { value: '4-8%', label: '공감각 보유 인구', icon: 'mdi:brain' },
       { value: '90%+', label: '10년 후의 색상 일관성', icon: 'mdi:check-circle' },
-      { value: '3–6배', label: '여성에게 더 흔히 발견됨', icon: 'mdi:gender-female' },
+      { value: '3-6배', label: '여성에게 더 흔히 발견됨', icon: 'mdi:gender-female' },
       { value: '26+10', label: '컬러 글자 및 숫자', icon: 'mdi:alphabetical' }
     ], columns: 4 },
     { type: 'title', text: '예술과 공감각: 감각이 융합될 때', level: 3 },

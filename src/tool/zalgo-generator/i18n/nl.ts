@@ -82,7 +82,7 @@ export const content: ZalgoGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Wat is Zalgo tekst en hoe werkt visuele corruptie?', level: 2 },
-    { type: 'paragraph', html: 'Zalgo-tekst is een vorm van typografische manipulatie die gebruikmaakt van een specifieke functie van de Unicode-standaard: <strong>combinatiekarakters</strong>. In tegenstelling tot normale karakters nemen deze diakritische tekens geen horizontale ruimte in beslag — ze stapelen zich verticaal op bovenop de basisletter, waardoor die esthetiek van "digitale chaos" of "kosmische horror" ontstaat die zo populair is in de internetcultuur.' },
+    { type: 'paragraph', html: 'Zalgo-tekst is een vorm van typografische manipulatie die gebruikmaakt van een specifieke functie van de Unicode-standaard: <strong>combinatiekarakters</strong>. In tegenstelling tot normale karakters nemen deze diakritische tekens geen horizontale ruimte in beslag - ze stapelen zich verticaal op bovenop de basisletter, waardoor die esthetiek van "digitale chaos" of "kosmische horror" ontstaat die zo populair is in de internetcultuur.' },
     { type: 'title', text: 'Anatomie van het proces', level: 3 },
     { type: 'paragraph', html: 'Onze generator verwerkt elk karakter onafhankelijk en injecteert willekeurige Unicode-codepunten in drie verschillende vectoren: <strong>boven</strong> (diakritische tekens die erboven stapelen), <strong>midden</strong> (die door de letter heen prikken) und <strong>onder</strong> (die eronder hangen).' },
     { type: 'tip', title: 'Corruptie algoritme', html: 'Voor elk basiskarakter wordt een <code>aantal = intensiteit × 30</code> berekend. Zoveel willekeurige diakritische tekens worden in elke vector toegevoegd. Bij intensiteit 1,5 kun je tot wel 45 combinatiekarakters per letter krijgen.' },
@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Sociale media:</strong> Trek de aandacht op Instagram of TikTok. Perfect voor bio\'s die willen breken met conventies.',
       '<strong>Horror Storytelling:</strong> Dramatiseer fictieve verhalen, creepypasta\'s of simulaties van gecompromitteerde systemen.',
-      '<strong>Toegankelijkheid:</strong> Waarschuwing — Zalgo-tekst is onleesbaar voor schermlezers. Gebruik het alleen als visuele decoratie, nooit voor cruciale inhoud.',
+      '<strong>Toegankelijkheid:</strong> Waarschuwing - Zalgo-tekst is onleesbaar voor schermlezers. Gebruik het alleen als visuele decoratie, nooit voor cruciale inhoud.',
       '<strong>SEO:</strong> Gebruik Zalgo nooit in kern-zoekwoorden (H1, meta-titels). Indexeringsbots kunnen deze karakters mogelijk niet normaliseren.',
     ]},
     { type: 'title', text: 'De oorsprong: Van Something Awful naar Glitch Art', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Combinatiekarakter', definition: 'Een Unicode-codepunt dat is ontworpen om bovenop, onder of door een basiskarakter te worden geplaatst. Legitiem gebruikt in talen zoals Arabisch, Vietnamees en Hindi.' },
       { term: 'Diakritisch teken', definition: 'Een markering toegevoegd aan een basisletter om de uitspraak of betekenis te wijzigen. Zalgo misbruikt deze om visuele overloop te creëren.' },
-      { term: 'Unicode-blok', definition: 'Een aaneengesloten bereik van Unicode-codepunten. Zalgo-karakters komen meestal uit het blok "Combining Diacritical Marks" (U+0300–U+036F).' },
+      { term: 'Unicode-blok', definition: 'Een aaneengesloten bereik van Unicode-codepunten. Zalgo-karakters komen meestal uit het blok "Combining Diacritical Marks" (U+0300-U+036F).' },
       { term: 'Glitch Art', definition: 'Een esthetiek die opzettelijk fouten, artefacten en corrupties in digitale media opneemt of simuleert als een expressieve techniek.' },
     ]},
   ],

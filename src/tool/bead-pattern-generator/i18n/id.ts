@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>Retro Gaming:</strong> Aset dan sprite 8-bit otentik dalam hitungan detik.',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: 'Rentang lebar manik', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'Slot palet warna', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'Rentang lebar manik', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'Slot palet warna', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: 'Algoritma kuantisasi', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: 'Format ekspor (pola + panduan)', icon: 'mdi:zip-box' },
     ], columns: 4 },

@@ -103,9 +103,9 @@ export const content: GlitchImageDistorterLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'What Is Glitch Art?', level: 2 },
-    { type: 'paragraph', html: '<strong>Glitch art</strong> is a creative practice that intentionally exploits digital errors, corrupted data, and visual artifacts to produce aesthetic results. Unlike traditional art, which seeks perfection and clarity, glitch art celebrates the unexpected beauty of digital breakdown—fragmented colors, distorted shapes, and chaotic patterns that emerge from technological failure.' },
+    { type: 'paragraph', html: '<strong>Glitch art</strong> is a creative practice that intentionally exploits digital errors, corrupted data, and visual artifacts to produce aesthetic results. Unlike traditional art, which seeks perfection and clarity, glitch art celebrates the unexpected beauty of digital breakdown-fragmented colors, distorted shapes, and chaotic patterns that emerge from technological failure.' },
     { type: 'title', text: 'Origins and Digital Aesthetics', level: 3 },
-    { type: 'paragraph', html: 'The glitch aesthetic emerged in the early 2000s as digital artists began experimenting with corrupted image files, codec errors, and hardware malfunctions. Artists like <strong>Rosa Menkman</strong> and <strong>Evan Roth</strong> elevated glitch art to fine art status by investigating the poetics of digital artifacts. The aesthetic draws from VHS degradation, transmission errors, and the visible "noise" of digital systems—transforming technical failures into cultural commentary.' },
+    { type: 'paragraph', html: 'The glitch aesthetic emerged in the early 2000s as digital artists began experimenting with corrupted image files, codec errors, and hardware malfunctions. Artists like <strong>Rosa Menkman</strong> and <strong>Evan Roth</strong> elevated glitch art to fine art status by investigating the poetics of digital artifacts. The aesthetic draws from VHS degradation, transmission errors, and the visible "noise" of digital systems-transforming technical failures into cultural commentary.' },
     { type: 'title', text: 'Key Glitch Techniques', level: 3 },
     { type: 'list', items: [
       '<strong>RGB Splitting:</strong> Separating red, green, and blue color channels and offsetting them creates chromatic aberration, a signature glitch effect.',

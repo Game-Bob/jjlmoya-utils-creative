@@ -82,7 +82,7 @@ export const content: ZalgoGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Apa Itu Teks Zalgo dan Bagaimana Cara Kerja Kerusakan Visual?', level: 2 },
-    { type: 'paragraph', html: 'Teks Zalgo adalah bentuk manipulasi tipografi yang memanfaatkan fitur spesifik standar Unicode: <strong>karakter penggabung</strong>. Berbeda dengan karakter normal, diakritik ini tidak memakan ruang horizontal — mereka menumpuk secara vertikal di atas huruf dasar, menciptakan estetika "kekacauan digital" atau "horor kosmik" yang sangat populer dalam budaya internet.' },
+    { type: 'paragraph', html: 'Teks Zalgo adalah bentuk manipulasi tipografi yang memanfaatkan fitur spesifik standar Unicode: <strong>karakter penggabung</strong>. Berbeda dengan karakter normal, diakritik ini tidak memakan ruang horizontal - mereka menumpuk secara vertikal di atas huruf dasar, menciptakan estetika "kekacauan digital" atau "horor kosmik" yang sangat populer dalam budaya internet.' },
     { type: 'title', text: 'Anatomi Proses', level: 3 },
     { type: 'paragraph', html: 'Generator kami memproses setiap karakter secara independen, menyuntikkan ledakan acak titik kode Unicode dalam tiga vektor berbeda: <strong>atas</strong> (diakritik yang menumpuk di atas), <strong>tengah</strong> (yang menembus huruf), dan <strong>bawah</strong> (tergantung di bawah).' },
     { type: 'tip', title: 'Algoritma Kerusakan', html: 'Untuk setiap karakter dasar, <code>jumlah = intensitas × 30</code> dihitung. Begitu banyak diakritik acak ditambahkan di setiap vektor. Pada intensitas 1,5 Anda bisa mendapatkan hingga 45 karakter penggabung per huruf.' },
@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Media Sosial:</strong> Menarik perhatian di Instagram atau TikTok. Sempurna untuk bio yang ingin tampil beda.',
       '<strong>Penceritaan Horor:</strong> Mendramatisir narasi fiksi, creepypasta, atau simulasi sistem yang disusupi.',
-      '<strong>Aksesibilitas:</strong> Peringatan — teks Zalgo tidak dapat dibaca oleh pembaca layar. Gunakan hanya sebagai dekorasi visual, jangan pernah untuk konten penting.',
+      '<strong>Aksesibilitas:</strong> Peringatan - teks Zalgo tidak dapat dibaca oleh pembaca layar. Gunakan hanya sebagai dekorasi visual, jangan pernah untuk konten penting.',
       '<strong>SEO:</strong> Jangan pernah gunakan Zalgo dalam kata kunci inti (H1, judul meta). Bot pengindeksan mungkin gagal menormalkan karakter-karakter ini.',
     ]},
     { type: 'title', text: 'Asal-usul: Dari Something Awful ke Glitch Art', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Karakter Penggabung', definition: 'Titik kode Unicode yang dirancang untuk ditempatkan di atas, di bawah, atau menembus karakter dasar. Digunakan secara sah dalam bahasa-bahasa seperti Arab, Vietnam, dan Hindi.' },
       { term: 'Diakritik', definition: 'Tanda yang ditambahkan pada huruf dasar untuk mengubah pengucapan atau maknanya. Zalgo menyalahgunakan ini untuk menciptakan luapan visual.' },
-      { term: 'Blok Unicode', definition: 'Rentang titik kode Unicode yang berdampingan. Karakter Zalgo sebagian besar berasal dari blok "Kombinasi Tanda Diakritik" (U+0300–U+036F).' },
+      { term: 'Blok Unicode', definition: 'Rentang titik kode Unicode yang berdampingan. Karakter Zalgo sebagian besar berasal dari blok "Kombinasi Tanda Diakritik" (U+0300-U+036F).' },
       { term: 'Glitch Art', definition: 'Estetika yang secara sengaja memasukkan atau mensimulasikan kesalahan, artefak, dan kerusakan pada media digital sebagai teknik ekspresif.' },
     ]},
   ],

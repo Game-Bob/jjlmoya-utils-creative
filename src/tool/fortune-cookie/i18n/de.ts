@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Werden die Sprüche zufällig generiert?',
-    answer: 'Ja — jeden Tag wird ein zufälliger Spruch ausgewählt und lokal gespeichert. Jeder der 25 Sprüche hat die gleiche Chance, ausgewählt zu werden, was für Abwechslung sorgt.'
+    answer: 'Ja - jeden Tag wird ein zufälliger Spruch ausgewählt und lokal gespeichert. Jeder der 25 Sprüche hat die gleiche Chance, ausgewählt zu werden, was für Abwechslung sorgt.'
   }
 ];
 
@@ -100,10 +100,10 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Das Geheimnis des Glückskekses', level: 2 },
-    { type: 'paragraph', html: 'Haben Sie sich jemals gefragt, woher diese kuriosen Kekse kommen? Obwohl wir sie mit chinesischem Essen assoziieren, ist ihre Herkunft eine faszinierende Reise zwischen Japan und den Vereinigten Staaten. Der Glückskeks, wie wir ihn heute kennen, wurde wahrscheinlich Anfang des 20. Jahrhunderts in Kalifornien erfunden, nicht in China — dort sind sie praktisch unbekannt.' },
-    { type: 'tip', title: 'So funktioniert unser Orakel', html: 'Jeden Tag können Sie einen Keks öffnen. Das System speichert Ihr Schicksal, damit Sie sich 24 Stunden lang daran erinnern können. Die Botschaft wird lokal in Ihrem Browser gespeichert — absolut privat, ohne Beteiligung eines Servers. Kommen Sie morgen für eine neue Vorhersage wieder!' },
+    { type: 'paragraph', html: 'Haben Sie sich jemals gefragt, woher diese kuriosen Kekse kommen? Obwohl wir sie mit chinesischem Essen assoziieren, ist ihre Herkunft eine faszinierende Reise zwischen Japan und den Vereinigten Staaten. Der Glückskeks, wie wir ihn heute kennen, wurde wahrscheinlich Anfang des 20. Jahrhunderts in Kalifornien erfunden, nicht in China - dort sind sie praktisch unbekannt.' },
+    { type: 'tip', title: 'So funktioniert unser Orakel', html: 'Jeden Tag können Sie einen Keks öffnen. Das System speichert Ihr Schicksal, damit Sie sich 24 Stunden lang daran erinnern können. Die Botschaft wird lokal in Ihrem Browser gespeichert - absolut privat, ohne Beteiligung eines Servers. Kommen Sie morgen für eine neue Vorhersage wieder!' },
     { type: 'title', text: 'Die Philosophie der Orakel', level: 3 },
-    { type: 'paragraph', html: 'Menschen haben in unsicheren Zeiten schon immer nach Führung gesucht. Vom Orakel von Delphi bis zum I Ging erfüllen Wahrsagesysteme eine beständige psychologische Funktion: Sie geben uns die Erlaubnis, <strong>inne zu halten und zu reflektieren</strong>. Ein Glückskeks sagt nicht die Zukunft voraus — er regt dazu aus, darüber nachzudenken.' },
+    { type: 'paragraph', html: 'Menschen haben in unsicheren Zeiten schon immer nach Führung gesucht. Vom Orakel von Delphi bis zum I Ging erfüllen Wahrsagesysteme eine beständige psychologische Funktion: Sie geben uns die Erlaubnis, <strong>inne zu halten und zu reflektieren</strong>. Ein Glückskeks sagt nicht die Zukunft voraus - er regt dazu aus, darüber nachzudenken.' },
     { type: 'list', items: [
       '<strong>Altes China:</strong> Das I Ging (Buch der Wandlungen, ca. 1000 v. Chr.) nutzte Hexagramme, um Entscheidungen zu leiten und das Schicksal zu interpretieren.',
       '<strong>Klassisches Griechenland:</strong> Das Orakel von Delphi zog Herrscher und Bürger gleichermaßen mit kryptischen Aussprüchen an, die als göttliche Führung interpretiert wurden.',

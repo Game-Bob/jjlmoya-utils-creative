@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Le previsioni sono generate casualmente?',
-    answer: 'Sì — ogni giorno viene selezionata una previsione casuale che viene salvata localmente. Ognuna delle 25 previsioni ha la stessa probabilità di essere scelta, garantendo varietà nel tempo.'
+    answer: 'Sì - ogni giorno viene selezionata una previsione casuale che viene salvata localmente. Ognuna delle 25 previsioni ha la stessa probabilità di essere scelta, garantendo varietà nel tempo.'
   }
 ];
 

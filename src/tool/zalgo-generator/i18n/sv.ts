@@ -82,7 +82,7 @@ export const content: ZalgoGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Vad är Zalgo text och hur fungerar visuell korruption?', level: 2 },
-    { type: 'paragraph', html: 'Zalgo-text är en form av typografisk manipulation som utnyttjar en specifik funktion i Unicode-standarden: <strong>kombinationstecken</strong>. Till skillnad från normala tecken tar dessa diakritiska tecken inte upp något horisontellt utrymme — de staplas vertikalt ovanpå grundbokstaven, vilket skapar den estetik av "digitalt kaos" eller "kosmisk horror" som är så populär i internetkulturen.' },
+    { type: 'paragraph', html: 'Zalgo-text är en form av typografisk manipulation som utnyttjar en specifik funktion i Unicode-standarden: <strong>kombinationstecken</strong>. Till skillnad från normala tecken tar dessa diakritiska tecken inte upp något horisontellt utrymme - de staplas vertikalt ovanpå grundbokstaven, vilket skapar den estetik av "digitalt kaos" eller "kosmisk horror" som är så populär i internetkulturen.' },
     { type: 'title', text: 'Processens anatomi', level: 3 },
     { type: 'paragraph', html: 'Vår generator bearbetar varje tecken oberoende och injicerar slumpmässiga skurar av Unicode-kodpunkter i tre distinkta vektorer: <strong>övre</strong> (diakritiska tecken som staplas ovanför), <strong>mitten</strong> (som genomborrar bokstaven) och <strong>nedre</strong> (som hänger under).' },
     { type: 'tip', title: 'Korruptionsalgoritm', html: 'För varje grundtecken beräknas <code>antal = intensitet × 30</code>. Så många slumpmässiga diakritiska tecken läggs till i varje vektor. Vid intensitet 1,5 kan du få upp till 45 kombinationstecken per bokstav.' },
@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Sociala medier:</strong> Dra till dig uppmärksamhet på Instagram eller TikTok. Perfekt för biografier som vill bryta mot konventioner.',
       '<strong>Skräckberättande:</strong> Dramatisera fiktiva berättelser, creepypastas eller simuleringar av komprometterade system.',
-      '<strong>Tillgänglighet:</strong> Varning — Zalgo-text är oläslig för skärmläsare. Använd den endast som visuell dekoration, aldrig för kritiskt innehåll.',
+      '<strong>Tillgänglighet:</strong> Varning - Zalgo-text är oläslig för skärmläsare. Använd den endast som visuell dekoration, aldrig för kritiskt innehåll.',
       '<strong>SEO:</strong> Använd aldrig Zalgo i kärnyckelord (H1, metatitlar). Indexeringsbotar kan misslyckas med att normalisera dessa tecken.',
     ]},
     { type: 'title', text: 'Ursprunget: Från Something Awful till Glitch Art', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Kombinationstecken', definition: 'En Unicode-kodpunkt designad för att placeras ovanpå, under eller genom ett grundtecken. Används legitimt i språk som arabiska, vietnamesiska och hindi.' },
       { term: 'Diakritiskt tecken', definition: 'Ett märke som läggs till en grundbokstav för att ändra dess uttal eller betydelse. Zalgo missbrukar dessa för att skapa visuellt överflöde.' },
-      { term: 'Unicode-block', definition: 'Ett sammanhängande intervall av Unicode-kodpunkter. Zalgo-tecken kommer främst från blocket "Combining Diacritical Marks" (U+0300–U+036F).' },
+      { term: 'Unicode-block', definition: 'Ett sammanhängande intervall av Unicode-kodpunkter. Zalgo-tecken kommer främst från blocket "Combining Diacritical Marks" (U+0300-U+036F).' },
       { term: 'Glitch Art', definition: 'En estetik som avsiktligt införlivar eller simulerar fel, artefakter och korruptioner i digitala medier som en uttrycksfull teknik.' },
     ]},
   ],

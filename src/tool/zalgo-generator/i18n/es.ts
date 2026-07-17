@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Social Media:</strong> Capta la atención en Instagram o TikTok. Perfecto para bios que buscan romper con lo convencional.',
       '<strong>Storytelling horror:</strong> Dramatiza narrativas de ficción, creepypastas o simulaciones de sistemas comprometidos.',
-      '<strong>Accesibilidad:</strong> Cuidado — el texto Zalgo es ilegible para Screen Readers. Úsalo solo como acompañamiento visual, nunca para contenido crítico.',
+      '<strong>Accesibilidad:</strong> Cuidado - el texto Zalgo es ilegible para Screen Readers. Úsalo solo como acompañamiento visual, nunca para contenido crítico.',
       '<strong>SEO:</strong> No uses Zalgo en palabras clave fundamentales (H1, meta titles). Los bots de indexación pueden fallar al normalizar estos caracteres.',
     ]},
     { type: 'title', text: 'El Origen: De Something Awful al Glitch Art', level: 3 },
@@ -105,7 +105,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Carácter combinado', definition: 'Punto de código Unicode diseñado para colocarse encima, debajo o a través de un carácter base. Se usa legítimamente en árabe, vietnamita e hindi.' },
       { term: 'Diacrítico', definition: 'Marca añadida a una letra base para modificar su pronunciación o significado. Zalgo abusa de ellos para crear desbordamiento visual.' },
-      { term: 'Bloque Unicode', definition: 'Rango contiguo de puntos de código Unicode. Los caracteres Zalgo provienen principalmente del bloque "Combining Diacritical Marks" (U+0300–U+036F).' },
+      { term: 'Bloque Unicode', definition: 'Rango contiguo de puntos de código Unicode. Los caracteres Zalgo provienen principalmente del bloque "Combining Diacritical Marks" (U+0300-U+036F).' },
       { term: 'Glitch Art', definition: 'Estética que incorpora intencionalmente errores, artefactos y corrupciones en medios digitales como técnica expresiva.' },
     ]},
   ],

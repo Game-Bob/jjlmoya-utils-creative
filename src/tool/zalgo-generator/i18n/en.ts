@@ -82,7 +82,7 @@ export const content: ZalgoGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'What Is Zalgo Text and How Does Visual Corruption Work?', level: 2 },
-    { type: 'paragraph', html: 'Zalgo Text is a form of typographic manipulation that exploits a specific feature of the Unicode standard: <strong>combining characters</strong>. Unlike normal characters, these diacritics take up no horizontal space — they stack vertically on top of the base letter, creating that "digital chaos" or "cosmic horror" aesthetic so popular in internet culture.' },
+    { type: 'paragraph', html: 'Zalgo Text is a form of typographic manipulation that exploits a specific feature of the Unicode standard: <strong>combining characters</strong>. Unlike normal characters, these diacritics take up no horizontal space - they stack vertically on top of the base letter, creating that "digital chaos" or "cosmic horror" aesthetic so popular in internet culture.' },
     { type: 'title', text: 'Anatomy of the Process', level: 3 },
     { type: 'paragraph', html: 'Our generator processes each character independently, injecting random bursts of Unicode code points in three distinct vectors: <strong>upper</strong> (diacritics that stack above), <strong>middle</strong> (which pierce through the letter), and <strong>lower</strong> (hanging below).' },
     { type: 'tip', title: 'Corruption Algorithm', html: 'For each base character, a <code>count = intensity × 30</code> is calculated. That many random diacritics are added in each vector. At intensity 1.5 you can get up to 45 combining characters per letter.' },
@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Social Media:</strong> Grab attention on Instagram or TikTok. Perfect for bios seeking to break with convention.',
       '<strong>Horror Storytelling:</strong> Dramatize fiction narratives, creepypastas, or simulations of compromised systems.',
-      '<strong>Accessibility:</strong> Warning — Zalgo text is unreadable by screen readers. Use it only as visual decoration, never for critical content.',
+      '<strong>Accessibility:</strong> Warning - Zalgo text is unreadable by screen readers. Use it only as visual decoration, never for critical content.',
       '<strong>SEO:</strong> Never use Zalgo in core keywords (H1, meta titles). Indexing bots may fail to normalize these characters.',
     ]},
     { type: 'title', text: 'The Origin: From Something Awful to Glitch Art', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Combining Character', definition: 'A Unicode code point designed to be placed on top of, below, or through a base character. Used legitimately in languages like Arabic, Vietnamese, and Hindi.' },
       { term: 'Diacritic', definition: 'A mark added to a base letter to modify its pronunciation or meaning. Zalgo abuses these to create visual overflow.' },
-      { term: 'Unicode Block', definition: 'A contiguous range of Unicode code points. Zalgo characters mostly come from the "Combining Diacritical Marks" block (U+0300–U+036F).' },
+      { term: 'Unicode Block', definition: 'A contiguous range of Unicode code points. Zalgo characters mostly come from the "Combining Diacritical Marks" block (U+0300-U+036F).' },
       { term: 'Glitch Art', definition: 'An aesthetic that intentionally incorporates or simulates errors, artifacts, and corruptions in digital media as an expressive technique.' },
     ]},
   ],

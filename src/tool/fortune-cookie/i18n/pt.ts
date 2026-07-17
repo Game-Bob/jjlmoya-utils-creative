@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'As frases são geradas aleatoriamente?',
-    answer: 'Sim — uma sorte aleatória é selecionada a cada dia e guardada localmente. Cada uma das 25 frases tem a mesma probabilidade de ser escolhida, garantindo variedade ao longo do tempo.'
+    answer: 'Sim - uma sorte aleatória é selecionada a cada dia e guardada localmente. Cada uma das 25 frases tem a mesma probabilidade de ser escolhida, garantindo variedade ao longo do tempo.'
   }
 ];
 
@@ -100,10 +100,10 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'O Mistério do Biscoito da Sorte', level: 2 },
-    { type: 'paragraph', html: 'Já se perguntou de onde vêm estes curiosos biscoitos? Embora os associemos à comida chinesa, a sua origem é uma viagem fascinante entre o Japão e os Estados Unidos. O biscoito da sorte como o conhecemos hoje foi provavelmente inventado na Califórnia do início do século XX, não na China — onde são praticamente desconhecidos.' },
-    { type: 'tip', title: 'Como Funciona o Nosso Oráculo', html: 'Cada dia pode abrir um biscoito. O sistema guarda o seu destino para que se lembre dele durante 24 horas. A sorte é guardada localmente no seu navegador — completamente privada, sem servidores envolvidos. Volte amanhã para uma nova previsão!' },
+    { type: 'paragraph', html: 'Já se perguntou de onde vêm estes curiosos biscoitos? Embora os associemos à comida chinesa, a sua origem é uma viagem fascinante entre o Japão e os Estados Unidos. O biscoito da sorte como o conhecemos hoje foi provavelmente inventado na Califórnia do início do século XX, não na China - onde são praticamente desconhecidos.' },
+    { type: 'tip', title: 'Como Funciona o Nosso Oráculo', html: 'Cada dia pode abrir um biscoito. O sistema guarda o seu destino para que se lembre dele durante 24 horas. A sorte é guardada localmente no seu navegador - completamente privada, sem servidores envolvidos. Volte amanhã para uma nova previsão!' },
     { type: 'title', text: 'A Filosofia dos Oráculos', level: 3 },
-    { type: 'paragraph', html: 'Os seres humanos sempre procuraram orientação em tempos de incerteza. Do Oráculo de Delfos ao I Ching, os sistemas de adivinhação cumprem uma função psicológica consistente: dão-nos permissão para <strong>parar e refletir</strong>. Um biscoito da sorte não prevê o futuro — incentiva-o a pensar sobre ele.' },
+    { type: 'paragraph', html: 'Os seres humanos sempre procuraram orientação em tempos de incerteza. Do Oráculo de Delfos ao I Ching, os sistemas de adivinhação cumprem uma função psicológica consistente: dão-nos permissão para <strong>parar e refletir</strong>. Um biscoito da sorte não prevê o futuro - incentiva-o a pensar sobre ele.' },
     { type: 'list', items: [
       '<strong>China Antiga:</strong> O I Ching (Livro das Mutações, ~1000 a.C.) utilizava hexagramas para guiar decisões e interpretar o destino.',
       '<strong>Grécia Clássica:</strong> O Oráculo de Delfos atraía governantes e cidadãos com pronunciamentos crípticos interpretados como orientação divina.',

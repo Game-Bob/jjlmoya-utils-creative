@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Apakah ramalannya dihasilkan secara acak?',
-    answer: 'Ya — satu ramalan acak dipilih setiap hari dan disimpan secara lokal. Masing-masing dari 25 ramalan memiliki peluang yang sama untuk dipilih, memastikan variasi dari waktu ke waktu.'
+    answer: 'Ya - satu ramalan acak dipilih setiap hari dan disimpan secara lokal. Masing-masing dari 25 ramalan memiliki peluang yang sama untuk dipilih, memastikan variasi dari waktu ke waktu.'
   }
 ];
 
@@ -100,10 +100,10 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Misteri Kue Keberuntungan', level: 2 },
-    { type: 'paragraph', html: 'Pernahkah Anda bertanya-tanya dari mana kue-kue aneh ini berasal? Meskipun kita mengaitkannya dengan makanan Tiongkok, asalnya adalah perjalanan yang menarik antara Jepang dan Amerika Serikat. Kue keberuntungan seperti yang kita kenal sekarang kemungkinan besar ditemukan di California pada awal abad ke-20, bukan di Tiongkok — di mana kue ini hampir tidak dikenal.' },
-    { type: 'tip', title: 'Cara Kerja Peramal Kami', html: 'Setiap hari Anda dapat membuka satu kue. Sistem menyimpan nasib Anda sehingga Anda mengingatnya selama 24 jam. Ramalan disimpan secara lokal di browser Anda — sepenuhnya pribadi, tidak melibatkan server. Datanglah lagi besok untuk ramalan baru!' },
+    { type: 'paragraph', html: 'Pernahkah Anda bertanya-tanya dari mana kue-kue aneh ini berasal? Meskipun kita mengaitkannya dengan makanan Tiongkok, asalnya adalah perjalanan yang menarik antara Jepang dan Amerika Serikat. Kue keberuntungan seperti yang kita kenal sekarang kemungkinan besar ditemukan di California pada awal abad ke-20, bukan di Tiongkok - di mana kue ini hampir tidak dikenal.' },
+    { type: 'tip', title: 'Cara Kerja Peramal Kami', html: 'Setiap hari Anda dapat membuka satu kue. Sistem menyimpan nasib Anda sehingga Anda mengingatnya selama 24 jam. Ramalan disimpan secara lokal di browser Anda - sepenuhnya pribadi, tidak melibatkan server. Datanglah lagi besok untuk ramalan baru!' },
     { type: 'title', text: 'Filosofi Peramal', level: 3 },
-    { type: 'paragraph', html: 'Manusia selalu mencari bimbingan di masa-masa yang tidak pasti. Dari Peramal Delphi hingga I Ching, sistem ramalan menjalankan fungsi psikologis yang konsisten: sistem tersebut memberi kita izin untuk <strong>berhenti sejenak dan merenung</strong>. Kue keberuntungan tidak memprediksi masa depan — kue itu mendorong Anda untuk memikirkannya.' },
+    { type: 'paragraph', html: 'Manusia selalu mencari bimbingan di masa-masa yang tidak pasti. Dari Peramal Delphi hingga I Ching, sistem ramalan menjalankan fungsi psikologis yang konsisten: sistem tersebut memberi kita izin untuk <strong>berhenti sejenak dan merenung</strong>. Kue keberuntungan tidak memprediksi masa depan - kue itu mendorong Anda untuk memikirkannya.' },
     { type: 'list', items: [
       '<strong>Tiongkok Kuno:</strong> I Ching (Book of Changes, ~1000 SM) menggunakan heksagram untuk memandu keputusan dan menafsirkan nasib.',
       '<strong>Yunani Klasik:</strong> Peramal Delphi menarik bagi para penguasa dan warga negara dengan pernyataan samar yang ditafsirkan sebagai bimbingan ilahi.',

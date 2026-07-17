@@ -21,7 +21,7 @@ const { ui } = Astro.props;
 
                 <div class="bead-controls">
                     <div class="bead-control-group">
-                        <label class="bead-control-label">{ui.gridSizeLabel}</label>
+                        <label class="bead-control-label" for="grid-width">{ui.gridSizeLabel}</label>
                         <div class="bead-slider-row">
                             <input type="range" id="grid-width" min="10" max="100" value="40" class="bead-slider bead-slider-pink" />
                             <span id="grid-width-value" class="bead-slider-val bead-val-pink">40</span>
@@ -29,7 +29,7 @@ const { ui } = Astro.props;
                     </div>
 
                     <div class="bead-control-group">
-                        <label class="bead-control-label">{ui.colorCountLabel}</label>
+                        <label class="bead-control-label" for="color-count">{ui.colorCountLabel}</label>
                         <div class="bead-slider-row">
                             <input type="range" id="color-count" min="2" max="32" value="12" class="bead-slider bead-slider-purple" />
                             <span id="color-count-value" class="bead-slider-val bead-val-purple">12</span>

@@ -103,7 +103,7 @@ export const content: GlitchImageDistorterLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Apa Itu Seni Glitch?', level: 2 },
-    { type: 'paragraph', html: '<strong>Seni glitch</strong> adalah praktik kreatif yang sengaja mengeksploitasi kesalahan digital, data yang rusak, dan artefak visual untuk menghasilkan hasil estetika. Berbeda dengan seni tradisional yang mencari kesempurnaan, glitch merayakan keindahan tak terduga dari kerusakan teknologi — warna yang terfragmentasi dan pola kacau yang muncul dari kesalahan.' },
+    { type: 'paragraph', html: '<strong>Seni glitch</strong> adalah praktik kreatif yang sengaja mengeksploitasi kesalahan digital, data yang rusak, dan artefak visual untuk menghasilkan hasil estetika. Berbeda dengan seni tradisional yang mencari kesempurnaan, glitch merayakan keindahan tak terduga dari kerusakan teknologi - warna yang terfragmentasi dan pola kacau yang muncul dari kesalahan.' },
     { type: 'title', text: 'Asal-usul dan Estetika Digital', level: 3 },
     { type: 'paragraph', html: 'Estetika glitch muncul pada awal tahun 2000-an ketika seniman digital mulai bereksperimen dengan file gambar yang rusak dan kegagalan perangkat keras. Seniman seperti <strong>Rosa Menkman</strong> mengangkat seni glitch ke status seni rupa dengan menyelidiki puitika artefak digital. Estetikanya mengambil inspirasi dari degradasi VHS, kesalahan transmisi, dan "noise" yang terlihat dari sistem digital.' },
     { type: 'title', text: 'Teknik Utama Glitch', level: 3 },

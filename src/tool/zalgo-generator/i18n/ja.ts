@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>SNS:</strong> InstagramやTikTokで注目を集めます。既存の慣習を打ち破りたいプロフィールの自己紹介に最適です。',
       '<strong>ホラーストーリー:</strong> フィクションの物語、クリーピーパスタ、または侵害されたシステムのシミュレーションを劇的に演出します。',
-      '<strong>アクセシビリティ:</strong> 警告 — Zalgoテキストはスクリーンリーダーで読み上げることができません。重要なコンテンツには使用せず、あくまで装飾として使用してください。',
+      '<strong>アクセシビリティ:</strong> 警告 - Zalgoテキストはスクリーンリーダーで読み上げることができません。重要なコンテンツには使用せず、あくまで装飾として使用してください。',
       '<strong>SEO:</strong> 主要なキーワード（H1、メタタイトル）には決してZalgoを使用しないでください。検索エンジンがこれらの文字を正常に処理できない可能性があります。'
     ]},
     { type: 'title', text: '起源：Something Awfulからグリッチアートへ', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: '結合文字', definition: '基底文字の上下や中央に配置されるように設計されたUnicodeコードポイント。アラビア語、ベトナム語、ヒンディー語などで正当に使用されています。' },
       { term: 'ダイアクリティカルマーク', definition: '発音や意味を変更するために基底文字に追加される記号。Zalgoではこれを視覚的に溢れさせるために悪用します。' },
-      { term: 'Unicodeブロック', definition: '連続したUnicodeコードポイントの範囲。Zalgo文字の多くは「結合用ダイアクリティカルマーク」ブロック（U+0300–U+036F）から来ています。' },
+      { term: 'Unicodeブロック', definition: '連続したUnicodeコードポイントの範囲。Zalgo文字の多くは「結合用ダイアクリティカルマーク」ブロック（U+0300-U+036F）から来ています。' },
       { term: 'グリッチアート', definition: 'デジタルメディアにおけるエラー、アーティファクト、破損を表現手法として意図的に取り入れたりシミュレートしたりする美学。' }
     ]},
   ],

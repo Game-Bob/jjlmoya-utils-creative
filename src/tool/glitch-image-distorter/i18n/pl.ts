@@ -103,7 +103,7 @@ export const content: GlitchImageDistorterLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Co to jest Glitch Art?', level: 2 },
-    { type: 'paragraph', html: '<strong>Glitch art</strong> to praktyka kreatywna celowo wykorzystująca błędy cyfrowe, uszkodzone dane i artefakty wizualne do tworzenia efektów estetycznych. W przeciwieństwie do tradycyjnej sztuki dążącej do perfekcji, glitch celebruje nieoczekiwane piękno technologicznej awarii — pofragmentowane kolory i chaotyczne wzory wyłaniające się z błędu.' },
+    { type: 'paragraph', html: '<strong>Glitch art</strong> to praktyka kreatywna celowo wykorzystująca błędy cyfrowe, uszkodzone dane i artefakty wizualne do tworzenia efektów estetycznych. W przeciwieństwie do tradycyjnej sztuki dążącej do perfekcji, glitch celebruje nieoczekiwane piękno technologicznej awarii - pofragmentowane kolory i chaotyczne wzory wyłaniające się z błędu.' },
     { type: 'title', text: 'Pochodzenie i Estetyka Cyfrowa', level: 3 },
     { type: 'paragraph', html: 'Estetyka glitch wyłoniła się na początku XXI wieku, gdy artyści cyfrowi zaczęli eksperymentować z uszkodzonymi plikami i awariami sprzętu. Artyści tacy jak <strong>Rosa Menkman</strong> podnieśli glitch do rangi sztuki pięknej, badając poetykę cyfrowych artefaktów. Estetyka czerpie z degradacji kaset VHS, błędów transmisji i widocznego "szumu" systemów cyfrowych.' },
     { type: 'title', text: 'Kluczowe Techniki Glitch', level: 3 },

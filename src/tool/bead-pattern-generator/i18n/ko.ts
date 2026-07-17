@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>레트로 게임:</strong> 정통 8비트 에셋 및 스프라이트를 단 몇 초 만에 제작.',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: '비즈 너비 범위', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: '색상 팔레트 슬롯', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: '비즈 너비 범위', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: '색상 팔레트 슬롯', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: '양자화 알고리즘', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: '내보내기 형식 (도안 + 가이드)', icon: 'mdi:zip-box' },
     ], columns: 4 },

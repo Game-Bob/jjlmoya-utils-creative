@@ -82,7 +82,7 @@ export const content: ZalgoGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Zalgo Metni Nedir ve Görsel Bozulma Nasıl Çalışır?', level: 2 },
-    { type: 'paragraph', html: 'Zalgo Metni, Unicode standardının belirli bir özelliğini kullanan bir tipografik manipülasyon biçimidir: <strong>birleştirme karakterleri</strong>. Normal karakterlerin aksine, bu diyakritikler yatay yer kaplamaz — temel harfin üzerinde dikey olarak istiflenirler ve internet kültüründe çok popüler olan o "dijital kaos" veya "kozmik korku" estetiğini yaratırlar.' },
+    { type: 'paragraph', html: 'Zalgo Metni, Unicode standardının belirli bir özelliğini kullanan bir tipografik manipülasyon biçimidir: <strong>birleştirme karakterleri</strong>. Normal karakterlerin aksine, bu diyakritikler yatay yer kaplamaz - temel harfin üzerinde dikey olarak istiflenirler ve internet kültüründe çok popüler olan o "dijital kaos" veya "kozmik korku" estetiğini yaratırlar.' },
     { type: 'title', text: 'Sürecin Anatomisi', level: 3 },
     { type: 'paragraph', html: 'Oluşturucumuz her karakteri bağımsız olarak işleyerek üç farklı vektörde rastgele Unicode kod noktaları enjekte eder: <strong>üst</strong> (yukarıda istiflenen diyakritikler), <strong>orta</strong> (harfin içinden geçenler) ve <strong>alt</strong> (aşağıda sarkanlar).' },
     { type: 'tip', title: 'Bozulma Algoritması', html: 'Her temel karakter için <code>sayı = yoğunluk × 30</code> hesaplanır. Her vektöre o kadar rastgele diyakritik eklenir. 1.5 yoğunlukta harf başına 45 adede kadar birleştirme karakteri elde edebilirsiniz.' },
@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Sosyal Medya:</strong> Instagram veya TikTok\'ta dikkat çekin. Alışılmışın dışına çıkmak isteyen biyografiler için mükemmeldir.',
       '<strong>Korku Hikayesi Anlatımı:</strong> Kurgusal anlatıları, creepypasta\'ları veya ele geçirilmiş sistem simülasyonlarını dramatize edin.',
-      '<strong>Erişilebilirlik:</strong> Uyarı — Zalgo metni ekran okuyucular tarafından okunamaz. Sadece görsel dekorasyon olarak kullanın, asla kritik içerikler için kullanmayın.',
+      '<strong>Erişilebilirlik:</strong> Uyarı - Zalgo metni ekran okuyucular tarafından okunamaz. Sadece görsel dekorasyon olarak kullanın, asla kritik içerikler için kullanmayın.',
       '<strong>SEO:</strong> Çekirdek anahtar kelimelerde (H1, meta başlıklar) asla Zalgo kullanmayın. İndeksleme botları bu karakterleri normalleştiremeyebilir.',
     ]},
     { type: 'title', text: 'Köken: Something Awful\'dan Glitch Art\'a', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Birleştirme Karakteri', definition: 'Temel bir karakterin üzerine, altına veya içinden geçecek şekilde yerleştirilmek üzere tasarlanmış bir Unicode kod noktası. Arapça, Vietnamca ve Hintçe gibi dillerde meşru olarak kullanılır.' },
       { term: 'Diyakritik', definition: 'Telaffuzunu veya anlamını değiştirmek için temel bir harfe eklenen işaret. Zalgo, görsel taşma oluşturmak için bunları kötüye kullanır.' },
-      { term: 'Unicode Bloğu', definition: 'Bitişik Unicode kod noktaları aralığı. Zalgo karakterleri çoğunlukla "Birleşen Diyakritik İşaretler" bloğundan (U+0300–U+036F) gelir.' },
+      { term: 'Unicode Bloğu', definition: 'Bitişik Unicode kod noktaları aralığı. Zalgo karakterleri çoğunlukla "Birleşen Diyakritik İşaretler" bloğundan (U+0300-U+036F) gelir.' },
       { term: 'Glitch Art', definition: 'Dijital medyadaki hataları, kusurları ve bozulmaları bilinçli olarak etkileyici bir teknik olarak dahil eden veya simüle eden bir estetik.' },
     ]},
   ],

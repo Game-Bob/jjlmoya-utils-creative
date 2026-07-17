@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Worden de voorspellingen willekeurig gegenereerd?',
-    answer: 'Ja — elke dag wordt er een willekeurige voorspelling geselecteerd en lokaal opgeslagen. Elk van de 25 voorspellingen heeft evenveel kans om gekozen te worden, wat zorgt voor variatie door de tijd heen.'
+    answer: 'Ja - elke dag wordt er een willekeurige voorspelling geselecteerd en lokaal opgeslagen. Elk van de 25 voorspellingen heeft evenveel kans om gekozen te worden, wat zorgt voor variatie door de tijd heen.'
   }
 ];
 
@@ -100,10 +100,10 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Het Mysterie van het Gelukskoekje', level: 2 },
-    { type: 'paragraph', html: 'Heb je je ooit afgevraagd waar deze curieuze koekjes vandaan komen? Hoewel we ze associëren met Chinees eten, is hun oorsprong een fascinerende reis tussen Japan en de Verenigde Staten. Het gelukskoekje zoals we dat nu kennen, is waarschijnlijk begin 20e eeuw in Californië uitgevonden, niet in China — waar ze vrijwel onbekend zijn.' },
-    { type: 'tip', title: 'Hoe ons Orakel Werkt', html: 'Elke dag kun je één koekje openen. Het systeem bewaart je bestemming zodat je deze 24 uur lang kunt onthouden. De voorspelling wordt lokaal in je browser opgeslagen — volledig privé, geen server bij betrokken. Kom morgen terug voor een nieuwe voorspelling!' },
+    { type: 'paragraph', html: 'Heb je je ooit afgevraagd waar deze curieuze koekjes vandaan komen? Hoewel we ze associëren met Chinees eten, is hun oorsprong een fascinerende reis tussen Japan en de Verenigde Staten. Het gelukskoekje zoals we dat nu kennen, is waarschijnlijk begin 20e eeuw in Californië uitgevonden, niet in China - waar ze vrijwel onbekend zijn.' },
+    { type: 'tip', title: 'Hoe ons Orakel Werkt', html: 'Elke dag kun je één koekje openen. Het systeem bewaart je bestemming zodat je deze 24 uur lang kunt onthouden. De voorspelling wordt lokaal in je browser opgeslagen - volledig privé, geen server bij betrokken. Kom morgen terug voor een nieuwe voorspelling!' },
     { type: 'title', text: 'De Filosofie van Orakels', level: 3 },
-    { type: 'paragraph', html: 'Mensen hebben in onzekere tijden altijd naar leiding gezocht. Van het Orakel van Delphi tot de I Ching, waarzegsystemen vervullen een consistente psychologische functie: ze geven ons toestemming om <strong>stil te staan en te reflecteren</strong>. Een gelukskoekje voorspelt de toekomst niet — het zet je aan om erover na te denken.' },
+    { type: 'paragraph', html: 'Mensen hebben in onzekere tijden altijd naar leiding gezocht. Van het Orakel van Delphi tot de I Ching, waarzegsystemen vervullen een consistente psychologische functie: ze geven ons toestemming om <strong>stil te staan en te reflecteren</strong>. Een gelukskoekje voorspelt de toekomst niet - het zet je aan om erover na te denken.' },
     { type: 'list', items: [
       '<strong>Het oude China:</strong> De I Ching (Boek der Veranderingen, ~1000 v. Chr.) gebruikte hexagrammen om beslissingen te leiden en het lot te interpreteren.',
       '<strong>Klassiek Griekenland:</strong> Het Orakel van Delphi trok zowel heersers als burgers aan met cryptische uitspraken die als goddelijke leiding werden geïnterpreteerd.',

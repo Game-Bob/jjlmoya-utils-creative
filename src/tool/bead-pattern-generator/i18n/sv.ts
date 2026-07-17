@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>Retro Gaming:</strong> Autentiska 8-bitars tillgångar och sprites på några sekunder.',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: 'Breddintervall (pärlor)', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'Färgpalettplatser', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'Breddintervall (pärlor)', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'Färgpalettplatser', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: 'Kvantiseringsalgoritm', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: 'Exportformat (mönster + guide)', icon: 'mdi:zip-box' },
     ], columns: 4 },

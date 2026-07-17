@@ -103,7 +103,7 @@ export const content: GlitchImageDistorterLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Glitch Sanatı Nedir?', level: 2 },
-    { type: 'paragraph', html: '<strong>Glitch sanatı</strong>, estetik sonuçlar üretmek için dijital hataları, bozulmuş verileri ve görsel yapaylıkları kasıtlı olarak kullanan yaratıcı bir uygulamadır. Kusursuzluğu arayan geleneksel sanatın aksine glitch, teknolojik arızanın beklenmedik güzelliğini — hatadan doğan parçalanmış renkleri ve kaotik desenleri — yüceltir.' },
+    { type: 'paragraph', html: '<strong>Glitch sanatı</strong>, estetik sonuçlar üretmek için dijital hataları, bozulmuş verileri ve görsel yapaylıkları kasıtlı olarak kullanan yaratıcı bir uygulamadır. Kusursuzluğu arayan geleneksel sanatın aksine glitch, teknolojik arızanın beklenmedik güzelliğini - hatadan doğan parçalanmış renkleri ve kaotik desenleri - yüceltir.' },
     { type: 'title', text: 'Kökenler ve Dijital Estetik', level: 3 },
     { type: 'paragraph', html: 'Glitch estetiği, 2000\'lerin başında dijital sanatçıların bozulmuş görüntü dosyaları ve donanım arızalarıyla denemeler yapmaya başlamasıyla ortaya çıktı. <strong>Rosa Menkman</strong> gibi sanatçılar, dijital yapaylıkların şiirselliğini araştırarak glitch sanatını güzel sanatlar statüsüne yükseltti. Estetik; VHS bozulması, iletim hataları ve dijital sistemlerin görünür "gürültü"sünden beslenir.' },
     { type: 'title', text: 'Temel Glitch Teknikleri', level: 3 },

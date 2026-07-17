@@ -81,7 +81,7 @@ export const content: BeadPatternGeneratorLocaleContent = {
     bibliographyTitle: 'Références'
   },
   seo: [
-    { type: 'title', text: 'Alchimie Numérique : Transmutez les Pixels en Art Tangible', level: 2 },
+    { type: 'title', text: 'Alchimie Numérique: Transmutez les Pixels en Art Tangible', level: 2 },
     { type: 'paragraph', html: 'Bienvenue dans le <strong>Studio de Modèles Ultime</strong>. Un <em>moteur d\'intelligence chromatique</em> conçu pour les architectes du Pixel Art, les maîtres de la Miyuki et les visionnaires du point de croix. Votre pont entre le numérique et le fait-main.' },
     { type: 'card', icon: 'mdi:grid', title: 'La Grille Intelligente', html: 'Notre algorithme de <strong>sous-échantillonnage spatial</strong> ne se contente pas de "réduire" votre image. Il analyse la structure visuelle pour mapper des groupes de pixels complexes sur des cellules individuelles, préservant l\'intégrité des silhouettes et des contours comme le ferait un illustrateur expert.' },
     { type: 'card', icon: 'mdi:palette', title: 'Quantification de Couleurs K Means', html: 'Nous implémentons une variante de l\'algorithme <strong>K-Means Clustering</strong> qui trouve mathématiquement les tons "centroïdes" de votre image. Une fidélité visuelle étonnante avec une palette minimaliste de 12, 24 ou 32 couleurs.' },
@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>Retro Gaming :</strong> Sprites et assets 8-bits authentiques en quelques secondes.',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: 'Largeur en perles', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'Emplacements de palette', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'Largeur en perles', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'Emplacements de palette', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: 'Algorithme de quantification', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: 'Format d\'export (modèle + guide)', icon: 'mdi:zip-box' },
     ], columns: 4 },

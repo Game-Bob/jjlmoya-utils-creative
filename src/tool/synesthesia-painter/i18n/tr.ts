@@ -102,9 +102,9 @@ export const content: SynesthesiaPainterLocaleContent = {
       '<strong>Ünlü sinestezikler:</strong> Vladimir Nabokov, Wassily Kandinsky, Nikola Tesla ve Billy Joel, eserlerini etkileyen sinestetik deneyimlerini açıkça tanımlamışlardır.',
     ]},
     { type: 'stats', items: [
-      { value: '%4–8', label: 'Sinestezili nüfus', icon: 'mdi:brain' },
+      { value: '%4-8', label: 'Sinestezili nüfus', icon: 'mdi:brain' },
       { value: '%90+', label: '10 yıllık renk tutarlılığı', icon: 'mdi:check-circle' },
-      { value: '3–6 kat', label: 'Kadınlarda daha yaygın', icon: 'mdi:gender-female' },
+      { value: '3-6 kat', label: 'Kadınlarda daha yaygın', icon: 'mdi:gender-female' },
       { value: '26+10', label: 'Renkli harf ve rakamlar', icon: 'mdi:alphabetical' },
     ], columns: 4 },
     { type: 'title', text: 'Sanat ve Sinestezi: Duyular Birleştiğinde', level: 3 },

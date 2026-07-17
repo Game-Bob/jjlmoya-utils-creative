@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Les fortunes sont-elles générées aléatoirement ?',
-    answer: 'Oui — une fortune aléatoire est sélectionnée chaque jour et sauvegardée localement. Chacune des 25 fortunes a une chance égale d\'être choisie, garantissant une variété au fil du temps.'
+    answer: 'Oui - une fortune aléatoire est sélectionnée chaque jour et sauvegardée localement. Chacune des 25 fortunes a une chance égale d\'être choisie, garantissant une variété au fil du temps.'
   }
 ];
 
@@ -67,7 +67,7 @@ export const content: FortuneCookieLocaleContent = {
     dailyStatus: 'Votre destin a été révélé pour aujourd\'hui.',
     shareBtn: 'Partager la Sagesse',
     shareTitle: 'Mon Biscuit de la Fortune',
-    shareText: 'Le destin a parlé : "$TEXT"\nMes numéros : $NUMS\n\nDécouvrez votre fortune ici :',
+    shareText: 'Le destin a parlé: "$TEXT"\nMes numéros: $NUMS\n\nDécouvrez votre fortune ici :',
     copied: 'Copié !',
     fortunes: JSON.stringify([
       "La fortune que vous cherchez se trouve dans un autre biscuit.",
@@ -100,10 +100,10 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Le Mystère du Biscuit de la Fortune', level: 2 },
-    { type: 'paragraph', html: 'Vous êtes-vous déjà demandé d\'où viennent ces curieux biscuits ? Bien qu\'on les associe à la cuisine chinoise, leur origine est un voyage fascinant entre le Japon et les États-Unis. Le biscuit de la fortune tel que nous le connaissons aujourd\'hui a probablement été inventé au début du XXe siècle en Californie, pas en Chine — où ils sont pratiquement inconnus.' },
-    { type: 'tip', title: 'Fonctionnement de Notre Oracle', html: 'Chaque jour, vous pouvez ouvrir un seul biscuit. Le système enregistre votre destin pour que vous puissiez vous en souvenir pendant 24 heures. La fortune est stockée localement dans votre navigateur — totalement privé, aucun serveur n\'est impliqué. Revenez demain pour une nouvelle prédiction !' },
+    { type: 'paragraph', html: 'Vous êtes-vous déjà demandé d\'où viennent ces curieux biscuits ? Bien qu\'on les associe à la cuisine chinoise, leur origine est un voyage fascinant entre le Japon et les États-Unis. Le biscuit de la fortune tel que nous le connaissons aujourd\'hui a probablement été inventé au début du XXe siècle en Californie, pas en Chine - où ils sont pratiquement inconnus.' },
+    { type: 'tip', title: 'Fonctionnement de Notre Oracle', html: 'Chaque jour, vous pouvez ouvrir un seul biscuit. Le système enregistre votre destin pour que vous puissiez vous en souvenir pendant 24 heures. La fortune est stockée localement dans votre navigateur - totalement privé, aucun serveur n\'est impliqué. Revenez demain pour une nouvelle prédiction !' },
     { type: 'title', text: 'La Philosophie des Oracles', level: 3 },
-    { type: 'paragraph', html: 'Les humains ont toujours cherché conseil en période d\'incertitude. De l\'Oracle de Delphes au Yi Jing, les systèmes de divination remplissent une fonction psychologique constante : ils nous autorisent à <strong>faire une pause et réfléchir</strong>. Un biscuit de la fortune ne prédit pas l\'avenir — il vous incite à y penser.' },
+    { type: 'paragraph', html: 'Les humains ont toujours cherché conseil en période d\'incertitude. De l\'Oracle de Delphes au Yi Jing, les systèmes de divination remplissent une fonction psychologique constante: ils nous autorisent à <strong>faire une pause et réfléchir</strong>. Un biscuit de la fortune ne prédit pas l\'avenir - il vous incite à y penser.' },
     { type: 'list', items: [
       '<strong>Chine Ancienne :</strong> Le Yi Jing (Livre des Transformations, ~1000 av. J.-C.) utilisait des hexagrammes pour guider les décisions et interpréter le destin.',
       '<strong>Grèce Classique :</strong> L\'Oracle de Delphes attirait dirigeants et citoyens avec des déclarations cryptiques interprétées comme des conseils divins.',

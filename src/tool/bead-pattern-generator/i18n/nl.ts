@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>Retro Gaming:</strong> Authentieke 8-bit assets en sprites in enkele seconden.',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: 'Kralenbreedte bereik', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'Kleurpalet slots', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'Kralenbreedte bereik', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'Kleurpalet slots', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: 'Kwantisatie-algoritme', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: 'Exportformaat (patroon + gids)', icon: 'mdi:zip-box' },
     ], columns: 4 },

@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Social Media:</strong> attira l\'attenzione su Instagram o TikTok. Perfetto per bio che cercano di rompere con le convenzioni.',
       '<strong>Narrativa Horror:</strong> drammatizza narrazioni di finzione, creepypasta o simulazioni di sistemi compromessi.',
-      '<strong>Accessibilità:</strong> attenzione — il testo Zalgo non è leggibile dagli screen reader. Usalo solo come decorazione visiva, mai per contenuti critici.',
+      '<strong>Accessibilità:</strong> attenzione - il testo Zalgo non è leggibile dagli screen reader. Usalo solo come decorazione visiva, mai per contenuti critici.',
       '<strong>SEO:</strong> non usare mai Zalgo nelle parole chiave principali (H1, meta titoli). I bot di indicizzazione potrebbero non riuscire a normalizzare questi caratteri.',
     ]},
     { type: 'title', text: 'L\'origine: da Something Awful alla Glitch Art', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Carattere di combinazione', definition: 'Un code point Unicode progettato per essere posizionato sopra, sotto o attraverso un carattere di base. Usato legittimamente in lingue come l\'arabo, il vietnamita e l\'hindi.' },
       { term: 'Diacritico', definition: 'Un segno aggiunto a una lettera base per modificarne la pronuncia o il significato. Zalgo ne abusa per creare un traboccamento visivo.' },
-      { term: 'Blocco Unicode', definition: 'Un intervallo contiguo di code point Unicode. I caratteri Zalgo provengono principalmente dal blocco "Combining Diacritical Marks" (U+0300–U+036F).' },
+      { term: 'Blocco Unicode', definition: 'Un intervallo contiguo di code point Unicode. I caratteri Zalgo provengono principalmente dal blocco "Combining Diacritical Marks" (U+0300-U+036F).' },
       { term: 'Glitch Art', definition: 'Un\'estetica che incorpora o simula intenzionalmente errori, artefatti e corruzioni nei media digitali come tecnica espressiva.' },
     ]},
   ],

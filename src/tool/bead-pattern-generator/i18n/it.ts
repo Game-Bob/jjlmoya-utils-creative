@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>Retro Gaming:</strong> Asset e sprite 8-bit autentici in pochi secondi.',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: 'Range larghezza perline', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'Slot tavolozza colori', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'Range larghezza perline', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'Slot tavolozza colori', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: 'Algoritmo quantizzazione', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: 'Formato esportazione (schema + guida)', icon: 'mdi:zip-box' },
     ], columns: 4 },

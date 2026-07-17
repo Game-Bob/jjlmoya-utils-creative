@@ -204,8 +204,9 @@ const ASSETS = {
       this.spawnCrumbs(5);
 
       this.el.body.classList.remove('fortune-cookie-shake-1', 'fortune-cookie-shake-2', 'fortune-cookie-shake-3');
-      void this.el.body.offsetWidth;
-      this.el.body.classList.add(`fortune-cookie-shake-${4 - this.health}`);
+      requestAnimationFrame(() => {
+        this.el.body.classList.add(`fortune-cookie-shake-${4 - this.health}`);
+      });
 
       if (this.health === 2) {
         this.el.img.src = this.assets.cracked1;
@@ -227,15 +228,11 @@ const ASSETS = {
       this.el.broken.classList.remove('hidden');
       this.el.body.classList.add('hidden');
 
-      void this.el.broken.offsetWidth;
-
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          this.el.halfLeft.style.transform = 'translate(-120px, 60px) rotate(-45deg)';
-          this.el.halfLeft.style.opacity = '0';
-          this.el.halfRight.style.transform = 'translate(120px, 60px) rotate(45deg)';
-          this.el.halfRight.style.opacity = '0';
-        });
+        this.el.halfLeft.style.transform = 'translate(-120px, 60px) rotate(-45deg)';
+        this.el.halfLeft.style.opacity = '0';
+        this.el.halfRight.style.transform = 'translate(120px, 60px) rotate(45deg)';
+        this.el.halfRight.style.opacity = '0';
       });
 
       setTimeout(() => {

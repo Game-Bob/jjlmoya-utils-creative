@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Mesajlar rastgele mi oluşturuluyor?',
-    answer: 'Evet — her gün rastgele bir mesaj seçilir ve yerel olarak kaydedilir. 25 mesajın her birinin seçilme şansı eşittir, bu da zamanla çeşitlilik sağlar.'
+    answer: 'Evet - her gün rastgele bir mesaj seçilir ve yerel olarak kaydedilir. 25 mesajın her birinin seçilme şansı eşittir, bu da zamanla çeşitlilik sağlar.'
   }
 ];
 
@@ -101,9 +101,9 @@ export const content: FortuneCookieLocaleContent = {
   seo: [
     { type: 'title', text: 'Şans Kurabiyesinin Gizemi', level: 2 },
     { type: 'paragraph', html: 'Bu ilginç kurabiyelerin nereden geldiğini hiç merak ettiniz mi? Onları Çin yemeğiyle ilişkilendirsek de, kökenleri Japonya ve Amerika Birleşik Devletleri arasında büyüleyici bir yolculuktur. Bugün bildiğimiz şans kurabiyesi büyük olasılıkla Çin\'de değil (ki orada neredeyse hiç bilinmezler), 20. yüzyılın başlarında California\'da icat edilmiştir.' },
-    { type: 'tip', title: 'Falcımız Nasıl Çalışır?', html: 'Her gün bir kurabiye açabilirsiniz. Sistem kaderinizi kaydeder, böylece 24 saat boyunca hatırlarsınız. Şanslı mesaj tarayıcınızda yerel olarak saklanır — tamamen özeldir, hiçbir sunucu dahil olmaz. Yeni bir tahmin için yarın tekrar gelin!' },
+    { type: 'tip', title: 'Falcımız Nasıl Çalışır?', html: 'Her gün bir kurabiye açabilirsiniz. Sistem kaderinizi kaydeder, böylece 24 saat boyunca hatırlarsınız. Şanslı mesaj tarayıcınızda yerel olarak saklanır - tamamen özeldir, hiçbir sunucu dahil olmaz. Yeni bir tahmin için yarın tekrar gelin!' },
     { type: 'title', text: 'Kehanetlerin Felsefesi', level: 3 },
-    { type: 'paragraph', html: 'İnsanlar her zaman belirsiz zamanlarda rehberlik aramışlardır. Delfi Kahini\'nden I Ching\'e kadar, fal bakma sistemleri tutarlı bir psikolojik işleve hizmet eder: Bize <strong>durup düşünmek</strong> için izin verirler. Bir şans kurabiyesi geleceği tahmin etmez — sizi onun hakkında düşünmeye sevk eder.' },
+    { type: 'paragraph', html: 'İnsanlar her zaman belirsiz zamanlarda rehberlik aramışlardır. Delfi Kahini\'nden I Ching\'e kadar, fal bakma sistemleri tutarlı bir psikolojik işleve hizmet eder: Bize <strong>durup düşünmek</strong> için izin verirler. Bir şans kurabiyesi geleceği tahmin etmez - sizi onun hakkında düşünmeye sevk eder.' },
     { type: 'list', items: [
       '<strong>Antik Çin:</strong> I Ching (Değişimler Kitabı, M.Ö. ~1000), kararlara rehberlik etmek ve kaderi yorumlamak için heksagramlar kullanıyordu.',
       '<strong>Klasik Yunan:</strong> Delfi Kahini, tanrısal rehberlik olarak yorumlanan gizemli beyanlarla hükümdarları ve vatandaşları kendine çekiyordu.',

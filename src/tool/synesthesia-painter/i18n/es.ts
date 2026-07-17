@@ -107,9 +107,9 @@ export const content: SynesthesiaPainterLocaleContent = {
     { type: 'title', text: 'Aplicaciones prácticas: diseño, música y terapia', level: 3 },
     { type: 'paragraph', html: 'Más allá de la curiosidad científica, la sinestesia grafema-color tiene aplicaciones concretas. En <strong>diseño tipográfico</strong>, entender estas asociaciones ayuda a elegir paletas de color para logotipos que "resuenen" con el nombre de la marca. En <strong>educación</strong>, se han desarrollado sistemas de aprendizaje del abecedario que usan los colores estadísticamente reportados para facilitar la memorización en niños pequeños. En <strong>musicoterapia</strong>, las visualizaciones sinestésicas se usan para ayudar a pacientes con afasia a reconectar con el lenguaje a través del canal visual-cromático.' },
     { type: 'stats', items: [
-      { value: '4–8%', label: 'Población con sinestesia', icon: 'mdi:brain' },
+      { value: '4-8%', label: 'Población con sinestesia', icon: 'mdi:brain' },
       { value: '+90%', label: 'Consistencia de color a 10 años', icon: 'mdi:check-circle' },
-      { value: '3–6×', label: 'Más frecuente en mujeres', icon: 'mdi:gender-female' },
+      { value: '3-6×', label: 'Más frecuente en mujeres', icon: 'mdi:gender-female' },
       { value: '26+10', label: 'Letras y dígitos coloreados', icon: 'mdi:alphabetical' },
     ], columns: 4 },
   ],

@@ -82,7 +82,7 @@ export const content: ZalgoGeneratorLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'O que é Texto Zalgo e como funciona a corrupção visual?', level: 2 },
-    { type: 'paragraph', html: 'O Texto Zalgo é uma forma de manipulação tipográfica que explora uma funcionalidade específica do padrão Unicode: <strong>caracteres de combinação</strong>. Ao contrário dos caracteres normais, estes diacríticos não ocupam espaço horizontal — eles empilham-se verticalmente no topo da letra base, criando aquela estética de "caos digital" ou "horror cósmico" tão popular na cultura da internet.' },
+    { type: 'paragraph', html: 'O Texto Zalgo é uma forma de manipulação tipográfica que explora uma funcionalidade específica do padrão Unicode: <strong>caracteres de combinação</strong>. Ao contrário dos caracteres normais, estes diacríticos não ocupam espaço horizontal - eles empilham-se verticalmente no topo da letra base, criando aquela estética de "caos digital" ou "horror cósmico" tão popular na cultura da internet.' },
     { type: 'title', text: 'Anatomia do Processo', level: 3 },
     { type: 'paragraph', html: 'O nosso gerador processa cada caractere de forma independente, injetando sequências aleatórias de code points Unicode em três vetores distintos: <strong>superior</strong> (diacríticos que se empilham acima), <strong>médio</strong> (que perfuram a letra) e <strong>inferior</strong> (pendurados abaixo).' },
     { type: 'tip', title: 'Algoritmo de Corrupção', html: 'Para cada caractere base, é calculado um <code>contagem = intensidade × 30</code>. Esse número de diacríticos aleatórios é adicionado em cada vetor. Com intensidade 1.5, pode obter até 45 caracteres de combinação por letra.' },
@@ -90,7 +90,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'list', items: [
       '<strong>Redes Sociais:</strong> Capte a atenção no Instagram ou TikTok. Perfeito para biografias que procuram romper com a convenção.',
       '<strong>Narrativa de Horror:</strong> Dramatize narrativas de ficção, creepypastas ou simulações de sistemas comprometidos.',
-      '<strong>Acessibilidade:</strong> Aviso — o texto Zalgo é ilegível por leitores de ecrã. Use-o apenas como decoração visual, nunca para conteúdo crítico.',
+      '<strong>Acessibilidade:</strong> Aviso - o texto Zalgo é ilegível por leitores de ecrã. Use-o apenas como decoração visual, nunca para conteúdo crítico.',
       '<strong>SEO:</strong> Nunca use Zalgo em palavras-chave principais (H1, meta títulos). Os bots de indexação podem falhar ao normalizar estes caracteres.',
     ]},
     { type: 'title', text: 'A Origem: De Something Awful à Glitch Art', level: 3 },
@@ -98,7 +98,7 @@ export const content: ZalgoGeneratorLocaleContent = {
     { type: 'glossary', items: [
       { term: 'Caractere de Combinação', definition: 'Um code point Unicode desenhado para ser colocado acima, abaixo ou através de um caractere base. Usado legitimamente em idiomas como árabe, vietnamita e hindi.' },
       { term: 'Diacrítico', definition: 'Uma marca adicionada a uma letra base para modificar a sua pronúncia ou significado. Zalgo abusa destes para criar um transbordo visual.' },
-      { term: 'Bloco Unicode', definition: 'Um intervalo contíguo de code points Unicode. Os caracteres Zalgo vêm principalmente do bloco "Combining Diacritical Marks" (U+0300–U+036F).' },
+      { term: 'Bloco Unicode', definition: 'Um intervalo contíguo de code points Unicode. Os caracteres Zalgo vêm principalmente do bloco "Combining Diacritical Marks" (U+0300-U+036F).' },
       { term: 'Glitch Art', definition: 'Uma estética que incorpora ou simula intencionalmente erros, artefactos e corrupções em media digital como uma técnica expressiva.' },
     ]},
   ],

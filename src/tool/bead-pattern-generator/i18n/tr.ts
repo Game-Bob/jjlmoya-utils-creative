@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>Retro Oyunlar:</strong> Saniyeler içinde otantik 8-bit varlıklar ve sprite\'lar.',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: 'Boncuk genişliği aralığı', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'Renk paleti yuvaları', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'Boncuk genişliği aralığı', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'Renk paleti yuvaları', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: 'Niceleme algoritması', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: 'Dışa aktarma formatı (desen + kılavuz)', icon: 'mdi:zip-box' },
     ], columns: 4 },

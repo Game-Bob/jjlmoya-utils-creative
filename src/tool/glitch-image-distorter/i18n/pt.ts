@@ -103,7 +103,7 @@ export const content: GlitchImageDistorterLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'O que é Arte Glitch?', level: 2 },
-    { type: 'paragraph', html: 'A <strong>arte glitch</strong> é uma prática criativa que explora intencionalmente erros digitais, dados corrompidos e artefactos visuais para produzir resultados estéticos. Ao contrário da arte tradicional, que procura a perfeição, o glitch celebra a beleza inesperada da falha tecnológica — cores fragmentadas e padrões caóticos que surgem do erro.' },
+    { type: 'paragraph', html: 'A <strong>arte glitch</strong> é uma prática criativa que explora intencionalmente erros digitais, dados corrompidos e artefactos visuais para produzir resultados estéticos. Ao contrário da arte tradicional, que procura a perfeição, o glitch celebra a beleza inesperada da falha tecnológica - cores fragmentadas e padrões caóticos que surgem do erro.' },
     { type: 'title', text: 'Origens e Estética Digital', level: 3 },
     { type: 'paragraph', html: 'Esta estética surgiu no início dos anos 2000, quando artistas digitais começaram a experimentar com ficheiros corrompidos e falhas de hardware. Artistas como <strong>Rosa Menkman</strong> elevaram o glitch à categoria de arte ao investigar a poética dos artefactos digitais. A estética nutre-se da degradação do VHS, dos erros de transmissão e do "ruído" dos sistemas digitais.' },
     { type: 'title', text: 'Técnicas Chave de Glitch', level: 3 },

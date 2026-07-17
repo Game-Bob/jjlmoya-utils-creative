@@ -97,8 +97,8 @@ export const content: BeadPatternGeneratorLocaleContent = {
       '<strong>レトロゲーム:</strong> 本物の8ビットアセットやスプライトを数秒で作成。',
     ]},
     { type: 'stats', items: [
-      { value: '10–100', label: 'ビーズ幅の範囲', icon: 'mdi:arrow-expand-horizontal' },
-      { value: '2–32', label: 'カラーパレット枠', icon: 'mdi:palette-swatch' },
+      { value: '10-100', label: 'ビーズ幅の範囲', icon: 'mdi:arrow-expand-horizontal' },
+      { value: '2-32', label: 'カラーパレット枠', icon: 'mdi:palette-swatch' },
       { value: 'K-Means', label: '減色アルゴリズム', icon: 'mdi:function-variant' },
       { value: 'ZIP', label: '出力形式（図案＋ガイド）', icon: 'mdi:zip-box' },
     ], columns: 4 },

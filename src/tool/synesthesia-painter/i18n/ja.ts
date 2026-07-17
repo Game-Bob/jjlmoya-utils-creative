@@ -102,9 +102,9 @@ export const content: SynesthesiaPainterLocaleContent = {
       '<strong>有名な共感覚者：</strong> ウラジーミル・ナボコフ、ワシリー・カンディンスキー、ニコラ・テスラ、ビリー・ジョエルなどが、作品に影響を与えた共感覚体験を公表しています。'
     ]},
     { type: 'stats', items: [
-      { value: '4–8%', label: '共感覚を持つ人口', icon: 'mdi:brain' },
+      { value: '4-8%', label: '共感覚を持つ人口', icon: 'mdi:brain' },
       { value: '90%+', label: '10年後でも変わらない色の一貫性', icon: 'mdi:check-circle' },
-      { value: '3–6倍', label: '女性に多く見られる傾向', icon: 'mdi:gender-female' },
+      { value: '3-6倍', label: '女性に多く見られる傾向', icon: 'mdi:gender-female' },
       { value: '26+10', label: '対応する文字と数字の色', icon: 'mdi:alphabetical' }
     ], columns: 4 },
     { type: 'title', text: '芸術と共感覚：感覚が融合する時', level: 3 },

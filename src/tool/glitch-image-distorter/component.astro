@@ -20,36 +20,36 @@ const { ui } = Astro.props;
         <span class="glitch-image-distorter-paste-hint">{ui.pasteHint}</span>
       </div>
       <button class="glitch-image-distorter-example-btn" id="gid-example-btn">{ui.exampleImageBtn}</button>
-      <input type="file" id="gid-file-input" accept="image/*" hidden />
+      <input type="file" id="gid-file-input" accept="image/*" class="gid-file-input" hidden />
     </div>
 
     <div class="glitch-image-distorter-controls" id="gid-controls">
       <div class="glitch-image-distorter-control">
-        <label class="glitch-image-distorter-label">{ui.corruptionLabel}</label>
+        <label class="glitch-image-distorter-label" for="gid-corruption">{ui.corruptionLabel}</label>
         <input type="range" id="gid-corruption" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
         <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-corruption-val">0</span>
       </div>
 
       <div class="glitch-image-distorter-control">
-        <label class="glitch-image-distorter-label">{ui.interferenceLabel}</label>
+        <label class="glitch-image-distorter-label" for="gid-interference">{ui.interferenceLabel}</label>
         <input type="range" id="gid-interference" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
         <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-interference-val">0</span>
       </div>
 
       <div class="glitch-image-distorter-control">
-        <label class="glitch-image-distorter-label">{ui.tremorLabel}</label>
+        <label class="glitch-image-distorter-label" for="gid-tremor">{ui.tremorLabel}</label>
         <input type="range" id="gid-tremor" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
         <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-tremor-val">0</span>
       </div>
 
       <div class="glitch-image-distorter-control">
-        <label class="glitch-image-distorter-label">{ui.pixelSortLabel}</label>
+        <label class="glitch-image-distorter-label" for="gid-pixel-sort">{ui.pixelSortLabel}</label>
         <input type="range" id="gid-pixel-sort" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
         <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-pixel-sort-val">0</span>
       </div>
 
       <div class="glitch-image-distorter-control">
-        <label class="glitch-image-distorter-label">{ui.pixelSortDirectionLabel}</label>
+        <label class="glitch-image-distorter-label" for="gid-sort-direction">{ui.pixelSortDirectionLabel}</label>
         <select id="gid-sort-direction" class="glitch-image-distorter-select">
           <option value="none">None</option>
           <option value="up">Up</option>
@@ -60,7 +60,7 @@ const { ui } = Astro.props;
       </div>
 
       <div class="glitch-image-distorter-control">
-        <label class="glitch-image-distorter-label">{ui.noiseLabel}</label>
+        <label class="glitch-image-distorter-label" for="gid-noise">{ui.noiseLabel}</label>
         <input type="range" id="gid-noise" class="glitch-image-distorter-slider" min="0" max="100" value="0" />
         <span style="font-size: 0.75rem; color: var(--gid-text-dim);" id="gid-noise-val">0</span>
       </div>

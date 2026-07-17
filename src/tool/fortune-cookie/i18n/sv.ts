@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Är spådomarna slumpmässigt genererade?',
-    answer: 'Ja – en slumpmässig spådom väljs varje dag och sparas lokalt. Var och en av de 25 spådomarna har lika stor chans att väljas, vilket garanterar variation över tid.'
+    answer: 'Ja - en slumpmässig spådom väljs varje dag och sparas lokalt. Var och en av de 25 spådomarna har lika stor chans att väljas, vilket garanterar variation över tid.'
   }
 ];
 
@@ -100,10 +100,10 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Lyckokakans mysterium', level: 2 },
-    { type: 'paragraph', html: 'Har du någonsin undrat var dessa märkliga kakor kommer ifrån? Även om vi förknippar dem med kinesisk mat, är deras ursprung en fascinerande resa mellan Japan och USA. Lyckokakan som vi känner den idag uppfanns troligen i Kalifornien under tidigt 1900-tal, inte i Kina – där de är praktiskt taget okända.' },
-    { type: 'tip', title: 'Så fungerar vårt orakel', html: 'Varje dag kan du öppna en kaka. Systemet sparar ditt öde så att du kommer ihåg det i 24 timmar. Spådomen lagras lokalt i din webbläsare – helt privat, ingen server är inblandad. Kom tillbaka imorgon för en ny förutsägelse!' },
+    { type: 'paragraph', html: 'Har du någonsin undrat var dessa märkliga kakor kommer ifrån? Även om vi förknippar dem med kinesisk mat, är deras ursprung en fascinerande resa mellan Japan och USA. Lyckokakan som vi känner den idag uppfanns troligen i Kalifornien under tidigt 1900-tal, inte i Kina - där de är praktiskt taget okända.' },
+    { type: 'tip', title: 'Så fungerar vårt orakel', html: 'Varje dag kan du öppna en kaka. Systemet sparar ditt öde så att du kommer ihåg det i 24 timmar. Spådomen lagras lokalt i din webbläsare - helt privat, ingen server är inblandad. Kom tillbaka imorgon för en ny förutsägelse!' },
     { type: 'title', text: 'Orakelns filosofi', level: 3 },
-    { type: 'paragraph', html: 'Människor har alltid sökt vägledning i osäkra tider. Från oraklet i Delfi till I Ching, spådomssystem tjänar en konsekvent psykologisk funktion: de ger oss tillåtelse att <strong>stanna upp och reflektera</strong>. En lyckokaka förutsäger inte framtiden – den uppmanar dig att tänka på den.' },
+    { type: 'paragraph', html: 'Människor har alltid sökt vägledning i osäkra tider. Från oraklet i Delfi till I Ching, spådomssystem tjänar en konsekvent psykologisk funktion: de ger oss tillåtelse att <strong>stanna upp och reflektera</strong>. En lyckokaka förutsäger inte framtiden - den uppmanar dig att tänka på den.' },
     { type: 'list', items: [
       '<strong>Forntida Kina:</strong> I Ching (Förvandlingarnas bok, ca 1000 f.Kr.) använde hexagram för att vägleda beslut och tolka ödet.',
       '<strong>Klassiska Grekland:</strong> Oraklet i Delfi lockade både härskare och medborgare med kryptiska uttalanden som tolkades som gudomlig vägledning.',

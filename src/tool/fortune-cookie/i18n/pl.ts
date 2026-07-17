@@ -13,7 +13,7 @@ const faq: FortuneCookieLocaleContent['faq'] = [
   },
   {
     question: 'Czy wróżby są generowane losowo?',
-    answer: 'Tak — każdego dnia wybierana jest losowa wróżba i zapisywana lokalnie. Każda z 25 wróżb ma taką samą szansę na bycie wybraną, co zapewnia różnorodność w czasie.'
+    answer: 'Tak - każdego dnia wybierana jest losowa wróżba i zapisywana lokalnie. Każda z 25 wróżb ma taką samą szansę na bycie wybraną, co zapewnia różnorodność w czasie.'
   }
 ];
 
@@ -100,10 +100,10 @@ export const content: FortuneCookieLocaleContent = {
   },
   seo: [
     { type: 'title', text: 'Tajemnica ciasteczka z wróżbą', level: 2 },
-    { type: 'paragraph', html: 'Zastanawiałeś się kiedyś, skąd wzięły się te osobliwe ciasteczka? Chociaż kojarzymy je z chińskim jedzeniem, ich pochodzenie to fascynująca podróż między Japonią a Stanami Zjednoczonymi. Ciasteczko z wróżbą, jakie znamy dzisiaj, zostało prawdopodobnie wynalezione w Kalifornii na początku XX wieku, a nie w Chinach — gdzie są praktycznie nieznane.' },
-    { type: 'tip', title: 'Jak działa nasza Wyrocznia', html: 'Każdego dnia możesz otworzyć jedno ciasteczko. System zapisuje Twoje przeznaczenie, abyś mógł o nim pamiętać przez 24 godziny. Wróżba jest przechowywana lokalnie w Twojej przeglądarce — całkowicie prywatnie, bez udziału serwera. Wróć jutro po nową przepowiednię!' },
+    { type: 'paragraph', html: 'Zastanawiałeś się kiedyś, skąd wzięły się te osobliwe ciasteczka? Chociaż kojarzymy je z chińskim jedzeniem, ich pochodzenie to fascynująca podróż między Japonią a Stanami Zjednoczonymi. Ciasteczko z wróżbą, jakie znamy dzisiaj, zostało prawdopodobnie wynalezione w Kalifornii na początku XX wieku, a nie w Chinach - gdzie są praktycznie nieznane.' },
+    { type: 'tip', title: 'Jak działa nasza Wyrocznia', html: 'Każdego dnia możesz otworzyć jedno ciasteczko. System zapisuje Twoje przeznaczenie, abyś mógł o nim pamiętać przez 24 godziny. Wróżba jest przechowywana lokalnie w Twojej przeglądarce - całkowicie prywatnie, bez udziału serwera. Wróć jutro po nową przepowiednię!' },
     { type: 'title', text: 'Filozofia Wyroczni', level: 3 },
-    { type: 'paragraph', html: 'Ludzie zawsze szukali wskazówek w niepewnych czasach. Od Wyroczni Delfickiej po I Czing, systemy wróżbiarskie pełnią stałą funkcję psychologiczną: dają nam przyzwolenie na <strong>chwilę zatrzymania i refleksji</strong>. Ciasteczko z wróżbą nie przewiduje przyszłości — skłania Cię do myślenia o niej.' },
+    { type: 'paragraph', html: 'Ludzie zawsze szukali wskazówek w niepewnych czasach. Od Wyroczni Delfickiej po I Czing, systemy wróżbiarskie pełnią stałą funkcję psychologiczną: dają nam przyzwolenie na <strong>chwilę zatrzymania i refleksji</strong>. Ciasteczko z wróżbą nie przewiduje przyszłości - skłania Cię do myślenia o niej.' },
     { type: 'list', items: [
       '<strong>Starożytne Chiny:</strong> I Czing (Księga Przemian, ok. 1000 r. p.n.e.) wykorzystywał heksagramy do kierowania decyzjami i interpretowania losu.',
       '<strong>Klasyczna Grecja:</strong> Wyrocznia Delficka przyciągała zarówno władców, jak i obywateli swoimi tajemniczymi wypowiedziami, interpretowanymi jako boskie wskazówki.',

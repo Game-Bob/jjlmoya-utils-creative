@@ -7,7 +7,9 @@
     "exports": {
         ".": "./src/index.ts",
         "./entries": "./src/entries.ts",
-        "./data": "./src/data.ts"
+        "./data": "./src/data.ts",
+        "./runtime/*": "./src/tool/*/index.ts",
+        "./category-seo": "./src/category/seo.astro"
     },
     "files": [
         "src",

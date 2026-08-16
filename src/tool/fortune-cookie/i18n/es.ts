@@ -117,11 +117,6 @@ export const content: FortuneCookieLocaleContent = {
       { value: '25', label: 'Fortunas en este oráculo', icon: 'mdi:star-shooting' },
       { value: '1/día', label: 'Un destino diario', icon: 'mdi:calendar-today' },
     ], columns: 4 },
-    { type: 'proscons', items: [
-      { pro: 'Momento de pausa y reflexión diaria', con: 'Sin base científica predictiva real' },
-      { pro: 'Inspiración positiva con frases atemporales', con: 'El mensaje es el mismo sin importar el contexto' },
-      { pro: 'Completamente privado, sin datos enviados al servidor', con: 'Solo una fortuna al día (¡diseño intencionado!)' },
-    ]},
   ],
   faq,
   bibliography,

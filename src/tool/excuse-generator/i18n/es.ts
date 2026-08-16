@@ -105,12 +105,6 @@ export const content: ExcuseGeneratorLocaleContent = {
       '<strong>Revolución Industrial:</strong> "La máquina de vapor se ha sobrecalentado".',
       '<strong>Era Digital:</strong> "Se me ha caído internet justo en medio de una actualización".'
     ]},
-    { type: 'stats', items: [
-      { value: '20', label: 'Sujetos posibles', icon: 'mdi:account-multiple' },
-      { value: '20', label: 'Acciones disponibles', icon: 'mdi:lightning-bolt' },
-      { value: '20', label: 'Desenlaces distintos', icon: 'mdi:door-open' },
-      { value: '8.000', label: 'Combinaciones posibles', icon: 'mdi:shuffle-variant' },
-    ], columns: 4 },
     { type: 'proscons', items: [
       { pro: 'Alivia la presión social al instante', con: 'El uso excesivo erosiona la confianza' },
       { pro: 'Protege tu energía y tus límites personales', con: 'Puede generar culpa si se usa sin cuidado' },

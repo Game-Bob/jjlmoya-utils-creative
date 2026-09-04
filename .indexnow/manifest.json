@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-04T07:18:31.623Z",
+  "pages": {
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/ausredengenerator/": {
+      "hash": "0b92d54cecad945ee87ac6cbeff897000f0bc8de380128d0d5c2bafd174ec0d9",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/ausredengenerator/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/glitch-bild-distorter/": {
+      "hash": "4a04d6ddd4eb2ea021f131f0ce29d69088e5aa4af41134e2094dec0b5854eda9",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/glitch-bild-distorter/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/glueckskeks-online/": {
+      "hash": "878704001332755dd8ea00b2b35f7ce96501a36b67fa31849bde1dae263be2d7",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/glueckskeks-online/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/": {
+      "hash": "cde3e25bd0b37da9cc4c1b7550e59a0a28eb9992b06adbb7cf41bd375443e4ae",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/perlenmuster-generator/": {
+      "hash": "80488699c13b677d69c762aa8fb9d6ae8fe8b06d6cedc5fdeb6a730fbf843122",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/perlenmuster-generator/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/synaesthesie-maler/": {
+      "hash": "5674cb454273c0e8b6ba3d4cf03e3c27115f16c3a8d217d1309448396fcfe959",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/synaesthesie-maler/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/wuerfel-simulator/": {
+      "hash": "8fe64ad1bcc643dbf78b29ab90dd10ea731db014a0b9c4d55291db12b70e2909",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/wuerfel-simulator/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/zalgo-textgenerator/": {
+      "hash": "999ff5904c1d0b05de59e05549d48689c467c84de8c1737bfc771e5d4b09819a",
+      "route": "/de/werkzeuge/kategorien/kreativitaet-freizeit/zalgo-textgenerator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/bead-pattern-generator/": {
+      "hash": "36c8dc024bf285810121eb070ea0553c868554407618ef740420d1fc564f1ab2",
+      "route": "/en/utilities/categories/creativity-leisure/bead-pattern-generator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/dice-roller/": {
+      "hash": "5135271ac6054314180a9b5c0f84e00f31b13899440b4b91e27765a13da4d0ee",
+      "route": "/en/utilities/categories/creativity-leisure/dice-roller/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/excuse-generator/": {
+      "hash": "612ecb2b88facccf7e7bcdbd457f069a4e83e79edf6eac4c23aeb364c36914cf",
+      "route": "/en/utilities/categories/creativity-leisure/excuse-generator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/fortune-cookie/": {
+      "hash": "799008741eaee85c925ad5a4d40a2c08b6e91a2076516d91c4da4bd597c2ed29",
+      "route": "/en/utilities/categories/creativity-leisure/fortune-cookie/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/glitch-image-distorter/": {
+      "hash": "f84c3160989a68518b6cb337041cf23ade6ae4d3f75fe7ba7e11a2ea61bc85d2",
+      "route": "/en/utilities/categories/creativity-leisure/glitch-image-distorter/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/": {
+      "hash": "6ca6c6885eef58b8a7934e379b92baf31c9443cc9844c1fe6fedcf65c3d39691",
+      "route": "/en/utilities/categories/creativity-leisure/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/synesthesia-painter/": {
+      "hash": "98bec36dcc742453c9f2df62dcbfc1655d28b4f3e1073f3ee3841ee94465dffb",
+      "route": "/en/utilities/categories/creativity-leisure/synesthesia-painter/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/creativity-leisure/zalgo-generator/": {
+      "hash": "0ddfb1dbcace028707501a9c1bde9098c4d7f274fa6b516d7e9fd8f36f498079",
+      "route": "/en/utilities/categories/creativity-leisure/zalgo-generator/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/biscuit-de-la-fortune/": {
+      "hash": "c3e04c7ab707422c4b6d45576394bc7089b1697eb01d3d3ebd7c2207c7460af4",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/biscuit-de-la-fortune/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/distorsion-image-glitch/": {
+      "hash": "f41ead36bcf4715de546ef5f1cea0ce7cd0a538a31b5316af4548d6ed93ee6c7",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/distorsion-image-glitch/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/generateur-d-excuses/": {
+      "hash": "f206a54e75c966150f7940f41629888eb9c060548a6b2eedd21cc81641066fe6",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/generateur-d-excuses/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/generateur-de-modeles-de-perles/": {
+      "hash": "10145d8c743c5c95f3f08ece8702ed2e2a656ff1929af4031a52d043c8e0a849",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/generateur-de-modeles-de-perles/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/generateur-zalgo/": {
+      "hash": "5ae0fa50379302b2b84fd8f615197eeb7881c7d37b89fd516a20015567c95a05",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/generateur-zalgo/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/": {
+      "hash": "7f65210ad267fcb5d96f4db7f63dda161704ff4366f549c0adc453497872f5f1",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/lanceur-de-des/": {
+      "hash": "19672754eb533e2b52538fb710aa8ec252b3711fd9a85ec33884414c6d5f400b",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/lanceur-de-des/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/peintre-de-synesthesie/": {
+      "hash": "7b03a117c647747075197db0e63e805606a17d4635225e5cbac910bd6b4286bd",
+      "route": "/fr/utilitaires/categories/creativite-loisirs/peintre-de-synesthesie/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/distorsi-gambar-glitch/": {
+      "hash": "65fa9b171d229546715adbe0f2a26aa994ed7a6189dbba5362102099fa97edd8",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/distorsi-gambar-glitch/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/": {
+      "hash": "87470bbde28cf74294492dbece689d548396a8c6029b4175f5591cc47387014b",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/kue-keberuntungan/": {
+      "hash": "b940344f5c177da8523f1eb20d456f684298596f2d5bfdb982f47a003daf8cd2",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/kue-keberuntungan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/pelukis-sinestesia/": {
+      "hash": "f8f6618be5217b9a8ce40d7c1ae5a20da4a7faef7d3f692c84b43f043cc0f7b3",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/pelukis-sinestesia/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/pembuat-alasan/": {
+      "hash": "74d3a239b1c5c1c249e01727a5096f0a9c08d7ae62d03de467269b6cc8c38413",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/pembuat-alasan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/pembuat-pola-manik/": {
+      "hash": "1bbcd094469e7aca4f83eebd9d05579a2c26fbeaa51d059cb7dfa6fe62641c27",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/pembuat-pola-manik/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/pembuat-teks-zalgo/": {
+      "hash": "f0cdcada61a5760873358eb3f3bda061228896bbe3dbd9d3f11b6750f5ca06b9",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/pembuat-teks-zalgo/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/pengocok-dadu/": {
+      "hash": "36f7b08cd787a690236172e68b51f42c49a0f2fbe3bcf80364f3453b6cecf5c7",
+      "route": "/id/utilitas/kategori/kreativitas-hiburan/pengocok-dadu/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/biscotto-della-fortuna-online/": {
+      "hash": "cb8d8e778fd55207f261fc7a14331d4af9a7b6130f939d1bd455e7e206f69d2c",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/biscotto-della-fortuna-online/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/distorsore-immagini-glitch/": {
+      "hash": "7ed546b9caacab32d8ad4406776abbe6c36abf05628cc07c9912032e05ba20df",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/distorsore-immagini-glitch/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/generatore-di-scuse/": {
+      "hash": "a70b581ab72a4764c779618ffcda64a994cc412f11983d63cc7ac5fca7d73b6b",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/generatore-di-scuse/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/generatore-schemi-perline/": {
+      "hash": "999e2a8fc0f982eb418e4b67f50847676c717045fa27033725e5bbe9e3fc828d",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/generatore-schemi-perline/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/generatore-zalgo/": {
+      "hash": "62daf8436959ebb188f225b9268d6d567f9848ecce393bb9c1c05295c37d431a",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/generatore-zalgo/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/": {
+      "hash": "5cf7d8efff4f07d1bfaaddcbc126520010405e521526c884732c5ccd3cb16236",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/lanciatore-di-dadi/": {
+      "hash": "dd2fafc134b97b54af343e3fa5a403d73d284ce29665b2994732c989b8715add",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/lanciatore-di-dadi/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/pittore-di-sinestesia/": {
+      "hash": "b50de06085dbebeb1b0fbd6c3d61083a69b376d620bb2e9ae437b14a767b5565",
+      "route": "/it/utilita/categorie/creativita-tempo-libero/pittore-di-sinestesia/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/bead-pattern-generator/": {
+      "hash": "328f03d5d0decbfeb55c58880634aec90eae506f25357299f78e2d3f4d8cfe29",
+      "route": "/ja/utilities/categories/creativity-leisure/bead-pattern-generator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/dice-roller/": {
+      "hash": "958c06ae37b22a3952b19de37432460e0c52e8191a209784bded23669a485e50",
+      "route": "/ja/utilities/categories/creativity-leisure/dice-roller/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/excuse-generator/": {
+      "hash": "e817f4c72c84128f06f0693446a510afc9e78f8a9219d7e4b0cd7d14006df4be",
+      "route": "/ja/utilities/categories/creativity-leisure/excuse-generator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/fortune-cookie/": {
+      "hash": "033b463a026a0c5a296ece506f2f4f58874ffda5b4b2d9ed053ab258ed50fee5",
+      "route": "/ja/utilities/categories/creativity-leisure/fortune-cookie/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/glitch-image-distorter/": {
+      "hash": "870e1a1689c7c14acff9606338d699ea4f7974890827aec3ccc2513575be5831",
+      "route": "/ja/utilities/categories/creativity-leisure/glitch-image-distorter/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/": {
+      "hash": "0c067697a007a3eb3aaf7b53718ead05fc03babbddefef4e5fd6fa6e499d580c",
+      "route": "/ja/utilities/categories/creativity-leisure/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/synesthesia-painter/": {
+      "hash": "035bf287b43379e4378d85a33cdd61705f43e11cbde778427e860983647516f4",
+      "route": "/ja/utilities/categories/creativity-leisure/synesthesia-painter/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/creativity-leisure/zalgo-generator/": {
+      "hash": "2cbe8ba38d503c5470cb52874ca2d5ab1144f603659721a869603023d3479d4a",
+      "route": "/ja/utilities/categories/creativity-leisure/zalgo-generator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/bead-pattern-generator/": {
+      "hash": "4147f5fae1b58780c7682e45ac236960a57210ac268d648e9444fed6498805ee",
+      "route": "/ko/utilities/categories/creativity-leisure/bead-pattern-generator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/dice-roller/": {
+      "hash": "827c880af9c66050be56f21b793c7da314b36f891349a55c34f40d16f0df106c",
+      "route": "/ko/utilities/categories/creativity-leisure/dice-roller/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/excuse-generator/": {
+      "hash": "86d329caf14e9a6250af61c3f6456490fb7b7944a442e734c9d945607309085c",
+      "route": "/ko/utilities/categories/creativity-leisure/excuse-generator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/fortune-cookie/": {
+      "hash": "f6c365efce43f2a2092c7cb1cd44efd57789c7b50290149aa7e584fb0dc640d8",
+      "route": "/ko/utilities/categories/creativity-leisure/fortune-cookie/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/glitch-image-distorter/": {
+      "hash": "cee810af1d6c13ea0e40fef6628fb80c6f8b9cc75ade126dd087df90ee9c8ef6",
+      "route": "/ko/utilities/categories/creativity-leisure/glitch-image-distorter/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/": {
+      "hash": "bdc0bd198ebcdb7f049c862a1875e77503f902e9a5c933f746323d429a704a5d",
+      "route": "/ko/utilities/categories/creativity-leisure/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/synesthesia-painter/": {
+      "hash": "555ec6b9145b77af60f7c3a84dcf36c53ddb342a4b67f70615d38b8ba0c41876",
+      "route": "/ko/utilities/categories/creativity-leisure/synesthesia-painter/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/creativity-leisure/zalgo-generator/": {
+      "hash": "2e00f191fd027acbb159b443a1bfb14e02222f9b390abcd9252895997a24d12f",
+      "route": "/ko/utilities/categories/creativity-leisure/zalgo-generator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/dobbelsteen-roller/": {
+      "hash": "8620d3984c76b5cb9964d283c9459f5a7a4ed70c5edb707c5bf917d4ea54248c",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/dobbelsteen-roller/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/gelukskoekje-online/": {
+      "hash": "bfd2560384e34e50321f185b7bc77a999bc6d30300ea5723acd1046ef3d92cc0",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/gelukskoekje-online/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/glitch-afbeelding-distorter/": {
+      "hash": "f98170d12491706db98ff950663ce2b020b37c9e24e88bb9ffb9f6aeb7f1a002",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/glitch-afbeelding-distorter/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/": {
+      "hash": "3a31bc25860023699f41d1ec0ea47312c4af3a89c82d8a9bbc6c59d92a416c7b",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/kralenpatroon-generator/": {
+      "hash": "33b88be0334bf24c73ac5ab3a7a955cff710cec31a1554f911da99401c5fd076",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/kralenpatroon-generator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/smoezen-generator/": {
+      "hash": "8d25a93cfa497cf1bada5b820524d477e3a8977d1dd39d6976aa3f61f12bbe19",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/smoezen-generator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/synesthesie-schilder/": {
+      "hash": "f8cbff7e8312eb943498eed19a130de80362ec4327597198e0dec19fdb3d320f",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/synesthesie-schilder/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/zalgo-tekstgenerator/": {
+      "hash": "798e53311a1848df73a6eef24fc94ccb57371422def4b8a40f755d56f24066e1",
+      "route": "/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/zalgo-tekstgenerator/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/ciasteczko-z-wrozba-online/": {
+      "hash": "b3c026f231d3e3e66242db965461c2418818af139cb1dfb2d123f46c7935fd85",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/ciasteczko-z-wrozba-online/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/deformator-obrazow-glitch/": {
+      "hash": "da2f78b4b617a5cd5f471f2a31b04c0f04473b56ca4bdedf060113049ede0471",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/deformator-obrazow-glitch/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/generator-wymowek/": {
+      "hash": "144989c2e96ef547eb9797c42c13dbda99da37cf500946abc988fe5c409fd81e",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/generator-wymowek/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/generator-wzorow-koralikowych/": {
+      "hash": "5af496fc66cd2c381ea1f6ed63b89dbb8347dfe88d9805043b8ee5c0fd4cd1fd",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/generator-wzorow-koralikowych/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/generatory-zalgo/": {
+      "hash": "2dc4fc77cd1f7e2ee0413ea6ff744274aceca397238ebbbfdad1706ab1cab83a",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/generatory-zalgo/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/": {
+      "hash": "dc88f116929fa3dac2b0780236215f258ebd1ba1ac0fc508487c9f04ffde810c",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/kostka-do-gry/": {
+      "hash": "a5c4df3deda173d10d366e1107b6a43edb13106064a96e4d59d63fc0b4732d9a",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/kostka-do-gry/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/malarz-synestezji/": {
+      "hash": "c86b0330c23f395c49e0997aa2afc8424a23ca2ef2828947042549ddf97caa79",
+      "route": "/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/malarz-synestezji/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/biscoito-da-sorte-online/": {
+      "hash": "ff3dbb357e2a1c9695e59ae426e6f6419016454c09791cb43385424dba38f48c",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/biscoito-da-sorte-online/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/distorcedor-imagens-glitch/": {
+      "hash": "35a51907ecfafeb0c72bebfa2e6e448347c85649bbebe9899b0ea9a1ee08ceb7",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/distorcedor-imagens-glitch/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/gerador-de-desculpas/": {
+      "hash": "58353767c72719bdba8ff72e913d1608d765ec8584838e8e8505707f712d12fb",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/gerador-de-desculpas/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/gerador-de-padroes-de-contas/": {
+      "hash": "965fc147babe0d844ac79c350811005980f5dfa90c905d72f14bcef5367a49a8",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/gerador-de-padroes-de-contas/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/gerador-zalgo/": {
+      "hash": "ca51d9e215b411bbff087e0d6ff8c11f22946366e72e7beaa09672796637071a",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/gerador-zalgo/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/": {
+      "hash": "83c78c3469aa1981f184e1345866087d7dd6eb3da6d56d0c17dc5fa4982750e2",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/lancador-de-dados/": {
+      "hash": "86e0b7c1f4dfdc9881771b6438869b1d8c4b8d6caa41c45cf9363138381ed211",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/lancador-de-dados/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/pintor-de-sinestesia/": {
+      "hash": "5d203e66ccab9aa76d241f8c8e8741fc9c1e90ba2345c478a94b08f70b1a47e2",
+      "route": "/pt/utilidades/categorias/criatividade-lazer/pintor-de-sinestesia/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-glitch-art-iz-foto/": {
+      "hash": "2dba903a4bdd475bd89eebda6008b1a9ea4511d71b14dc5b60ee65d127cee60c",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-glitch-art-iz-foto/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-otgovorki/": {
+      "hash": "4df75b2d6da5bd11e6e2ff400ba504c4d9bc9f1d29bde2cbeb0cd1990b61889a",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-otgovorki/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-skhem/": {
+      "hash": "edadaa90c180fc6b3ed8f06f5d415935dd5d9f807a0df7d35517ccb05859dd76",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-skhem/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-zalgo/": {
+      "hash": "8b903bce7c18d33fbe0a0fb68b29985a08576d34389306d96015adb0c8bb8215",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/generator-zalgo/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/": {
+      "hash": "520bb5bb640bb376cde8d763c09cc75d0f701f4e44159c026bad54e82516d273",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/khudozhnik-sinestezii/": {
+      "hash": "82a07eea2cc386647ca91cec8188a36522eb305c4f4aa08dc21dd12ba1836838",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/khudozhnik-sinestezii/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/pechenie-s-predskazaniem-online/": {
+      "hash": "903f508ce750d25e8a7e5a94d22595e0240f40559a847ad02fdf0664489614dc",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/pechenie-s-predskazaniem-online/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/simulator-kostey/": {
+      "hash": "8fa8fb094b85695f931b16aa95510492d48fda006fe5c566b12a6c93fdec738f",
+      "route": "/ru/instrumenty/kategorii/tvorchestvo-i-dosug/simulator-kostey/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/": {
+      "hash": "b422b1ec984349f929dafc989623ca64dba035c35e8ad438984edc9d9eb9e104",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/lyckokaka-online/": {
+      "hash": "b43f379d412cd0a796ba8d3f96d14fc4aa60adc5aaac4f86673ce9fca44bf948",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/lyckokaka-online/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/monstergenerator-for-parlor/": {
+      "hash": "81f58f657fc6e92ce98776ad2c1431eb497287ab1253bf28482130bf4373549a",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/monstergenerator-for-parlor/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/skapa-glitch-art-av-bilder/": {
+      "hash": "4504dc8156b20e42fed3cfb29cf160d9f071f0862e583d1d8fb07e87cc628946",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/skapa-glitch-art-av-bilder/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/synestesi-malare/": {
+      "hash": "30284b85b4a972661784e3ef06e2e28d517a91c9fb2032efbed1e1c61f4137e3",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/synestesi-malare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/tarningsgenerator/": {
+      "hash": "d44774b8434247fc404a79652f8bdee0229cce60b7927ddaeea99ee8fed36007",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/tarningsgenerator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/ursaktsgenerator/": {
+      "hash": "d98d0e3fda3faa4db3c51112d64a62291296be8ab2d7e6a40c1a40cb39fe36cc",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/ursaktsgenerator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/zalgo-generering/": {
+      "hash": "d6fbf0848026e301176b7b808a860f89c51fba453e2597f7676f62ee127c0bfb",
+      "route": "/sv/verktyg/kategorier/kreativitet-fritid/zalgo-generering/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/bahane-ureteci/": {
+      "hash": "5b734bb88c7724e46c488551973f818d90e5dc7d949c46f5cda647cdbf17f2a4",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/bahane-ureteci/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/boncuk-desen-olusturucu/": {
+      "hash": "db9861e6a20d0720213d68d487678936b5fe80b4b95029bb082e8495269bfca2",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/boncuk-desen-olusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/glitch-gorsel-bozucu/": {
+      "hash": "5aa59496909a9d4b25e4ed47db1a2c677a38fd499b014266062a730cf38daa36",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/glitch-gorsel-bozucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/": {
+      "hash": "dec5cb0787994ead86ad70019ec51151a06fc960cae92a91d0fd1fe88f9ce3b9",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/sans-kurabiyesi-online/": {
+      "hash": "b57b10fb62957170c049e35988ae3192ccd0b48f003b48420c14a4c247162af7",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/sans-kurabiyesi-online/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/sinestezi-ressami/": {
+      "hash": "0ab798223d708cfc5695fb23b92f5056ee8fa67eb60ffb802b93399460cf7a6e",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/sinestezi-ressami/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/zalgo-olusturucu/": {
+      "hash": "607676ff74ad8f5adeef80a0d4a130adfe5409688ad9c3ce3a17ff56c261a845",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/zalgo-olusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/zar-atma/": {
+      "hash": "8507d3404d3f2d99c2a41bda5cdd61dc164cbb3b05c34a62192438e5a8f049ef",
+      "route": "/tr/araclar/kategoriler/yaraticilik-bos-zaman/zar-atma/"
+    },
+    "https://www.jjlmoya.es/utilidades/categorias/creatividad-ocio/": {
+      "hash": "340f4d64e7dec7363da672f22788d55fdcb4adb9820218542e28617069cfe656",
+      "route": "/utilidades/categorias/creatividad-ocio/"
+    },
+    "https://www.jjlmoya.es/utilidades/distorsionador-imagenes-glitch/": {
+      "hash": "4148904e882d73b7ae86576889831868c556e066736da1c87b7ec1b354fbbb99",
+      "route": "/utilidades/distorsionador-imagenes-glitch/"
+    },
+    "https://www.jjlmoya.es/utilidades/galleta-fortuna/": {
+      "hash": "eb036830cd068432d8237a6d500ef11fe3b937155581142b0eafc2261d31155d",
+      "route": "/utilidades/galleta-fortuna/"
+    },
+    "https://www.jjlmoya.es/utilidades/generador-excusas/": {
+      "hash": "4271aad2697ce8edfef8bc69ad158e93ca98e86ac01978fe9812a457b7888de3",
+      "route": "/utilidades/generador-excusas/"
+    },
+    "https://www.jjlmoya.es/utilidades/generador-patrones-cuentas/": {
+      "hash": "de55a0bdb47951cf901303dc1f75b53352bf48522e94789d9bd0cb23fdb397b9",
+      "route": "/utilidades/generador-patrones-cuentas/"
+    },
+    "https://www.jjlmoya.es/utilidades/generador-zalgo/": {
+      "hash": "ffbacb3085c67d1398e69d8603b01b075c2bc796f8e12f894ecb25b014524af2",
+      "route": "/utilidades/generador-zalgo/"
+    },
+    "https://www.jjlmoya.es/utilidades/lanzador-dados/": {
+      "hash": "6d40237c2af8370d944f37c50491e8b250c3002f42811ad32ba0eea3f9a4d7ad",
+      "route": "/utilidades/lanzador-dados/"
+    },
+    "https://www.jjlmoya.es/utilidades/pintor-sinestesia/": {
+      "hash": "1dddc659b66c40e1c1455bacea5167d8013dbd2371578b53d0a577ad86d2fc73",
+      "route": "/utilidades/pintor-sinestesia/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/bead-pattern-generator/": {
+      "hash": "d2d136cd0ba748fe175ca3f3863dd3e92974e7a44f3026a2364dd10504e806ba",
+      "route": "/zh/utilities/categories/creativity-leisure/bead-pattern-generator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/dice-roller/": {
+      "hash": "cff730475dbb0dcb2effa527ba15b8df3d2beba980cd7eacda4b12657c2a17f4",
+      "route": "/zh/utilities/categories/creativity-leisure/dice-roller/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/excuse-generator/": {
+      "hash": "e1e534f7b455deb4edf48c6518988059e4a4a4fade0f4c03b88ef58715cc6379",
+      "route": "/zh/utilities/categories/creativity-leisure/excuse-generator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/fortune-cookie/": {
+      "hash": "f1891c2bdbea1fa12b1e51325734c8d3625632fdf9778450aa401c10bd0601e4",
+      "route": "/zh/utilities/categories/creativity-leisure/fortune-cookie/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/glitch-image-distorter/": {
+      "hash": "7b9c64c2a1d46c6a51aa4b377edbb59c99b177e28b2727334fcd2c5559d4f45d",
+      "route": "/zh/utilities/categories/creativity-leisure/glitch-image-distorter/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/": {
+      "hash": "7049aa256af1261c8760c445c8aff7ea5b09030a79f77763017157aed4141ca4",
+      "route": "/zh/utilities/categories/creativity-leisure/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/synesthesia-painter/": {
+      "hash": "5749b8c9ba5505e9e79741f11f74b3c3b9f5d4b9765af8a3cab2f9d1b8f5f29a",
+      "route": "/zh/utilities/categories/creativity-leisure/synesthesia-painter/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/creativity-leisure/zalgo-generator/": {
+      "hash": "8b0f41a2fbdddb45087c5592734595e1b700ede65e010355b40efa8b04bef57b",
+      "route": "/zh/utilities/categories/creativity-leisure/zalgo-generator/"
+    }
+  }
+}

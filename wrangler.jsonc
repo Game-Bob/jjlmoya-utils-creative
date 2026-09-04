@@ -7,179 +7,91 @@
     "preview_urls": true,
     "routes": [
         {
-            "pattern": "www.jjlmoya.es/utilidades/categorias/creatividad-ocio",
+            "pattern": "www.jjlmoya.es/utilidades/categorias/creatividad-ocio*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/categorias/creatividad-ocio/*",
+            "pattern": "www.jjlmoya.es/utilidades/generador-patrones-cuentas*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/generador-patrones-cuentas",
+            "pattern": "www.jjlmoya.es/utilidades/lanzador-dados*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/generador-patrones-cuentas/*",
+            "pattern": "www.jjlmoya.es/utilidades/generador-excusas*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/lanzador-dados",
+            "pattern": "www.jjlmoya.es/utilidades/galleta-fortuna*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/lanzador-dados/*",
+            "pattern": "www.jjlmoya.es/utilidades/distorsionador-imagenes-glitch*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/generador-excusas",
+            "pattern": "www.jjlmoya.es/utilidades/pintor-sinestesia*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/generador-excusas/*",
+            "pattern": "www.jjlmoya.es/utilidades/generador-zalgo*",
             "zone_name": "jjlmoya.es"
         },
         {
-            "pattern": "www.jjlmoya.es/utilidades/galleta-fortuna",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/galleta-fortuna/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/distorsionador-imagenes-glitch",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/distorsionador-imagenes-glitch/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/pintor-sinestesia",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/pintor-sinestesia/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/generador-zalgo",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.jjlmoya.es/utilidades/generador-zalgo/*",
-            "zone_name": "jjlmoya.es"
-        },
-        {
-            "pattern": "www.gamebob.dev/en/utilities/categories/creativity-leisure",
+            "pattern": "www.gamebob.dev/en/utilities/categories/creativity-leisure*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/en/utilities/categories/creativity-leisure/*",
+            "pattern": "www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs",
+            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/fr/utilitaires/categories/creativite-loisirs/*",
+            "pattern": "www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit",
+            "pattern": "www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/de/werkzeuge/kategorien/kreativitaet-freizeit/*",
+            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero",
+            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/it/utilita/categorie/creativita-tempo-libero/*",
+            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer",
+            "pattern": "www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/pt/utilidades/categorias/criatividade-lazer/*",
+            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd",
+            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/nl/hulpmiddelen/categorieen/creativiteit-vrije-tijd/*",
+            "pattern": "www.gamebob.dev/ja/utilities/categories/creativity-leisure*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid",
+            "pattern": "www.gamebob.dev/ko/utilities/categories/creativity-leisure*",
             "zone_name": "gamebob.dev"
         },
         {
-            "pattern": "www.gamebob.dev/sv/verktyg/kategorier/kreativitet-fritid/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/pl/narzedzia/kategorie/kreatywnosc-i-rozrywka/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/id/utilitas/kategori/kreativitas-hiburan/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/tr/araclar/kategoriler/yaraticilik-bos-zaman/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ru/instrumenty/kategorii/tvorchestvo-i-dosug/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ja/utilities/categories/creativity-leisure",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ja/utilities/categories/creativity-leisure/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ko/utilities/categories/creativity-leisure",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/ko/utilities/categories/creativity-leisure/*",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/zh/utilities/categories/creativity-leisure",
-            "zone_name": "gamebob.dev"
-        },
-        {
-            "pattern": "www.gamebob.dev/zh/utilities/categories/creativity-leisure/*",
+            "pattern": "www.gamebob.dev/zh/utilities/categories/creativity-leisure*",
             "zone_name": "gamebob.dev"
         },
         {
